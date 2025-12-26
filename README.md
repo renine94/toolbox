@@ -1,36 +1,144 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DevTools Hub
 
-## Getting Started
+개발자, 디자이너, 마케터를 위한 온라인 유틸리티 도구 모음입니다.
 
-First, run the development server:
+## 주요 기능
+
+### 개발자 도구
+
+| 도구 | 설명 | 상태 |
+|------|------|------|
+| **JSON Formatter** | JSON 데이터를 보기 좋게 포맷팅하고 유효성을 검사합니다 | ✅ |
+| **Base64 Encoder** | 텍스트나 데이터를 Base64로 인코딩/디코딩합니다 | ✅ |
+| **Color Picker** | 다양한 형식(HEX, RGB, HSL)으로 색상을 선택하고 변환합니다 | ✅ |
+| **Code Runner** | JavaScript, Python 등 다양한 언어의 코드를 실행합니다 | ✅ |
+| **Regex Tester** | 정규표현식을 테스트하고 매칭 결과를 확인합니다 | ✅ |
+
+### 디자이너 도구
+
+| 도구 | 설명 | 상태 |
+|------|------|------|
+| **Color Palette** | 조화로운 색상 팔레트를 생성하고 관리합니다 | ✅ |
+| Image Editor | 이미지 크기 조절, 자르기, 필터 적용 | 🚧 |
+| Gradient Generator | CSS 그라디언트를 시각적으로 생성 | 🚧 |
+
+### 마케터 도구
+
+| 도구 | 설명 | 상태 |
+|------|------|------|
+| QR Code Generator | QR 코드 생성 | 🚧 |
+| Link Shortener | URL 단축 | 🚧 |
+
+### 작가/에디터 도구
+
+| 도구 | 설명 | 상태 |
+|------|------|------|
+| Markdown Editor | 마크다운 편집 및 미리보기 | 🚧 |
+| Word Counter | 글자 수, 단어 수 분석 | 🚧 |
+| Lorem Ipsum Generator | 더미 텍스트 생성 | 🚧 |
+
+### 생산성 도구
+
+| 도구 | 설명 | 상태 |
+|------|------|------|
+| Unit Converter | 단위 변환 | 🚧 |
+| Timezone Converter | 시간대 변환 | 🚧 |
+| Password Generator | 안전한 비밀번호 생성 | 🚧 |
+
+## 기술 스택
+
+### Core
+- **Next.js 16** - React 프레임워크
+- **React 19** - UI 라이브러리
+- **TypeScript 5** - 타입 안전성
+
+### 스타일링
+- **Tailwind CSS 4** - 유틸리티 CSS
+- **Radix UI** - 접근성 컴포넌트
+- **Lucide React** - 아이콘
+
+### 상태 관리 & 폼
+- **Zustand** - 클라이언트 상태 관리
+- **TanStack Query** - 서버 상태 관리
+- **React Hook Form + Zod** - 폼 검증
+
+### 도구 특화
+- **Monaco Editor** - 코드 에디터 (Code Runner)
+- **Pyodide** - 브라우저에서 Python 실행
+- **Colord** - 색상 변환 라이브러리
+
+## 프로젝트 구조
+
+```
+src/
+├── app/                    # Next.js App Router 페이지
+│   ├── base64-encoder/     # Base64 인코더 페이지
+│   ├── code-runner/        # 코드 실행기 페이지
+│   ├── color-palette/      # 색상 팔레트 페이지
+│   ├── color-picker/       # 색상 선택기 페이지
+│   ├── json-formatter/     # JSON 포맷터 페이지
+│   └── regex-tester/       # 정규표현식 테스터 페이지
+├── entities/               # 비즈니스 엔티티
+├── features/               # 기능별 모듈
+│   ├── base64-encoder/
+│   ├── code-runner/
+│   ├── color-palette/
+│   ├── color-picker/
+│   ├── json-formatter/
+│   └── regex-tester/
+├── shared/                 # 공용 유틸리티 & UI
+│   ├── lib/
+│   └── ui/
+└── widgets/                # 페이지 구성 위젯
+    ├── header/
+    ├── footer/
+    ├── hero-section/
+    └── tools-grid/
+```
+
+> Feature-Sliced Design (FSD) 아키텍처를 따릅니다.
+
+## 시작하기
+
+### 요구 사항
+- Node.js 18+
+- npm 또는 yarn
+
+### 설치
+
+```bash
+# 저장소 클론
+git clone <repository-url>
+cd project_01_ai
+
+# 의존성 설치
+npm install
+```
+
+### 개발 서버 실행
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000)에서 확인할 수 있습니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 프로덕션 빌드
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## 스크립트
 
-To learn more about Next.js, take a look at the following resources:
+| 명령어 | 설명 |
+|--------|------|
+| `npm run dev` | 개발 서버 실행 |
+| `npm run build` | 프로덕션 빌드 |
+| `npm run start` | 프로덕션 서버 실행 |
+| `npm run lint` | ESLint 검사 |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 라이선스
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Private
