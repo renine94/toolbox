@@ -89,7 +89,7 @@ const categories: Category[] = [
         name: "Image Editor",
         description: "이미지 크기 조절, 자르기, 필터 적용 등을 수행합니다.",
         icon: "🖼️",
-        status: "coming-soon",
+        status: "available",
       },
       {
         id: "gradient-generator",

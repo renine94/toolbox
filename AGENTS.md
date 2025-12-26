@@ -462,6 +462,7 @@ export const useUserPosts = (userId?: string) => {
 - [ ] 올바른 레이어에 위치하는가?
 - [ ] index.ts로 Public API만 노출하는가?
 - [ ] import 방향이 하위로만 향하는가?
+- [ ] src/tasks 폴더에 구현 계획 파일을 만들었는가?
 
 ### 품질
 - [ ] Zod 스키마로 타입 검증하는가?
