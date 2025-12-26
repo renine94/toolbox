@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Header } from "@/widgets/header";
-import { Footer } from "@/widgets/footer";
 import { HeroSection } from "@/widgets/hero-section";
 import { ToolsGrid } from "@/widgets/tools-grid";
 import { StatsSection } from "@/widgets/stats-section";
@@ -61,7 +59,7 @@ const categories: Category[] = [
         name: "Code Runner",
         description: "JavaScript, Python 등 다양한 언어의 코드를 실행합니다.",
         icon: "▶️",
-        status: "coming-soon",
+        status: "available",
       },
       {
         id: "regex-tester",
