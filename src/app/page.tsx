@@ -82,7 +82,7 @@ const categories: Category[] = [
         name: "Color Palette",
         description: "조화로운 색상 팔레트를 생성하고 관리합니다.",
         icon: "🌈",
-        status: "coming-soon",
+        status: "available",
       },
       {
         id: "image-editor",
