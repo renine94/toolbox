@@ -135,7 +135,7 @@ const categories: Category[] = [
         name: "Markdown Editor",
         description: "마크다운 문서를 작성하고 실시간으로 미리보기합니다.",
         icon: "📝",
-        status: "coming-soon",
+        status: "available",
       },
       {
         id: "word-counter",
