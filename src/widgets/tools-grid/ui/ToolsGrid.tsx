@@ -64,6 +64,7 @@ export function ToolsGrid({ categories }: ToolsGridProps) {
                                 <Carousel
                                     opts={{
                                         align: "start",
+                                        dragFree: true,
                                     }}
                                     className="w-full"
                                 >

@@ -104,6 +104,27 @@ function Carousel({
     }
   }, [api, onSelect])
 
+  // Wheel Event (왼쪽/오른쪽 스크롤)
+  React.useEffect(() => {
+    if (!api) return
+
+    const onWheel = (event: WheelEvent) => {
+      if (orientation === "horizontal") {
+        const delta = event.deltaY + event.deltaX
+        if (Math.abs(delta) > 0) {
+          event.preventDefault()
+          if (delta > 0) api.scrollNext()
+          else api.scrollPrev()
+        }
+      }
+    }
+
+    const node = api.rootNode()
+    node.addEventListener("wheel", onWheel, { passive: false })
+
+    return () => node.removeEventListener("wheel", onWheel)
+  }, [api, orientation])
+
   return (
     <CarouselContext.Provider
       value={{

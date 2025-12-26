@@ -6,7 +6,7 @@ import { Footer } from "@/widgets/footer";
 import { HeroSection } from "@/widgets/hero-section";
 import { ToolsGrid } from "@/widgets/tools-grid";
 import { StatsSection } from "@/widgets/stats-section";
-import { CTASection } from "@/widgets/cta-section";
+import { DeveloperSection } from "@/widgets/developer-section";
 
 // 카테고리 데이터 타입
 interface Tool {
@@ -43,6 +43,13 @@ const categories: Category[] = [
         status: "available",
       },
       {
+        id: "base64-encoder",
+        name: "Base64 Encoder",
+        description: "텍스트나 데이터를 Base64로 인코딩/디코딩합니다.",
+        icon: "🔤",
+        status: "available",
+      },
+      {
         id: "color-picker",
         name: "Color Picker",
         description: "다양한 형식(HEX, RGB, HSL)으로 색상을 선택하고 변환합니다.",
@@ -62,13 +69,6 @@ const categories: Category[] = [
         description: "정규표현식을 테스트하고 매칭 결과를 확인합니다.",
         icon: ".*",
         status: "coming-soon",
-      },
-      {
-        id: "base64-encoder",
-        name: "Base64 Encoder",
-        description: "텍스트나 데이터를 Base64로 인코딩/디코딩합니다.",
-        icon: "🔤",
-        status: "available",
       },
     ],
   },
@@ -242,7 +242,7 @@ export default function Home() {
 
         <StatsSection stats={stats} />
 
-        <CTASection />
+        <DeveloperSection />
 
         <Footer />
       </div>
