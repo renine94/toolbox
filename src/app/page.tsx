@@ -54,7 +54,7 @@ const categories: Category[] = [
         name: "Color Picker",
         description: "다양한 형식(HEX, RGB, HSL)으로 색상을 선택하고 변환합니다.",
         icon: "🎨",
-        status: "coming-soon",
+        status: "available",
       },
       {
         id: "code-runner",
@@ -230,8 +230,6 @@ export default function Home() {
 
       {/* Content */}
       <div className="relative z-10">
-        <Header />
-
         <HeroSection
           categories={categories}
           selectedCategory={selectedCategory}
@@ -243,8 +241,6 @@ export default function Home() {
         <StatsSection stats={stats} />
 
         <DeveloperSection />
-
-        <Footer />
       </div>
     </div>
   );

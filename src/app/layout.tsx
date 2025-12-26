@@ -4,6 +4,8 @@ import "./globals.css";
 import { QueryProvider } from "./providers/query-provider";
 import { ThemeProvider } from "./providers/theme-provider";
 import { Toaster } from "@/shared/ui/sonner";
+import { Header } from "@/widgets/header";
+import { Footer } from "@/widgets/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,7 +41,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <QueryProvider>
+            <Header />
             {children}
+            <Footer />
             <Toaster />
           </QueryProvider>
         </ThemeProvider>

@@ -1,7 +1,5 @@
 import { Metadata } from 'next';
 import { JsonFormatter } from '@/features/json-formatter';
-import { Header } from '@/widgets/header';
-import { Footer } from '@/widgets/footer';
 
 export const metadata: Metadata = {
     title: 'JSON Formatter - Developer Tools',
@@ -11,7 +9,6 @@ export const metadata: Metadata = {
 export default function JsonFormatterPage() {
     return (
         <div className="min-h-screen bg-background flex flex-col">
-            <Header />
             <main className="flex-1 container mx-auto px-4 py-8">
                 <div className="mb-8">
                     <h1 className="text-3xl font-bold mb-2">JSON Formatter</h1>
@@ -21,7 +18,6 @@ export default function JsonFormatterPage() {
                 </div>
                 <JsonFormatter />
             </main>
-            <Footer />
         </div>
     );
 }
