@@ -27,7 +27,7 @@ export function ToolCard({ tool, gradient, onClick }: ToolCardProps) {
     return (
         <Card
             onClick={onClick}
-            className="bg-card/50 border-border hover:bg-accent/50 hover:border-accent transition-all duration-300 cursor-pointer group overflow-hidden"
+            className="h-full flex flex-col bg-card/50 border-border hover:bg-accent/50 hover:border-accent transition-all duration-300 cursor-pointer group overflow-hidden"
         >
             <CardHeader className="pb-3">
                 <div className="flex items-start justify-between">
