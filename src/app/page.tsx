@@ -96,7 +96,7 @@ const categories: Category[] = [
         name: "Gradient Generator",
         description: "CSS 그라디언트를 시각적으로 생성합니다.",
         icon: "🌅",
-        status: "coming-soon",
+        status: "available",
       },
     ],
   },
