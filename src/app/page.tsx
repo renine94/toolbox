@@ -66,7 +66,7 @@ const categories: Category[] = [
         name: "Regex Tester",
         description: "정규표현식을 테스트하고 매칭 결과를 확인합니다.",
         icon: ".*",
-        status: "coming-soon",
+        status: "available",
       },
     ],
   },
