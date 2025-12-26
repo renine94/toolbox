@@ -112,7 +112,7 @@ const categories: Category[] = [
         name: "QR Code Generator",
         description: "URL, 텍스트, 연락처 정보 등으로 QR 코드를 생성합니다.",
         icon: "📱",
-        status: "coming-soon",
+        status: "available",
       },
       {
         id: "link-shortener",
