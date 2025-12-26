@@ -148,7 +148,29 @@ export async function downloadPdf(
         margin: [10, 10, 10, 10],
         filename: `${filename}.pdf`,
         image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true },
+        html2canvas: {
+          scale: 2,
+          useCORS: true,
+          onclone: (clonedDoc: Document) => {
+            const elements = clonedDoc.getElementsByTagName("*");
+            for (let i = 0; i < elements.length; i++) {
+              const el = elements[i] as HTMLElement;
+              const style = window.getComputedStyle(el);
+
+              // html2canvas crashes on modern color functions (oklch, lab, etc.)
+              // We replace these with transparent or safe alternatives in the cloned document
+              if (style.color && (style.color.includes("oklch") || style.color.includes("lab"))) {
+                el.style.color = "inherit";
+              }
+              if (style.backgroundColor && (style.backgroundColor.includes("oklch") || style.backgroundColor.includes("lab"))) {
+                el.style.backgroundColor = "transparent";
+              }
+              if (style.borderColor && (style.borderColor.includes("oklch") || style.borderColor.includes("lab"))) {
+                el.style.borderColor = "transparent";
+              }
+            }
+          }
+        },
         jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
       })
       .from(element)
