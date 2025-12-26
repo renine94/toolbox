@@ -1,2 +1,1 @@
-// Header widget exports
-// Add UI components here
+export { Header } from "./ui/Header";

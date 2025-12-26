@@ -1,2 +1,1 @@
-// Footer widget exports
-// Add UI components here
+export { Footer } from "./ui/Footer";
