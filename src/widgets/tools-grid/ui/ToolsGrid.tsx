@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { Badge } from "@/shared/ui/badge";
 import { ToolCard } from "@/widgets/tool-card";
 
@@ -52,11 +54,20 @@ export function ToolsGrid({ categories }: ToolsGridProps) {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                             {category.tools.map((tool) => (
-                                <ToolCard
-                                    key={tool.id}
-                                    tool={tool}
-                                    gradient={category.gradient}
-                                />
+                                tool.status === "available" ? (
+                                    <Link key={tool.id} href={`/${tool.id}`} className="block">
+                                        <ToolCard
+                                            tool={tool}
+                                            gradient={category.gradient}
+                                        />
+                                    </Link>
+                                ) : (
+                                    <ToolCard
+                                        key={tool.id}
+                                        tool={tool}
+                                        gradient={category.gradient}
+                                    />
+                                )
                             ))}
                         </div>
                     </div>

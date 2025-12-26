@@ -40,7 +40,7 @@ const categories: Category[] = [
         name: "JSON Formatter",
         description: "JSON 데이터를 보기 좋게 포맷팅하고 유효성을 검사합니다.",
         icon: "{ }",
-        status: "coming-soon",
+        status: "available",
       },
       {
         id: "color-picker",
