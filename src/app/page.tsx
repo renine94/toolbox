@@ -63,6 +63,13 @@ const categories: Category[] = [
         icon: ".*",
         status: "coming-soon",
       },
+      {
+        id: "base64-encoder",
+        name: "Base64 Encoder",
+        description: "텍스트나 데이터를 Base64로 인코딩/디코딩합니다.",
+        icon: "🔤",
+        status: "available",
+      },
     ],
   },
   {
