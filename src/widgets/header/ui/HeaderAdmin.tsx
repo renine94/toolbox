@@ -30,26 +30,18 @@ export default function HeaderAdmin() {
     const { theme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
     const router = useRouter()
-    const { user, isAuthenticated, logout } = useAuthStore()
+    const { user, logout } = useAuthStore()
 
     useEffect(() => {
         setMounted(true);
     }, []);
 
-    useEffect(() => {
-        if (!isAuthenticated) {
-            router.push('/admin')
-        }
-    }, [isAuthenticated, router])
-
-    if (!isAuthenticated) {
-        return null
-    }
+    if (!user) return null
 
     const handleLogout = () => {
         logout()
         toast.success('로그아웃 되었습니다.')
-        router.push('/admin')
+        router.push('/admin/login')
     }
 
     const dropdownMenuItems: DropdownMenuItemType[] = [
