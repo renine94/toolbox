@@ -1,3 +1,5 @@
+import { SidebarProvider, SidebarInset } from "@/shared/ui/sidebar"
+import { AdminSidebar } from "@/widgets/sidebar"
 import HeaderAdmin from "@/widgets/header/ui/HeaderAdmin"
 
 export default function AdminDashboardLayout({
@@ -7,15 +9,15 @@ export default function AdminDashboardLayout({
 }) {
     return (
         <div className="min-h-screen bg-background">
-            <div className="flex h-screen">
-                <aside className="w-64 bg-secondary">hi</aside>
-                <main className="flex flex-col flex-1">
+            <SidebarProvider>
+                <AdminSidebar />
+                <SidebarInset>
                     <HeaderAdmin />
                     <div className="container mx-auto px-4 flex-1 overflow-y-auto">
                         {children}
                     </div>
-                </main>
-            </div>
+                </SidebarInset>
+            </SidebarProvider>
         </div>
     )
 }

@@ -1,2 +1,2 @@
-// Sidebar widget exports
-// Add UI components here
+export { AdminSidebar } from "./ui/AdminSidebar"
+export { adminNavigation, type NavItem } from "./config/navigation"
