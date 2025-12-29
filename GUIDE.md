@@ -11,11 +11,18 @@
 | 서버 상태 | TanStack Query | API 캐싱, 동기화 |
 | 클라이언트 상태 | Zustand | 전역 상태 관리 |
 | CSS | Tailwind CSS 4 | 유틸리티 기반 스타일링 |
-| UI 컴포넌트 | shadcn/ui | 재사용 컴포넌트 |
+| UI 컴포넌트 | shadcn/ui + Radix UI | 재사용 컴포넌트 |
 | 폼 관리 | React Hook Form | 폼 상태, 유효성 |
 | 스키마 검증 | Zod | 타입 안전한 검증 |
-| 아이콘 | Heroicons | 아이콘 라이브러리 |
+| 아이콘 | Lucide React | 아이콘 라이브러리 |
 | 토스트 | Sonner | 알림 메시지 |
+| 테마 | next-themes | 다크모드 지원 |
+| 마크다운 | marked + highlight.js | 마크다운 파싱 & 코드 하이라이팅 |
+| 색상 | colord + react-colorful | 색상 변환 & 선택기 |
+| 코드 에디터 | Monaco Editor | 코드 편집기 |
+| Python 실행 | Pyodide | 브라우저 Python 런타임 |
+| QR 코드 | qrcode.react | QR 코드 생성 |
+| 스크린샷 | html2canvas-pro | 요소 캡처 |
 
 ---
 
@@ -23,45 +30,85 @@
 
 ```
 src/
-├── app/                      # Next.js App Router (FSD app + pages 레이어 통합)
-│   ├── layout.tsx            # 루트 레이아웃 (QueryProvider, Toaster)
-│   ├── globals.css           # 전역 스타일
-│   ├── page.tsx              # 홈 페이지 (/)
-│   ├── providers/            # 앱 프로바이더
-│   │   ├── query-provider.tsx
-│   │   └── index.tsx
-│   ├── dashboard/            # 대시보드 라우트 (/dashboard)
-│   │   └── page.tsx
-│   └── [기타 라우트]/
+├── app/                          # Next.js App Router (FSD app + pages 레이어 통합)
+│   ├── layout.tsx                # 루트 레이아웃
+│   ├── globals.css               # 전역 스타일 (Tailwind)
+│   ├── providers/                # 앱 프로바이더
+│   │   └── query-provider.tsx
+│   ├── (main)/                   # 메인 도구 라우트 그룹
+│   │   ├── layout.tsx            # 메인 레이아웃 (Header, Footer)
+│   │   ├── page.tsx              # 홈 페이지 (/)
+│   │   ├── json-formatter/       # /json-formatter
+│   │   ├── base64-encoder/       # /base64-encoder
+│   │   ├── code-runner/          # /code-runner
+│   │   ├── color-picker/         # /color-picker
+│   │   ├── color-palette/        # /color-palette
+│   │   ├── gradient-generator/   # /gradient-generator
+│   │   ├── image-editor/         # /image-editor
+│   │   ├── markdown-editor/      # /markdown-editor
+│   │   ├── password-generator/   # /password-generator
+│   │   ├── qr-generator/         # /qr-generator
+│   │   └── regex-tester/         # /regex-tester
+│   └── admin/                    # 관리자 라우트
+│       ├── login/                # /admin/login
+│       └── dashboard/            # /admin/dashboard (SidebarProvider)
 │
-├── widgets/                  # 독립적 대형 UI 블록
-│   ├── header/
+├── widgets/                      # 독립적 대형 UI 블록
+│   ├── header/                   # 메인 헤더
+│   ├── footer/                   # 메인 푸터
+│   ├── sidebar/                  # 관리자 사이드바
 │   │   ├── ui/
+│   │   ├── model/
+│   │   ├── lib/
 │   │   └── index.ts
-│   ├── sidebar/
-│   └── footer/
+│   ├── hero-section/             # 홈 히어로 섹션
+│   ├── tools-grid/               # 도구 그리드
+│   ├── tool-card/                # 도구 카드
+│   ├── cta-section/              # CTA 섹션
+│   ├── developer-section/        # 개발자 섹션
+│   └── stats-section/            # 통계 섹션
 │
-├── features/                 # 비즈니스 기능
-│   ├── auth/
-│   │   ├── ui/               # LoginForm, SignupForm 등
-│   │   ├── model/            # types, store, hooks
-│   │   ├── api/              # useLogin, useLogout 등
-│   │   └── index.ts
-│   └── [기타 기능]/
+├── features/                     # 비즈니스 기능
+│   └── tools/                    # 도구별 비즈니스 로직
+│       ├── json-formatter/
+│       │   ├── ui/               # JsonFormatter 컴포넌트
+│       │   ├── model/            # types, store, hooks
+│       │   ├── lib/              # 유틸리티 함수
+│       │   └── index.ts          # Public API
+│       ├── base64-encoder/
+│       ├── code-runner/
+│       ├── color-picker/
+│       ├── color-palette/
+│       ├── gradient-generator/
+│       ├── image-editor/
+│       ├── markdown-editor/
+│       ├── password-generator/
+│       ├── qr-generator/
+│       └── regex-tester/
 │
-├── entities/                 # 비즈니스 엔티티
-│   ├── user/
-│   │   ├── ui/               # UserCard, UserAvatar 등
-│   │   ├── model/            # types, schema
-│   │   ├── api/              # useUser, useUsers 등
-│   │   └── index.ts
-│   └── [기타 엔티티]/
+├── entities/                     # 비즈니스 엔티티 (현재 미사용)
 │
-└── shared/                   # 공통 코드
-    ├── ui/                   # shadcn 컴포넌트 (button, input, form 등)
-    ├── lib/                  # 유틸리티 (utils.ts)
-    ├── api/                  # fetch 인스턴스, API 클라이언트
-    └── config/               # 환경변수, 상수
+└── shared/                       # 공통 코드
+    ├── ui/                       # shadcn 컴포넌트
+    │   ├── button.tsx
+    │   ├── input.tsx
+    │   ├── card.tsx
+    │   ├── dialog.tsx
+    │   ├── dropdown-menu.tsx
+    │   ├── form.tsx
+    │   ├── select.tsx
+    │   ├── separator.tsx
+    │   ├── sheet.tsx
+    │   ├── sidebar.tsx
+    │   ├── slider.tsx
+    │   ├── switch.tsx
+    │   └── tooltip.tsx
+    ├── hooks/                    # 커스텀 훅
+    │   └── use-mobile.ts         # 모바일 감지 훅
+    ├── lib/                      # 유틸리티 함수
+    │   └── utils.ts              # cn() 등
+    ├── api/                      # API 클라이언트
+    └── config/                   # 환경변수, 상수
 ```
 
 ---
@@ -70,11 +117,11 @@ src/
 
 ### 3.1 레이어 구조 (상위 → 하위)
 | 레이어 | 역할 | 예시 |
-|-------|------|-----|
+|-------|------|------|
 | `app` | Next.js App Router - 라우팅, 레이아웃, 페이지 | layout.tsx, page.tsx |
 | `widgets` | 독립적 대형 UI 블록 | Header, Sidebar, Footer |
-| `features` | 비즈니스 기능 (액션) | auth, search, cart, payment |
-| `entities` | 비즈니스 엔티티 (데이터) | user, product, order |
+| `features` | 비즈니스 기능 (액션) | tools/json-formatter |
+| `entities` | 비즈니스 엔티티 (데이터) | user, product |
 | `shared` | 공통 유틸, UI 키트 | Button, Input, api client |
 
 ### 3.2 세그먼트 구조
@@ -187,7 +234,7 @@ export const useProducts = () => {
 // Mutation
 export const useCreateProduct = () => {
   const queryClient = useQueryClient()
-  
+
   return useMutation({
     mutationFn: (data: CreateProductDto) => fetch('/api/products', {
       method: 'POST',
@@ -329,7 +376,38 @@ export function Header() {
 export { Header } from './ui/Header'
 ```
 
-### 5.5 shadcn 컴포넌트 추가하기
+### 5.5 새 도구(Tool) 추가하기
+
+이 프로젝트의 주요 기능인 도구를 추가하는 방법입니다.
+
+**1) Feature 생성** — `src/features/tools/{tool-name}/`
+```
+src/features/tools/{tool-name}/
+├── ui/
+│   └── ToolName.tsx        # 메인 컴포넌트
+├── model/
+│   ├── types.ts            # 타입 정의
+│   └── useToolStore.ts     # Zustand 스토어 (필요시)
+├── lib/
+│   └── utils.ts            # 도구 전용 유틸리티
+└── index.ts                # Public API
+```
+
+**2) 라우트 생성** — `src/app/(main)/{tool-name}/page.tsx`
+```tsx
+import { ToolName } from '@/features/tools/tool-name'
+
+export default function ToolNamePage() {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-6">Tool Name</h1>
+      <ToolName />
+    </div>
+  )
+}
+```
+
+### 5.6 shadcn 컴포넌트 추가하기
 
 ```bash
 npx shadcn@latest add [component-name]
@@ -373,7 +451,7 @@ export const useModalStore = create<ModalState>((set) => ({
 ## 7. 네이밍 컨벤션
 
 | 항목 | 규칙 | 예시 |
-|-----|------|-----|
+|-----|------|------|
 | 폴더명 | kebab-case | `user-profile`, `auth` |
 | 컴포넌트 | PascalCase | `LoginForm.tsx` |
 | 훅 | camelCase + use | `useLogin.ts` |
@@ -454,9 +532,193 @@ export const useUserPosts = (userId?: string) => {
 }
 ```
 
+### 8.4 클라이언트 컴포넌트
+```tsx
+"use client"  // 반드시 파일 최상단에
+
+import { useState } from 'react'
+```
+
+### 8.5 Toast 알림
+```tsx
+import { toast } from 'sonner'
+
+// 성공
+toast.success('작업이 완료되었습니다')
+
+// 에러
+toast.error('오류가 발생했습니다')
+
+// 클립보드 복사
+const copyToClipboard = (text: string) => {
+  navigator.clipboard.writeText(text)
+  toast.success('클립보드에 복사되었습니다')
+}
+```
+
+### 8.6 반응형 디자인
+```tsx
+// 모바일 감지 훅 사용
+import { useIsMobile } from '@/shared/hooks/use-mobile'
+
+function Component() {
+  const isMobile = useIsMobile()
+  return isMobile ? <MobileView /> : <DesktopView />
+}
+
+// Tailwind 브레이크포인트
+// sm: 640px, md: 768px, lg: 1024px, xl: 1280px
+<div className="hidden md:block">  {/* 모바일에서 숨김 */}
+<div className="md:hidden">        {/* 데스크탑에서 숨김 */}
+```
+
+### 8.7 다크모드 지원
+```tsx
+import { useTheme } from 'next-themes'
+
+function ThemeToggle() {
+  const { theme, setTheme } = useTheme()
+
+  return (
+    <Button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+      Toggle Theme
+    </Button>
+  )
+}
+```
+
 ---
 
-## 9. 코드 리뷰 체크포인트
+## 9. AI 개발 가이드
+
+### 9.1 코드 생성 시 필수 체크리스트
+
+**구조**
+- [ ] 올바른 FSD 레이어에 위치하는가?
+- [ ] index.ts로 Public API만 노출하는가?
+- [ ] import 방향이 하위로만 향하는가?
+- [ ] 클라이언트 컴포넌트에 `"use client"` 선언했는가?
+
+**품질**
+- [ ] TypeScript 타입이 명확한가?
+- [ ] Zod 스키마로 타입 검증하는가? (폼/API 응답)
+- [ ] 에러 처리와 toast 알림이 있는가?
+- [ ] 로딩 상태 처리가 되어있는가?
+
+**스타일**
+- [ ] Tailwind CSS를 사용하는가?
+- [ ] shadcn/ui 컴포넌트를 활용하는가?
+- [ ] 반응형(모바일) 대응이 되어있는가?
+- [ ] 다크모드를 지원하는가?
+
+### 9.2 새 도구 추가 시 작업 순서
+
+1. **Feature 생성**: `src/features/tools/{tool-name}/`
+   - `ui/ToolName.tsx` - 메인 컴포넌트
+   - `model/types.ts` - 타입 정의
+   - `lib/utils.ts` - 유틸리티 (필요시)
+   - `index.ts` - Public API
+
+2. **페이지 생성**: `src/app/(main)/{tool-name}/page.tsx`
+   - Feature 컴포넌트 import
+   - 페이지 레이아웃 구성
+
+3. **네비게이션 추가** (필요시):
+   - `src/widgets/tools-grid/` 또는 관련 위젯 수정
+
+### 9.3 금지 사항
+
+```tsx
+// ❌ 하지 말 것
+import { something } from '../../../shared/ui'  // 상대 경로 (다른 레이어)
+import { Header } from '@/widgets/header'       // feature에서 widget import
+
+// ✅ 해야 할 것
+import { Button } from '@/shared/ui/button'     // 절대 경로
+import { cn } from '@/shared/lib/utils'         // 유틸리티
+```
+
+### 9.4 도구 컴포넌트 작성 템플릿
+
+```tsx
+"use client"
+
+import { useState } from 'react'
+import { Button } from '@/shared/ui/button'
+import { Card } from '@/shared/ui/card'
+import { Input } from '@/shared/ui/input'
+import { toast } from 'sonner'
+
+interface ToolNameProps {
+  initialValue?: string
+}
+
+export function ToolName({ initialValue = '' }: ToolNameProps) {
+  const [input, setInput] = useState(initialValue)
+  const [output, setOutput] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleProcess = async () => {
+    if (!input.trim()) {
+      toast.error('입력값을 입력해주세요')
+      return
+    }
+
+    setIsLoading(true)
+    try {
+      // 처리 로직
+      const result = processInput(input)
+      setOutput(result)
+      toast.success('처리 완료!')
+    } catch (error) {
+      toast.error('처리 중 오류가 발생했습니다')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(output)
+    toast.success('클립보드에 복사되었습니다')
+  }
+
+  return (
+    <div className="grid gap-6 md:grid-cols-2">
+      <Card className="p-4">
+        <h2 className="text-lg font-semibold mb-4">입력</h2>
+        <Input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="입력값을 입력하세요"
+        />
+        <Button
+          onClick={handleProcess}
+          disabled={isLoading}
+          className="mt-4 w-full"
+        >
+          {isLoading ? '처리 중...' : '변환'}
+        </Button>
+      </Card>
+
+      <Card className="p-4">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-lg font-semibold">출력</h2>
+          <Button variant="outline" size="sm" onClick={handleCopy}>
+            복사
+          </Button>
+        </div>
+        <pre className="bg-muted p-4 rounded-lg overflow-auto">
+          {output || '결과가 여기에 표시됩니다'}
+        </pre>
+      </Card>
+    </div>
+  )
+}
+```
+
+---
+
+## 10. 코드 리뷰 체크포인트
 
 ### 구조
 - [ ] 올바른 레이어에 위치하는가?
@@ -477,7 +739,7 @@ export const useUserPosts = (userId?: string) => {
 
 ---
 
-## 10. 개발 명령어
+## 11. 개발 명령어
 
 ```bash
 # 개발 서버 실행
@@ -485,6 +747,9 @@ npm run dev
 
 # 프로덕션 빌드
 npm run build
+
+# 프로덕션 서버 실행
+npm run start
 
 # 린트 검사
 npm run lint
@@ -495,7 +760,7 @@ npx shadcn@latest add [component-name]
 
 ---
 
-## 11. 참고 링크
+## 12. 참고 링크
 
 - [Next.js App Router Docs](https://nextjs.org/docs/app)
 - [TanStack Query Docs](https://tanstack.com/query/latest)
@@ -503,4 +768,6 @@ npx shadcn@latest add [component-name]
 - [React Hook Form Docs](https://react-hook-form.com/)
 - [Zod Docs](https://zod.dev/)
 - [shadcn/ui Docs](https://ui.shadcn.com/)
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)
 - [Feature-Sliced Design](https://feature-sliced.design/)
+- [Lucide Icons](https://lucide.dev/icons/)
