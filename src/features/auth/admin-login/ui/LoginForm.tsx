@@ -50,7 +50,7 @@ export function LoginForm() {
   }
 
   return (
-    <Card className="w-full max-w-md">
+    <Card className="w-96 max-w-md">
       <CardHeader className="text-center">
         <CardTitle className="text-2xl">관리자 로그인</CardTitle>
         <CardDescription>관리자 계정으로 로그인해주세요.</CardDescription>
