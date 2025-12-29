@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { CodeRunner } from "@/features/code-runner";
+import { CodeRunner } from "@/features/tools/code-runner";
 
 export const metadata: Metadata = {
   title: "Code Runner | AI Tools",

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { RegexTester } from "@/features/regex-tester";
+import { RegexTester } from "@/features/tools/regex-tester";
 
 export const metadata: Metadata = {
   title: "Regex Tester | AI Tools",

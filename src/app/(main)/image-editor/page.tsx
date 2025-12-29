@@ -1,4 +1,4 @@
-import { ImageEditor } from "@/features/image-editor";
+import { ImageEditor } from "@/features/tools/image-editor";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

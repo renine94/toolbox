@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { PasswordGenerator } from "@/features/password-generator";
+import { PasswordGenerator } from "@/features/tools/password-generator";
 
 export const metadata: Metadata = {
   title: "Password Generator | Toolbox",

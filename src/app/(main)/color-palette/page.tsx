@@ -1,4 +1,4 @@
-import { ColorPalette } from "@/features/color-palette";
+import { ColorPalette } from "@/features/tools/color-palette";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

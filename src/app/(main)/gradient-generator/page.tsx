@@ -1,4 +1,4 @@
-import { GradientGenerator } from "@/features/gradient-generator";
+import { GradientGenerator } from "@/features/tools/gradient-generator";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

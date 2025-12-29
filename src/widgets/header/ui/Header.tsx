@@ -23,7 +23,7 @@ const defaultNavItems: NavItem[] = [
 ];
 
 export function Header({ navItems = defaultNavItems }: HeaderProps) {
-    const { setTheme, theme } = useTheme();
+    const { theme, setTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {

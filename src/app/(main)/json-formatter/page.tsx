@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { JsonFormatter } from '@/features/json-formatter';
+import { JsonFormatter } from '@/features/tools/json-formatter';
 
 export const metadata: Metadata = {
     title: 'JSON Formatter - Developer Tools',

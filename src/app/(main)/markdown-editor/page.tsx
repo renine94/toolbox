@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { MarkdownEditor } from "@/features/markdown-editor";
+import { MarkdownEditor } from "@/features/tools/markdown-editor";
 
 export const metadata: Metadata = {
   title: "Markdown Editor | DevTools",

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { Base64Encoder } from '@/features/base64-encoder';
+import { Base64Encoder } from '@/features/tools/base64-encoder';
 
 export const metadata: Metadata = {
     title: 'Base64 Encoder/Decoder - Developer Tools',

@@ -1,4 +1,4 @@
-import { ColorPicker } from '@/features/color-picker';
+import { ColorPicker } from '@/features/tools/color-picker';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

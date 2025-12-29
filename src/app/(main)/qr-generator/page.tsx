@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { QRGenerator } from "@/features/qr-generator";
+import { QRGenerator } from "@/features/tools/qr-generator";
 
 export const metadata: Metadata = {
   title: "QR Code Generator | DevTools",
