@@ -179,7 +179,7 @@ const categories: Category[] = [
         name: "Password Generator",
         description: "안전한 랜덤 비밀번호를 생성합니다.",
         icon: "🔐",
-        status: "coming-soon",
+        status: "available",
       },
     ],
   },
