@@ -5,6 +5,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/shared/ui/card";
 import { Button } from "@/shared/ui/button";
 import { Label } from "@/shared/ui/label";
 import { Input } from "@/shared/ui/input";
+import { useDebounceCallback } from "@/shared/hooks/use-debounce";
 import { useImageStore } from "../model/useImageStore";
 
 const PRESET_SIZES = [
@@ -27,6 +28,12 @@ export function ResizeControls() {
 
   const aspectRatio = originalSize ? originalSize.width / originalSize.height : 1;
 
+  const debouncedResize = useDebounceCallback((w: number, h: number) => {
+    if (w > 0 && h > 0 && currentSize && (w !== currentSize.width || h !== currentSize.height)) {
+      resize({ width: w, height: h });
+    }
+  }, 500);
+
   useEffect(() => {
     if (currentSize) {
       setWidth(currentSize.width);
@@ -36,28 +43,27 @@ export function ResizeControls() {
 
   const handleWidthChange = (newWidth: number) => {
     setWidth(newWidth);
+    const newHeight = maintainAspectRatio ? Math.round(newWidth / aspectRatio) : height;
     if (maintainAspectRatio) {
-      setHeight(Math.round(newWidth / aspectRatio));
+      setHeight(newHeight);
     }
+    debouncedResize(newWidth, maintainAspectRatio ? newHeight : height);
   };
 
   const handleHeightChange = (newHeight: number) => {
     setHeight(newHeight);
+    const newWidth = maintainAspectRatio ? Math.round(newHeight * aspectRatio) : width;
     if (maintainAspectRatio) {
-      setWidth(Math.round(newHeight * aspectRatio));
+      setWidth(newWidth);
     }
-  };
-
-  const handleApply = () => {
-    if (width > 0 && height > 0) {
-      resize({ width, height });
-    }
+    debouncedResize(maintainAspectRatio ? newWidth : width, newHeight);
   };
 
   const handlePreset = (preset: typeof PRESET_SIZES[0]) => {
     setWidth(preset.width);
     setHeight(preset.height);
     setMaintainAspectRatio(false);
+    resize({ width: preset.width, height: preset.height });
   };
 
   const handleReset = () => {
@@ -126,11 +132,6 @@ export function ResizeControls() {
           </span>
         </div>
 
-        {/* 적용 버튼 */}
-        <Button onClick={handleApply} className="w-full">
-          크기 적용
-        </Button>
-
         {/* 프리셋 */}
         <div className="space-y-3">
           <Label className="text-sm font-medium">프리셋 크기</Label>
@@ -168,6 +169,7 @@ export function ResizeControls() {
                     const newHeight = Math.round(originalSize.height * (percent / 100));
                     setWidth(newWidth);
                     setHeight(newHeight);
+                    resize({ width: newWidth, height: newHeight });
                   }
                 }}
               >
