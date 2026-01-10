@@ -45,7 +45,7 @@ export function ImageEditor() {
                 variant={activeTab === tab.id ? "default" : "ghost"}
                 size="sm"
                 onClick={() => setActiveTab(tab.id)}
-                className="flex-1"
+                className="flex-1 cursor-pointer"
               >
                 <span className="mr-1">{tab.icon}</span>
                 {tab.label}

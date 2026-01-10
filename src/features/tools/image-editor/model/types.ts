@@ -82,6 +82,7 @@ export interface ImageEditorState {
   // UI 상태
   isLoading: boolean;
   activeTab: "filters" | "transform" | "resize" | "crop";
+  exportProgress: number | null; // null = 내보내기 중 아님, 0-100 = 진행률
 
   // 히스토리
   history: HistoryEntry[];
@@ -104,6 +105,7 @@ export interface ImageEditorState {
   canUndo: () => boolean;
   canRedo: () => boolean;
   exportImage: (options: ExportOptions) => Promise<string>;
+  cancelExport: () => void;
 }
 
 // 필터 프리셋

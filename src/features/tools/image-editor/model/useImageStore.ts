@@ -10,7 +10,20 @@ import {
   DEFAULT_FILTERS,
   DEFAULT_TRANSFORM,
 } from "./types";
-import { applyFiltersToCanvas, applyTransformToCanvas, loadImageAsDataURL } from "../lib/image-utils";
+import { applyTransformToCanvas, loadImageAsDataURL } from "../lib/image-utils";
+import type { WorkerInput, WorkerOutput } from "../lib/image-worker";
+
+// Worker 인스턴스 (싱글톤)
+let imageWorker: Worker | null = null;
+
+function getImageWorker(): Worker {
+  if (!imageWorker) {
+    imageWorker = new Worker(
+      new URL("../lib/image-worker.ts", import.meta.url)
+    );
+  }
+  return imageWorker;
+}
 
 const generateId = () => Math.random().toString(36).substring(2, 11);
 
@@ -25,6 +38,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
   isCropping: false,
   isLoading: false,
   activeTab: "filters",
+  exportProgress: null,
   history: [],
   historyIndex: -1,
 
@@ -268,17 +282,29 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
   // 다시 실행 가능 여부
   canRedo: () => get().historyIndex < get().history.length - 1,
 
-  // 이미지 내보내기
+  // 내보내기 취소
+  cancelExport: () => {
+    const worker = getImageWorker();
+    worker.postMessage({ type: "cancel" } as WorkerInput);
+    set({ exportProgress: null });
+  },
+
+  // 이미지 내보내기 (Worker 기반)
   exportImage: async (options: ExportOptions): Promise<string> => {
     const state = get();
     if (!state.originalImage) {
       throw new Error("이미지가 없습니다.");
     }
 
+    set({ exportProgress: 0 });
+
     // 캔버스 생성
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
-    if (!ctx) throw new Error("Canvas context를 가져올 수 없습니다.");
+    if (!ctx) {
+      set({ exportProgress: null });
+      throw new Error("Canvas context를 가져올 수 없습니다.");
+    }
 
     // 이미지 로드
     const img = new Image();
@@ -292,14 +318,54 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
     const targetWidth = options.width || state.currentSize?.width || img.width;
     const targetHeight = options.height || state.currentSize?.height || img.height;
 
-    // 변환 적용
+    // 변환 적용 (빠름 - 메인 스레드에서 처리)
     applyTransformToCanvas(canvas, ctx, img, state.transform, targetWidth, targetHeight);
 
-    // 필터 적용
-    applyFiltersToCanvas(ctx, state.filters, targetWidth, targetHeight);
+    // 필터 적용 (Worker에서 처리)
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+    const worker = getImageWorker();
+
+    const processedImageData = await new Promise<ImageData>((resolve, reject) => {
+      const handleMessage = (e: MessageEvent<WorkerOutput>) => {
+        switch (e.data.type) {
+          case "progress":
+            set({ exportProgress: e.data.percent });
+            break;
+          case "complete":
+            worker.removeEventListener("message", handleMessage);
+            set({ exportProgress: 100 });
+            resolve(e.data.imageData);
+            break;
+          case "error":
+            worker.removeEventListener("message", handleMessage);
+            set({ exportProgress: null });
+            reject(new Error(e.data.message));
+            break;
+        }
+      };
+
+      worker.addEventListener("message", handleMessage);
+
+      // Transferable 객체로 전송 (복사 대신 이동)
+      worker.postMessage(
+        {
+          type: "applyFilters",
+          imageData,
+          filters: state.filters,
+        } as WorkerInput,
+        [imageData.data.buffer]
+      );
+    });
+
+    // 처리된 이미지 데이터를 캔버스에 적용
+    ctx.putImageData(processedImageData, 0, 0);
 
     // 내보내기
     const mimeType = `image/${options.format}`;
-    return canvas.toDataURL(mimeType, options.quality);
+    const result = canvas.toDataURL(mimeType, options.quality);
+
+    set({ exportProgress: null });
+    return result;
   },
 }));
