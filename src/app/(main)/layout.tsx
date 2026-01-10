@@ -2,7 +2,7 @@ import { Header } from "@/widgets/header";
 import { Footer } from "@/widgets/footer";
 import { Metadata } from "next";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://toolbox-ai.vercel.app'
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://toolbox-six-sigma.vercel.app'
 
 export const metadata: Metadata = {
   title: "ToolBox - 온라인 도구 모음",
