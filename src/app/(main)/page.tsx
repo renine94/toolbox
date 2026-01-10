@@ -68,6 +68,13 @@ const categories: Category[] = [
         icon: ".*",
         status: "available",
       },
+      {
+        id: "uuid-generator",
+        name: "UUID Generator",
+        description: "고유한 UUID(v1, v4, v7)를 생성하고 다양한 포맷으로 변환합니다.",
+        icon: "🔑",
+        status: "available",
+      },
     ],
   },
   {

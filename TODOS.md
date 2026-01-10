@@ -4,7 +4,7 @@
 
 ---
 
-## 현재 구현된 도구 (16개)
+## 현재 구현된 도구 (17개)
 
 | 도구명 | 라우트 | 상태 |
 |--------|--------|------|
@@ -24,6 +24,7 @@
 | Unit Converter | `/unit-converter` | ✅ 완료 |
 | Timezone Converter | `/timezone-converter` | ✅ 완료 |
 | Code Runner | `/code-runner` | ✅ 완료 |
+| UUID Generator | `/uuid-generator` | ✅ 완료 |
 
 ---
 
@@ -33,7 +34,7 @@
 
 | 도구명 | 설명 | 난이도 | 상태 |
 |--------|------|--------|------|
-| UUID Generator | UUID v1/v4/v7 생성 | ⭐ | ⬜ 대기 |
+| UUID Generator | UUID v1/v4/v7 생성 | ⭐ | ✅ 완료 |
 | Hash Generator | MD5, SHA-1, SHA-256 해시 생성 | ⭐ | ⬜ 대기 |
 | JWT Decoder | JWT 토큰 디코드/인코드/검증 | ⭐⭐ | ⬜ 대기 |
 | URL Encoder/Decoder | URL 인코딩/디코딩 | ⭐ | ⬜ 대기 |
@@ -143,3 +144,4 @@
 | 날짜 | 내용 |
 |------|------|
 | 2025-01-10 | 초기 TODO 목록 작성 |
+| 2025-01-10 | UUID Generator 구현 완료 |
