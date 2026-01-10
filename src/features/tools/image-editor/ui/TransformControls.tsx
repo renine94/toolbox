@@ -3,6 +3,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/shared/ui/card";
 import { Button } from "@/shared/ui/button";
 import { Label } from "@/shared/ui/label";
+import { RotateCcw, RotateCw, FlipHorizontal2, FlipVertical2 } from "lucide-react";
 import { useImageStore } from "../model/useImageStore";
 
 export function TransformControls() {
@@ -29,9 +30,7 @@ export function TransformControls() {
               onClick={() => setTransform("rotate", (transform.rotate - 90 + 360) % 360 - 180)}
               title="왼쪽으로 90° 회전"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
-              </svg>
+              <RotateCcw className="w-4 h-4" />
             </Button>
             <Button
               variant="outline"
@@ -39,9 +38,7 @@ export function TransformControls() {
               onClick={() => setTransform("rotate", (transform.rotate + 90 + 180) % 360 - 180)}
               title="오른쪽으로 90° 회전"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6" />
-              </svg>
+              <RotateCw className="w-4 h-4" />
             </Button>
             <span className="ml-auto text-sm text-muted-foreground tabular-nums">
               {transform.rotate}°
@@ -67,9 +64,7 @@ export function TransformControls() {
               onClick={() => setTransform("flipHorizontal", !transform.flipHorizontal)}
               className="flex-1"
             >
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12M8 12h12m-12 5h12M4 7v10" />
-              </svg>
+              <FlipHorizontal2 className="w-4 h-4 mr-2" />
               가로
             </Button>
             <Button
@@ -78,9 +73,7 @@ export function TransformControls() {
               onClick={() => setTransform("flipVertical", !transform.flipVertical)}
               className="flex-1"
             >
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m10 12V4M7 20h10" />
-              </svg>
+              <FlipVertical2 className="w-4 h-4 mr-2" />
               세로
             </Button>
           </div>

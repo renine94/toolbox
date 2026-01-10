@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/shared/ui/button";
+import { ImagePlus, Undo2, Redo2, RotateCcw } from "lucide-react";
 import { useImageStore } from "../model/useImageStore";
 
 export function Toolbar() {
@@ -25,19 +26,7 @@ export function Toolbar() {
     <div className="flex items-center gap-2 p-2 bg-muted/30 rounded-lg">
       {/* 새 이미지 */}
       <Button variant="outline" size="sm" onClick={handleNewImage}>
-        <svg
-          className="w-4 h-4 mr-2"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M12 4v16m8-8H4"
-          />
-        </svg>
+        <ImagePlus className="w-4 h-4 mr-2" />
         새 이미지
       </Button>
 
@@ -51,19 +40,7 @@ export function Toolbar() {
         disabled={!canUndo()}
         title="실행 취소 (Ctrl+Z)"
       >
-        <svg
-          className="w-4 h-4"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"
-          />
-        </svg>
+        <Undo2 className="w-4 h-4" />
       </Button>
 
       {/* 다시 실행 */}
@@ -74,19 +51,7 @@ export function Toolbar() {
         disabled={!canRedo()}
         title="다시 실행 (Ctrl+Y)"
       >
-        <svg
-          className="w-4 h-4"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M21 10H11a8 8 0 00-8 8v2m18-10l-6 6m6-6l-6-6"
-          />
-        </svg>
+        <Redo2 className="w-4 h-4" />
       </Button>
 
       <div className="w-px h-6 bg-border" />
@@ -99,19 +64,7 @@ export function Toolbar() {
         className="text-destructive hover:text-destructive"
         title="모든 편집 초기화"
       >
-        <svg
-          className="w-4 h-4 mr-2"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-          />
-        </svg>
+        <RotateCcw className="w-4 h-4 mr-2" />
         초기화
       </Button>
     </div>

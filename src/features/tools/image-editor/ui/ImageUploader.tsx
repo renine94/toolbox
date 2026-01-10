@@ -3,6 +3,7 @@
 import { useCallback, useRef } from "react";
 import { Card } from "@/shared/ui/card";
 import { Button } from "@/shared/ui/button";
+import { ImagePlus, Loader2 } from "lucide-react";
 import { useImageStore } from "../model/useImageStore";
 
 export function ImageUploader() {
@@ -55,19 +56,7 @@ export function ImageUploader() {
     >
       <div className="flex flex-col items-center justify-center p-12 text-center">
         <div className="w-16 h-16 mb-4 rounded-full bg-muted flex items-center justify-center">
-          <svg
-            className="w-8 h-8 text-muted-foreground"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-            />
-          </svg>
+          <ImagePlus className="w-8 h-8 text-muted-foreground" />
         </div>
 
         <h3 className="text-lg font-semibold mb-2">이미지 업로드</h3>
@@ -79,7 +68,14 @@ export function ImageUploader() {
         </p>
 
         <Button variant="outline" disabled={isLoading}>
-          {isLoading ? "로딩 중..." : "파일 선택"}
+          {isLoading ? (
+            <>
+              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+              로딩 중...
+            </>
+          ) : (
+            "파일 선택"
+          )}
         </Button>
 
         <input
