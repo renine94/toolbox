@@ -142,7 +142,7 @@ const categories: Category[] = [
         name: "Word Counter",
         description: "글자 수, 단어 수, 문장 수를 세고 분석합니다.",
         icon: "🔢",
-        status: "coming-soon",
+        status: "available",
       },
       {
         id: "lorem-ipsum",
