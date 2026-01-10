@@ -1,5 +1,6 @@
 'use client'
 
+import { useDeferredValue, useMemo } from 'react'
 import {
   FileText,
   Type,
@@ -14,6 +15,7 @@ import { Card } from '@/shared/ui/card'
 import { Button } from '@/shared/ui/button'
 import { Label } from '@/shared/ui/label'
 import { useWordCounterStore } from '../model/useWordCounterStore'
+import { analyzeText } from '../lib/counter'
 
 interface StatCardProps {
   icon: React.ReactNode
@@ -38,7 +40,9 @@ function StatCard({ icon, label, value, subLabel }: StatCardProps) {
 }
 
 export function StatsPanel() {
-  const { stats } = useWordCounterStore()
+  const { text } = useWordCounterStore()
+  const deferredText = useDeferredValue(text)
+  const stats = useMemo(() => analyzeText(deferredText), [deferredText])
 
   const formatTime = (minutes: number): string => {
     if (minutes === 0) return '0분'
