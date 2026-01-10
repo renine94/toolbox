@@ -3,10 +3,11 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/shared/ui/card";
 import { Button } from "@/shared/ui/button";
 import { Label } from "@/shared/ui/label";
+import { Slider } from "@/shared/ui/slider";
 import { useImageStore } from "../model/useImageStore";
 import { FILTER_PRESETS, DEFAULT_FILTERS, ImageFilters } from "../model/types";
 
-interface SliderProps {
+interface FilterSliderProps {
   label: string;
   value: number;
   min: number;
@@ -16,7 +17,7 @@ interface SliderProps {
   onChange: (value: number) => void;
 }
 
-function Slider({ label, value, min, max, step = 1, unit = "", onChange }: SliderProps) {
+function FilterSlider({ label, value, min, max, step = 1, unit = "", onChange }: FilterSliderProps) {
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between">
@@ -25,14 +26,13 @@ function Slider({ label, value, min, max, step = 1, unit = "", onChange }: Slide
           {value}{unit}
         </span>
       </div>
-      <input
-        type="range"
+      <Slider
+        value={[value]}
+        onValueChange={([val]) => onChange(val)}
         min={min}
         max={max}
         step={step}
-        value={value}
-        onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full h-2 bg-muted rounded-lg appearance-none cursor-pointer accent-primary"
+        className="w-full"
       />
     </div>
   );
@@ -86,7 +86,7 @@ export function FilterControls() {
         <div className="space-y-4">
           <Label className="text-sm font-medium">기본 조정</Label>
 
-          <Slider
+          <FilterSlider
             label="밝기"
             value={filters.brightness}
             min={0}
@@ -95,7 +95,7 @@ export function FilterControls() {
             onChange={(v) => setFilter("brightness", v)}
           />
 
-          <Slider
+          <FilterSlider
             label="대비"
             value={filters.contrast}
             min={0}
@@ -104,7 +104,7 @@ export function FilterControls() {
             onChange={(v) => setFilter("contrast", v)}
           />
 
-          <Slider
+          <FilterSlider
             label="채도"
             value={filters.saturation}
             min={0}
@@ -118,7 +118,7 @@ export function FilterControls() {
         <div className="space-y-4">
           <Label className="text-sm font-medium">효과</Label>
 
-          <Slider
+          <FilterSlider
             label="흐림"
             value={filters.blur}
             min={0}
@@ -127,7 +127,7 @@ export function FilterControls() {
             onChange={(v) => setFilter("blur", v)}
           />
 
-          <Slider
+          <FilterSlider
             label="색조 회전"
             value={filters.hueRotate}
             min={0}
@@ -136,7 +136,7 @@ export function FilterControls() {
             onChange={(v) => setFilter("hueRotate", v)}
           />
 
-          <Slider
+          <FilterSlider
             label="그레이스케일"
             value={filters.grayscale}
             min={0}
@@ -145,7 +145,7 @@ export function FilterControls() {
             onChange={(v) => setFilter("grayscale", v)}
           />
 
-          <Slider
+          <FilterSlider
             label="세피아"
             value={filters.sepia}
             min={0}
@@ -154,7 +154,7 @@ export function FilterControls() {
             onChange={(v) => setFilter("sepia", v)}
           />
 
-          <Slider
+          <FilterSlider
             label="반전"
             value={filters.invert}
             min={0}

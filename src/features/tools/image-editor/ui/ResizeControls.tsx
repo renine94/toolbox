@@ -5,6 +5,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/shared/ui/card";
 import { Button } from "@/shared/ui/button";
 import { Label } from "@/shared/ui/label";
 import { Input } from "@/shared/ui/input";
+import { Checkbox } from "@/shared/ui/checkbox";
 import { useDebounceCallback } from "@/shared/hooks/use-debounce";
 import { useImageStore } from "../model/useImageStore";
 
@@ -117,12 +118,10 @@ export function ResizeControls() {
 
         {/* 비율 유지 옵션 */}
         <div className="flex items-center gap-2">
-          <input
-            type="checkbox"
+          <Checkbox
             id="maintain-ratio"
             checked={maintainAspectRatio}
-            onChange={(e) => setMaintainAspectRatio(e.target.checked)}
-            className="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary"
+            onCheckedChange={(checked) => setMaintainAspectRatio(!!checked)}
           />
           <Label htmlFor="maintain-ratio" className="text-sm cursor-pointer">
             종횡비 유지

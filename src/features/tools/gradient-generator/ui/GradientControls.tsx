@@ -4,6 +4,7 @@ import { useGradientStore } from "../model/useGradientStore";
 import { GRADIENT_TYPES, GradientType } from "../model/types";
 import { Label } from "@/shared/ui/label";
 import { Button } from "@/shared/ui/button";
+import { Slider } from "@/shared/ui/slider";
 import { Shuffle } from "lucide-react";
 
 export function GradientControls() {
@@ -38,13 +39,13 @@ export function GradientControls() {
             </Label>
             <span className="text-sm text-muted-foreground">{config.angle}°</span>
           </div>
-          <input
-            type="range"
-            min="0"
-            max="360"
-            value={config.angle}
-            onChange={(e) => setAngle(Number(e.target.value))}
-            className="w-full h-2 bg-secondary rounded-lg appearance-none cursor-pointer accent-primary"
+          <Slider
+            value={[config.angle]}
+            onValueChange={([val]) => setAngle(val)}
+            min={0}
+            max={360}
+            step={1}
+            className="w-full"
           />
           <div className="grid grid-cols-4 gap-1">
             {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => (
@@ -71,13 +72,13 @@ export function GradientControls() {
               <span className="text-xs text-muted-foreground">X</span>
               <span className="text-xs text-muted-foreground">{config.centerX}%</span>
             </div>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={config.centerX}
-              onChange={(e) => setCenter(Number(e.target.value), config.centerY)}
-              className="w-full h-2 bg-secondary rounded-lg appearance-none cursor-pointer accent-primary"
+            <Slider
+              value={[config.centerX]}
+              onValueChange={([val]) => setCenter(val, config.centerY)}
+              min={0}
+              max={100}
+              step={1}
+              className="w-full"
             />
           </div>
           <div className="space-y-2">
@@ -85,13 +86,13 @@ export function GradientControls() {
               <span className="text-xs text-muted-foreground">Y</span>
               <span className="text-xs text-muted-foreground">{config.centerY}%</span>
             </div>
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={config.centerY}
-              onChange={(e) => setCenter(config.centerX, Number(e.target.value))}
-              className="w-full h-2 bg-secondary rounded-lg appearance-none cursor-pointer accent-primary"
+            <Slider
+              value={[config.centerY]}
+              onValueChange={([val]) => setCenter(config.centerX, val)}
+              min={0}
+              max={100}
+              step={1}
+              className="w-full"
             />
           </div>
           <div className="grid grid-cols-3 gap-1">

@@ -3,6 +3,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/shared/ui/card";
 import { Button } from "@/shared/ui/button";
 import { Label } from "@/shared/ui/label";
+import { Slider } from "@/shared/ui/slider";
 import { RotateCcw, RotateCw, FlipHorizontal2, FlipVertical2 } from "lucide-react";
 import { useImageStore } from "../model/useImageStore";
 
@@ -44,13 +45,13 @@ export function TransformControls() {
               {transform.rotate}°
             </span>
           </div>
-          <input
-            type="range"
+          <Slider
+            value={[transform.rotate]}
+            onValueChange={([val]) => setTransform("rotate", val)}
             min={-180}
             max={180}
-            value={transform.rotate}
-            onChange={(e) => setTransform("rotate", Number(e.target.value))}
-            className="w-full h-2 bg-muted rounded-lg appearance-none cursor-pointer accent-primary"
+            step={1}
+            className="w-full"
           />
         </div>
 
@@ -87,13 +88,13 @@ export function TransformControls() {
               {Math.round(transform.scale * 100)}%
             </span>
           </div>
-          <input
-            type="range"
+          <Slider
+            value={[transform.scale * 100]}
+            onValueChange={([val]) => setTransform("scale", val / 100)}
             min={10}
             max={200}
-            value={transform.scale * 100}
-            onChange={(e) => setTransform("scale", Number(e.target.value) / 100)}
-            className="w-full h-2 bg-muted rounded-lg appearance-none cursor-pointer accent-primary"
+            step={1}
+            className="w-full"
           />
           <div className="flex items-center gap-2">
             <Button

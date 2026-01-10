@@ -6,6 +6,7 @@ import { generateGradientCSS } from "../lib/gradient-utils";
 import { Button } from "@/shared/ui/button";
 import { Input } from "@/shared/ui/input";
 import { Label } from "@/shared/ui/label";
+import { Slider } from "@/shared/ui/slider";
 import { Plus, X, GripVertical } from "lucide-react";
 
 export function ColorStops() {
@@ -80,15 +81,15 @@ export function ColorStops() {
 
             {/* Position Slider */}
             <div className="flex-1 flex items-center gap-2">
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={stop.position}
-                onChange={(e) =>
-                  updateColorStop(stop.id, stop.color, Number(e.target.value))
+              <Slider
+                value={[stop.position]}
+                onValueChange={([val]) =>
+                  updateColorStop(stop.id, stop.color, val)
                 }
-                className="flex-1 h-2 bg-secondary rounded-lg appearance-none cursor-pointer accent-primary"
+                min={0}
+                max={100}
+                step={1}
+                className="flex-1"
               />
               <span className="text-xs text-muted-foreground w-10 text-right">
                 {stop.position}%

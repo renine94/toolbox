@@ -1,5 +1,6 @@
 "use client";
 
+import { Progress } from "@/shared/ui/progress";
 import { GeneratedPassword } from "../model/types";
 import { getStrengthColor, getStrengthLabel } from "../lib/password-utils";
 
@@ -20,12 +21,7 @@ export function PasswordStrength({ password }: PasswordStrengthProps) {
         <span className="text-muted-foreground">비밀번호 강도</span>
         <span className="font-medium">{label}</span>
       </div>
-      <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
-        <div
-          className={`h-full transition-all duration-300 ${color}`}
-          style={{ width: `${score}%` }}
-        />
-      </div>
+      <Progress value={score} indicatorClassName={color} />
       <div className="flex justify-between text-xs text-muted-foreground">
         <span>0</span>
         <span>100</span>

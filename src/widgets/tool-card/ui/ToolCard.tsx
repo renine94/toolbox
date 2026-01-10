@@ -8,6 +8,7 @@ import {
     CardTitle,
 } from "@/shared/ui/card";
 import { Badge } from "@/shared/ui/badge";
+import { ChevronRight } from "lucide-react";
 
 interface Tool {
     id: string;
@@ -55,19 +56,7 @@ export function ToolCard({ tool, gradient, onClick }: ToolCardProps) {
             <CardContent className="pt-0">
                 <div className="flex items-center text-sm text-muted-foreground group-hover:text-foreground transition-colors">
                     <span>자세히 보기</span>
-                    <svg
-                        className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                        />
-                    </svg>
+                    <ChevronRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
                 </div>
             </CardContent>
         </Card>
