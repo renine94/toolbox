@@ -149,7 +149,7 @@ const categories: Category[] = [
         name: "Lorem Ipsum Generator",
         description: "더미 텍스트를 다양한 형식으로 생성합니다.",
         icon: "📄",
-        status: "coming-soon",
+        status: "available",
       },
     ],
   },
