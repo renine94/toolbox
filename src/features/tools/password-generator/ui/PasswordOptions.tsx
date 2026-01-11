@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Label } from "@/shared/ui/label";
 import { Slider } from "@/shared/ui/slider";
 import { Switch } from "@/shared/ui/switch";
@@ -8,6 +9,7 @@ import { usePasswordStore } from "../model/usePasswordStore";
 
 export function PasswordOptions() {
   const { config, setConfig } = usePasswordStore();
+  const t = useTranslations("tools.passwordGenerator.ui");
 
   const hasAtLeastOneOption =
     config.uppercase || config.lowercase || config.numbers || config.symbols;
@@ -16,7 +18,7 @@ export function PasswordOptions() {
     <div className="space-y-6">
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <Label>비밀번호 길이</Label>
+          <Label>{t("length")}</Label>
           <span className="text-sm font-medium">{config.length}</span>
         </div>
         <Slider
@@ -33,14 +35,14 @@ export function PasswordOptions() {
       </div>
 
       <div className="space-y-4">
-        <Label>문자 유형</Label>
+        <Label>{t("charTypes")}</Label>
 
         <div className="flex items-center justify-between">
           <Label
             htmlFor="uppercase"
             className="text-sm font-normal cursor-pointer"
           >
-            대문자 (A-Z)
+            {t("uppercase")}
           </Label>
           <Switch
             id="uppercase"
@@ -58,7 +60,7 @@ export function PasswordOptions() {
             htmlFor="lowercase"
             className="text-sm font-normal cursor-pointer"
           >
-            소문자 (a-z)
+            {t("lowercase")}
           </Label>
           <Switch
             id="lowercase"
@@ -75,7 +77,7 @@ export function PasswordOptions() {
             htmlFor="numbers"
             className="text-sm font-normal cursor-pointer"
           >
-            숫자 (0-9)
+            {t("numbers")}
           </Label>
           <Switch
             id="numbers"
@@ -92,7 +94,7 @@ export function PasswordOptions() {
             htmlFor="symbols"
             className="text-sm font-normal cursor-pointer"
           >
-            특수문자 (!@#$%...)
+            {t("symbols")}
           </Label>
           <Switch
             id="symbols"
@@ -106,14 +108,14 @@ export function PasswordOptions() {
       </div>
 
       <div className="space-y-4">
-        <Label>추가 옵션</Label>
+        <Label>{t("additionalOptions")}</Label>
 
         <div className="flex items-center justify-between">
           <Label
             htmlFor="excludeAmbiguous"
             className="text-sm font-normal cursor-pointer"
           >
-            모호한 문자 제외 (l, 1, I, O, 0)
+            {t("excludeAmbiguous")}
           </Label>
           <Switch
             id="excludeAmbiguous"
@@ -126,13 +128,13 @@ export function PasswordOptions() {
 
         <div className="space-y-2">
           <Label htmlFor="excludeChars" className="text-sm font-normal">
-            제외할 문자
+            {t("excludeChars")}
           </Label>
           <Input
             id="excludeChars"
             value={config.excludeChars}
             onChange={(e) => setConfig({ excludeChars: e.target.value })}
-            placeholder="제외할 문자를 입력하세요"
+            placeholder={t("excludeCharsPlaceholder")}
           />
         </div>
       </div>

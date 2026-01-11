@@ -1,17 +1,19 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useCodeStore } from "../model/useCodeStore";
 
 export function CodeOutput() {
   const { output, isRunning, isPyodideLoading } = useCodeStore();
+  const t = useTranslations("tools.codeRunner.ui");
 
   return (
     <div className="border rounded-lg overflow-hidden">
       <div className="bg-muted px-4 py-2 border-b flex items-center justify-between">
-        <span className="text-sm font-medium text-muted-foreground">Output</span>
+        <span className="text-sm font-medium text-muted-foreground">{t("output")}</span>
         {output && (
           <span className="text-xs text-muted-foreground">
-            Execution time: {output.executionTime.toFixed(2)}ms
+            {t("executionTime")}: {output.executionTime.toFixed(2)}ms
           </span>
         )}
       </div>
@@ -19,7 +21,7 @@ export function CodeOutput() {
         {isRunning ? (
           <div className="flex items-center gap-2 text-muted-foreground">
             <div className="animate-spin h-4 w-4 border-2 border-primary border-t-transparent rounded-full" />
-            <span>{isPyodideLoading ? "Loading Python runtime..." : "Running..."}</span>
+            <span>{isPyodideLoading ? t("loadingPython") : t("running")}</span>
           </div>
         ) : output ? (
           <div className="space-y-2">
@@ -37,12 +39,12 @@ export function CodeOutput() {
               </pre>
             )}
             {!output.stdout && !output.stderr && !output.error && (
-              <span className="text-muted-foreground italic">No output</span>
+              <span className="text-muted-foreground italic">{t("noOutput")}</span>
             )}
           </div>
         ) : (
           <span className="text-muted-foreground italic">
-            Click &quot;Run&quot; to execute your code
+            {t("clickToRun")}
           </span>
         )}
       </div>

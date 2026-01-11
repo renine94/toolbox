@@ -1,0 +1,524 @@
+{
+  "common": {
+    "buttons": {
+      "copy": "Copy",
+      "paste": "Paste",
+      "clear": "Clear",
+      "generate": "Generate",
+      "download": "Download",
+      "save": "Save",
+      "delete": "Delete",
+      "apply": "Apply",
+      "reset": "Reset",
+      "close": "Close",
+      "viewAll": "View All"
+    },
+    "toast": {
+      "copied": "Copied to clipboard",
+      "copyError": "Failed to copy",
+      "saved": "Saved successfully",
+      "deleted": "Deleted successfully",
+      "error": "An error occurred",
+      "success": "Completed successfully",
+      "pasted": "Pasted from clipboard",
+      "noPermission": "Clipboard access denied"
+    },
+    "labels": {
+      "input": "Input",
+      "output": "Output",
+      "options": "Options",
+      "preview": "Preview",
+      "result": "Result",
+      "history": "History",
+      "settings": "Settings"
+    },
+    "a11y": {
+      "toggleTheme": "Toggle theme"
+    }
+  },
+  "navigation": {
+    "tools": "Tools",
+    "categories": "Categories",
+    "about": "About",
+    "brand": "ToolBox"
+  },
+  "footer": {
+    "copyright": "© {year} {brand}. All rights reserved."
+  },
+  "metadata": {
+    "home": {
+      "title": "ToolBox - Online Tools Collection",
+      "description": "Discover useful online tools for developers, designers, and marketers all in one place. Free tools including JSON Formatter, Color Picker, QR Code Generator, and more."
+    },
+    "tools": {
+      "jsonFormatter": {
+        "title": "JSON Formatter - Developer Tools",
+        "description": "Format, validate, and minify JSON data with this free online tool.",
+        "heading": "JSON Formatter",
+        "subheading": "Beautify your JSON data with our free formatter. Validate, minify, and copy with ease."
+      },
+      "base64Encoder": {
+        "title": "Base64 Encoder/Decoder - Developer Tools",
+        "description": "Easily encode and decode text and data to Base64 format.",
+        "heading": "Base64 Encoder",
+        "subheading": "Encode text to Base64 or decode Base64 to text."
+      },
+      "colorPicker": {
+        "title": "Color Picker - Designer Tools",
+        "description": "Pick and convert colors in HEX, RGB, HSL formats.",
+        "heading": "Color Picker",
+        "subheading": "Select and convert colors in various formats."
+      },
+      "codeRunner": {
+        "title": "Code Runner - Developer Tools",
+        "description": "Run JavaScript and Python code directly in your browser.",
+        "heading": "Code Runner",
+        "subheading": "Execute JavaScript and Python code instantly in your browser."
+      },
+      "regexTester": {
+        "title": "Regex Tester - Developer Tools",
+        "description": "Test regular expressions and view matching results in real-time.",
+        "heading": "Regex Tester",
+        "subheading": "Test regex patterns and see matching results instantly."
+      },
+      "uuidGenerator": {
+        "title": "UUID Generator - Developer Tools",
+        "description": "Generate UUID v1, v4, v7 and convert to various formats.",
+        "heading": "UUID Generator",
+        "subheading": "Generate unique UUIDs and convert them to various formats."
+      },
+      "jwtDecoder": {
+        "title": "JWT Decoder - Developer Tools",
+        "description": "Decode JWT tokens to view Header, Payload and validate.",
+        "heading": "JWT Decoder",
+        "subheading": "Analyze JWT tokens and verify their validity."
+      },
+      "diffChecker": {
+        "title": "Diff Checker - Developer Tools",
+        "description": "Compare two texts and visually identify differences.",
+        "heading": "Diff Checker",
+        "subheading": "Compare two texts and see the differences."
+      },
+      "colorPalette": {
+        "title": "Color Palette - Designer Tools",
+        "description": "Generate and manage harmonious color palettes.",
+        "heading": "Color Palette",
+        "subheading": "Create and save harmonious color combinations."
+      },
+      "imageEditor": {
+        "title": "Image Editor - Designer Tools",
+        "description": "Resize, crop, and apply filters to images.",
+        "heading": "Image Editor",
+        "subheading": "Edit images and apply various filters."
+      },
+      "gradientGenerator": {
+        "title": "Gradient Generator - Designer Tools",
+        "description": "Visually create CSS gradients and copy the code.",
+        "heading": "Gradient Generator",
+        "subheading": "Create beautiful CSS gradients with ease."
+      },
+      "qrGenerator": {
+        "title": "QR Code Generator - Marketer Tools",
+        "description": "Generate QR codes from URLs, text, or contact information.",
+        "heading": "QR Code Generator",
+        "subheading": "Create QR codes for various types of information."
+      },
+      "linkShortener": {
+        "title": "Link Shortener - Marketer Tools",
+        "description": "Convert long URLs into short, memorable links.",
+        "heading": "Link Shortener",
+        "subheading": "Shorten long URLs into easy-to-remember links."
+      },
+      "markdownEditor": {
+        "title": "Markdown Editor - Writer Tools",
+        "description": "Write markdown documents with real-time preview.",
+        "heading": "Markdown Editor",
+        "subheading": "Write and preview markdown documents."
+      },
+      "wordCounter": {
+        "title": "Word Counter - Writer Tools",
+        "description": "Count and analyze characters, words, and sentences.",
+        "heading": "Word Counter",
+        "subheading": "Analyze text for character, word, and sentence counts."
+      },
+      "loremIpsum": {
+        "title": "Lorem Ipsum Generator - Writer Tools",
+        "description": "Generate dummy text in various formats.",
+        "heading": "Lorem Ipsum Generator",
+        "subheading": "Generate placeholder text for your designs."
+      },
+      "unitConverter": {
+        "title": "Unit Converter - Productivity Tools",
+        "description": "Convert various units including length, weight, and temperature.",
+        "heading": "Unit Converter",
+        "subheading": "Easily convert between different units."
+      },
+      "timezoneConverter": {
+        "title": "Timezone Converter - Productivity Tools",
+        "description": "Convert time zones around the world.",
+        "heading": "Timezone Converter",
+        "subheading": "Easily convert between world time zones."
+      },
+      "passwordGenerator": {
+        "title": "Password Generator - Productivity Tools",
+        "description": "Generate secure random passwords.",
+        "heading": "Password Generator",
+        "subheading": "Create strong and secure passwords."
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "New tools are continuously added",
+      "titleLine1": "All-in-One Tools",
+      "titleLine2": "For Your Productivity",
+      "description": "Discover useful online tools for developers, designers, marketers, and all professionals in one place."
+    },
+    "stats": {
+      "tools": "Tools",
+      "categories": "Categories",
+      "price": "Price",
+      "usage": "Usage",
+      "free": "Free",
+      "unlimited": "∞"
+    },
+    "developer": {
+      "title": "Developer",
+      "subtitle": "Meet the creator behind this service.",
+      "role": "FullStack Developer",
+      "bio": "Built this with vibe coding. Developing frequently used features. AI Click!",
+      "techStackLabel": "Favorite Tech Stack"
+    },
+    "toolsGrid": {
+      "toolCount": "{count} tools"
+    }
+  },
+  "categories": {
+    "developer": {
+      "name": "Developer",
+      "nameKo": "Developer"
+    },
+    "designer": {
+      "name": "Designer",
+      "nameKo": "Designer"
+    },
+    "marketer": {
+      "name": "Marketer",
+      "nameKo": "Marketer"
+    },
+    "writer": {
+      "name": "Writer",
+      "nameKo": "Writer/Editor"
+    },
+    "productivity": {
+      "name": "Productivity",
+      "nameKo": "Productivity"
+    }
+  },
+  "tools": {
+    "jsonFormatter": {
+      "name": "JSON Formatter",
+      "description": "Format JSON data beautifully and validate its structure.",
+      "ui": {
+        "inputLabel": "Input JSON",
+        "inputPlaceholder": "Paste your JSON here...",
+        "outputLabel": "Output",
+        "outputPlaceholder": "Formatted JSON will appear here...",
+        "format": "Format",
+        "minify": "Minify",
+        "copy": "Copy",
+        "clear": "Clear",
+        "nothingToCopy": "Nothing to copy"
+      }
+    },
+    "base64Encoder": {
+      "name": "Base64 Encoder",
+      "description": "Encode and decode text or data to Base64 format.",
+      "ui": {
+        "encoder": "Encoder",
+        "decoder": "Decoder",
+        "input": "Input",
+        "output": "Output",
+        "result": "Result",
+        "inputPlaceholder": {
+          "encode": "Type something...",
+          "decode": "Paste Base64 string..."
+        },
+        "inputDescription": {
+          "encode": "Enter text to encode",
+          "decode": "Enter Base64 string to decode"
+        },
+        "outputPlaceholder": "Result will appear here...",
+        "clear": "Clear",
+        "copy": "Copy",
+        "copyResult": "Copy Result",
+        "encodeButton": "Encode to Base64",
+        "decodeButton": "Decode from Base64"
+      }
+    },
+    "colorPicker": {
+      "name": "Color Picker",
+      "description": "Pick and convert colors in various formats (HEX, RGB, HSL).",
+      "ui": {
+        "presets": "Presets",
+        "clipboardDenied": "Clipboard access denied"
+      }
+    },
+    "codeRunner": {
+      "name": "Code Runner",
+      "description": "Run code in various languages including JavaScript and Python.",
+      "ui": {
+        "run": "Run",
+        "running": "Running...",
+        "copy": "Copy",
+        "clear": "Clear",
+        "output": "Output",
+        "executionTime": "Execution time",
+        "loadingPython": "Loading Python runtime...",
+        "noOutput": "No output",
+        "clickToRun": "Click \"Run\" to execute your code",
+        "enterCode": "Please enter some code to run",
+        "executedIn": "Executed in {time}ms",
+        "executionFailed": "Execution failed",
+        "unexpectedError": "An unexpected error occurred",
+        "codeCopied": "Code copied to clipboard",
+        "copyFailed": "Failed to copy code",
+        "codeCleared": "Code cleared",
+        "tips": "Tips",
+        "tipJs": "JavaScript: Use console.log() to output values",
+        "tipPython": "Python: Use print() to output values",
+        "tipTimeout": "Execution timeout: JavaScript (5s), Python (10s)",
+        "tipPythonLoad": "Python runtime loads on first execution (may take a few seconds)"
+      }
+    },
+    "regexTester": {
+      "name": "Regex Tester",
+      "description": "Test regular expressions and view matching results.",
+      "ui": {
+        "cheatsheet": "Cheatsheet",
+        "history": "History",
+        "pattern": "Regex Pattern",
+        "patternPlaceholder": "Enter pattern...",
+        "testString": "Test String",
+        "testStringPlaceholder": "Enter text to test...",
+        "matchResults": "Match Results",
+        "error": "Error",
+        "matchCount": "{count} matches",
+        "captureGroups": "Capture Groups",
+        "matchNumber": "Match #{number} (Position: {position})",
+        "fullMatch": "Full",
+        "emptyString": "(empty string)"
+      }
+    },
+    "uuidGenerator": {
+      "name": "UUID Generator",
+      "description": "Generate unique UUIDs (v1, v4, v7) and convert to various formats.",
+      "ui": {
+        "title": "UUID Generator",
+        "titleDescription": "Generate unique UUIDs (Universally Unique Identifiers)",
+        "options": "Options",
+        "optionsDescription": "Configure UUID generation options",
+        "generateNew": "Generate New UUID",
+        "bulkGenerate": "Bulk Generate",
+        "bulkDescription": "Generate multiple UUIDs at once",
+        "history": "History",
+        "historyDescription": "Recently generated UUIDs (up to 50)",
+        "version": "UUID Version",
+        "uppercase": "Uppercase",
+        "uppercaseDescription": "Display UUID in uppercase",
+        "hyphens": "Include Hyphens",
+        "hyphensDescription": "Include hyphens (-) in UUID",
+        "braces": "Wrap with Braces",
+        "bracesDescription": "Wrap UUID with curly braces",
+        "quantity": "Quantity",
+        "bulkGenerateButton": "Bulk Generate",
+        "copyAll": "Copy All",
+        "download": "Download",
+        "reset": "Reset",
+        "emptyBulk": "Enter quantity and click bulk generate button",
+        "emptyHistory": "No UUID history available",
+        "recentCount": "Recent {count}",
+        "deleteAll": "Delete All",
+        "placeholder": "Click generate button",
+        "copyTooltip": "Copy",
+        "generateTooltip": "Generate New",
+        "versionLabel": "Version",
+        "lengthLabel": "Length",
+        "lengthUnit": "chars",
+        "noUuidToCopy": "No UUID to copy",
+        "noUuidToDownload": "No UUID to download",
+        "copiedCount": "{count} UUIDs copied",
+        "downloaded": "File downloaded",
+        "versions": {
+          "v1": {
+            "name": "UUID v1",
+            "description": "Timestamp + MAC address based (time-ordered)"
+          },
+          "v4": {
+            "name": "UUID v4",
+            "description": "Fully random generation (most common)"
+          },
+          "v7": {
+            "name": "UUID v7",
+            "description": "Unix timestamp + random (sortable, latest standard)"
+          }
+        }
+      }
+    },
+    "jwtDecoder": {
+      "name": "JWT Decoder",
+      "description": "Decode JWT tokens to view Header, Payload and validate.",
+      "ui": {
+        "tokenInput": "JWT Token Input",
+        "tokenInputDescription": "Enter a JWT token to decode",
+        "exampleValid": "Example (Valid)",
+        "exampleExpired": "Example (Expired)",
+        "paste": "Paste",
+        "clear": "Clear",
+        "validationStatus": "Validation Status",
+        "formatValid": "Format Valid",
+        "formatError": "Format Error",
+        "tokenExpired": "Token Expired",
+        "expired": "Expired",
+        "valid": "Valid",
+        "header": "Header",
+        "payload": "Payload",
+        "payloadDescription": "Data contained in token (Claims)",
+        "signature": "Signature",
+        "signatureDescription": "Signature (verification only possible server-side)",
+        "claimInfo": "Claim Information",
+        "copyComplete": "Copy Complete",
+        "emptyState": "Enter a JWT token",
+        "emptyStateResult": "to see the decoded result here"
+      }
+    },
+    "diffChecker": {
+      "name": "Diff Checker",
+      "description": "Compare two texts and visually identify differences."
+    },
+    "colorPalette": {
+      "name": "Color Palette",
+      "description": "Generate and manage harmonious color palettes.",
+      "ui": {
+        "colorSettings": "Color Settings",
+        "generatedPalette": "Generated Palette",
+        "imageExtraction": "Image Extraction",
+        "export": "Export",
+        "savedPalettes": "Saved Palettes"
+      }
+    },
+    "imageEditor": {
+      "name": "Image Editor",
+      "description": "Resize, crop, and apply filters to images.",
+      "ui": {
+        "filters": "Filters",
+        "transform": "Transform",
+        "resize": "Resize"
+      }
+    },
+    "gradientGenerator": {
+      "name": "Gradient Generator",
+      "description": "Visually create CSS gradients.",
+      "ui": {
+        "preview": "Preview",
+        "gradientSettings": "Gradient Settings",
+        "colorStops": "Color Stops",
+        "presets": "Presets",
+        "codeOutput": "Code Output",
+        "savedGradients": "Saved Gradients"
+      }
+    },
+    "qrGenerator": {
+      "name": "QR Code Generator",
+      "description": "Generate QR codes from URLs, text, or contact information.",
+      "ui": {
+        "preview": "Preview",
+        "input": "Input",
+        "settings": "Settings",
+        "savedQRCodes": "Saved QR Codes"
+      }
+    },
+    "linkShortener": {
+      "name": "Link Shortener",
+      "description": "Convert long URLs into short, memorable links."
+    },
+    "markdownEditor": {
+      "name": "Markdown Editor",
+      "description": "Write markdown documents with real-time preview.",
+      "ui": {
+        "titlePlaceholder": "Enter document title",
+        "edit": "Edit",
+        "preview": "Preview"
+      }
+    },
+    "wordCounter": {
+      "name": "Word Counter",
+      "description": "Count and analyze characters, words, and sentences."
+    },
+    "loremIpsum": {
+      "name": "Lorem Ipsum Generator",
+      "description": "Generate dummy text in various formats.",
+      "ui": {
+        "options": "Options",
+        "optionsDescription": "Set the format and amount of text to generate",
+        "loremIpsum": "Lorem Ipsum",
+        "generatedText": "Generated dummy text"
+      }
+    },
+    "unitConverter": {
+      "name": "Unit Converter",
+      "description": "Convert various units including length, weight, and temperature.",
+      "ui": {
+        "valueToConvert": "Value to Convert",
+        "conversionResult": "Conversion Result",
+        "reset": "Reset"
+      }
+    },
+    "timezoneConverter": {
+      "name": "Timezone Converter",
+      "description": "Convert time zones around the world.",
+      "ui": {
+        "conversionResult": "Conversion Result"
+      }
+    },
+    "passwordGenerator": {
+      "name": "Password Generator",
+      "description": "Generate secure random passwords.",
+      "ui": {
+        "password": "Password",
+        "passwordDescription": "Generate secure random passwords",
+        "options": "Options",
+        "optionsDescription": "Configure password generation options",
+        "generateNew": "Generate New Password",
+        "bulkGenerate": "Bulk Generate",
+        "bulkDescription": "Generate multiple passwords at once",
+        "length": "Password Length",
+        "charTypes": "Character Types",
+        "uppercase": "Uppercase (A-Z)",
+        "lowercase": "Lowercase (a-z)",
+        "numbers": "Numbers (0-9)",
+        "symbols": "Symbols (!@#$%...)",
+        "additionalOptions": "Additional Options",
+        "excludeAmbiguous": "Exclude ambiguous characters (l, 1, I, O, 0)",
+        "excludeChars": "Exclude Characters",
+        "excludeCharsPlaceholder": "Enter characters to exclude",
+        "quantity": "Quantity",
+        "quantityUnit": "",
+        "generateCount": "Generate {count}",
+        "copyAll": "Copy All",
+        "generatePassword": "Generate a password",
+        "copied": "Password copied",
+        "copiedCount": "{count} passwords copied",
+        "copyError": "Failed to copy",
+        "strength": "Password Strength",
+        "strengthLabels": {
+          "weak": "Weak",
+          "fair": "Fair",
+          "good": "Good",
+          "strong": "Strong",
+          "excellent": "Excellent"
+        }
+      }
+    }
+  }
+}

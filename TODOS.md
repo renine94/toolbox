@@ -79,8 +79,10 @@
 | 도구명 | 설명 | 난이도 | 상태 |
 |--------|------|--------|------|
 | Image Compressor | 이미지 용량 압축 | ⭐⭐ | ⬜ 대기 |
+| PDF Compressor | PDF 용량 압축 | ⭐⭐ | ⬜ 대기 |
 | Image to Base64 | 이미지와 Base64 상호 변환 | ⭐ | ⬜ 대기 |
 | Screenshot to Code | 스크린샷에서 색상 추출 | ⭐⭐ | ⬜ 대기 |
+| Screenshot to Text | 스크린샷에서 텍스트 추출 | ⭐⭐ | ⬜ 대기 |
 | Placeholder Image | 플레이스홀더 이미지 생성 | ⭐ | ⬜ 대기 |
 
 ---

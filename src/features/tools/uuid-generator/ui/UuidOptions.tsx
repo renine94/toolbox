@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Label } from "@/shared/ui/label";
 import { Switch } from "@/shared/ui/switch";
 import {
@@ -10,7 +11,9 @@ import {
   SelectValue,
 } from "@/shared/ui/select";
 import { useUuidStore } from "../model/useUuidStore";
-import { UUID_VERSION_INFO, type UuidVersion } from "../model/types";
+import { type UuidVersion } from "../model/types";
+
+const UUID_VERSIONS: UuidVersion[] = ["v1", "v4", "v7"];
 
 export function UuidOptions() {
   const config = useUuidStore((state) => state.config);
@@ -18,11 +21,12 @@ export function UuidOptions() {
   const setUppercase = useUuidStore((state) => state.setUppercase);
   const setHyphens = useUuidStore((state) => state.setHyphens);
   const setBraces = useUuidStore((state) => state.setBraces);
+  const t = useTranslations("tools.uuidGenerator.ui");
 
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <Label>UUID 버전</Label>
+        <Label>{t("version")}</Label>
         <Select
           value={config.version}
           onValueChange={(value) => setVersion(value as UuidVersion)}
@@ -31,12 +35,12 @@ export function UuidOptions() {
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            {Object.entries(UUID_VERSION_INFO).map(([version, info]) => (
+            {UUID_VERSIONS.map((version) => (
               <SelectItem key={version} value={version}>
                 <div className="flex flex-col">
-                  <span className="font-medium">{info.name}</span>
+                  <span className="font-medium">{t(`versions.${version}.name`)}</span>
                   <span className="text-xs text-muted-foreground">
-                    {info.description}
+                    {t(`versions.${version}.description`)}
                   </span>
                 </div>
               </SelectItem>
@@ -48,9 +52,9 @@ export function UuidOptions() {
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <div className="space-y-0.5">
-            <Label htmlFor="uppercase">대문자</Label>
+            <Label htmlFor="uppercase">{t("uppercase")}</Label>
             <p className="text-xs text-muted-foreground">
-              UUID를 대문자로 표시합니다
+              {t("uppercaseDescription")}
             </p>
           </div>
           <Switch
@@ -62,9 +66,9 @@ export function UuidOptions() {
 
         <div className="flex items-center justify-between">
           <div className="space-y-0.5">
-            <Label htmlFor="hyphens">하이픈 포함</Label>
+            <Label htmlFor="hyphens">{t("hyphens")}</Label>
             <p className="text-xs text-muted-foreground">
-              UUID에 하이픈(-)을 포함합니다
+              {t("hyphensDescription")}
             </p>
           </div>
           <Switch
@@ -76,9 +80,9 @@ export function UuidOptions() {
 
         <div className="flex items-center justify-between">
           <div className="space-y-0.5">
-            <Label htmlFor="braces">중괄호 감싸기</Label>
+            <Label htmlFor="braces">{t("braces")}</Label>
             <p className="text-xs text-muted-foreground">
-              UUID를 중괄호로 감쌉니다
+              {t("bracesDescription")}
             </p>
           </div>
           <Switch

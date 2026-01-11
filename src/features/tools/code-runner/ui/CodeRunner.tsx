@@ -1,11 +1,14 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { LanguageSelector } from "./LanguageSelector";
 import { CodeEditor } from "./CodeEditor";
 import { CodeOutput } from "./CodeOutput";
 import { ControlPanel } from "./ControlPanel";
 
 export function CodeRunner() {
+  const t = useTranslations("tools.codeRunner.ui");
+
   return (
     <div className="space-y-6">
       {/* Header with Language Selector and Controls */}
@@ -22,12 +25,12 @@ export function CodeRunner() {
 
       {/* Info Section */}
       <div className="bg-muted/50 rounded-lg p-4 text-sm text-muted-foreground">
-        <h3 className="font-medium text-foreground mb-2">Tips</h3>
+        <h3 className="font-medium text-foreground mb-2">{t("tips")}</h3>
         <ul className="list-disc list-inside space-y-1">
-          <li>JavaScript: Use console.log() to output values</li>
-          <li>Python: Use print() to output values</li>
-          <li>Execution timeout: JavaScript (5s), Python (10s)</li>
-          <li>Python runtime loads on first execution (may take a few seconds)</li>
+          <li>{t("tipJs")}</li>
+          <li>{t("tipPython")}</li>
+          <li>{t("tipTimeout")}</li>
+          <li>{t("tipPythonLoad")}</li>
         </ul>
       </div>
     </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from "next-intl";
 import { useColorStore } from '../model/useColorStore';
 import { cn } from '@/shared/lib/utils';
 
@@ -12,10 +13,11 @@ const PRESET_COLORS = [
 
 export function ColorPalette() {
     const { setColor, color } = useColorStore();
+    const t = useTranslations("tools.colorPicker.ui");
 
     return (
         <div className="w-full">
-            <h3 className="text-sm font-medium mb-3">Presets</h3>
+            <h3 className="text-sm font-medium mb-3">{t("presets")}</h3>
             <div className="grid grid-cols-5 sm:grid-cols-10 gap-2">
                 {PRESET_COLORS.map((c) => (
                     <button

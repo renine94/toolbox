@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from "next-intl";
 import { useColorStore } from '../model/useColorStore';
 import { toHex, toRgb, toHsl, isValidColor } from '../lib/color-utils';
 import { Input } from '@/shared/ui/input';
@@ -11,6 +12,8 @@ import { useState, useEffect } from 'react';
 
 export function ColorInputs() {
     const { color, setColor } = useColorStore();
+    const t = useTranslations("tools.colorPicker.ui");
+    const tCommon = useTranslations("common.toast");
 
     // Local state to allow typing without immediate validation/jumping
     const [hexInput, setHexInput] = useState(color);
@@ -30,9 +33,9 @@ export function ColorInputs() {
     const copyToClipboard = (text: string) => {
         if (navigator?.clipboard) {
             navigator.clipboard.writeText(text);
-            toast.success('Copied to clipboard');
+            toast.success(tCommon('copied'));
         } else {
-            toast.error('Clipboard access denied');
+            toast.error(t('clipboardDenied'));
         }
     };
 

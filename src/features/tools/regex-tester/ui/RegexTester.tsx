@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { RegexInput } from "./RegexInput";
 import { FlagSelector } from "./FlagSelector";
 import { TestInput } from "./TestInput";
@@ -14,6 +15,7 @@ type SidebarTab = "cheatsheet" | "history";
 
 export function RegexTester() {
   const [sidebarTab, setSidebarTab] = useState<SidebarTab>("cheatsheet");
+  const t = useTranslations("tools.regexTester.ui");
 
   return (
     <div className="flex flex-col lg:flex-row gap-6">
@@ -55,7 +57,7 @@ export function RegexTester() {
               }`}
             >
               <BookOpen className="w-4 h-4" />
-              치트시트
+              {t("cheatsheet")}
             </button>
             <button
               onClick={() => setSidebarTab("history")}
@@ -66,7 +68,7 @@ export function RegexTester() {
               }`}
             >
               <Clock className="w-4 h-4" />
-              히스토리
+              {t("history")}
             </button>
           </div>
 

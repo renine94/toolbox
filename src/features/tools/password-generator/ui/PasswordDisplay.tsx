@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Copy, Eye, EyeOff, RefreshCw } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/shared/ui/button";
@@ -10,14 +11,15 @@ import { PasswordStrength } from "./PasswordStrength";
 export function PasswordDisplay() {
   const { currentPassword, isVisible, generate, toggleVisibility } =
     usePasswordStore();
+  const t = useTranslations("tools.passwordGenerator.ui");
 
   const handleCopy = async () => {
     if (!currentPassword) return;
     const success = await copyToClipboard(currentPassword.password);
     if (success) {
-      toast.success("비밀번호가 복사되었습니다");
+      toast.success(t("copied"));
     } else {
-      toast.error("복사에 실패했습니다");
+      toast.error(t("copyError"));
     }
   };
 
@@ -25,7 +27,7 @@ export function PasswordDisplay() {
     ? isVisible
       ? currentPassword.password
       : "•".repeat(currentPassword.password.length)
-    : "비밀번호를 생성하세요";
+    : t("generatePassword");
 
   return (
     <div className="space-y-4">

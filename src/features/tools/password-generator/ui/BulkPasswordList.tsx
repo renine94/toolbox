@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Copy, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/shared/ui/button";
@@ -10,19 +11,24 @@ import { usePasswordStore } from "../model/usePasswordStore";
 import {
   copyToClipboard,
   getStrengthColor,
-  getStrengthLabel,
 } from "../lib/password-utils";
+import type { PasswordStrength } from "../model/types";
 
 export function BulkPasswordList() {
   const { bulkCount, bulkPasswords, setBulkCount, generateBulk, clearBulk } =
     usePasswordStore();
+  const t = useTranslations("tools.passwordGenerator.ui");
+
+  const getStrengthLabel = (strength: PasswordStrength): string => {
+    return t(`strengthLabels.${strength}`);
+  };
 
   const handleCopyOne = async (password: string) => {
     const success = await copyToClipboard(password);
     if (success) {
-      toast.success("비밀번호가 복사되었습니다");
+      toast.success(t("copied"));
     } else {
-      toast.error("복사에 실패했습니다");
+      toast.error(t("copyError"));
     }
   };
 
@@ -30,9 +36,9 @@ export function BulkPasswordList() {
     const allPasswords = bulkPasswords.map((p) => p.password).join("\n");
     const success = await copyToClipboard(allPasswords);
     if (success) {
-      toast.success(`${bulkPasswords.length}개의 비밀번호가 복사되었습니다`);
+      toast.success(t("copiedCount", { count: bulkPasswords.length }));
     } else {
-      toast.error("복사에 실패했습니다");
+      toast.error(t("copyError"));
     }
   };
 
@@ -40,8 +46,8 @@ export function BulkPasswordList() {
     <div className="space-y-4">
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <Label>생성 개수</Label>
-          <span className="text-sm font-medium">{bulkCount}개</span>
+          <Label>{t("quantity")}</Label>
+          <span className="text-sm font-medium">{bulkCount}{t("quantityUnit")}</span>
         </div>
         <Slider
           value={[bulkCount]}
@@ -58,13 +64,13 @@ export function BulkPasswordList() {
 
       <div className="flex gap-2">
         <Button onClick={generateBulk} className="flex-1">
-          {bulkCount}개 생성
+          {t("generateCount", { count: bulkCount })}
         </Button>
         {bulkPasswords.length > 0 && (
           <>
             <Button variant="outline" onClick={handleCopyAll}>
               <Copy className="h-4 w-4 mr-2" />
-              전체 복사
+              {t("copyAll")}
             </Button>
             <Button variant="outline" onClick={clearBulk}>
               <Trash2 className="h-4 w-4" />

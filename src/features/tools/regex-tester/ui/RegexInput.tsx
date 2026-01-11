@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Input } from "@/shared/ui/input";
 import { Label } from "@/shared/ui/label";
 import { useRegexStore } from "../model/useRegexStore";
@@ -8,11 +9,12 @@ import { isValidRegex } from "../lib/regex-utils";
 export function RegexInput() {
   const { pattern, setPattern, flags } = useRegexStore();
   const validation = isValidRegex(pattern, flags);
+  const t = useTranslations("tools.regexTester.ui");
 
   return (
     <div className="space-y-2">
       <Label htmlFor="regex-pattern" className="text-sm font-medium">
-        정규표현식 패턴
+        {t("pattern")}
       </Label>
       <div className="relative">
         <div className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground font-mono">
@@ -22,7 +24,7 @@ export function RegexInput() {
           id="regex-pattern"
           value={pattern}
           onChange={(e) => setPattern(e.target.value)}
-          placeholder="패턴을 입력하세요..."
+          placeholder={t("patternPlaceholder")}
           className={`pl-6 pr-6 font-mono ${
             pattern && !validation.valid
               ? "border-red-500 focus-visible:ring-red-500"

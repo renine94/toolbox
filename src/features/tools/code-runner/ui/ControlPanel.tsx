@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Button } from "@/shared/ui/button";
 import { Loader2, Play, Copy, Trash2 } from "lucide-react";
 import { useCodeStore } from "../model/useCodeStore";
@@ -16,10 +17,11 @@ export function ControlPanel() {
     setIsPyodideLoading,
     clear,
   } = useCodeStore();
+  const t = useTranslations("tools.codeRunner.ui");
 
   const handleRun = async () => {
     if (!code.trim()) {
-      toast.error("Please enter some code to run");
+      toast.error(t("enterCode"));
       return;
     }
 
@@ -36,12 +38,12 @@ export function ControlPanel() {
       setOutput(result);
 
       if (result.error) {
-        toast.error("Execution failed");
+        toast.error(t("executionFailed"));
       } else {
-        toast.success(`Executed in ${result.executionTime.toFixed(2)}ms`);
+        toast.success(t("executedIn", { time: result.executionTime.toFixed(2) }));
       }
     } catch {
-      toast.error("An unexpected error occurred");
+      toast.error(t("unexpectedError"));
     } finally {
       setIsRunning(false);
     }
@@ -50,15 +52,15 @@ export function ControlPanel() {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(code);
-      toast.success("Code copied to clipboard");
+      toast.success(t("codeCopied"));
     } catch {
-      toast.error("Failed to copy code");
+      toast.error(t("copyFailed"));
     }
   };
 
   const handleClear = () => {
     clear();
-    toast.success("Code cleared");
+    toast.success(t("codeCleared"));
   };
 
   return (
@@ -71,22 +73,22 @@ export function ControlPanel() {
         {isRunning ? (
           <>
             <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-            Running...
+            {t("running")}
           </>
         ) : (
           <>
             <Play className="h-4 w-4 mr-2" />
-            Run
+            {t("run")}
           </>
         )}
       </Button>
       <Button variant="outline" onClick={handleCopy} disabled={isRunning}>
         <Copy className="h-4 w-4 mr-2" />
-        Copy
+        {t("copy")}
       </Button>
       <Button variant="outline" onClick={handleClear} disabled={isRunning}>
         <Trash2 className="h-4 w-4 mr-2" />
-        Clear
+        {t("clear")}
       </Button>
     </div>
   );

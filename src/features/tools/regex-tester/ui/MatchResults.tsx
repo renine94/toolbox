@@ -1,10 +1,12 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useRegexStore } from "../model/useRegexStore";
 import { AlertCircle, Check } from "lucide-react";
 
 export function MatchResults() {
-  const { testText, result, pattern } = useRegexStore();
+  const { testText, result } = useRegexStore();
+  const t = useTranslations("tools.regexTester.ui");
 
   // Render text with highlights
   const renderHighlightedText = () => {
@@ -57,18 +59,18 @@ export function MatchResults() {
     <div className="space-y-4 flex flex-col h-full">
       {/* Status */}
       <div className="flex items-center justify-between">
-        <p className="text-sm font-medium">매칭 결과</p>
+        <p className="text-sm font-medium">{t("matchResults")}</p>
         {result && (
           <div className="flex items-center gap-2 text-sm">
             {result.error ? (
               <span className="text-red-500 flex items-center gap-1">
                 <AlertCircle className="w-4 h-4" />
-                오류
+                {t("error")}
               </span>
             ) : (
               <span className="text-green-600 dark:text-green-400 flex items-center gap-1">
                 <Check className="w-4 h-4" />
-                {result.totalMatches}개 매칭
+                {t("matchCount", { count: result.totalMatches })}
               </span>
             )}
           </div>
@@ -92,7 +94,7 @@ export function MatchResults() {
       {/* Capture groups */}
       {result && result.matches.length > 0 && result.matches.some((m) => m.groups.length > 0) && (
         <div className="space-y-2">
-          <p className="text-sm font-medium">캡처 그룹</p>
+          <p className="text-sm font-medium">{t("captureGroups")}</p>
           <div className="max-h-[150px] overflow-auto space-y-2">
             {result.matches.map((match, i) => (
               <div
@@ -100,16 +102,16 @@ export function MatchResults() {
                 className="p-2 bg-muted/50 rounded border text-sm font-mono"
               >
                 <div className="text-muted-foreground text-xs mb-1">
-                  매칭 #{i + 1} (위치: {match.index})
+                  {t("matchNumber", { number: i + 1, position: match.index })}
                 </div>
                 <div className="text-foreground mb-1">
-                  전체: <span className="text-yellow-600 dark:text-yellow-400">{match.fullMatch}</span>
+                  {t("fullMatch")}: <span className="text-yellow-600 dark:text-yellow-400">{match.fullMatch}</span>
                 </div>
                 {match.groups.length > 0 && (
                   <div className="flex flex-wrap gap-2">
                     {match.groups.map((group, j) => (
                       <span key={j} className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900 rounded text-xs">
-                        ${j + 1}: {group || "(빈 문자열)"}
+                        ${j + 1}: {group || t("emptyString")}
                       </span>
                     ))}
                   </div>

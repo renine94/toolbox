@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { Copy, Trash2, Download } from "lucide-react";
 import { Button } from "@/shared/ui/button";
 import { Input } from "@/shared/ui/input";
@@ -15,33 +16,35 @@ export function BulkUuidList() {
   const setQuantity = useUuidStore((state) => state.setQuantity);
   const generateBulk = useUuidStore((state) => state.generateBulk);
   const clearBulk = useUuidStore((state) => state.clearBulk);
+  const t = useTranslations("tools.uuidGenerator.ui");
+  const tCommon = useTranslations("common.toast");
 
   const handleCopyAll = async () => {
     if (bulkUuids.length === 0) {
-      toast.error("복사할 UUID가 없습니다");
+      toast.error(t("noUuidToCopy"));
       return;
     }
     const text = bulkUuids.map((item) => item.uuid).join("\n");
     const success = await copyToClipboard(text);
     if (success) {
-      toast.success(`${bulkUuids.length}개의 UUID가 복사되었습니다`);
+      toast.success(t("copiedCount", { count: bulkUuids.length }));
     } else {
-      toast.error("복사에 실패했습니다");
+      toast.error(tCommon("copyError"));
     }
   };
 
   const handleCopySingle = async (uuid: string) => {
     const success = await copyToClipboard(uuid);
     if (success) {
-      toast.success("클립보드에 복사되었습니다");
+      toast.success(tCommon("copied"));
     } else {
-      toast.error("복사에 실패했습니다");
+      toast.error(tCommon("copyError"));
     }
   };
 
   const handleDownload = () => {
     if (bulkUuids.length === 0) {
-      toast.error("다운로드할 UUID가 없습니다");
+      toast.error(t("noUuidToDownload"));
       return;
     }
     const text = bulkUuids.map((item) => item.uuid).join("\n");
@@ -54,14 +57,14 @@ export function BulkUuidList() {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    toast.success("파일이 다운로드되었습니다");
+    toast.success(t("downloaded"));
   };
 
   return (
     <div className="space-y-4">
       <div className="flex items-end gap-4">
         <div className="space-y-2">
-          <Label htmlFor="quantity">생성 개수</Label>
+          <Label htmlFor="quantity">{t("quantity")}</Label>
           <Input
             id="quantity"
             type="number"
@@ -72,20 +75,20 @@ export function BulkUuidList() {
             className="w-24"
           />
         </div>
-        <Button onClick={generateBulk}>벌크 생성</Button>
+        <Button onClick={generateBulk}>{t("bulkGenerateButton")}</Button>
         {bulkUuids.length > 0 && (
           <>
             <Button variant="outline" onClick={handleCopyAll}>
               <Copy className="h-4 w-4 mr-2" />
-              전체 복사
+              {t("copyAll")}
             </Button>
             <Button variant="outline" onClick={handleDownload}>
               <Download className="h-4 w-4 mr-2" />
-              다운로드
+              {t("download")}
             </Button>
             <Button variant="ghost" onClick={clearBulk}>
               <Trash2 className="h-4 w-4 mr-2" />
-              초기화
+              {t("reset")}
             </Button>
           </>
         )}
@@ -119,7 +122,7 @@ export function BulkUuidList() {
 
       {bulkUuids.length === 0 && (
         <div className="h-[100px] flex items-center justify-center text-muted-foreground border rounded-lg">
-          생성 개수를 입력하고 벌크 생성 버튼을 클릭하세요
+          {t("emptyBulk")}
         </div>
       )}
     </div>

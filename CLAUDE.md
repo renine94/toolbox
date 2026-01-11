@@ -23,6 +23,7 @@
 | Python 실행 | Pyodide | 브라우저 Python 런타임 |
 | QR 코드 | qrcode.react | QR 코드 생성 |
 | 스크린샷 | html2canvas-pro | 요소 캡처 |
+| 다국어 | next-intl | 국제화(i18n), 번역 |
 
 ---
 
@@ -35,23 +36,26 @@ src/
 │   ├── globals.css               # 전역 스타일 (Tailwind)
 │   ├── providers/                # 앱 프로바이더
 │   │   └── query-provider.tsx
-│   ├── (main)/                   # 메인 도구 라우트 그룹
-│   │   ├── layout.tsx            # 메인 레이아웃 (Header, Footer)
-│   │   ├── page.tsx              # 홈 페이지 (/)
-│   │   ├── json-formatter/       # /json-formatter
-│   │   ├── base64-encoder/       # /base64-encoder
-│   │   ├── code-runner/          # /code-runner
-│   │   ├── color-picker/         # /color-picker
-│   │   ├── color-palette/        # /color-palette
-│   │   ├── gradient-generator/   # /gradient-generator
-│   │   ├── image-editor/         # /image-editor
-│   │   ├── markdown-editor/      # /markdown-editor
-│   │   ├── password-generator/   # /password-generator
-│   │   ├── qr-generator/         # /qr-generator
-│   │   └── regex-tester/         # /regex-tester
-│   └── admin/                    # 관리자 라우트
+│   ├── [locale]/                 # 다국어 라우트 (ko, en)
+│   │   ├── layout.tsx            # NextIntlClientProvider
+│   │   └── (main)/               # 메인 도구 라우트 그룹
+│   │       ├── layout.tsx        # 메인 레이아웃 (Header, Footer)
+│   │       ├── page.tsx          # 홈 페이지 (/ko, /en)
+│   │       ├── json-formatter/   # /ko/json-formatter, /en/json-formatter
+│   │       ├── base64-encoder/   # /ko/base64-encoder
+│   │       ├── code-runner/      # /ko/code-runner
+│   │       ├── color-picker/     # /ko/color-picker
+│   │       └── [기타 도구들]/    # 19개 도구
+│   └── admin/                    # 관리자 라우트 (다국어 제외)
 │       ├── login/                # /admin/login
-│       └── dashboard/            # /admin/dashboard (SidebarProvider)
+│       └── dashboard/            # /admin/dashboard
+│
+├── i18n/                         # 국제화 설정
+│   ├── routing.ts                # locale 라우팅 설정 (ko, en)
+│   ├── request.ts                # 서버 요청 설정
+│   └── navigation.ts             # Link, useRouter, usePathname
+│
+├── middleware.ts                 # locale 자동 리다이렉트
 │
 ├── widgets/                      # 독립적 대형 UI 블록
 │   ├── header/                   # 메인 헤더
@@ -109,6 +113,10 @@ src/
     │   └── utils.ts              # cn() 등
     ├── api/                      # API 클라이언트
     └── config/                   # 환경변수, 상수
+
+messages/                         # 번역 메시지 파일 (프로젝트 루트)
+├── ko.json                       # 한국어 번역
+└── en.json                       # 영어 번역
 ```
 
 ---
@@ -589,15 +597,142 @@ function ThemeToggle() {
 
 ---
 
-## 9. AI 개발 가이드
+## 9. 다국어(i18n) 가이드
 
-### 9.1 코드 생성 시 필수 체크리스트
+이 프로젝트는 **next-intl**을 사용하여 한국어(ko)와 영어(en)를 지원합니다.
+
+### 9.1 핵심 구조
+
+| 파일 | 역할 |
+|------|------|
+| `src/i18n/routing.ts` | locale 설정 (ko, en, 기본값: ko) |
+| `src/i18n/request.ts` | 서버에서 메시지 로드 |
+| `src/i18n/navigation.ts` | Link, useRouter, usePathname 제공 |
+| `src/middleware.ts` | locale 자동 리다이렉트 |
+| `messages/ko.json` | 한국어 번역 |
+| `messages/en.json` | 영어 번역 |
+
+### 9.2 URL 구조
+
+- `/ko/json-formatter` - 한국어 JSON Formatter
+- `/en/json-formatter` - 영어 JSON Formatter
+- `/admin/*` - 다국어 제외 (한국어만)
+
+### 9.3 메시지 파일 구조
+
+```json
+{
+  "common": {
+    "buttons": { "copy": "복사", "clear": "지우기" },
+    "toast": { "copied": "복사됨", "error": "오류" }
+  },
+  "metadata": {
+    "tools": {
+      "jsonFormatter": {
+        "title": "JSON Formatter - 개발자 도구",
+        "description": "...",
+        "heading": "JSON Formatter",
+        "subheading": "..."
+      }
+    }
+  },
+  "tools": {
+    "jsonFormatter": {
+      "name": "JSON Formatter",
+      "description": "...",
+      "ui": {
+        "inputLabel": "JSON 입력",
+        "format": "포맷팅"
+      }
+    }
+  }
+}
+```
+
+### 9.4 번역 사용하기
+
+**서버 컴포넌트 (페이지)**
+```tsx
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'metadata.tools.jsonFormatter' });
+  return { title: t('title'), description: t('description') };
+}
+
+export default async function Page({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: 'metadata.tools.jsonFormatter' });
+
+  return <h1>{t('heading')}</h1>;
+}
+```
+
+**클라이언트 컴포넌트**
+```tsx
+'use client';
+import { useTranslations } from 'next-intl';
+
+export function ToolComponent() {
+  const t = useTranslations('tools.jsonFormatter.ui');
+  const tCommon = useTranslations('common.toast');
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(text);
+    toast.success(tCommon('copied'));
+  };
+
+  return <Button>{t('format')}</Button>;
+}
+```
+
+### 9.5 다국어 Link 사용
+
+```tsx
+// ✅ 올바른 방법 - @/i18n/navigation 사용
+import { Link } from '@/i18n/navigation';
+
+<Link href="/json-formatter">JSON Formatter</Link>
+// → /ko/json-formatter 또는 /en/json-formatter 로 자동 변환
+
+// ❌ 잘못된 방법 - next/link 사용 금지
+import Link from 'next/link';  // locale이 추가되지 않음
+```
+
+### 9.6 플레이스홀더 사용
+
+```json
+// messages/ko.json
+"footer": { "copyright": "© {year} {brand}. 모든 권리 보유." }
+```
+
+```tsx
+const t = useTranslations('footer');
+t('copyright', { year: 2025, brand: 'ToolBox' });
+// → "© 2025 ToolBox. 모든 권리 보유."
+```
+
+---
+
+## 10. AI 개발 가이드
+
+### 10.1 코드 생성 시 필수 체크리스트
 
 **구조**
 - [ ] 올바른 FSD 레이어에 위치하는가?
 - [ ] index.ts로 Public API만 노출하는가?
 - [ ] import 방향이 하위로만 향하는가?
 - [ ] 클라이언트 컴포넌트에 `"use client"` 선언했는가?
+
+**다국어**
+- [ ] 번역 키가 `messages/ko.json`과 `messages/en.json`에 추가되었는가?
+- [ ] 하드코딩된 텍스트 대신 `useTranslations()` 또는 `getTranslations()` 사용하는가?
+- [ ] Link는 `@/i18n/navigation`에서 import하는가?
+- [ ] 페이지에 `generateMetadata` 함수가 있는가?
 
 **품질**
 - [ ] TypeScript 타입이 명확한가?
@@ -611,7 +746,7 @@ function ThemeToggle() {
 - [ ] 반응형(모바일) 대응이 되어있는가?
 - [ ] 다크모드를 지원하는가?
 
-### 9.2 새 도구 추가 시 작업 순서
+### 10.2 새 도구 추가 시 작업 순서
 
 1. **Feature 생성**: `src/features/tools/{tool-name}/`
    - `ui/ToolName.tsx` - 메인 컴포넌트
@@ -619,14 +754,19 @@ function ThemeToggle() {
    - `lib/utils.ts` - 유틸리티 (필요시)
    - `index.ts` - Public API
 
-2. **페이지 생성**: `src/app/(main)/{tool-name}/page.tsx`
-   - Feature 컴포넌트 import
-   - 페이지 레이아웃 구성
+2. **번역 추가**: `messages/ko.json`, `messages/en.json`
+   - `metadata.tools.{toolName}` - 메타데이터 (title, description, heading, subheading)
+   - `tools.{toolName}` - 이름, 설명, UI 텍스트
 
-3. **네비게이션 추가** (필요시):
+3. **페이지 생성**: `src/app/[locale]/(main)/{tool-name}/page.tsx`
+   - `generateMetadata` 함수 구현
+   - Feature 컴포넌트 import
+   - 서버 컴포넌트로 번역 적용
+
+4. **네비게이션 추가** (필요시):
    - `src/widgets/tools-grid/` 또는 관련 위젯 수정
 
-### 9.3 금지 사항
+### 10.3 금지 사항
 
 ```tsx
 // ❌ 하지 말 것
@@ -638,7 +778,7 @@ import { Button } from '@/shared/ui/button'     // 절대 경로
 import { cn } from '@/shared/lib/utils'         // 유틸리티
 ```
 
-### 9.4 도구 컴포넌트 작성 템플릿
+### 10.4 도구 컴포넌트 작성 템플릿
 
 ```tsx
 "use client"
@@ -718,7 +858,7 @@ export function ToolName({ initialValue = '' }: ToolNameProps) {
 
 ---
 
-## 10. 코드 리뷰 체크포인트
+## 11. 코드 리뷰 체크포인트
 
 ### 구조
 - [ ] 올바른 레이어에 위치하는가?
@@ -739,7 +879,7 @@ export function ToolName({ initialValue = '' }: ToolNameProps) {
 
 ---
 
-## 11. 개발 명령어
+## 12. 개발 명령어
 
 ```bash
 # 개발 서버 실행
@@ -760,7 +900,7 @@ npx shadcn@latest add [component-name]
 
 ---
 
-## 12. 참고 링크
+## 13. 참고 링크
 
 - [Next.js App Router Docs](https://nextjs.org/docs/app)
 - [TanStack Query Docs](https://tanstack.com/query/latest)
@@ -771,3 +911,4 @@ npx shadcn@latest add [component-name]
 - [Tailwind CSS Docs](https://tailwindcss.com/docs)
 - [Feature-Sliced Design](https://feature-sliced.design/)
 - [Lucide Icons](https://lucide.dev/icons/)
+- [next-intl Docs](https://next-intl-docs.vercel.app/)

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 import {
   Card,
   CardContent,
@@ -16,6 +17,7 @@ import { BulkPasswordList } from "./BulkPasswordList";
 
 export function PasswordGenerator() {
   const generate = usePasswordStore((state) => state.generate);
+  const t = useTranslations("tools.passwordGenerator.ui");
 
   useEffect(() => {
     generate();
@@ -26,9 +28,9 @@ export function PasswordGenerator() {
       <div className="grid gap-6 lg:grid-cols-[1fr_400px]">
         <Card>
           <CardHeader>
-            <CardTitle>비밀번호</CardTitle>
+            <CardTitle>{t("password")}</CardTitle>
             <CardDescription>
-              안전한 랜덤 비밀번호를 생성합니다
+              {t("passwordDescription")}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -38,14 +40,14 @@ export function PasswordGenerator() {
 
         <Card>
           <CardHeader>
-            <CardTitle>옵션</CardTitle>
-            <CardDescription>비밀번호 생성 옵션을 설정하세요</CardDescription>
+            <CardTitle>{t("options")}</CardTitle>
+            <CardDescription>{t("optionsDescription")}</CardDescription>
           </CardHeader>
           <CardContent>
             <PasswordOptions />
             <div className="mt-6">
               <Button onClick={generate} className="w-full">
-                새 비밀번호 생성
+                {t("generateNew")}
               </Button>
             </div>
           </CardContent>
@@ -54,9 +56,9 @@ export function PasswordGenerator() {
 
       <Card>
         <CardHeader>
-          <CardTitle>벌크 생성</CardTitle>
+          <CardTitle>{t("bulkGenerate")}</CardTitle>
           <CardDescription>
-            여러 개의 비밀번호를 한 번에 생성합니다
+            {t("bulkDescription")}
           </CardDescription>
         </CardHeader>
         <CardContent>
