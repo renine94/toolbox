@@ -81,6 +81,7 @@
 | Image Compressor | 이미지 용량 압축 | ⭐⭐ | ⬜ 대기 |
 | Image Upscaler | 이미지 업스케일링 | ⭐⭐ | ✅ 완료 |
 | PDF Compressor | PDF 용량 압축 | ⭐⭐ | ⬜ 대기 |
+| WebP to PNG | WebP 이미지 변환 | ⭐⭐ | ⬜ 대기 |
 | Image to Base64 | 이미지와 Base64 상호 변환 | ⭐ | ⬜ 대기 |
 | Screenshot to Code | 스크린샷에서 색상 추출 | ⭐⭐ | ⬜ 대기 |
 | Screenshot to Text | 스크린샷에서 텍스트 추출 | ⭐⭐ | ⬜ 대기 |
