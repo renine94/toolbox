@@ -10,5 +10,9 @@ export const config = {
   // - _vercel: Vercel 내부 파일
   // - admin: Admin 페이지 (한국어 고정)
   // - .*\\..* : 정적 파일 (이미지, CSS, JS 등)
-  matcher: ["/((?!api|_next|_vercel|admin|.*\\..*).*)", "/"],
+  matcher: [
+    // 미들웨어 적용 제외 대상
+    "/((?!api|_next|_vercel|admin|robots.txt|sitemap.xml|.*\\..*).*)",
+    "/",
+  ],
 };
