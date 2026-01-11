@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Metadata } from "next";
+import Script from "next/script";
 import { QueryProvider } from "./providers/query-provider";
 import { ThemeProvider } from "./providers/theme-provider";
 import { Toaster } from "@/shared/ui/sonner";
@@ -30,6 +31,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
+      <head>
+        {/* Google AdSense 자동 광고 */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2576963304499429"
+          crossOrigin="anonymous"
+          strategy="lazyOnload"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
