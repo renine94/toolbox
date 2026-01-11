@@ -82,6 +82,13 @@ const categories: Category[] = [
         icon: "🎫",
         status: "available",
       },
+      {
+        id: "diff-checker",
+        name: "Diff Checker",
+        description: "두 텍스트의 차이점을 비교하고 시각적으로 확인하세요.",
+        icon: "⇆",
+        status: "available",
+      },
     ],
   },
   {

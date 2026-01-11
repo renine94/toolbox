@@ -4,7 +4,7 @@
 
 ---
 
-## 현재 구현된 도구 (18개)
+## 현재 구현된 도구 (19개)
 
 | 도구명 | 라우트 | 상태 |
 |--------|--------|------|
@@ -26,6 +26,7 @@
 | Code Runner | `/code-runner` | ✅ 완료 |
 | UUID Generator | `/uuid-generator` | ✅ 완료 |
 | JWT Decoder | `/jwt-decoder` | ✅ 완료 |
+| Diff Checker | `/diff-checker` | ✅ 완료 |
 
 ---
 
@@ -39,7 +40,7 @@
 | Hash Generator | MD5, SHA-1, SHA-256 해시 생성 | ⭐ | ⬜ 대기 |
 | JWT Decoder | JWT 토큰 디코드/인코드/검증 | ⭐⭐ | ✅ 완료 |
 | URL Encoder/Decoder | URL 인코딩/디코딩 | ⭐ | ⬜ 대기 |
-| Diff Checker | 두 텍스트 비교 (diff-match-patch) | ⭐⭐ | ⬜ 대기 |
+| Diff Checker | 두 텍스트 비교 (diff-match-patch) | ⭐⭐ | ✅ 완료 |
 | Cron Expression Parser | Cron 표현식 해석 및 생성 | ⭐⭐ | ⬜ 대기 |
 | SQL Formatter | SQL 쿼리 포맷팅/정리 | ⭐⭐ | ⬜ 대기 |
 | HTTP Status Codes | HTTP 상태 코드 레퍼런스 | ⭐ | ⬜ 대기 |
@@ -147,3 +148,4 @@
 | 2025-01-10 | 초기 TODO 목록 작성 |
 | 2025-01-10 | UUID Generator 구현 완료 |
 | 2025-01-11 | JWT Decoder 구현 완료 |
+| 2025-01-11 | Diff Checker 구현 완료 |
