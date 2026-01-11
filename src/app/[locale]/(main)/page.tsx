@@ -133,6 +133,13 @@ export default function Home() {
           icon: "⬆️",
           status: "available",
         },
+        {
+          id: "image-converter",
+          name: t("imageConverter.name"),
+          description: t("imageConverter.description"),
+          icon: "🔄",
+          status: "available",
+        },
       ],
     },
     {

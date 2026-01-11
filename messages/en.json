@@ -170,6 +170,12 @@
         "description": "Upscale images by 2x, 3x, or 4x with AI-powered enhancement for minimal quality loss.",
         "heading": "Image Upscaler",
         "subheading": "Enhance image resolution for sharper, clearer images."
+      },
+      "imageConverter": {
+        "title": "Image Converter - Designer Tools",
+        "description": "Convert between WebP, PNG, JPEG, GIF and more image formats easily. Supports batch conversion and resizing.",
+        "heading": "Image Converter",
+        "subheading": "Convert between various image formats with ease."
       }
     }
   },
@@ -578,6 +584,103 @@
           "unsupportedFormat": "Unsupported file format",
           "loadError": "Failed to load image"
         }
+      }
+    },
+    "imageConverter": {
+      "name": "Image Converter",
+      "description": "Convert between various image formats with ease.",
+      "ui": {
+        "upload": {
+          "title": "Upload Images",
+          "description": "Drag and drop images or click to select",
+          "formats": "WebP, PNG, JPEG, GIF, BMP, TIFF, AVIF, SVG supported",
+          "limits": "Max {maxSize}MB, {maxDimension}px | {remaining}/{max} slots available",
+          "selectFiles": "Select Files"
+        },
+        "preview": {
+          "title": "Uploaded Images",
+          "fileCount": "{count} files",
+          "clearAll": "Clear All",
+          "addMore": "Add More",
+          "status": {
+            "pending": "Pending",
+            "converting": "Converting",
+            "completed": "Completed",
+            "error": "Error"
+          }
+        },
+        "settings": {
+          "title": "Conversion Settings",
+          "outputFormat": "Output Format",
+          "quality": "Quality",
+          "backgroundColor": "Background Color",
+          "backgroundColorHint": "Color to fill transparent areas",
+          "preserveTransparency": "Preserve Transparency",
+          "preserveTransparencyHint": "Keep transparent background for PNG, WebP formats",
+          "resize": {
+            "title": "Resize",
+            "mode": "Resize Mode",
+            "modes": {
+              "none": "Original Size",
+              "percentage": "Percentage (%)",
+              "dimensions": "Custom Size",
+              "width": "By Width",
+              "height": "By Height"
+            },
+            "percentage": "Percentage",
+            "width": "Width (px)",
+            "height": "Height (px)",
+            "maintainAspectRatio": "Maintain Aspect Ratio"
+          },
+          "convertButton": "Convert {count} Images",
+          "cancel": "Cancel"
+        },
+        "progress": {
+          "title": "Converting...",
+          "processing": "Processing {current}/{total}",
+          "currentFile": "Current file",
+          "cancel": "Cancel"
+        },
+        "result": {
+          "title": "Conversion Complete",
+          "completedCount": "{count} completed",
+          "original": "Original",
+          "converted": "Converted",
+          "downloadSingle": "Download",
+          "downloadAll": "Download All (ZIP)"
+        },
+        "reset": {
+          "button": "Reset",
+          "success": "Reset completed"
+        }
+      },
+      "formats": {
+        "png": {
+          "description": "Lossless compression, transparency support"
+        },
+        "jpeg": {
+          "description": "Lossy compression, smaller file size"
+        },
+        "webp": {
+          "description": "Modern format, excellent compression"
+        },
+        "gif": {
+          "description": "Animation support, 256 colors"
+        },
+        "bmp": {
+          "description": "Uncompressed, large file size"
+        }
+      },
+      "toast": {
+        "conversionComplete": "Conversion complete",
+        "conversionError": "Error during conversion",
+        "downloadComplete": "Download complete",
+        "downloadError": "Error during download",
+        "fileTooLarge": "File size too large (Max 10MB)",
+        "dimensionTooLarge": "Image dimensions too large (Max 4096px)",
+        "unsupportedFormat": "Unsupported file format",
+        "loadError": "Failed to load image",
+        "maxFilesReached": "Maximum file limit reached (Max 10 files)"
       }
     }
   }
