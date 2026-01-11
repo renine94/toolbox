@@ -75,6 +75,13 @@ const categories: Category[] = [
         icon: "🔑",
         status: "available",
       },
+      {
+        id: "jwt-decoder",
+        name: "JWT Decoder",
+        description: "JWT 토큰을 디코드하여 Header, Payload를 확인하고 유효성을 검증합니다.",
+        icon: "🎫",
+        status: "available",
+      },
     ],
   },
   {
