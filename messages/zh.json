@@ -1,0 +1,687 @@
+{
+  "common": {
+    "buttons": {
+      "copy": "复制",
+      "paste": "粘贴",
+      "clear": "清除",
+      "generate": "生成",
+      "download": "下载",
+      "save": "保存",
+      "delete": "删除",
+      "apply": "应用",
+      "reset": "重置",
+      "close": "关闭",
+      "viewAll": "查看全部"
+    },
+    "toast": {
+      "copied": "已复制到剪贴板",
+      "copyError": "复制失败",
+      "saved": "保存成功",
+      "deleted": "删除成功",
+      "error": "发生错误",
+      "success": "操作成功",
+      "pasted": "已从剪贴板粘贴",
+      "noPermission": "剪贴板访问被拒绝"
+    },
+    "labels": {
+      "input": "输入",
+      "output": "输出",
+      "options": "选项",
+      "preview": "预览",
+      "result": "结果",
+      "history": "历史记录",
+      "settings": "设置"
+    },
+    "a11y": {
+      "toggleTheme": "切换主题"
+    }
+  },
+  "navigation": {
+    "tools": "工具",
+    "categories": "分类",
+    "about": "关于",
+    "brand": "ToolBox"
+  },
+  "footer": {
+    "copyright": "© {year} {brand}. 保留所有权利。"
+  },
+  "metadata": {
+    "home": {
+      "title": "ToolBox - 在线工具集合",
+      "description": "为开发人员、设计师和营销人员提供的实用在线工具集合。免费工具包括JSON格式化器、颜色选择器、二维码生成器等。"
+    },
+    "tools": {
+      "jsonFormatter": {
+        "title": "JSON格式化器 - 开发者工具",
+        "description": "使用此免费在线工具格式化、验证和压缩JSON数据。",
+        "heading": "JSON格式化器",
+        "subheading": "使用我们的免费格式化器美化您的JSON数据。轻松验证、压缩和复制。"
+      },
+      "base64Encoder": {
+        "title": "Base64编码器/解码器 - 开发者工具",
+        "description": "轻松将文本和数据编码为Base64格式或从Base64解码。",
+        "heading": "Base64编码器",
+        "subheading": "将文本编码为Base64或将Base64解码为文本。"
+      },
+      "colorPicker": {
+        "title": "颜色选择器 - 设计师工具",
+        "description": "选择并转换HEX、RGB、HSL格式的颜色。",
+        "heading": "颜色选择器",
+        "subheading": "选择并转换各种格式的颜色。"
+      },
+      "codeRunner": {
+        "title": "代码运行器 - 开发者工具",
+        "description": "直接在浏览器中运行JavaScript和Python代码。",
+        "heading": "代码运行器",
+        "subheading": "在浏览器中即时执行JavaScript和Python代码。"
+      },
+      "regexTester": {
+        "title": "正则表达式测试器 - 开发者工具",
+        "description": "实时测试正则表达式并查看匹配结果。",
+        "heading": "正则表达式测试器",
+        "subheading": "测试正则表达式模式并即时查看匹配结果。"
+      },
+      "uuidGenerator": {
+        "title": "UUID生成器 - 开发者工具",
+        "description": "生成UUID v1、v4、v7并转换为各种格式。",
+        "heading": "UUID生成器",
+        "subheading": "生成唯一的UUID并转换为各种格式。"
+      },
+      "jwtDecoder": {
+        "title": "JWT解码器 - 开发者工具",
+        "description": "解码JWT令牌以查看Header、Payload并进行验证。",
+        "heading": "JWT解码器",
+        "subheading": "分析JWT令牌并验证其有效性。"
+      },
+      "diffChecker": {
+        "title": "差异比较器 - 开发者工具",
+        "description": "比较两段文本并直观地识别差异。",
+        "heading": "差异比较器",
+        "subheading": "比较两段文本并查看差异。"
+      },
+      "colorPalette": {
+        "title": "调色板 - 设计师工具",
+        "description": "生成和管理和谐的调色板。",
+        "heading": "调色板",
+        "subheading": "创建和保存和谐的颜色组合。"
+      },
+      "imageEditor": {
+        "title": "图片编辑器 - 设计师工具",
+        "description": "调整大小、裁剪和应用图片滤镜。",
+        "heading": "图片编辑器",
+        "subheading": "编辑图片并应用各种滤镜。"
+      },
+      "gradientGenerator": {
+        "title": "渐变生成器 - 设计师工具",
+        "description": "可视化创建CSS渐变并复制代码。",
+        "heading": "渐变生成器",
+        "subheading": "轻松创建漂亮的CSS渐变。"
+      },
+      "qrGenerator": {
+        "title": "二维码生成器 - 营销工具",
+        "description": "从URL、文本或联系信息生成二维码。",
+        "heading": "二维码生成器",
+        "subheading": "为各种类型的信息创建二维码。"
+      },
+      "linkShortener": {
+        "title": "链接缩短器 - 营销工具",
+        "description": "将长URL转换为短而易记的链接。",
+        "heading": "链接缩短器",
+        "subheading": "将长URL缩短为易于记忆的链接。"
+      },
+      "markdownEditor": {
+        "title": "Markdown编辑器 - 写作工具",
+        "description": "使用实时预览编写Markdown文档。",
+        "heading": "Markdown编辑器",
+        "subheading": "编写和预览Markdown文档。"
+      },
+      "wordCounter": {
+        "title": "字数统计器 - 写作工具",
+        "description": "统计和分析字符、单词和句子数量。",
+        "heading": "字数统计器",
+        "subheading": "分析文本的字符、单词和句子数量。"
+      },
+      "loremIpsum": {
+        "title": "Lorem Ipsum生成器 - 写作工具",
+        "description": "以各种格式生成占位文本。",
+        "heading": "Lorem Ipsum生成器",
+        "subheading": "为您的设计生成占位文本。"
+      },
+      "unitConverter": {
+        "title": "单位转换器 - 效率工具",
+        "description": "转换各种单位，包括长度、重量和温度。",
+        "heading": "单位转换器",
+        "subheading": "轻松在不同单位之间进行转换。"
+      },
+      "timezoneConverter": {
+        "title": "时区转换器 - 效率工具",
+        "description": "转换世界各地的时区。",
+        "heading": "时区转换器",
+        "subheading": "轻松在世界时区之间进行转换。"
+      },
+      "passwordGenerator": {
+        "title": "密码生成器 - 效率工具",
+        "description": "生成安全的随机密码。",
+        "heading": "密码生成器",
+        "subheading": "创建强大且安全的密码。"
+      },
+      "imageUpscaler": {
+        "title": "图片放大器 - 设计师工具",
+        "description": "使用AI增强功能将图片放大2倍、3倍或4倍，同时保持最小的质量损失。",
+        "heading": "图片放大器",
+        "subheading": "增强图片分辨率，获得更清晰的图像。"
+      },
+      "imageConverter": {
+        "title": "图片转换器 - 设计师工具",
+        "description": "轻松在WebP、PNG、JPEG、GIF等图片格式之间进行转换。支持批量转换和调整大小。",
+        "heading": "图片转换器",
+        "subheading": "轻松在各种图片格式之间进行转换。"
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "持续添加新工具",
+      "titleLine1": "一站式工具",
+      "titleLine2": "提升您的效率",
+      "description": "为开发人员、设计师、营销人员和所有专业人士提供的实用在线工具集合。"
+    },
+    "stats": {
+      "tools": "工具",
+      "categories": "分类",
+      "price": "价格",
+      "usage": "使用量",
+      "free": "免费",
+      "unlimited": "∞"
+    },
+    "developer": {
+      "title": "开发者",
+      "subtitle": "认识这项服务背后的创作者。",
+      "role": "全栈开发工程师",
+      "bio": "用激情编码构建这个项目。持续开发常用功能。AI Click!",
+      "techStackLabel": "常用技术栈"
+    },
+    "toolsGrid": {
+      "toolCount": "{count} 个工具"
+    }
+  },
+  "categories": {
+    "developer": {
+      "name": "开发者",
+      "nameKo": "开发者"
+    },
+    "designer": {
+      "name": "设计师",
+      "nameKo": "设计师"
+    },
+    "marketer": {
+      "name": "营销人员",
+      "nameKo": "营销人员"
+    },
+    "writer": {
+      "name": "写作者",
+      "nameKo": "写作/编辑"
+    },
+    "productivity": {
+      "name": "效率工具",
+      "nameKo": "效率工具"
+    }
+  },
+  "tools": {
+    "jsonFormatter": {
+      "name": "JSON格式化器",
+      "description": "美化JSON数据并验证其结构。",
+      "ui": {
+        "inputLabel": "输入JSON",
+        "inputPlaceholder": "在此粘贴您的JSON...",
+        "outputLabel": "输出",
+        "outputPlaceholder": "格式化后的JSON将显示在这里...",
+        "format": "格式化",
+        "minify": "压缩",
+        "copy": "复制",
+        "clear": "清除",
+        "nothingToCopy": "没有可复制的内容"
+      }
+    },
+    "base64Encoder": {
+      "name": "Base64编码器",
+      "description": "将文本或数据编码为Base64格式或从Base64解码。",
+      "ui": {
+        "encoder": "编码器",
+        "decoder": "解码器",
+        "input": "输入",
+        "output": "输出",
+        "result": "结果",
+        "inputPlaceholder": {
+          "encode": "输入内容...",
+          "decode": "粘贴Base64字符串..."
+        },
+        "inputDescription": {
+          "encode": "输入要编码的文本",
+          "decode": "输入要解码的Base64字符串"
+        },
+        "outputPlaceholder": "结果将显示在这里...",
+        "clear": "清除",
+        "copy": "复制",
+        "copyResult": "复制结果",
+        "encodeButton": "编码为Base64",
+        "decodeButton": "从Base64解码"
+      }
+    },
+    "colorPicker": {
+      "name": "颜色选择器",
+      "description": "选择并转换各种格式的颜色（HEX、RGB、HSL）。",
+      "ui": {
+        "presets": "预设",
+        "clipboardDenied": "剪贴板访问被拒绝"
+      }
+    },
+    "codeRunner": {
+      "name": "代码运行器",
+      "description": "运行包括JavaScript和Python在内的各种语言的代码。",
+      "ui": {
+        "run": "运行",
+        "running": "运行中...",
+        "copy": "复制",
+        "clear": "清除",
+        "output": "输出",
+        "executionTime": "执行时间",
+        "loadingPython": "正在加载Python运行时...",
+        "noOutput": "无输出",
+        "clickToRun": "点击\"运行\"执行您的代码",
+        "enterCode": "请输入要运行的代码",
+        "executedIn": "执行时间：{time}毫秒",
+        "executionFailed": "执行失败",
+        "unexpectedError": "发生意外错误",
+        "codeCopied": "代码已复制到剪贴板",
+        "copyFailed": "复制代码失败",
+        "codeCleared": "代码已清除",
+        "tips": "提示",
+        "tipJs": "JavaScript：使用console.log()输出值",
+        "tipPython": "Python：使用print()输出值",
+        "tipTimeout": "执行超时：JavaScript（5秒），Python（10秒）",
+        "tipPythonLoad": "Python运行时在首次执行时加载（可能需要几秒钟）"
+      }
+    },
+    "regexTester": {
+      "name": "正则表达式测试器",
+      "description": "测试正则表达式并查看匹配结果。",
+      "ui": {
+        "cheatsheet": "速查表",
+        "history": "历史记录",
+        "pattern": "正则表达式模式",
+        "patternPlaceholder": "输入模式...",
+        "testString": "测试字符串",
+        "testStringPlaceholder": "输入要测试的文本...",
+        "matchResults": "匹配结果",
+        "error": "错误",
+        "matchCount": "{count} 个匹配",
+        "captureGroups": "捕获组",
+        "matchNumber": "匹配 #{number}（位置：{position}）",
+        "fullMatch": "完整匹配",
+        "emptyString": "（空字符串）"
+      }
+    },
+    "uuidGenerator": {
+      "name": "UUID生成器",
+      "description": "生成唯一的UUID（v1、v4、v7）并转换为各种格式。",
+      "ui": {
+        "title": "UUID生成器",
+        "titleDescription": "生成唯一的UUID（通用唯一标识符）",
+        "options": "选项",
+        "optionsDescription": "配置UUID生成选项",
+        "generateNew": "生成新UUID",
+        "bulkGenerate": "批量生成",
+        "bulkDescription": "一次生成多个UUID",
+        "history": "历史记录",
+        "historyDescription": "最近生成的UUID（最多50个）",
+        "version": "UUID版本",
+        "uppercase": "大写",
+        "uppercaseDescription": "以大写显示UUID",
+        "hyphens": "包含连字符",
+        "hyphensDescription": "在UUID中包含连字符（-）",
+        "braces": "用大括号包裹",
+        "bracesDescription": "用大括号包裹UUID",
+        "quantity": "数量",
+        "bulkGenerateButton": "批量生成",
+        "copyAll": "全部复制",
+        "download": "下载",
+        "reset": "重置",
+        "emptyBulk": "输入数量并点击批量生成按钮",
+        "emptyHistory": "没有UUID历史记录",
+        "recentCount": "最近 {count} 个",
+        "deleteAll": "全部删除",
+        "placeholder": "点击生成按钮",
+        "copyTooltip": "复制",
+        "generateTooltip": "生成新的",
+        "versionLabel": "版本",
+        "lengthLabel": "长度",
+        "lengthUnit": "字符",
+        "noUuidToCopy": "没有可复制的UUID",
+        "noUuidToDownload": "没有可下载的UUID",
+        "copiedCount": "已复制 {count} 个UUID",
+        "downloaded": "文件已下载",
+        "versions": {
+          "v1": {
+            "name": "UUID v1",
+            "description": "基于时间戳+MAC地址（时间排序）"
+          },
+          "v4": {
+            "name": "UUID v4",
+            "description": "完全随机生成（最常用）"
+          },
+          "v7": {
+            "name": "UUID v7",
+            "description": "Unix时间戳+随机（可排序，最新标准）"
+          }
+        }
+      }
+    },
+    "jwtDecoder": {
+      "name": "JWT解码器",
+      "description": "解码JWT令牌以查看Header、Payload并进行验证。",
+      "ui": {
+        "tokenInput": "JWT令牌输入",
+        "tokenInputDescription": "输入要解码的JWT令牌",
+        "exampleValid": "示例（有效）",
+        "exampleExpired": "示例（已过期）",
+        "paste": "粘贴",
+        "clear": "清除",
+        "validationStatus": "验证状态",
+        "formatValid": "格式有效",
+        "formatError": "格式错误",
+        "tokenExpired": "令牌已过期",
+        "expired": "已过期",
+        "valid": "有效",
+        "header": "头部",
+        "payload": "载荷",
+        "payloadDescription": "令牌中包含的数据（Claims）",
+        "signature": "签名",
+        "signatureDescription": "签名（只能在服务器端验证）",
+        "claimInfo": "Claim信息",
+        "copyComplete": "复制完成",
+        "emptyState": "输入JWT令牌",
+        "emptyStateResult": "解码结果将显示在这里"
+      }
+    },
+    "diffChecker": {
+      "name": "差异比较器",
+      "description": "比较两段文本并直观地识别差异。"
+    },
+    "colorPalette": {
+      "name": "调色板",
+      "description": "生成和管理和谐的调色板。",
+      "ui": {
+        "colorSettings": "颜色设置",
+        "generatedPalette": "生成的调色板",
+        "imageExtraction": "图片提取",
+        "export": "导出",
+        "savedPalettes": "已保存的调色板"
+      }
+    },
+    "imageEditor": {
+      "name": "图片编辑器",
+      "description": "调整大小、裁剪和应用图片滤镜。",
+      "ui": {
+        "filters": "滤镜",
+        "transform": "变换",
+        "resize": "调整大小"
+      }
+    },
+    "gradientGenerator": {
+      "name": "渐变生成器",
+      "description": "可视化创建CSS渐变。",
+      "ui": {
+        "preview": "预览",
+        "gradientSettings": "渐变设置",
+        "colorStops": "颜色节点",
+        "presets": "预设",
+        "codeOutput": "代码输出",
+        "savedGradients": "已保存的渐变"
+      }
+    },
+    "qrGenerator": {
+      "name": "二维码生成器",
+      "description": "从URL、文本或联系信息生成二维码。",
+      "ui": {
+        "preview": "预览",
+        "input": "输入",
+        "settings": "设置",
+        "savedQRCodes": "已保存的二维码"
+      }
+    },
+    "linkShortener": {
+      "name": "链接缩短器",
+      "description": "将长URL转换为短而易记的链接。"
+    },
+    "markdownEditor": {
+      "name": "Markdown编辑器",
+      "description": "使用实时预览编写Markdown文档。",
+      "ui": {
+        "titlePlaceholder": "输入文档标题",
+        "edit": "编辑",
+        "preview": "预览"
+      }
+    },
+    "wordCounter": {
+      "name": "字数统计器",
+      "description": "统计和分析字符、单词和句子数量。"
+    },
+    "loremIpsum": {
+      "name": "Lorem Ipsum生成器",
+      "description": "以各种格式生成占位文本。",
+      "ui": {
+        "options": "选项",
+        "optionsDescription": "设置要生成的文本格式和数量",
+        "loremIpsum": "Lorem Ipsum",
+        "generatedText": "生成的占位文本"
+      }
+    },
+    "unitConverter": {
+      "name": "单位转换器",
+      "description": "转换各种单位，包括长度、重量和温度。",
+      "ui": {
+        "valueToConvert": "要转换的值",
+        "conversionResult": "转换结果",
+        "reset": "重置"
+      }
+    },
+    "timezoneConverter": {
+      "name": "时区转换器",
+      "description": "转换世界各地的时区。",
+      "ui": {
+        "conversionResult": "转换结果"
+      }
+    },
+    "passwordGenerator": {
+      "name": "密码生成器",
+      "description": "生成安全的随机密码。",
+      "ui": {
+        "password": "密码",
+        "passwordDescription": "生成安全的随机密码",
+        "options": "选项",
+        "optionsDescription": "配置密码生成选项",
+        "generateNew": "生成新密码",
+        "bulkGenerate": "批量生成",
+        "bulkDescription": "一次生成多个密码",
+        "length": "密码长度",
+        "charTypes": "字符类型",
+        "uppercase": "大写字母 (A-Z)",
+        "lowercase": "小写字母 (a-z)",
+        "numbers": "数字 (0-9)",
+        "symbols": "符号 (!@#$%...)",
+        "additionalOptions": "其他选项",
+        "excludeAmbiguous": "排除易混淆字符 (l, 1, I, O, 0)",
+        "excludeChars": "排除字符",
+        "excludeCharsPlaceholder": "输入要排除的字符",
+        "quantity": "数量",
+        "quantityUnit": "",
+        "generateCount": "生成 {count} 个",
+        "copyAll": "全部复制",
+        "generatePassword": "生成密码",
+        "copied": "密码已复制",
+        "copiedCount": "已复制 {count} 个密码",
+        "copyError": "复制失败",
+        "strength": "密码强度",
+        "strengthLabels": {
+          "weak": "弱",
+          "fair": "一般",
+          "good": "良好",
+          "strong": "强",
+          "excellent": "极强"
+        }
+      }
+    },
+    "imageUpscaler": {
+      "name": "图片放大器",
+      "description": "增强图片分辨率，获得更清晰的图像。",
+      "ui": {
+        "upload": {
+          "title": "上传图片",
+          "description": "拖放图片或点击选择",
+          "formats": "支持PNG、JPG、WEBP（最大10MB，4096px）",
+          "selectFile": "选择文件",
+          "loading": "加载中..."
+        },
+        "preview": {
+          "title": "预览",
+          "original": "原始",
+          "upscaled": "放大后",
+          "compare": "对比",
+          "processing": "处理中...",
+          "dragToCompare": "拖动滑块进行对比"
+        },
+        "controls": {
+          "title": "放大设置",
+          "scale": "倍率",
+          "algorithm": "算法",
+          "estimatedSize": "预计大小",
+          "processButton": "开始放大",
+          "processing": "处理中... {progress}%",
+          "cancel": "取消"
+        },
+        "algorithm": {
+          "bilinear": "双线性",
+          "bilinearDesc": "快速，基本质量",
+          "bicubic": "双三次",
+          "bicubicDesc": "速度和质量平衡",
+          "lanczos3": "Lanczos3",
+          "lanczos3Desc": "最佳质量，较慢"
+        },
+        "export": {
+          "title": "下载",
+          "format": "格式",
+          "quality": "质量",
+          "download": "下载",
+          "reset": "新图片"
+        },
+        "toast": {
+          "processComplete": "放大完成！",
+          "processError": "放大处理时出错",
+          "downloadComplete": "图片已下载",
+          "fileTooLarge": "文件太大（最大10MB）",
+          "dimensionTooLarge": "图片尺寸太大（最大4096px）",
+          "unsupportedFormat": "不支持的文件格式",
+          "loadError": "加载图片失败"
+        }
+      }
+    },
+    "imageConverter": {
+      "name": "图片转换器",
+      "description": "轻松在各种图片格式之间进行转换。",
+      "ui": {
+        "upload": {
+          "title": "上传图片",
+          "description": "拖放图片或点击选择",
+          "formats": "支持WebP、PNG、JPEG、GIF、BMP、TIFF、AVIF、SVG",
+          "limits": "最大{maxSize}MB，{maxDimension}px | 剩余{remaining}/{max}个位置",
+          "selectFiles": "选择文件"
+        },
+        "preview": {
+          "title": "已上传的图片",
+          "fileCount": "{count} 个文件",
+          "clearAll": "全部清除",
+          "addMore": "添加更多",
+          "status": {
+            "pending": "待处理",
+            "converting": "转换中",
+            "completed": "已完成",
+            "error": "错误"
+          }
+        },
+        "settings": {
+          "title": "转换设置",
+          "outputFormat": "输出格式",
+          "quality": "质量",
+          "backgroundColor": "背景颜色",
+          "backgroundColorHint": "填充透明区域的颜色",
+          "preserveTransparency": "保留透明度",
+          "preserveTransparencyHint": "为PNG、WebP格式保留透明背景",
+          "resize": {
+            "title": "调整大小",
+            "mode": "调整模式",
+            "modes": {
+              "none": "原始大小",
+              "percentage": "百分比 (%)",
+              "dimensions": "自定义大小",
+              "width": "按宽度",
+              "height": "按高度"
+            },
+            "percentage": "百分比",
+            "width": "宽度 (px)",
+            "height": "高度 (px)",
+            "maintainAspectRatio": "保持宽高比"
+          },
+          "convertButton": "转换 {count} 张图片",
+          "cancel": "取消"
+        },
+        "progress": {
+          "title": "转换中...",
+          "processing": "正在处理 {current}/{total}",
+          "currentFile": "当前文件",
+          "cancel": "取消"
+        },
+        "result": {
+          "title": "转换完成",
+          "completedCount": "已完成 {count} 个",
+          "original": "原始",
+          "converted": "已转换",
+          "downloadSingle": "下载",
+          "downloadAll": "全部下载 (ZIP)"
+        },
+        "reset": {
+          "button": "重置",
+          "success": "重置完成"
+        }
+      },
+      "formats": {
+        "png": {
+          "description": "无损压缩，支持透明度"
+        },
+        "jpeg": {
+          "description": "有损压缩，文件更小"
+        },
+        "webp": {
+          "description": "现代格式，优秀的压缩效果"
+        },
+        "gif": {
+          "description": "支持动画，256色"
+        },
+        "bmp": {
+          "description": "无压缩，文件较大"
+        }
+      },
+      "toast": {
+        "conversionComplete": "转换完成",
+        "conversionError": "转换时出错",
+        "downloadComplete": "下载完成",
+        "downloadError": "下载时出错",
+        "fileTooLarge": "文件太大（最大10MB）",
+        "dimensionTooLarge": "图片尺寸太大（最大4096px）",
+        "unsupportedFormat": "不支持的文件格式",
+        "loadError": "加载图片失败",
+        "maxFilesReached": "已达到最大文件数量（最多10个）"
+      }
+    }
+  }
+}

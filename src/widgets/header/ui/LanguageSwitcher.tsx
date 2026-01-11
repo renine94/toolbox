@@ -15,11 +15,15 @@ import { Languages } from "lucide-react";
 const localeNames: Record<Locale, string> = {
   ko: "한국어",
   en: "English",
+  zh: "中文",
+  ja: "日本語",
 };
 
 const localeFlags: Record<Locale, string> = {
   ko: "🇰🇷",
   en: "🇺🇸",
+  zh: "🇨🇳",
+  ja: "🇯🇵",
 };
 
 export function LanguageSwitcher() {

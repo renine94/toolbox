@@ -1,0 +1,687 @@
+{
+  "common": {
+    "buttons": {
+      "copy": "コピー",
+      "paste": "貼り付け",
+      "clear": "クリア",
+      "generate": "生成",
+      "download": "ダウンロード",
+      "save": "保存",
+      "delete": "削除",
+      "apply": "適用",
+      "reset": "リセット",
+      "close": "閉じる",
+      "viewAll": "すべて見る"
+    },
+    "toast": {
+      "copied": "クリップボードにコピーしました",
+      "copyError": "コピーに失敗しました",
+      "saved": "保存しました",
+      "deleted": "削除しました",
+      "error": "エラーが発生しました",
+      "success": "完了しました",
+      "pasted": "クリップボードから貼り付けました",
+      "noPermission": "クリップボードへのアクセスが拒否されました"
+    },
+    "labels": {
+      "input": "入力",
+      "output": "出力",
+      "options": "オプション",
+      "preview": "プレビュー",
+      "result": "結果",
+      "history": "履歴",
+      "settings": "設定"
+    },
+    "a11y": {
+      "toggleTheme": "テーマを切り替え"
+    }
+  },
+  "navigation": {
+    "tools": "ツール",
+    "categories": "カテゴリ",
+    "about": "について",
+    "brand": "ToolBox"
+  },
+  "footer": {
+    "copyright": "© {year} {brand}. All rights reserved."
+  },
+  "metadata": {
+    "home": {
+      "title": "ToolBox - オンラインツール集",
+      "description": "開発者、デザイナー、マーケター向けの便利なオンラインツールを一箇所で。JSONフォーマッター、カラーピッカー、QRコード生成器などの無料ツール。"
+    },
+    "tools": {
+      "jsonFormatter": {
+        "title": "JSONフォーマッター - 開発者ツール",
+        "description": "この無料オンラインツールでJSONデータをフォーマット、検証、圧縮できます。",
+        "heading": "JSONフォーマッター",
+        "subheading": "無料のフォーマッターでJSONデータを整形。検証、圧縮、コピーが簡単に。"
+      },
+      "base64Encoder": {
+        "title": "Base64エンコーダー/デコーダー - 開発者ツール",
+        "description": "テキストやデータをBase64形式に簡単にエンコード・デコード。",
+        "heading": "Base64エンコーダー",
+        "subheading": "テキストをBase64にエンコード、またはBase64からテキストにデコード。"
+      },
+      "colorPicker": {
+        "title": "カラーピッカー - デザイナーツール",
+        "description": "HEX、RGB、HSL形式で色を選択・変換。",
+        "heading": "カラーピッカー",
+        "subheading": "様々な形式で色を選択・変換。"
+      },
+      "codeRunner": {
+        "title": "コードランナー - 開発者ツール",
+        "description": "ブラウザで直接JavaScriptとPythonコードを実行。",
+        "heading": "コードランナー",
+        "subheading": "ブラウザでJavaScriptとPythonコードを即座に実行。"
+      },
+      "regexTester": {
+        "title": "正規表現テスター - 開発者ツール",
+        "description": "正規表現をテストし、マッチ結果をリアルタイムで確認。",
+        "heading": "正規表現テスター",
+        "subheading": "正規表現パターンをテストし、マッチ結果を即座に確認。"
+      },
+      "uuidGenerator": {
+        "title": "UUID生成器 - 開発者ツール",
+        "description": "UUID v1、v4、v7を生成し、様々な形式に変換。",
+        "heading": "UUID生成器",
+        "subheading": "ユニークなUUIDを生成し、様々な形式に変換。"
+      },
+      "jwtDecoder": {
+        "title": "JWTデコーダー - 開発者ツール",
+        "description": "JWTトークンをデコードしてHeader、Payloadを表示・検証。",
+        "heading": "JWTデコーダー",
+        "subheading": "JWTトークンを分析し、有効性を検証。"
+      },
+      "diffChecker": {
+        "title": "差分チェッカー - 開発者ツール",
+        "description": "2つのテキストを比較し、差分を視覚的に識別。",
+        "heading": "差分チェッカー",
+        "subheading": "2つのテキストを比較し、差分を確認。"
+      },
+      "colorPalette": {
+        "title": "カラーパレット - デザイナーツール",
+        "description": "調和のとれたカラーパレットを生成・管理。",
+        "heading": "カラーパレット",
+        "subheading": "調和のとれた色の組み合わせを作成・保存。"
+      },
+      "imageEditor": {
+        "title": "画像エディター - デザイナーツール",
+        "description": "画像のリサイズ、トリミング、フィルター適用。",
+        "heading": "画像エディター",
+        "subheading": "画像を編集し、様々なフィルターを適用。"
+      },
+      "gradientGenerator": {
+        "title": "グラデーション生成器 - デザイナーツール",
+        "description": "CSSグラデーションを視覚的に作成し、コードをコピー。",
+        "heading": "グラデーション生成器",
+        "subheading": "美しいCSSグラデーションを簡単に作成。"
+      },
+      "qrGenerator": {
+        "title": "QRコード生成器 - マーケターツール",
+        "description": "URL、テキスト、連絡先情報からQRコードを生成。",
+        "heading": "QRコード生成器",
+        "subheading": "様々な種類の情報からQRコードを作成。"
+      },
+      "linkShortener": {
+        "title": "リンク短縮 - マーケターツール",
+        "description": "長いURLを短く覚えやすいリンクに変換。",
+        "heading": "リンク短縮",
+        "subheading": "長いURLを覚えやすい短いリンクに変換。"
+      },
+      "markdownEditor": {
+        "title": "Markdownエディター - ライターツール",
+        "description": "リアルタイムプレビューでMarkdownドキュメントを作成。",
+        "heading": "Markdownエディター",
+        "subheading": "Markdownドキュメントを作成・プレビュー。"
+      },
+      "wordCounter": {
+        "title": "文字数カウンター - ライターツール",
+        "description": "文字、単語、文の数をカウント・分析。",
+        "heading": "文字数カウンター",
+        "subheading": "テキストの文字数、単語数、文数を分析。"
+      },
+      "loremIpsum": {
+        "title": "Lorem Ipsum生成器 - ライターツール",
+        "description": "様々な形式でダミーテキストを生成。",
+        "heading": "Lorem Ipsum生成器",
+        "subheading": "デザイン用のプレースホルダーテキストを生成。"
+      },
+      "unitConverter": {
+        "title": "単位変換器 - 生産性ツール",
+        "description": "長さ、重さ、温度など様々な単位を変換。",
+        "heading": "単位変換器",
+        "subheading": "異なる単位間で簡単に変換。"
+      },
+      "timezoneConverter": {
+        "title": "タイムゾーン変換器 - 生産性ツール",
+        "description": "世界中のタイムゾーンを変換。",
+        "heading": "タイムゾーン変換器",
+        "subheading": "世界のタイムゾーン間で簡単に変換。"
+      },
+      "passwordGenerator": {
+        "title": "パスワード生成器 - 生産性ツール",
+        "description": "安全なランダムパスワードを生成。",
+        "heading": "パスワード生成器",
+        "subheading": "強力で安全なパスワードを作成。"
+      },
+      "imageUpscaler": {
+        "title": "画像アップスケーラー - デザイナーツール",
+        "description": "AI強化機能で画像を2倍、3倍、4倍に拡大。品質劣化を最小限に抑えます。",
+        "heading": "画像アップスケーラー",
+        "subheading": "画像解像度を向上させ、よりシャープでクリアな画像に。"
+      },
+      "imageConverter": {
+        "title": "画像変換器 - デザイナーツール",
+        "description": "WebP、PNG、JPEG、GIFなどの画像形式間で簡単に変換。一括変換とリサイズをサポート。",
+        "heading": "画像変換器",
+        "subheading": "様々な画像形式間で簡単に変換。"
+      }
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "新しいツールを継続的に追加中",
+      "titleLine1": "オールインワンツール",
+      "titleLine2": "あなたの生産性向上のために",
+      "description": "開発者、デザイナー、マーケター、すべてのプロフェッショナル向けの便利なオンラインツールを一箇所で。"
+    },
+    "stats": {
+      "tools": "ツール",
+      "categories": "カテゴリ",
+      "price": "価格",
+      "usage": "利用",
+      "free": "無料",
+      "unlimited": "∞"
+    },
+    "developer": {
+      "title": "開発者",
+      "subtitle": "このサービスの作成者をご紹介します。",
+      "role": "フルスタック開発者",
+      "bio": "情熱を持ってコーディングしながらこのプロジェクトを構築。よく使われる機能を開発中。AI Click!",
+      "techStackLabel": "よく使う技術スタック"
+    },
+    "toolsGrid": {
+      "toolCount": "{count}個のツール"
+    }
+  },
+  "categories": {
+    "developer": {
+      "name": "開発者",
+      "nameKo": "開発者"
+    },
+    "designer": {
+      "name": "デザイナー",
+      "nameKo": "デザイナー"
+    },
+    "marketer": {
+      "name": "マーケター",
+      "nameKo": "マーケター"
+    },
+    "writer": {
+      "name": "ライター",
+      "nameKo": "ライター/編集者"
+    },
+    "productivity": {
+      "name": "生産性",
+      "nameKo": "生産性"
+    }
+  },
+  "tools": {
+    "jsonFormatter": {
+      "name": "JSONフォーマッター",
+      "description": "JSONデータを整形し、構造を検証。",
+      "ui": {
+        "inputLabel": "JSON入力",
+        "inputPlaceholder": "ここにJSONを貼り付け...",
+        "outputLabel": "出力",
+        "outputPlaceholder": "フォーマットされたJSONがここに表示されます...",
+        "format": "フォーマット",
+        "minify": "圧縮",
+        "copy": "コピー",
+        "clear": "クリア",
+        "nothingToCopy": "コピーするものがありません"
+      }
+    },
+    "base64Encoder": {
+      "name": "Base64エンコーダー",
+      "description": "テキストやデータをBase64形式にエンコード・デコード。",
+      "ui": {
+        "encoder": "エンコーダー",
+        "decoder": "デコーダー",
+        "input": "入力",
+        "output": "出力",
+        "result": "結果",
+        "inputPlaceholder": {
+          "encode": "テキストを入力...",
+          "decode": "Base64文字列を貼り付け..."
+        },
+        "inputDescription": {
+          "encode": "エンコードするテキストを入力",
+          "decode": "デコードするBase64文字列を入力"
+        },
+        "outputPlaceholder": "結果がここに表示されます...",
+        "clear": "クリア",
+        "copy": "コピー",
+        "copyResult": "結果をコピー",
+        "encodeButton": "Base64にエンコード",
+        "decodeButton": "Base64からデコード"
+      }
+    },
+    "colorPicker": {
+      "name": "カラーピッカー",
+      "description": "様々な形式（HEX、RGB、HSL）で色を選択・変換。",
+      "ui": {
+        "presets": "プリセット",
+        "clipboardDenied": "クリップボードへのアクセスが拒否されました"
+      }
+    },
+    "codeRunner": {
+      "name": "コードランナー",
+      "description": "JavaScriptやPythonなど様々な言語のコードを実行。",
+      "ui": {
+        "run": "実行",
+        "running": "実行中...",
+        "copy": "コピー",
+        "clear": "クリア",
+        "output": "出力",
+        "executionTime": "実行時間",
+        "loadingPython": "Pythonランタイムを読み込み中...",
+        "noOutput": "出力なし",
+        "clickToRun": "「実行」をクリックしてコードを実行",
+        "enterCode": "実行するコードを入力してください",
+        "executedIn": "実行時間：{time}ミリ秒",
+        "executionFailed": "実行に失敗しました",
+        "unexpectedError": "予期しないエラーが発生しました",
+        "codeCopied": "コードをクリップボードにコピーしました",
+        "copyFailed": "コードのコピーに失敗しました",
+        "codeCleared": "コードをクリアしました",
+        "tips": "ヒント",
+        "tipJs": "JavaScript：console.log()を使用して値を出力",
+        "tipPython": "Python：print()を使用して値を出力",
+        "tipTimeout": "実行タイムアウト：JavaScript（5秒）、Python（10秒）",
+        "tipPythonLoad": "Pythonランタイムは初回実行時に読み込み（数秒かかる場合があります）"
+      }
+    },
+    "regexTester": {
+      "name": "正規表現テスター",
+      "description": "正規表現をテストし、マッチ結果を確認。",
+      "ui": {
+        "cheatsheet": "チートシート",
+        "history": "履歴",
+        "pattern": "正規表現パターン",
+        "patternPlaceholder": "パターンを入力...",
+        "testString": "テスト文字列",
+        "testStringPlaceholder": "テストするテキストを入力...",
+        "matchResults": "マッチ結果",
+        "error": "エラー",
+        "matchCount": "{count}件のマッチ",
+        "captureGroups": "キャプチャグループ",
+        "matchNumber": "マッチ #{number}（位置：{position}）",
+        "fullMatch": "完全マッチ",
+        "emptyString": "（空文字列）"
+      }
+    },
+    "uuidGenerator": {
+      "name": "UUID生成器",
+      "description": "ユニークなUUID（v1、v4、v7）を生成し、様々な形式に変換。",
+      "ui": {
+        "title": "UUID生成器",
+        "titleDescription": "ユニークなUUID（汎用一意識別子）を生成",
+        "options": "オプション",
+        "optionsDescription": "UUID生成オプションを設定",
+        "generateNew": "新しいUUIDを生成",
+        "bulkGenerate": "一括生成",
+        "bulkDescription": "複数のUUIDを一度に生成",
+        "history": "履歴",
+        "historyDescription": "最近生成されたUUID（最大50件）",
+        "version": "UUIDバージョン",
+        "uppercase": "大文字",
+        "uppercaseDescription": "UUIDを大文字で表示",
+        "hyphens": "ハイフンを含む",
+        "hyphensDescription": "UUIDにハイフン（-）を含む",
+        "braces": "波括弧で囲む",
+        "bracesDescription": "UUIDを波括弧で囲む",
+        "quantity": "数量",
+        "bulkGenerateButton": "一括生成",
+        "copyAll": "すべてコピー",
+        "download": "ダウンロード",
+        "reset": "リセット",
+        "emptyBulk": "数量を入力して一括生成ボタンをクリック",
+        "emptyHistory": "UUID履歴がありません",
+        "recentCount": "最近{count}件",
+        "deleteAll": "すべて削除",
+        "placeholder": "生成ボタンをクリック",
+        "copyTooltip": "コピー",
+        "generateTooltip": "新規生成",
+        "versionLabel": "バージョン",
+        "lengthLabel": "長さ",
+        "lengthUnit": "文字",
+        "noUuidToCopy": "コピーするUUIDがありません",
+        "noUuidToDownload": "ダウンロードするUUIDがありません",
+        "copiedCount": "{count}件のUUIDをコピーしました",
+        "downloaded": "ファイルをダウンロードしました",
+        "versions": {
+          "v1": {
+            "name": "UUID v1",
+            "description": "タイムスタンプ+MACアドレス基準（時間順）"
+          },
+          "v4": {
+            "name": "UUID v4",
+            "description": "完全ランダム生成（最も一般的）"
+          },
+          "v7": {
+            "name": "UUID v7",
+            "description": "Unixタイムスタンプ+ランダム（ソート可能、最新標準）"
+          }
+        }
+      }
+    },
+    "jwtDecoder": {
+      "name": "JWTデコーダー",
+      "description": "JWTトークンをデコードしてHeader、Payloadを表示・検証。",
+      "ui": {
+        "tokenInput": "JWTトークン入力",
+        "tokenInputDescription": "デコードするJWTトークンを入力",
+        "exampleValid": "例（有効）",
+        "exampleExpired": "例（期限切れ）",
+        "paste": "貼り付け",
+        "clear": "クリア",
+        "validationStatus": "検証ステータス",
+        "formatValid": "フォーマット有効",
+        "formatError": "フォーマットエラー",
+        "tokenExpired": "トークン期限切れ",
+        "expired": "期限切れ",
+        "valid": "有効",
+        "header": "ヘッダー",
+        "payload": "ペイロード",
+        "payloadDescription": "トークンに含まれるデータ（Claims）",
+        "signature": "署名",
+        "signatureDescription": "署名（サーバー側でのみ検証可能）",
+        "claimInfo": "Claim情報",
+        "copyComplete": "コピー完了",
+        "emptyState": "JWTトークンを入力",
+        "emptyStateResult": "デコード結果がここに表示されます"
+      }
+    },
+    "diffChecker": {
+      "name": "差分チェッカー",
+      "description": "2つのテキストを比較し、差分を視覚的に識別。"
+    },
+    "colorPalette": {
+      "name": "カラーパレット",
+      "description": "調和のとれたカラーパレットを生成・管理。",
+      "ui": {
+        "colorSettings": "カラー設定",
+        "generatedPalette": "生成されたパレット",
+        "imageExtraction": "画像から抽出",
+        "export": "エクスポート",
+        "savedPalettes": "保存済みパレット"
+      }
+    },
+    "imageEditor": {
+      "name": "画像エディター",
+      "description": "画像のリサイズ、トリミング、フィルター適用。",
+      "ui": {
+        "filters": "フィルター",
+        "transform": "変形",
+        "resize": "リサイズ"
+      }
+    },
+    "gradientGenerator": {
+      "name": "グラデーション生成器",
+      "description": "CSSグラデーションを視覚的に作成。",
+      "ui": {
+        "preview": "プレビュー",
+        "gradientSettings": "グラデーション設定",
+        "colorStops": "カラーストップ",
+        "presets": "プリセット",
+        "codeOutput": "コード出力",
+        "savedGradients": "保存済みグラデーション"
+      }
+    },
+    "qrGenerator": {
+      "name": "QRコード生成器",
+      "description": "URL、テキスト、連絡先情報からQRコードを生成。",
+      "ui": {
+        "preview": "プレビュー",
+        "input": "入力",
+        "settings": "設定",
+        "savedQRCodes": "保存済みQRコード"
+      }
+    },
+    "linkShortener": {
+      "name": "リンク短縮",
+      "description": "長いURLを短く覚えやすいリンクに変換。"
+    },
+    "markdownEditor": {
+      "name": "Markdownエディター",
+      "description": "リアルタイムプレビューでMarkdownドキュメントを作成。",
+      "ui": {
+        "titlePlaceholder": "ドキュメントタイトルを入力",
+        "edit": "編集",
+        "preview": "プレビュー"
+      }
+    },
+    "wordCounter": {
+      "name": "文字数カウンター",
+      "description": "文字、単語、文の数をカウント・分析。"
+    },
+    "loremIpsum": {
+      "name": "Lorem Ipsum生成器",
+      "description": "様々な形式でダミーテキストを生成。",
+      "ui": {
+        "options": "オプション",
+        "optionsDescription": "生成するテキストの形式と量を設定",
+        "loremIpsum": "Lorem Ipsum",
+        "generatedText": "生成されたダミーテキスト"
+      }
+    },
+    "unitConverter": {
+      "name": "単位変換器",
+      "description": "長さ、重さ、温度など様々な単位を変換。",
+      "ui": {
+        "valueToConvert": "変換する値",
+        "conversionResult": "変換結果",
+        "reset": "リセット"
+      }
+    },
+    "timezoneConverter": {
+      "name": "タイムゾーン変換器",
+      "description": "世界中のタイムゾーンを変換。",
+      "ui": {
+        "conversionResult": "変換結果"
+      }
+    },
+    "passwordGenerator": {
+      "name": "パスワード生成器",
+      "description": "安全なランダムパスワードを生成。",
+      "ui": {
+        "password": "パスワード",
+        "passwordDescription": "安全なランダムパスワードを生成",
+        "options": "オプション",
+        "optionsDescription": "パスワード生成オプションを設定",
+        "generateNew": "新しいパスワードを生成",
+        "bulkGenerate": "一括生成",
+        "bulkDescription": "複数のパスワードを一度に生成",
+        "length": "パスワードの長さ",
+        "charTypes": "文字タイプ",
+        "uppercase": "大文字 (A-Z)",
+        "lowercase": "小文字 (a-z)",
+        "numbers": "数字 (0-9)",
+        "symbols": "記号 (!@#$%...)",
+        "additionalOptions": "追加オプション",
+        "excludeAmbiguous": "紛らわしい文字を除外 (l, 1, I, O, 0)",
+        "excludeChars": "除外する文字",
+        "excludeCharsPlaceholder": "除外する文字を入力",
+        "quantity": "数量",
+        "quantityUnit": "",
+        "generateCount": "{count}個生成",
+        "copyAll": "すべてコピー",
+        "generatePassword": "パスワードを生成",
+        "copied": "パスワードをコピーしました",
+        "copiedCount": "{count}個のパスワードをコピーしました",
+        "copyError": "コピーに失敗しました",
+        "strength": "パスワード強度",
+        "strengthLabels": {
+          "weak": "弱い",
+          "fair": "普通",
+          "good": "良好",
+          "strong": "強い",
+          "excellent": "非常に強い"
+        }
+      }
+    },
+    "imageUpscaler": {
+      "name": "画像アップスケーラー",
+      "description": "画像解像度を向上させ、よりシャープでクリアな画像に。",
+      "ui": {
+        "upload": {
+          "title": "画像をアップロード",
+          "description": "画像をドラッグ＆ドロップまたはクリックして選択",
+          "formats": "PNG、JPG、WEBP対応（最大10MB、4096px）",
+          "selectFile": "ファイルを選択",
+          "loading": "読み込み中..."
+        },
+        "preview": {
+          "title": "プレビュー",
+          "original": "オリジナル",
+          "upscaled": "拡大後",
+          "compare": "比較",
+          "processing": "処理中...",
+          "dragToCompare": "スライダーをドラッグして比較"
+        },
+        "controls": {
+          "title": "アップスケール設定",
+          "scale": "倍率",
+          "algorithm": "アルゴリズム",
+          "estimatedSize": "推定サイズ",
+          "processButton": "アップスケール開始",
+          "processing": "処理中... {progress}%",
+          "cancel": "キャンセル"
+        },
+        "algorithm": {
+          "bilinear": "バイリニア",
+          "bilinearDesc": "高速、基本品質",
+          "bicubic": "バイキュービック",
+          "bicubicDesc": "速度と品質のバランス",
+          "lanczos3": "Lanczos3",
+          "lanczos3Desc": "最高品質、低速"
+        },
+        "export": {
+          "title": "ダウンロード",
+          "format": "形式",
+          "quality": "品質",
+          "download": "ダウンロード",
+          "reset": "新しい画像"
+        },
+        "toast": {
+          "processComplete": "アップスケール完了！",
+          "processError": "アップスケール処理中にエラーが発生しました",
+          "downloadComplete": "画像をダウンロードしました",
+          "fileTooLarge": "ファイルサイズが大きすぎます（最大10MB）",
+          "dimensionTooLarge": "画像サイズが大きすぎます（最大4096px）",
+          "unsupportedFormat": "サポートされていないファイル形式",
+          "loadError": "画像の読み込みに失敗しました"
+        }
+      }
+    },
+    "imageConverter": {
+      "name": "画像変換器",
+      "description": "様々な画像形式間で簡単に変換。",
+      "ui": {
+        "upload": {
+          "title": "画像をアップロード",
+          "description": "画像をドラッグ＆ドロップまたはクリックして選択",
+          "formats": "WebP、PNG、JPEG、GIF、BMP、TIFF、AVIF、SVG対応",
+          "limits": "最大{maxSize}MB、{maxDimension}px | 残り{remaining}/{max}スロット",
+          "selectFiles": "ファイルを選択"
+        },
+        "preview": {
+          "title": "アップロード済みの画像",
+          "fileCount": "{count}ファイル",
+          "clearAll": "すべてクリア",
+          "addMore": "追加",
+          "status": {
+            "pending": "待機中",
+            "converting": "変換中",
+            "completed": "完了",
+            "error": "エラー"
+          }
+        },
+        "settings": {
+          "title": "変換設定",
+          "outputFormat": "出力形式",
+          "quality": "品質",
+          "backgroundColor": "背景色",
+          "backgroundColorHint": "透明部分を塗りつぶす色",
+          "preserveTransparency": "透明度を維持",
+          "preserveTransparencyHint": "PNG、WebP形式で透明背景を維持",
+          "resize": {
+            "title": "リサイズ",
+            "mode": "リサイズモード",
+            "modes": {
+              "none": "元のサイズ",
+              "percentage": "パーセント (%)",
+              "dimensions": "カスタムサイズ",
+              "width": "幅で指定",
+              "height": "高さで指定"
+            },
+            "percentage": "パーセント",
+            "width": "幅 (px)",
+            "height": "高さ (px)",
+            "maintainAspectRatio": "アスペクト比を維持"
+          },
+          "convertButton": "{count}枚の画像を変換",
+          "cancel": "キャンセル"
+        },
+        "progress": {
+          "title": "変換中...",
+          "processing": "処理中 {current}/{total}",
+          "currentFile": "現在のファイル",
+          "cancel": "キャンセル"
+        },
+        "result": {
+          "title": "変換完了",
+          "completedCount": "{count}件完了",
+          "original": "オリジナル",
+          "converted": "変換後",
+          "downloadSingle": "ダウンロード",
+          "downloadAll": "すべてダウンロード (ZIP)"
+        },
+        "reset": {
+          "button": "リセット",
+          "success": "リセット完了"
+        }
+      },
+      "formats": {
+        "png": {
+          "description": "可逆圧縮、透明度サポート"
+        },
+        "jpeg": {
+          "description": "非可逆圧縮、ファイルサイズが小さい"
+        },
+        "webp": {
+          "description": "最新形式、優れた圧縮率"
+        },
+        "gif": {
+          "description": "アニメーション対応、256色"
+        },
+        "bmp": {
+          "description": "非圧縮、ファイルサイズが大きい"
+        }
+      },
+      "toast": {
+        "conversionComplete": "変換完了",
+        "conversionError": "変換中にエラーが発生しました",
+        "downloadComplete": "ダウンロード完了",
+        "downloadError": "ダウンロード中にエラーが発生しました",
+        "fileTooLarge": "ファイルサイズが大きすぎます（最大10MB）",
+        "dimensionTooLarge": "画像サイズが大きすぎます（最大4096px）",
+        "unsupportedFormat": "サポートされていないファイル形式",
+        "loadError": "画像の読み込みに失敗しました",
+        "maxFilesReached": "最大ファイル数に達しました（最大10ファイル）"
+      }
+    }
+  }
+}
