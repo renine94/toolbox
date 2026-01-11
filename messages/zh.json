@@ -33,7 +33,15 @@
       "settings": "设置"
     },
     "a11y": {
-      "toggleTheme": "切换主题"
+      "toggleTheme": "切换主题",
+      "changeLanguage": "切换语言"
+    },
+    "status": {
+      "comingSoon": "即将推出"
+    },
+    "tools": {
+      "count": "{count}个工具",
+      "viewMore": "查看详情"
     }
   },
   "navigation": {

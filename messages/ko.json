@@ -33,7 +33,15 @@
       "settings": "설정"
     },
     "a11y": {
-      "toggleTheme": "테마 전환"
+      "toggleTheme": "테마 전환",
+      "changeLanguage": "언어 변경"
+    },
+    "status": {
+      "comingSoon": "준비 중"
+    },
+    "tools": {
+      "count": "{count}개 도구",
+      "viewMore": "자세히 보기"
     }
   },
   "navigation": {

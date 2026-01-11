@@ -33,7 +33,15 @@
       "settings": "Settings"
     },
     "a11y": {
-      "toggleTheme": "Toggle theme"
+      "toggleTheme": "Toggle theme",
+      "changeLanguage": "Change language"
+    },
+    "status": {
+      "comingSoon": "Coming Soon"
+    },
+    "tools": {
+      "count": "{count} tools",
+      "viewMore": "Learn more"
     }
   },
   "navigation": {

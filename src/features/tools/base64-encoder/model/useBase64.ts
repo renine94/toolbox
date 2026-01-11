@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'sonner';
+import { copyToClipboard as copyToClipboardUtil } from "@/shared/lib/clipboard-utils";
 
 type Mode = 'encode' | 'decode';
 
@@ -50,10 +51,10 @@ export const useBase64 = () => {
 
   const copyToClipboard = async (text: string) => {
     if (!text) return;
-    try {
-      await navigator.clipboard.writeText(text);
+    const success = await copyToClipboardUtil(text);
+    if (success) {
       toast.success('Copied to clipboard!');
-    } catch (err) {
+    } else {
       toast.error('Failed to copy');
     }
   };

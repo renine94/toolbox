@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import {
     Card,
     CardContent,
@@ -25,6 +26,8 @@ interface ToolCardProps {
 }
 
 export function ToolCard({ tool, gradient, onClick }: ToolCardProps) {
+    const t = useTranslations("common");
+
     return (
         <Card
             onClick={onClick}
@@ -42,7 +45,7 @@ export function ToolCard({ tool, gradient, onClick }: ToolCardProps) {
                             variant="outline"
                             className="bg-amber-500/10 text-amber-500 border-amber-500/20 text-xs"
                         >
-                            Coming Soon
+                            {t("status.comingSoon")}
                         </Badge>
                     )}
                 </div>
@@ -55,7 +58,7 @@ export function ToolCard({ tool, gradient, onClick }: ToolCardProps) {
             </CardHeader>
             <CardContent className="pt-0">
                 <div className="flex items-center text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                    <span>자세히 보기</span>
+                    <span>{t("tools.viewMore")}</span>
                     <ChevronRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
                 </div>
             </CardContent>

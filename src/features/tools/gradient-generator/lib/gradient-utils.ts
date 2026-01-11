@@ -87,17 +87,8 @@ export function importConfig(json: string): GradientConfig | null {
   }
 }
 
-/**
- * 클립보드에 복사
- */
-export async function copyToClipboard(text: string): Promise<boolean> {
-  try {
-    await navigator.clipboard.writeText(text);
-    return true;
-  } catch {
-    return false;
-  }
-}
+// Re-export from shared utilities
+export { copyToClipboard } from "@/shared/lib/clipboard-utils";
 
 /**
  * HEX 색상이 밝은지 어두운지 판단

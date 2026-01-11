@@ -33,7 +33,15 @@
       "settings": "設定"
     },
     "a11y": {
-      "toggleTheme": "テーマを切り替え"
+      "toggleTheme": "テーマを切り替え",
+      "changeLanguage": "言語を変更"
+    },
+    "status": {
+      "comingSoon": "近日公開"
+    },
+    "tools": {
+      "count": "{count}個のツール",
+      "viewMore": "詳細を見る"
     }
   },
   "navigation": {

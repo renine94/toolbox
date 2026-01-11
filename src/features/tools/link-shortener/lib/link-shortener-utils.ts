@@ -33,19 +33,9 @@ export async function shortenUrl(
   return data;
 }
 
-/**
- * 클립보드에 텍스트 복사
- */
-export async function copyToClipboard(text: string): Promise<void> {
-  await navigator.clipboard.writeText(text);
-}
-
-/**
- * 고유 ID 생성
- */
-export function generateId(): string {
-  return `${Date.now()}-${Math.random().toString(36).substring(2, 9)}`;
-}
+// Re-export from shared utilities
+export { copyToClipboard } from "@/shared/lib/clipboard-utils";
+export { generateId } from "@/shared/lib/id-utils";
 
 /**
  * URL 유효성 검증

@@ -111,14 +111,8 @@ export function getStrengthLabel(strength: PasswordStrength): string {
   return labels[strength];
 }
 
-export async function copyToClipboard(text: string): Promise<boolean> {
-  try {
-    await navigator.clipboard.writeText(text);
-    return true;
-  } catch {
-    return false;
-  }
-}
+// Re-export from shared utilities
+export { copyToClipboard } from "@/shared/lib/clipboard-utils";
 
 export function createGeneratedPassword(
   config: PasswordConfig

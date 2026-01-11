@@ -1,7 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 import { Badge } from "@/shared/ui/badge";
 import { ToolCard } from "@/widgets/tool-card";
@@ -118,6 +119,8 @@ function AreaCarousel({ chunks, gradient }: { chunks: Tool[][]; gradient: string
 }
 
 export function ToolsGrid({ categories }: ToolsGridProps) {
+    const t = useTranslations("common.tools");
+
     return (
         <section id="tools" className="max-w-7xl mx-auto px-6 pb-24">
             <div className="space-y-16">
@@ -143,7 +146,7 @@ export function ToolsGrid({ categories }: ToolsGridProps) {
                                     variant="secondary"
                                     className="ml-auto bg-secondary text-secondary-foreground border-0"
                                 >
-                                    {category.tools.length} 도구
+                                    {t("count", { count: category.tools.length })}
                                 </Badge>
                             </div>
 
