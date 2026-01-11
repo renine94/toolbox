@@ -126,6 +126,13 @@ export default function Home() {
           icon: "🌅",
           status: "available",
         },
+        {
+          id: "image-upscaler",
+          name: t("imageUpscaler.name"),
+          description: t("imageUpscaler.description"),
+          icon: "⬆️",
+          status: "available",
+        },
       ],
     },
     {

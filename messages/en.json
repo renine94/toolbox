@@ -164,6 +164,12 @@
         "description": "Generate secure random passwords.",
         "heading": "Password Generator",
         "subheading": "Create strong and secure passwords."
+      },
+      "imageUpscaler": {
+        "title": "Image Upscaler - Designer Tools",
+        "description": "Upscale images by 2x, 3x, or 4x with AI-powered enhancement for minimal quality loss.",
+        "heading": "Image Upscaler",
+        "subheading": "Enhance image resolution for sharper, clearer images."
       }
     }
   },
@@ -517,6 +523,60 @@
           "good": "Good",
           "strong": "Strong",
           "excellent": "Excellent"
+        }
+      }
+    },
+    "imageUpscaler": {
+      "name": "Image Upscaler",
+      "description": "Enhance image resolution for sharper, clearer images.",
+      "ui": {
+        "upload": {
+          "title": "Upload Image",
+          "description": "Drag and drop an image or click to select",
+          "formats": "PNG, JPG, WEBP supported (Max 10MB, 4096px)",
+          "selectFile": "Select File",
+          "loading": "Loading..."
+        },
+        "preview": {
+          "title": "Preview",
+          "original": "Original",
+          "upscaled": "Upscaled",
+          "compare": "Compare",
+          "processing": "Processing...",
+          "dragToCompare": "Drag slider to compare"
+        },
+        "controls": {
+          "title": "Upscale Settings",
+          "scale": "Scale",
+          "algorithm": "Algorithm",
+          "estimatedSize": "Estimated Size",
+          "processButton": "Start Upscale",
+          "processing": "Processing... {progress}%",
+          "cancel": "Cancel"
+        },
+        "algorithm": {
+          "bilinear": "Bilinear",
+          "bilinearDesc": "Fast, basic quality",
+          "bicubic": "Bicubic",
+          "bicubicDesc": "Balanced speed and quality",
+          "lanczos3": "Lanczos3",
+          "lanczos3Desc": "Best quality, slower"
+        },
+        "export": {
+          "title": "Download",
+          "format": "Format",
+          "quality": "Quality",
+          "download": "Download",
+          "reset": "New Image"
+        },
+        "toast": {
+          "processComplete": "Upscale complete!",
+          "processError": "Error during upscale processing",
+          "downloadComplete": "Image downloaded",
+          "fileTooLarge": "File size too large (Max 10MB)",
+          "dimensionTooLarge": "Image dimensions too large (Max 4096px)",
+          "unsupportedFormat": "Unsupported file format",
+          "loadError": "Failed to load image"
         }
       }
     }

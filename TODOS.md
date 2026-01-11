@@ -79,6 +79,7 @@
 | 도구명 | 설명 | 난이도 | 상태 |
 |--------|------|--------|------|
 | Image Compressor | 이미지 용량 압축 | ⭐⭐ | ⬜ 대기 |
+| Image Upscaler | 이미지 업스케일링 | ⭐⭐ | ✅ 완료 |
 | PDF Compressor | PDF 용량 압축 | ⭐⭐ | ⬜ 대기 |
 | Image to Base64 | 이미지와 Base64 상호 변환 | ⭐ | ⬜ 대기 |
 | Screenshot to Code | 스크린샷에서 색상 추출 | ⭐⭐ | ⬜ 대기 |
@@ -116,11 +117,9 @@
 
 빠르게 구현 가능하면서 유용한 도구:
 
-1. **UUID Generator** - 구현 간단, 수요 높음
-2. **Hash Generator** - 개발자 필수
-3. **JWT Decoder** - 백엔드 개발 필수
-4. **Text Case Converter** - 네이밍 변환 자주 필요
-5. **Box Shadow Generator** - 프론트엔드 인기 도구
+1. **Hash Generator** - 개발자 필수
+2. **Text Case Converter** - 네이밍 변환 자주 필요
+3. **Box Shadow Generator** - 프론트엔드 인기 도구
 
 ---
 
@@ -151,3 +150,4 @@
 | 2025-01-10 | UUID Generator 구현 완료 |
 | 2025-01-11 | JWT Decoder 구현 완료 |
 | 2025-01-11 | Diff Checker 구현 완료 |
+| 2025-01-11 | Image Upscaler 구현 완료 |
