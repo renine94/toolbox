@@ -184,6 +184,18 @@
         "description": "轻松在WebP、PNG、JPEG、GIF等图片格式之间进行转换。支持批量转换和调整大小。",
         "heading": "图片转换器",
         "subheading": "轻松在各种图片格式之间进行转换。"
+      },
+      "urlEncoder": {
+        "title": "URL编码器/解码器 - 开发者工具",
+        "description": "编码和解码URL特殊字符。支持encodeURIComponent和encodeURI。",
+        "heading": "URL编码器/解码器",
+        "subheading": "编码URL字符串或解码已编码的URL。"
+      },
+      "cronParser": {
+        "title": "Cron表达式解析器 - 开发者工具",
+        "description": "解析和验证Cron表达式，查看下次执行时间，使用可视化构建器创建表达式。",
+        "heading": "Cron表达式解析器",
+        "subheading": "解析Cron表达式，查看执行计划，通过直观的可视化构建器创建表达式。"
       }
     }
   },
@@ -594,6 +606,39 @@
         }
       }
     },
+    "urlEncoder": {
+      "name": "URL编码器",
+      "description": "编码和解码URL特殊字符。",
+      "ui": {
+        "encoder": "编码器",
+        "decoder": "解码器",
+        "input": "输入",
+        "output": "输出",
+        "result": "结果",
+        "resultRealtime": "实时显示转换结果",
+        "inputPlaceholder": {
+          "encode": "输入要编码的文本...",
+          "decode": "输入要解码的URL编码字符串..."
+        },
+        "inputDescription": {
+          "encode": "输入要编码的文本",
+          "decode": "输入要解码的URL编码字符串"
+        },
+        "outputPlaceholder": "结果将显示在这里...",
+        "clear": "清除",
+        "copy": "复制",
+        "copyResult": "复制结果",
+        "encodingType": "编码类型",
+        "component": "组件 (encodeURIComponent)",
+        "componentDesc": "用于URL参数、查询字符串",
+        "fullUri": "完整URI (encodeURI)",
+        "fullUriDesc": "用于完整URL（保留保留字符）",
+        "encodeSuccess": "编码成功！",
+        "decodeSuccess": "解码成功！",
+        "encodeFailed": "编码失败",
+        "decodeFailed": "无效的URL编码字符串"
+      }
+    },
     "imageConverter": {
       "name": "图片转换器",
       "description": "轻松在各种图片格式之间进行转换。",
@@ -689,6 +734,129 @@
         "unsupportedFormat": "不支持的文件格式",
         "loadError": "加载图片失败",
         "maxFilesReached": "已达到最大文件数量（最多10个）"
+      }
+    },
+    "cronParser": {
+      "name": "Cron表达式解析器",
+      "description": "解析Cron表达式，计算下次执行时间。",
+      "ui": {
+        "expressionInput": "Cron表达式",
+        "expressionPlaceholder": "例如: 0 9 * * 1-5",
+        "builder": "表达式构建器",
+        "builderDescription": "可视化构建Cron表达式",
+        "preview": "预览",
+        "apply": "应用",
+        "nextExecutions": "下次执行时间",
+        "count": "次",
+        "noExecutions": "无计划执行",
+        "enterValidExpression": "请输入有效的表达式",
+        "explanation": "表达式解释",
+        "enterExpression": "输入表达式后显示解释",
+        "invalidExpression": "无效的表达式",
+        "fieldName": "字段",
+        "value": "值",
+        "meaning": "含义",
+        "presets": "预设",
+        "cheatsheet": "语法指南",
+        "commonPresets": "常用",
+        "advancedPresets": "高级",
+        "valid": "有效",
+        "invalid": "错误",
+        "selectOption": "选择",
+        "custom": "自定义",
+        "cronFormat": "Cron格式",
+        "fieldRangesTitle": "字段范围",
+        "specialCharsTitle": "特殊字符",
+        "examples": "示例",
+        "exampleEvery15Min": "每15分钟执行",
+        "exampleBusinessHours": "工作日工作时间(9-17点)每小时",
+        "exampleBiMonthly": "每月1日、15日午夜",
+        "fields": {
+          "minute": "分钟",
+          "hour": "小时",
+          "dayOfMonth": "日期",
+          "month": "月份",
+          "dayOfWeek": "星期"
+        },
+        "fieldRanges": {
+          "minute": "0-59",
+          "hour": "0-23",
+          "dayOfMonth": "1-31",
+          "month": "1-12",
+          "dayOfWeek": "0-6 (周日=0)"
+        },
+        "specialChars": {
+          "anyValue": "任意值",
+          "listValues": "列表 (如: 1,3,5)",
+          "rangeValues": "范围 (如: 1-5)",
+          "stepValues": "步长 (如: */15)"
+        },
+        "quickOptions": {
+          "minute": {
+            "every": "每分钟",
+            "zero": "0分",
+            "every5": "每5分钟",
+            "every10": "每10分钟",
+            "every15": "每15分钟",
+            "every30": "每30分钟"
+          },
+          "hour": {
+            "every": "每小时",
+            "midnight": "午夜 (0点)",
+            "nineAM": "上午9点",
+            "noon": "中午 (12点)",
+            "sixPM": "下午6点",
+            "every2": "每2小时"
+          },
+          "dayOfMonth": {
+            "every": "每天",
+            "first": "1日",
+            "fifteenth": "15日",
+            "firstAndFifteenth": "1日、15日"
+          },
+          "month": {
+            "every": "每月",
+            "january": "1月",
+            "quarterly": "每季度"
+          },
+          "dayOfWeek": {
+            "every": "每天",
+            "weekdays": "工作日 (周一至周五)",
+            "weekends": "周末",
+            "monday": "周一",
+            "friday": "周五"
+          }
+        },
+        "presetLabels": {
+          "everyMinute": "每分钟",
+          "everyHour": "每小时",
+          "everyDayMidnight": "每天午夜",
+          "weekdaysNineAM": "工作日9点",
+          "firstDayOfMonth": "每月1日午夜",
+          "everySundayMidnight": "每周日午夜",
+          "every15Minutes": "每15分钟",
+          "every2Hours": "每2小时",
+          "firstAndFifteenth": "1日和15日 4:30",
+          "weekdaysTenPM": "工作日22点"
+        },
+        "presetDescriptions": {
+          "everyMinuteDesc": "* * * * * - 每分钟执行",
+          "everyHourDesc": "0 * * * * - 每小时整点执行",
+          "everyDayMidnightDesc": "0 0 * * * - 每天午夜执行",
+          "weekdaysNineAMDesc": "0 9 * * 1-5 - 周一至周五9点",
+          "firstDayOfMonthDesc": "0 0 1 * * - 每月1日午夜",
+          "everySundayMidnightDesc": "0 0 * * 0 - 周日午夜",
+          "every15MinutesDesc": "*/15 * * * * - 每15分钟",
+          "every2HoursDesc": "0 */2 * * * - 每2小时",
+          "firstAndFifteenthDesc": "30 4 1,15 * * - 1日和15日",
+          "weekdaysTenPMDesc": "0 22 * * 1-5 - 工作日22点"
+        },
+        "toast": {
+          "copied": "已复制表达式",
+          "cleared": "已清除",
+          "nothingToCopy": "无内容可复制",
+          "pasted": "已粘贴"
+        }
       }
     }
   }

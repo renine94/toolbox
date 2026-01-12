@@ -96,6 +96,20 @@ export default function Home() {
           icon: "⇆",
           status: "available",
         },
+        {
+          id: "url-encoder",
+          name: t("urlEncoder.name"),
+          description: t("urlEncoder.description"),
+          icon: "🔗",
+          status: "available",
+        },
+        {
+          id: "cron-parser",
+          name: t("cronParser.name"),
+          description: t("cronParser.description"),
+          icon: "⏰",
+          status: "available",
+        },
       ],
     },
     {

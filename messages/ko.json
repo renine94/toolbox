@@ -184,6 +184,18 @@
         "description": "WebP, PNG, JPEG, GIF 등 다양한 이미지 포맷을 손쉽게 변환하세요. 일괄 변환 및 크기 조정을 지원합니다.",
         "heading": "Image Converter",
         "subheading": "다양한 이미지 포맷을 손쉽게 변환하세요."
+      },
+      "urlEncoder": {
+        "title": "URL 인코더/디코더 - 개발자 도구",
+        "description": "URL 특수문자를 인코딩하고 디코딩하세요. encodeURIComponent와 encodeURI를 지원합니다.",
+        "heading": "URL Encoder/Decoder",
+        "subheading": "URL 문자열을 인코딩하거나 인코딩된 URL을 디코딩하세요."
+      },
+      "cronParser": {
+        "title": "Cron Expression Parser - 개발자 도구",
+        "description": "Cron 표현식을 파싱하고 다음 실행 시간을 계산하세요. 시각적 빌더로 쉽게 표현식을 생성할 수 있습니다.",
+        "heading": "Cron Expression Parser",
+        "subheading": "Cron 표현식을 파싱하고 다음 실행 시간을 확인하세요."
       }
     }
   },
@@ -591,6 +603,162 @@
           "dimensionTooLarge": "이미지 크기가 너무 큽니다 (최대 4096px)",
           "unsupportedFormat": "지원하지 않는 파일 형식입니다",
           "loadError": "이미지 로드에 실패했습니다"
+        }
+      }
+    },
+    "urlEncoder": {
+      "name": "URL Encoder",
+      "description": "URL 특수문자를 인코딩/디코딩합니다.",
+      "ui": {
+        "encoder": "Encoder",
+        "decoder": "Decoder",
+        "input": "입력",
+        "output": "출력",
+        "result": "결과",
+        "resultRealtime": "실시간으로 변환 결과가 표시됩니다",
+        "inputPlaceholder": {
+          "encode": "인코딩할 텍스트를 입력하세요...",
+          "decode": "디코딩할 URL 인코딩 문자열을 입력하세요..."
+        },
+        "inputDescription": {
+          "encode": "인코딩할 텍스트를 입력하세요",
+          "decode": "디코딩할 URL 인코딩 문자열을 입력하세요"
+        },
+        "outputPlaceholder": "결과가 여기에 표시됩니다...",
+        "clear": "초기화",
+        "copy": "복사",
+        "copyResult": "결과 복사",
+        "encodingType": "인코딩 타입",
+        "component": "컴포넌트 (encodeURIComponent)",
+        "componentDesc": "URL 파라미터, 쿼리스트링에 사용",
+        "fullUri": "전체 URI (encodeURI)",
+        "fullUriDesc": "전체 URL에 사용 (예약 문자 유지)",
+        "encodeSuccess": "인코딩 성공!",
+        "decodeSuccess": "디코딩 성공!",
+        "encodeFailed": "인코딩에 실패했습니다",
+        "decodeFailed": "잘못된 URL 인코딩 문자열입니다"
+      }
+    },
+    "cronParser": {
+      "name": "Cron Parser",
+      "description": "Cron 표현식을 파싱하고 다음 실행 시간을 계산합니다.",
+      "ui": {
+        "expressionInput": "Cron 표현식",
+        "expressionPlaceholder": "예: 0 9 * * 1-5",
+        "builder": "표현식 빌더",
+        "builderDescription": "시각적으로 Cron 표현식을 만드세요",
+        "preview": "미리보기",
+        "apply": "적용",
+        "nextExecutions": "다음 실행 시간",
+        "count": "개",
+        "noExecutions": "실행 예정 없음",
+        "enterValidExpression": "유효한 표현식을 입력하세요",
+        "explanation": "표현식 해석",
+        "enterExpression": "표현식을 입력하면 해석 결과가 표시됩니다",
+        "invalidExpression": "유효하지 않은 표현식입니다",
+        "fieldName": "필드",
+        "value": "값",
+        "meaning": "의미",
+        "presets": "예제",
+        "cheatsheet": "문법 가이드",
+        "commonPresets": "일반",
+        "advancedPresets": "고급",
+        "valid": "유효",
+        "invalid": "오류",
+        "selectOption": "선택",
+        "custom": "직접 입력",
+        "cronFormat": "Cron 형식",
+        "fieldRangesTitle": "필드 범위",
+        "specialCharsTitle": "특수 문자",
+        "examples": "예시",
+        "exampleEvery15Min": "15분마다 실행",
+        "exampleBusinessHours": "평일 업무시간(9-17시) 정각마다",
+        "exampleBiMonthly": "매월 1일, 15일 자정",
+        "fields": {
+          "minute": "분",
+          "hour": "시",
+          "dayOfMonth": "일",
+          "month": "월",
+          "dayOfWeek": "요일"
+        },
+        "fieldRanges": {
+          "minute": "0-59",
+          "hour": "0-23",
+          "dayOfMonth": "1-31",
+          "month": "1-12",
+          "dayOfWeek": "0-6 (일=0)"
+        },
+        "specialChars": {
+          "anyValue": "모든 값",
+          "listValues": "값 목록 (예: 1,3,5)",
+          "rangeValues": "범위 (예: 1-5)",
+          "stepValues": "스텝 (예: */15)"
+        },
+        "quickOptions": {
+          "minute": {
+            "every": "매 분",
+            "zero": "0분",
+            "every5": "5분마다",
+            "every10": "10분마다",
+            "every15": "15분마다",
+            "every30": "30분마다"
+          },
+          "hour": {
+            "every": "매 시간",
+            "midnight": "자정 (0시)",
+            "nineAM": "오전 9시",
+            "noon": "정오 (12시)",
+            "sixPM": "오후 6시",
+            "every2": "2시간마다"
+          },
+          "dayOfMonth": {
+            "every": "매일",
+            "first": "1일",
+            "fifteenth": "15일",
+            "firstAndFifteenth": "1일, 15일"
+          },
+          "month": {
+            "every": "매월",
+            "january": "1월",
+            "quarterly": "분기별"
+          },
+          "dayOfWeek": {
+            "every": "매일",
+            "weekdays": "평일 (월-금)",
+            "weekends": "주말",
+            "monday": "월요일",
+            "friday": "금요일"
+          }
+        },
+        "presetLabels": {
+          "everyMinute": "매 분",
+          "everyHour": "매 시간",
+          "everyDayMidnight": "매일 자정",
+          "weekdaysNineAM": "평일 오전 9시",
+          "firstDayOfMonth": "매월 1일 자정",
+          "everySundayMidnight": "매주 일요일 자정",
+          "every15Minutes": "15분마다",
+          "every2Hours": "2시간마다",
+          "firstAndFifteenth": "1일과 15일 새벽 4:30",
+          "weekdaysTenPM": "평일 오후 10시"
+        },
+        "presetDescriptions": {
+          "everyMinuteDesc": "* * * * * - 1분 간격으로 실행",
+          "everyHourDesc": "0 * * * * - 매 시간 정각에 실행",
+          "everyDayMidnightDesc": "0 0 * * * - 매일 자정에 실행",
+          "weekdaysNineAMDesc": "0 9 * * 1-5 - 월~금 오전 9시",
+          "firstDayOfMonthDesc": "0 0 1 * * - 매월 1일 자정",
+          "everySundayMidnightDesc": "0 0 * * 0 - 일요일 자정",
+          "every15MinutesDesc": "*/15 * * * * - 15분 간격",
+          "every2HoursDesc": "0 */2 * * * - 2시간 간격",
+          "firstAndFifteenthDesc": "30 4 1,15 * * - 1일과 15일",
+          "weekdaysTenPMDesc": "0 22 * * 1-5 - 평일 오후 10시"
+        },
+        "toast": {
+          "copied": "표현식이 복사되었습니다",
+          "cleared": "초기화되었습니다",
+          "nothingToCopy": "복사할 내용이 없습니다",
+          "pasted": "붙여넣기 완료"
         }
       }
     },

@@ -184,6 +184,18 @@
         "description": "WebP、PNG、JPEG、GIFなどの画像形式間で簡単に変換。一括変換とリサイズをサポート。",
         "heading": "画像変換器",
         "subheading": "様々な画像形式間で簡単に変換。"
+      },
+      "urlEncoder": {
+        "title": "URLエンコーダー/デコーダー - 開発者ツール",
+        "description": "URL特殊文字をエンコード・デコード。encodeURIComponentとencodeURIをサポート。",
+        "heading": "URLエンコーダー/デコーダー",
+        "subheading": "URL文字列をエンコードまたはエンコードされたURLをデコード。"
+      },
+      "cronParser": {
+        "title": "Cron式パーサー - 開発者ツール",
+        "description": "Cron式の解析と検証、次回実行時刻の確認、ビジュアルビルダーで式を作成。",
+        "heading": "Cron式パーサー",
+        "subheading": "Cron式を解析し、実行スケジュールを確認、直感的なビジュアルビルダーで式を作成。"
       }
     }
   },
@@ -594,6 +606,39 @@
         }
       }
     },
+    "urlEncoder": {
+      "name": "URLエンコーダー",
+      "description": "URL特殊文字をエンコード・デコード。",
+      "ui": {
+        "encoder": "エンコーダー",
+        "decoder": "デコーダー",
+        "input": "入力",
+        "output": "出力",
+        "result": "結果",
+        "resultRealtime": "リアルタイムで変換結果を表示",
+        "inputPlaceholder": {
+          "encode": "エンコードするテキストを入力...",
+          "decode": "デコードするURLエンコード文字列を入力..."
+        },
+        "inputDescription": {
+          "encode": "エンコードするテキストを入力",
+          "decode": "デコードするURLエンコード文字列を入力"
+        },
+        "outputPlaceholder": "結果がここに表示されます...",
+        "clear": "クリア",
+        "copy": "コピー",
+        "copyResult": "結果をコピー",
+        "encodingType": "エンコードタイプ",
+        "component": "コンポーネント (encodeURIComponent)",
+        "componentDesc": "URLパラメータ、クエリ文字列用",
+        "fullUri": "完全URI (encodeURI)",
+        "fullUriDesc": "完全URL用（予約文字を維持）",
+        "encodeSuccess": "エンコード成功！",
+        "decodeSuccess": "デコード成功！",
+        "encodeFailed": "エンコードに失敗しました",
+        "decodeFailed": "無効なURLエンコード文字列です"
+      }
+    },
     "imageConverter": {
       "name": "画像変換器",
       "description": "様々な画像形式間で簡単に変換。",
@@ -689,6 +734,129 @@
         "unsupportedFormat": "サポートされていないファイル形式",
         "loadError": "画像の読み込みに失敗しました",
         "maxFilesReached": "最大ファイル数に達しました（最大10ファイル）"
+      }
+    },
+    "cronParser": {
+      "name": "Cron式パーサー",
+      "description": "Cron式を解析し、次回実行時刻を計算します。",
+      "ui": {
+        "expressionInput": "Cron式",
+        "expressionPlaceholder": "例: 0 9 * * 1-5",
+        "builder": "式ビルダー",
+        "builderDescription": "視覚的にCron式を作成",
+        "preview": "プレビュー",
+        "apply": "適用",
+        "nextExecutions": "次回実行時刻",
+        "count": "回",
+        "noExecutions": "実行予定なし",
+        "enterValidExpression": "有効な式を入力してください",
+        "explanation": "式の解釈",
+        "enterExpression": "式を入力すると解釈が表示されます",
+        "invalidExpression": "無効な式です",
+        "fieldName": "フィールド",
+        "value": "値",
+        "meaning": "意味",
+        "presets": "プリセット",
+        "cheatsheet": "構文ガイド",
+        "commonPresets": "一般",
+        "advancedPresets": "高度",
+        "valid": "有効",
+        "invalid": "エラー",
+        "selectOption": "選択",
+        "custom": "カスタム",
+        "cronFormat": "Cron形式",
+        "fieldRangesTitle": "フィールド範囲",
+        "specialCharsTitle": "特殊文字",
+        "examples": "例",
+        "exampleEvery15Min": "15分毎に実行",
+        "exampleBusinessHours": "平日業務時間(9-17時)毎時",
+        "exampleBiMonthly": "毎月1日、15日深夜",
+        "fields": {
+          "minute": "分",
+          "hour": "時",
+          "dayOfMonth": "日",
+          "month": "月",
+          "dayOfWeek": "曜日"
+        },
+        "fieldRanges": {
+          "minute": "0-59",
+          "hour": "0-23",
+          "dayOfMonth": "1-31",
+          "month": "1-12",
+          "dayOfWeek": "0-6 (日=0)"
+        },
+        "specialChars": {
+          "anyValue": "全ての値",
+          "listValues": "リスト (例: 1,3,5)",
+          "rangeValues": "範囲 (例: 1-5)",
+          "stepValues": "ステップ (例: */15)"
+        },
+        "quickOptions": {
+          "minute": {
+            "every": "毎分",
+            "zero": "0分",
+            "every5": "5分毎",
+            "every10": "10分毎",
+            "every15": "15分毎",
+            "every30": "30分毎"
+          },
+          "hour": {
+            "every": "毎時",
+            "midnight": "深夜 (0時)",
+            "nineAM": "午前9時",
+            "noon": "正午 (12時)",
+            "sixPM": "午後6時",
+            "every2": "2時間毎"
+          },
+          "dayOfMonth": {
+            "every": "毎日",
+            "first": "1日",
+            "fifteenth": "15日",
+            "firstAndFifteenth": "1日、15日"
+          },
+          "month": {
+            "every": "毎月",
+            "january": "1月",
+            "quarterly": "四半期毎"
+          },
+          "dayOfWeek": {
+            "every": "毎日",
+            "weekdays": "平日 (月-金)",
+            "weekends": "週末",
+            "monday": "月曜日",
+            "friday": "金曜日"
+          }
+        },
+        "presetLabels": {
+          "everyMinute": "毎分",
+          "everyHour": "毎時",
+          "everyDayMidnight": "毎日深夜",
+          "weekdaysNineAM": "平日9時",
+          "firstDayOfMonth": "毎月1日深夜",
+          "everySundayMidnight": "毎週日曜深夜",
+          "every15Minutes": "15分毎",
+          "every2Hours": "2時間毎",
+          "firstAndFifteenth": "1日と15日 4:30",
+          "weekdaysTenPM": "平日22時"
+        },
+        "presetDescriptions": {
+          "everyMinuteDesc": "* * * * * - 毎分実行",
+          "everyHourDesc": "0 * * * * - 毎時0分に実行",
+          "everyDayMidnightDesc": "0 0 * * * - 毎日深夜に実行",
+          "weekdaysNineAMDesc": "0 9 * * 1-5 - 月〜金 9時",
+          "firstDayOfMonthDesc": "0 0 1 * * - 毎月1日深夜",
+          "everySundayMidnightDesc": "0 0 * * 0 - 日曜深夜",
+          "every15MinutesDesc": "*/15 * * * * - 15分間隔",
+          "every2HoursDesc": "0 */2 * * * - 2時間間隔",
+          "firstAndFifteenthDesc": "30 4 1,15 * * - 1日と15日",
+          "weekdaysTenPMDesc": "0 22 * * 1-5 - 平日22時"
+        },
+        "toast": {
+          "copied": "式をコピーしました",
+          "cleared": "クリアしました",
+          "nothingToCopy": "コピーする内容がありません",
+          "pasted": "貼り付けました"
+        }
       }
     }
   }
