@@ -36,7 +36,7 @@ src/
 │   ├── globals.css               # 전역 스타일 (Tailwind)
 │   ├── providers/                # 앱 프로바이더
 │   │   └── query-provider.tsx
-│   ├── [locale]/                 # 다국어 라우트 (ko, en)
+│   ├── [locale]/                 # 다국어 라우트 (ko, en, ja, zh)
 │   │   ├── layout.tsx            # NextIntlClientProvider
 │   │   └── (main)/               # 메인 도구 라우트 그룹
 │   │       ├── layout.tsx        # 메인 레이아웃 (Header, Footer)
@@ -51,7 +51,7 @@ src/
 │       └── dashboard/            # /admin/dashboard
 │
 ├── i18n/                         # 국제화 설정
-│   ├── routing.ts                # locale 라우팅 설정 (ko, en)
+│   ├── routing.ts                # locale 라우팅 설정 (ko, en, ja, zh)
 │   ├── request.ts                # 서버 요청 설정
 │   └── navigation.ts             # Link, useRouter, usePathname
 │

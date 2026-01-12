@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import type { AdminUser, AuthState, LoginCredentials } from './types'
+import type { AuthState, LoginCredentials } from './types'
 import { authenticate } from '../lib/auth-service'
 
 interface AuthActions {
