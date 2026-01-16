@@ -196,6 +196,12 @@
         "description": "Cron 표현식을 파싱하고 다음 실행 시간을 계산하세요. 시각적 빌더로 쉽게 표현식을 생성할 수 있습니다.",
         "heading": "Cron Expression Parser",
         "subheading": "Cron 표현식을 파싱하고 다음 실행 시간을 확인하세요."
+      },
+      "jsonYamlConverter": {
+        "title": "JSON ↔ YAML 변환기 - 개발자 도구",
+        "description": "JSON과 YAML 형식을 양방향으로 변환하세요. 실시간 변환과 들여쓰기 설정을 지원합니다.",
+        "heading": "JSON ↔ YAML Converter",
+        "subheading": "JSON과 YAML 형식을 쉽게 변환하세요."
       }
     }
   },
@@ -760,6 +766,32 @@
           "nothingToCopy": "복사할 내용이 없습니다",
           "pasted": "붙여넣기 완료"
         }
+      }
+    },
+    "jsonYamlConverter": {
+      "name": "JSON/YAML Converter",
+      "description": "JSON과 YAML 형식을 양방향으로 변환합니다.",
+      "ui": {
+        "input": "입력",
+        "output": "출력",
+        "indentSize": "들여쓰기 크기",
+        "indent2": "2칸",
+        "indent4": "4칸",
+        "inputDescription": {
+          "jsonToYaml": "변환할 JSON을 입력하세요",
+          "yamlToJson": "변환할 YAML을 입력하세요"
+        },
+        "inputPlaceholder": {
+          "json": "JSON을 입력하세요...",
+          "yaml": "YAML을 입력하세요..."
+        },
+        "outputPlaceholder": "결과가 여기에 표시됩니다...",
+        "resultRealtime": "실시간으로 변환 결과가 표시됩니다",
+        "clear": "초기화",
+        "copy": "복사",
+        "copyResult": "결과 복사",
+        "swap": "스왑",
+        "conversionFailed": "변환에 실패했습니다"
       }
     },
     "imageConverter": {

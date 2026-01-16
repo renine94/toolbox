@@ -110,6 +110,13 @@ export default function Home() {
           icon: "⏰",
           status: "available",
         },
+        {
+          id: "json-yaml-converter",
+          name: t("jsonYamlConverter.name"),
+          description: t("jsonYamlConverter.description"),
+          icon: "🔄",
+          status: "available",
+        },
       ],
     },
     {

@@ -196,6 +196,12 @@
         "description": "Parse and validate cron expressions, see next execution times, and build expressions visually.",
         "heading": "Cron Expression Parser",
         "subheading": "Parse cron expressions, check execution schedules, and build expressions with an intuitive visual builder."
+      },
+      "jsonYamlConverter": {
+        "title": "JSON ↔ YAML Converter - Developer Tools",
+        "description": "Convert between JSON and YAML formats bidirectionally. Supports real-time conversion and indent settings.",
+        "heading": "JSON ↔ YAML Converter",
+        "subheading": "Easily convert between JSON and YAML formats."
       }
     }
   },
@@ -637,6 +643,32 @@
         "decodeSuccess": "Decoding successful!",
         "encodeFailed": "Encoding failed",
         "decodeFailed": "Invalid URL encoded string"
+      }
+    },
+    "jsonYamlConverter": {
+      "name": "JSON/YAML Converter",
+      "description": "Convert between JSON and YAML formats bidirectionally.",
+      "ui": {
+        "input": "Input",
+        "output": "Output",
+        "indentSize": "Indent Size",
+        "indent2": "2 spaces",
+        "indent4": "4 spaces",
+        "inputDescription": {
+          "jsonToYaml": "Enter JSON to convert",
+          "yamlToJson": "Enter YAML to convert"
+        },
+        "inputPlaceholder": {
+          "json": "Enter JSON...",
+          "yaml": "Enter YAML..."
+        },
+        "outputPlaceholder": "Result will appear here...",
+        "resultRealtime": "Results are displayed in real-time",
+        "clear": "Clear",
+        "copy": "Copy",
+        "copyResult": "Copy Result",
+        "swap": "Swap",
+        "conversionFailed": "Conversion failed"
       }
     },
     "imageConverter": {

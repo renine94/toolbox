@@ -196,6 +196,12 @@
         "description": "Cron式の解析と検証、次回実行時刻の確認、ビジュアルビルダーで式を作成。",
         "heading": "Cron式パーサー",
         "subheading": "Cron式を解析し、実行スケジュールを確認、直感的なビジュアルビルダーで式を作成。"
+      },
+      "jsonYamlConverter": {
+        "title": "JSON ↔ YAML変換器 - 開発者ツール",
+        "description": "JSONとYAML形式を双方向に変換。リアルタイム変換とインデント設定をサポート。",
+        "heading": "JSON ↔ YAML Converter",
+        "subheading": "JSONとYAML形式を簡単に変換。"
       }
     }
   },
@@ -637,6 +643,32 @@
         "decodeSuccess": "デコード成功！",
         "encodeFailed": "エンコードに失敗しました",
         "decodeFailed": "無効なURLエンコード文字列です"
+      }
+    },
+    "jsonYamlConverter": {
+      "name": "JSON/YAML変換器",
+      "description": "JSONとYAML形式を双方向に変換。",
+      "ui": {
+        "input": "入力",
+        "output": "出力",
+        "indentSize": "インデントサイズ",
+        "indent2": "2スペース",
+        "indent4": "4スペース",
+        "inputDescription": {
+          "jsonToYaml": "変換するJSONを入力",
+          "yamlToJson": "変換するYAMLを入力"
+        },
+        "inputPlaceholder": {
+          "json": "JSONを入力...",
+          "yaml": "YAMLを入力..."
+        },
+        "outputPlaceholder": "結果がここに表示されます...",
+        "resultRealtime": "リアルタイムで変換結果を表示",
+        "clear": "クリア",
+        "copy": "コピー",
+        "copyResult": "結果をコピー",
+        "swap": "スワップ",
+        "conversionFailed": "変換に失敗しました"
       }
     },
     "imageConverter": {

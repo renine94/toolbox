@@ -196,6 +196,12 @@
         "description": "解析和验证Cron表达式，查看下次执行时间，使用可视化构建器创建表达式。",
         "heading": "Cron表达式解析器",
         "subheading": "解析Cron表达式，查看执行计划，通过直观的可视化构建器创建表达式。"
+      },
+      "jsonYamlConverter": {
+        "title": "JSON ↔ YAML转换器 - 开发者工具",
+        "description": "双向转换JSON和YAML格式。支持实时转换和缩进设置。",
+        "heading": "JSON ↔ YAML Converter",
+        "subheading": "轻松转换JSON和YAML格式。"
       }
     }
   },
@@ -637,6 +643,32 @@
         "decodeSuccess": "解码成功！",
         "encodeFailed": "编码失败",
         "decodeFailed": "无效的URL编码字符串"
+      }
+    },
+    "jsonYamlConverter": {
+      "name": "JSON/YAML转换器",
+      "description": "双向转换JSON和YAML格式。",
+      "ui": {
+        "input": "输入",
+        "output": "输出",
+        "indentSize": "缩进大小",
+        "indent2": "2空格",
+        "indent4": "4空格",
+        "inputDescription": {
+          "jsonToYaml": "输入要转换的JSON",
+          "yamlToJson": "输入要转换的YAML"
+        },
+        "inputPlaceholder": {
+          "json": "输入JSON...",
+          "yaml": "输入YAML..."
+        },
+        "outputPlaceholder": "结果将显示在这里...",
+        "resultRealtime": "实时显示转换结果",
+        "clear": "清除",
+        "copy": "复制",
+        "copyResult": "复制结果",
+        "swap": "交换",
+        "conversionFailed": "转换失败"
       }
     },
     "imageConverter": {
