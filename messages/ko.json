@@ -202,6 +202,18 @@
         "description": "JSON과 YAML 형식을 양방향으로 변환하세요. 실시간 변환과 들여쓰기 설정을 지원합니다.",
         "heading": "JSON ↔ YAML Converter",
         "subheading": "JSON과 YAML 형식을 쉽게 변환하세요."
+      },
+      "jsonToTypescript": {
+        "title": "JSON to TypeScript - 개발자 도구",
+        "description": "JSON 데이터를 TypeScript 인터페이스/타입으로 자동 변환합니다. 중첩 객체와 배열을 지원합니다.",
+        "heading": "JSON to TypeScript",
+        "subheading": "JSON 데이터를 붙여넣으면 TypeScript 타입을 자동 생성합니다."
+      },
+      "unixTimestamp": {
+        "title": "Unix Timestamp 변환기 - 개발자 도구",
+        "description": "Unix Timestamp와 날짜/시간을 쉽게 변환합니다. 밀리초/초 단위와 다양한 타임존을 지원합니다.",
+        "heading": "Unix Timestamp Converter",
+        "subheading": "Unix Timestamp(Epoch)와 사람이 읽을 수 있는 날짜 간 변환"
       }
     }
   },
@@ -792,6 +804,59 @@
         "copyResult": "결과 복사",
         "swap": "스왑",
         "conversionFailed": "변환에 실패했습니다"
+      }
+    },
+    "jsonToTypescript": {
+      "name": "JSON to TypeScript",
+      "description": "JSON 데이터를 TypeScript 인터페이스/타입으로 변환합니다.",
+      "ui": {
+        "input": "JSON 입력",
+        "output": "TypeScript 출력",
+        "inputPlaceholder": "JSON 데이터를 붙여넣으세요...",
+        "outputPlaceholder": "TypeScript 타입이 여기에 표시됩니다...",
+        "options": "변환 옵션",
+        "rootName": "루트 타입 이름",
+        "useInterface": "Interface 사용",
+        "useType": "Type 사용",
+        "exportTypes": "Export 추가",
+        "optionalProperties": "Optional 속성 (?)",
+        "readonlyProperties": "Readonly 속성",
+        "convert": "변환",
+        "copy": "복사",
+        "clear": "초기화",
+        "invalidJson": "유효하지 않은 JSON입니다",
+        "converted": "변환 완료!",
+        "nothingToCopy": "복사할 내용이 없습니다"
+      }
+    },
+    "unixTimestamp": {
+      "name": "Unix Timestamp",
+      "description": "Unix Timestamp와 날짜/시간을 양방향으로 변환합니다.",
+      "ui": {
+        "currentTime": "현재 시간",
+        "timestampToDate": "Timestamp → 날짜",
+        "timestampToDateDesc": "Unix Timestamp를 날짜/시간으로 변환합니다",
+        "dateToTimestamp": "날짜 → Timestamp",
+        "dateToTimestampDesc": "날짜/시간을 Unix Timestamp로 변환합니다",
+        "timestamp": "Unix Timestamp",
+        "dateTime": "날짜/시간",
+        "timestampPlaceholder": "예: 1705487400",
+        "convert": "변환",
+        "now": "현재 시간",
+        "copy": "복사",
+        "clear": "초기화",
+        "result": "결과",
+        "unit": "단위",
+        "seconds": "초",
+        "milliseconds": "밀리초",
+        "format": "날짜 포맷",
+        "timezone": "타임존",
+        "options": "변환 옵션",
+        "relativeTime": "상대 시간",
+        "invalidTimestamp": "유효하지 않은 타임스탬프입니다",
+        "invalidDate": "유효하지 않은 날짜입니다",
+        "converted": "변환 완료!",
+        "nothingToCopy": "복사할 내용이 없습니다"
       }
     },
     "imageConverter": {

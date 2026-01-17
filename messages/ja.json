@@ -202,6 +202,18 @@
         "description": "JSONとYAML形式を双方向に変換。リアルタイム変換とインデント設定をサポート。",
         "heading": "JSON ↔ YAML Converter",
         "subheading": "JSONとYAML形式を簡単に変換。"
+      },
+      "jsonToTypescript": {
+        "title": "JSON to TypeScript - 開発者ツール",
+        "description": "JSONデータをTypeScriptインターフェース/型に自動変換。ネストされたオブジェクトと配列をサポート。",
+        "heading": "JSON to TypeScript",
+        "subheading": "JSONデータを貼り付けて自動的にTypeScript型を生成。"
+      },
+      "unixTimestamp": {
+        "title": "Unixタイムスタンプ変換器 - 開発者ツール",
+        "description": "Unixタイムスタンプと日付/時刻を簡単に変換。ミリ秒/秒と様々なタイムゾーンをサポート。",
+        "heading": "Unix Timestamp Converter",
+        "subheading": "Unixタイムスタンプ（Epoch）と人間が読める日付間の変換"
       }
     }
   },
@@ -766,6 +778,59 @@
         "unsupportedFormat": "サポートされていないファイル形式",
         "loadError": "画像の読み込みに失敗しました",
         "maxFilesReached": "最大ファイル数に達しました（最大10ファイル）"
+      }
+    },
+    "jsonToTypescript": {
+      "name": "JSON to TypeScript",
+      "description": "JSONデータをTypeScriptインターフェース/型に変換。",
+      "ui": {
+        "input": "JSON入力",
+        "output": "TypeScript出力",
+        "inputPlaceholder": "ここにJSONデータを貼り付け...",
+        "outputPlaceholder": "TypeScript型がここに表示されます...",
+        "options": "変換オプション",
+        "rootName": "ルート型名",
+        "useInterface": "Interfaceを使用",
+        "useType": "Typeを使用",
+        "exportTypes": "Exportを追加",
+        "optionalProperties": "Optionalプロパティ (?)",
+        "readonlyProperties": "Readonlyプロパティ",
+        "convert": "変換",
+        "copy": "コピー",
+        "clear": "クリア",
+        "invalidJson": "無効なJSONです",
+        "converted": "変換完了！",
+        "nothingToCopy": "コピーする内容がありません"
+      }
+    },
+    "unixTimestamp": {
+      "name": "Unixタイムスタンプ",
+      "description": "Unixタイムスタンプと日付/時刻を双方向に変換。",
+      "ui": {
+        "currentTime": "現在時刻",
+        "timestampToDate": "タイムスタンプ → 日付",
+        "timestampToDateDesc": "Unixタイムスタンプを日付/時刻に変換",
+        "dateToTimestamp": "日付 → タイムスタンプ",
+        "dateToTimestampDesc": "日付/時刻をUnixタイムスタンプに変換",
+        "timestamp": "Unixタイムスタンプ",
+        "dateTime": "日付/時刻",
+        "timestampPlaceholder": "例: 1705487400",
+        "convert": "変換",
+        "now": "現在",
+        "copy": "コピー",
+        "clear": "クリア",
+        "result": "結果",
+        "unit": "単位",
+        "seconds": "秒",
+        "milliseconds": "ミリ秒",
+        "format": "日付形式",
+        "timezone": "タイムゾーン",
+        "options": "変換オプション",
+        "relativeTime": "相対時間",
+        "invalidTimestamp": "無効なタイムスタンプです",
+        "invalidDate": "無効な日付です",
+        "converted": "変換完了！",
+        "nothingToCopy": "コピーする内容がありません"
       }
     },
     "cronParser": {

@@ -202,6 +202,18 @@
         "description": "Convert between JSON and YAML formats bidirectionally. Supports real-time conversion and indent settings.",
         "heading": "JSON ↔ YAML Converter",
         "subheading": "Easily convert between JSON and YAML formats."
+      },
+      "jsonToTypescript": {
+        "title": "JSON to TypeScript - Developer Tools",
+        "description": "Automatically convert JSON data to TypeScript interfaces/types. Supports nested objects and arrays.",
+        "heading": "JSON to TypeScript",
+        "subheading": "Paste JSON data to automatically generate TypeScript types."
+      },
+      "unixTimestamp": {
+        "title": "Unix Timestamp Converter - Developer Tools",
+        "description": "Easily convert between Unix Timestamp and date/time. Supports milliseconds/seconds and various timezones.",
+        "heading": "Unix Timestamp Converter",
+        "subheading": "Convert between Unix Timestamp (Epoch) and human-readable dates"
       }
     }
   },
@@ -766,6 +778,59 @@
         "unsupportedFormat": "Unsupported file format",
         "loadError": "Failed to load image",
         "maxFilesReached": "Maximum file limit reached (Max 10 files)"
+      }
+    },
+    "jsonToTypescript": {
+      "name": "JSON to TypeScript",
+      "description": "Convert JSON data to TypeScript interfaces/types.",
+      "ui": {
+        "input": "JSON Input",
+        "output": "TypeScript Output",
+        "inputPlaceholder": "Paste your JSON data here...",
+        "outputPlaceholder": "TypeScript types will appear here...",
+        "options": "Conversion Options",
+        "rootName": "Root Type Name",
+        "useInterface": "Use Interface",
+        "useType": "Use Type",
+        "exportTypes": "Add Export",
+        "optionalProperties": "Optional Properties (?)",
+        "readonlyProperties": "Readonly Properties",
+        "convert": "Convert",
+        "copy": "Copy",
+        "clear": "Clear",
+        "invalidJson": "Invalid JSON",
+        "converted": "Conversion complete!",
+        "nothingToCopy": "Nothing to copy"
+      }
+    },
+    "unixTimestamp": {
+      "name": "Unix Timestamp",
+      "description": "Convert between Unix Timestamp and date/time bidirectionally.",
+      "ui": {
+        "currentTime": "Current Time",
+        "timestampToDate": "Timestamp → Date",
+        "timestampToDateDesc": "Convert Unix Timestamp to date/time",
+        "dateToTimestamp": "Date → Timestamp",
+        "dateToTimestampDesc": "Convert date/time to Unix Timestamp",
+        "timestamp": "Unix Timestamp",
+        "dateTime": "Date/Time",
+        "timestampPlaceholder": "e.g., 1705487400",
+        "convert": "Convert",
+        "now": "Now",
+        "copy": "Copy",
+        "clear": "Clear",
+        "result": "Result",
+        "unit": "Unit",
+        "seconds": "Seconds",
+        "milliseconds": "Milliseconds",
+        "format": "Date Format",
+        "timezone": "Timezone",
+        "options": "Conversion Options",
+        "relativeTime": "Relative Time",
+        "invalidTimestamp": "Invalid timestamp",
+        "invalidDate": "Invalid date",
+        "converted": "Conversion complete!",
+        "nothingToCopy": "Nothing to copy"
       }
     },
     "cronParser": {

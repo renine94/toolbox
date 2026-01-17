@@ -117,6 +117,20 @@ export default function Home() {
           icon: "🔄",
           status: "available",
         },
+        {
+          id: "json-to-typescript",
+          name: t("jsonToTypescript.name"),
+          description: t("jsonToTypescript.description"),
+          icon: "TS",
+          status: "available",
+        },
+        {
+          id: "unix-timestamp",
+          name: t("unixTimestamp.name"),
+          description: t("unixTimestamp.description"),
+          icon: "🕐",
+          status: "available",
+        },
       ],
     },
     {
