@@ -104,16 +104,17 @@ function Carousel({
     }
   }, [api, onSelect])
 
-  // Wheel Event (왼쪽/오른쪽 스크롤)
+  // Wheel Event (가로 스크롤만 처리 - 트랙패드 좌우 제스처)
   React.useEffect(() => {
     if (!api) return
 
     const onWheel = (event: WheelEvent) => {
       if (orientation === "horizontal") {
-        const delta = event.deltaY + event.deltaX
-        if (Math.abs(delta) > 0) {
+        // deltaX만 사용: 세로 스크롤(deltaY)은 페이지 스크롤로 유지
+        const deltaX = event.deltaX
+        if (Math.abs(deltaX) > 3) {
           event.preventDefault()
-          if (delta > 0) api.scrollNext()
+          if (deltaX > 0) api.scrollNext()
           else api.scrollPrev()
         }
       }

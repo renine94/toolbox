@@ -214,6 +214,18 @@
         "description": "Unix Timestamp와 날짜/시간을 쉽게 변환합니다. 밀리초/초 단위와 다양한 타임존을 지원합니다.",
         "heading": "Unix Timestamp Converter",
         "subheading": "Unix Timestamp(Epoch)와 사람이 읽을 수 있는 날짜 간 변환"
+      },
+      "sqlFormatter": {
+        "title": "SQL Formatter - 개발자 도구",
+        "description": "SQL 쿼리를 보기 좋게 포맷팅하고 압축합니다. PostgreSQL, MySQL, SQLite 등 다양한 방언을 지원합니다.",
+        "heading": "SQL Formatter",
+        "subheading": "SQL 쿼리를 포맷팅, 압축하고 다양한 SQL 방언을 지원합니다."
+      },
+      "pomodoroTimer": {
+        "title": "Pomodoro Timer - 생산성 도구",
+        "description": "뽀모도로 기법으로 집중력을 높이세요. 25분 집중, 5분 휴식 사이클로 효율적인 시간 관리가 가능합니다.",
+        "heading": "Pomodoro Timer",
+        "subheading": "뽀모도로 기법으로 집중력을 높이고 생산성을 향상시키세요."
       }
     }
   },
@@ -857,6 +869,84 @@
         "invalidDate": "유효하지 않은 날짜입니다",
         "converted": "변환 완료!",
         "nothingToCopy": "복사할 내용이 없습니다"
+      }
+    },
+    "sqlFormatter": {
+      "name": "SQL Formatter",
+      "description": "SQL 쿼리를 포맷팅하고 압축합니다.",
+      "ui": {
+        "inputLabel": "SQL 입력",
+        "inputPlaceholder": "SQL 쿼리를 입력하세요...",
+        "outputLabel": "결과",
+        "outputPlaceholder": "포맷팅된 SQL이 여기에 표시됩니다...",
+        "format": "포맷팅",
+        "minify": "압축",
+        "copy": "복사",
+        "clear": "초기화",
+        "nothingToCopy": "복사할 내용이 없습니다",
+        "formatError": "포맷팅 오류",
+        "dialect": "SQL 방언",
+        "indent": "들여쓰기",
+        "keywordCase": "키워드 대소문자",
+        "dialects": {
+          "sql": "표준 SQL",
+          "postgresql": "PostgreSQL",
+          "mysql": "MySQL",
+          "mariadb": "MariaDB",
+          "sqlite": "SQLite",
+          "transactsql": "T-SQL (SQL Server)",
+          "plsql": "PL/SQL (Oracle)",
+          "bigquery": "BigQuery",
+          "spark": "Spark SQL",
+          "redshift": "Redshift"
+        },
+        "indentOptions": {
+          "2": "2칸",
+          "4": "4칸",
+          "tab": "탭"
+        },
+        "keywordOptions": {
+          "upper": "대문자",
+          "lower": "소문자",
+          "preserve": "유지"
+        }
+      }
+    },
+    "pomodoroTimer": {
+      "name": "Pomodoro Timer",
+      "description": "뽀모도로 기법으로 집중력과 생산성을 향상시키는 타이머입니다.",
+      "phases": {
+        "work": "작업 중",
+        "break": "휴식",
+        "longBreak": "긴 휴식"
+      },
+      "ui": {
+        "settings": "설정",
+        "timeSettings": "시간 설정",
+        "workDuration": "작업 시간",
+        "breakDuration": "휴식 시간",
+        "longBreakDuration": "긴 휴식 시간",
+        "sessionsUntilLongBreak": "긴 휴식까지 세션 수",
+        "minutes": "분",
+        "sessions": "세션",
+        "autoStart": "자동 시작",
+        "autoStartBreak": "휴식 자동 시작",
+        "autoStartWork": "작업 자동 시작",
+        "notifications": "알림",
+        "soundEnabled": "사운드 알림",
+        "notificationEnabled": "브라우저 알림",
+        "start": "시작",
+        "pause": "일시정지",
+        "reset": "리셋",
+        "skip": "건너뛰기",
+        "session": "세션",
+        "cycleComplete": "사이클 완료! 🎉",
+        "takeBreak": "휴식을 취하세요",
+        "todayStats": "오늘의 통계",
+        "completedSessions": "완료한 세션",
+        "totalFocusTime": "총 집중 시간",
+        "currentStreak": "현재 스트릭",
+        "settingsDisabledHint": "타이머 실행 중에는 시간 설정을 변경할 수 없습니다"
       }
     },
     "imageConverter": {

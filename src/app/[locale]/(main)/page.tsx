@@ -131,6 +131,13 @@ export default function Home() {
           icon: "🕐",
           status: "available",
         },
+        {
+          id: "sql-formatter",
+          name: t("sqlFormatter.name"),
+          description: t("sqlFormatter.description"),
+          icon: "🗄️",
+          status: "available",
+        },
       ],
     },
     {
@@ -256,6 +263,13 @@ export default function Home() {
           name: t("passwordGenerator.name"),
           description: t("passwordGenerator.description"),
           icon: "🔐",
+          status: "available",
+        },
+        {
+          id: "pomodoro-timer",
+          name: t("pomodoroTimer.name"),
+          description: t("pomodoroTimer.description"),
+          icon: "🍅",
           status: "available",
         },
       ],

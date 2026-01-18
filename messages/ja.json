@@ -214,6 +214,18 @@
         "description": "Unixタイムスタンプと日付/時刻を簡単に変換。ミリ秒/秒と様々なタイムゾーンをサポート。",
         "heading": "Unix Timestamp Converter",
         "subheading": "Unixタイムスタンプ（Epoch）と人間が読める日付間の変換"
+      },
+      "sqlFormatter": {
+        "title": "SQLフォーマッター - 開発者ツール",
+        "description": "SQLクエリを美しくフォーマットして圧縮。PostgreSQL、MySQL、SQLiteなど多数の方言をサポート。",
+        "heading": "SQL Formatter",
+        "subheading": "SQLクエリのフォーマット、圧縮、複数のSQL方言をサポート。"
+      },
+      "pomodoroTimer": {
+        "title": "ポモドーロタイマー - 生産性ツール",
+        "description": "ポモドーロテクニックで集中力を高めましょう。25分の作業と5分の休憩サイクルで効率的な時間管理ができます。",
+        "heading": "Pomodoro Timer",
+        "subheading": "ポモドーロテクニックで集中力と生産性を向上させましょう。"
       }
     }
   },
@@ -683,6 +695,47 @@
         "conversionFailed": "変換に失敗しました"
       }
     },
+    "sqlFormatter": {
+      "name": "SQLフォーマッター",
+      "description": "SQLクエリをフォーマットして圧縮。",
+      "ui": {
+        "inputLabel": "SQL入力",
+        "inputPlaceholder": "SQLクエリを入力...",
+        "outputLabel": "出力",
+        "outputPlaceholder": "フォーマットされたSQLがここに表示されます...",
+        "format": "フォーマット",
+        "minify": "圧縮",
+        "copy": "コピー",
+        "clear": "クリア",
+        "nothingToCopy": "コピーするものがありません",
+        "formatError": "フォーマットエラー",
+        "dialect": "SQL方言",
+        "indent": "インデント",
+        "keywordCase": "キーワード大文字小文字",
+        "dialects": {
+          "sql": "標準SQL",
+          "postgresql": "PostgreSQL",
+          "mysql": "MySQL",
+          "mariadb": "MariaDB",
+          "sqlite": "SQLite",
+          "transactsql": "T-SQL (SQL Server)",
+          "plsql": "PL/SQL (Oracle)",
+          "bigquery": "BigQuery",
+          "spark": "Spark SQL",
+          "redshift": "Redshift"
+        },
+        "indentOptions": {
+          "2": "2スペース",
+          "4": "4スペース",
+          "tab": "タブ"
+        },
+        "keywordOptions": {
+          "upper": "大文字",
+          "lower": "小文字",
+          "preserve": "維持"
+        }
+      }
+    },
     "imageConverter": {
       "name": "画像変換器",
       "description": "様々な画像形式間で簡単に変換。",
@@ -831,6 +884,43 @@
         "invalidDate": "無効な日付です",
         "converted": "変換完了！",
         "nothingToCopy": "コピーする内容がありません"
+      }
+    },
+    "pomodoroTimer": {
+      "name": "ポモドーロタイマー",
+      "description": "ポモドーロテクニックで集中力と生産性を向上させるタイマーです。",
+      "phases": {
+        "work": "作業中",
+        "break": "休憩",
+        "longBreak": "長い休憩"
+      },
+      "ui": {
+        "settings": "設定",
+        "timeSettings": "時間設定",
+        "workDuration": "作業時間",
+        "breakDuration": "休憩時間",
+        "longBreakDuration": "長い休憩時間",
+        "sessionsUntilLongBreak": "長い休憩までのセッション数",
+        "minutes": "分",
+        "sessions": "セッション",
+        "autoStart": "自動開始",
+        "autoStartBreak": "休憩を自動開始",
+        "autoStartWork": "作業を自動開始",
+        "notifications": "通知",
+        "soundEnabled": "サウンド通知",
+        "notificationEnabled": "ブラウザ通知",
+        "start": "開始",
+        "pause": "一時停止",
+        "reset": "リセット",
+        "skip": "スキップ",
+        "session": "セッション",
+        "cycleComplete": "サイクル完了！🎉",
+        "takeBreak": "休憩を取りましょう",
+        "todayStats": "今日の統計",
+        "completedSessions": "完了したセッション",
+        "totalFocusTime": "総集中時間",
+        "currentStreak": "現在のストリーク",
+        "settingsDisabledHint": "タイマー実行中は時間設定を変更できません"
       }
     },
     "cronParser": {

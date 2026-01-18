@@ -3,13 +3,10 @@
 import { useTranslations } from "next-intl";
 import {
     Card,
-    CardContent,
-    CardDescription,
     CardHeader,
     CardTitle,
 } from "@/shared/ui/card";
 import { Badge } from "@/shared/ui/badge";
-import { ChevronRight } from "lucide-react";
 
 interface Tool {
     id: string;
@@ -31,37 +28,33 @@ export function ToolCard({ tool, gradient, onClick }: ToolCardProps) {
     return (
         <Card
             onClick={onClick}
-            className="h-full flex flex-col bg-card/50 border-border hover:bg-accent/50 hover:border-accent transition-all duration-300 cursor-pointer group overflow-hidden"
+            className="h-full flex flex-col bg-card/50 border-border hover:bg-accent/50 hover:border-accent transition-all duration-300 cursor-pointer group overflow-hidden py-3"
         >
-            <CardHeader className="pb-3">
-                <div className="flex items-start justify-between">
+            <CardHeader className="pb-0 px-3 space-y-2">
+                <div className="flex items-center gap-2.5">
                     <div
-                        className={`w-12 h-12 rounded-xl bg-linear-to-br ${gradient} opacity-80 group-hover:opacity-100 flex items-center justify-center text-xl transition-opacity`}
+                        className={`w-8 h-8 shrink-0 rounded-lg bg-linear-to-br ${gradient} opacity-80 group-hover:opacity-100 flex items-center justify-center text-sm transition-opacity`}
                     >
                         {tool.icon}
                     </div>
-                    {tool.status === "coming-soon" && (
-                        <Badge
-                            variant="outline"
-                            className="bg-amber-500/10 text-amber-500 border-amber-500/20 text-xs"
-                        >
-                            {t("status.comingSoon")}
-                        </Badge>
-                    )}
+                    <div className="flex-1 min-w-0 flex items-center gap-1.5">
+                        <CardTitle className="text-foreground text-sm group-hover:text-primary line-clamp-1">
+                            {tool.name}
+                        </CardTitle>
+                        {tool.status === "coming-soon" && (
+                            <Badge
+                                variant="outline"
+                                className="shrink-0 bg-amber-500/10 text-amber-500 border-amber-500/20 text-[10px] px-1.5 py-0"
+                            >
+                                {t("status.comingSoon")}
+                            </Badge>
+                        )}
+                    </div>
                 </div>
-                <CardTitle className="text-foreground text-lg mt-4 group-hover:text-primary">
-                    {tool.name}
-                </CardTitle>
-                <CardDescription className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-xs line-clamp-1">
                     {tool.description}
-                </CardDescription>
+                </p>
             </CardHeader>
-            <CardContent className="pt-0">
-                <div className="flex items-center text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                    <span>{t("tools.viewMore")}</span>
-                    <ChevronRight className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" />
-                </div>
-            </CardContent>
         </Card>
     );
 }

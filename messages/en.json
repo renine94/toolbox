@@ -214,6 +214,18 @@
         "description": "Easily convert between Unix Timestamp and date/time. Supports milliseconds/seconds and various timezones.",
         "heading": "Unix Timestamp Converter",
         "subheading": "Convert between Unix Timestamp (Epoch) and human-readable dates"
+      },
+      "sqlFormatter": {
+        "title": "SQL Formatter - Developer Tools",
+        "description": "Format and minify SQL queries beautifully. Supports PostgreSQL, MySQL, SQLite and many more dialects.",
+        "heading": "SQL Formatter",
+        "subheading": "Format, minify SQL queries with support for multiple SQL dialects."
+      },
+      "pomodoroTimer": {
+        "title": "Pomodoro Timer - Productivity Tools",
+        "description": "Boost your focus with the Pomodoro Technique. Manage your time efficiently with 25-minute focus and 5-minute break cycles.",
+        "heading": "Pomodoro Timer",
+        "subheading": "Improve your focus and productivity with the Pomodoro Technique."
       }
     }
   },
@@ -683,6 +695,47 @@
         "conversionFailed": "Conversion failed"
       }
     },
+    "sqlFormatter": {
+      "name": "SQL Formatter",
+      "description": "Format and minify SQL queries.",
+      "ui": {
+        "inputLabel": "SQL Input",
+        "inputPlaceholder": "Enter your SQL query...",
+        "outputLabel": "Output",
+        "outputPlaceholder": "Formatted SQL will appear here...",
+        "format": "Format",
+        "minify": "Minify",
+        "copy": "Copy",
+        "clear": "Clear",
+        "nothingToCopy": "Nothing to copy",
+        "formatError": "Format error",
+        "dialect": "SQL Dialect",
+        "indent": "Indent",
+        "keywordCase": "Keyword Case",
+        "dialects": {
+          "sql": "Standard SQL",
+          "postgresql": "PostgreSQL",
+          "mysql": "MySQL",
+          "mariadb": "MariaDB",
+          "sqlite": "SQLite",
+          "transactsql": "T-SQL (SQL Server)",
+          "plsql": "PL/SQL (Oracle)",
+          "bigquery": "BigQuery",
+          "spark": "Spark SQL",
+          "redshift": "Redshift"
+        },
+        "indentOptions": {
+          "2": "2 spaces",
+          "4": "4 spaces",
+          "tab": "Tab"
+        },
+        "keywordOptions": {
+          "upper": "UPPERCASE",
+          "lower": "lowercase",
+          "preserve": "Preserve"
+        }
+      }
+    },
     "imageConverter": {
       "name": "Image Converter",
       "description": "Convert between various image formats with ease.",
@@ -831,6 +884,43 @@
         "invalidDate": "Invalid date",
         "converted": "Conversion complete!",
         "nothingToCopy": "Nothing to copy"
+      }
+    },
+    "pomodoroTimer": {
+      "name": "Pomodoro Timer",
+      "description": "A timer that improves focus and productivity using the Pomodoro Technique.",
+      "phases": {
+        "work": "Working",
+        "break": "Break",
+        "longBreak": "Long Break"
+      },
+      "ui": {
+        "settings": "Settings",
+        "timeSettings": "Time Settings",
+        "workDuration": "Work Duration",
+        "breakDuration": "Break Duration",
+        "longBreakDuration": "Long Break Duration",
+        "sessionsUntilLongBreak": "Sessions Until Long Break",
+        "minutes": "min",
+        "sessions": "sessions",
+        "autoStart": "Auto Start",
+        "autoStartBreak": "Auto-start Break",
+        "autoStartWork": "Auto-start Work",
+        "notifications": "Notifications",
+        "soundEnabled": "Sound Alerts",
+        "notificationEnabled": "Browser Notifications",
+        "start": "Start",
+        "pause": "Pause",
+        "reset": "Reset",
+        "skip": "Skip",
+        "session": "Session",
+        "cycleComplete": "Cycle Complete! 🎉",
+        "takeBreak": "Take a break",
+        "todayStats": "Today's Stats",
+        "completedSessions": "Completed Sessions",
+        "totalFocusTime": "Total Focus Time",
+        "currentStreak": "Current Streak",
+        "settingsDisabledHint": "Time settings cannot be changed while timer is running"
       }
     },
     "cronParser": {

@@ -38,7 +38,7 @@ interface ToolsGridProps {
     categories: Category[];
 }
 
-const ITEMS_PER_PAGE = 8;
+const ITEMS_PER_PAGE = 16;
 
 function ToolCardWrapper({ tool, gradient }: { tool: Tool; gradient: string }) {
     if (tool.status === "available") {
@@ -97,7 +97,7 @@ function AreaCarousel({ chunks, gradient }: { chunks: Tool[][]; gradient: string
             <CarouselContent>
                 {chunks.map((chunk, pageIndex) => (
                     <CarouselItem key={pageIndex} className="basis-full">
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
                             {chunk.map((tool) => (
                                 <ToolCardWrapper
                                     key={tool.id}
@@ -157,7 +157,7 @@ export function ToolsGrid({ categories }: ToolsGridProps) {
                                         gradient={category.gradient}
                                     />
                                 ) : (
-                                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
                                         {category.tools.map((tool) => (
                                             <ToolCardWrapper
                                                 key={tool.id}

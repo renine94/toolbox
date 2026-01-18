@@ -214,6 +214,18 @@
         "description": "轻松转换Unix时间戳和日期/时间。支持毫秒/秒和多种时区。",
         "heading": "Unix Timestamp Converter",
         "subheading": "在Unix时间戳（Epoch）和人类可读日期之间转换"
+      },
+      "sqlFormatter": {
+        "title": "SQL格式化器 - 开发者工具",
+        "description": "美化和压缩SQL查询。支持PostgreSQL、MySQL、SQLite等多种方言。",
+        "heading": "SQL Formatter",
+        "subheading": "格式化、压缩SQL查询，支持多种SQL方言。"
+      },
+      "pomodoroTimer": {
+        "title": "番茄钟 - 效率工具",
+        "description": "使用番茄工作法提高专注力。通过25分钟专注、5分钟休息的循环高效管理时间。",
+        "heading": "Pomodoro Timer",
+        "subheading": "使用番茄工作法提高专注力和生产效率。"
       }
     }
   },
@@ -683,6 +695,47 @@
         "conversionFailed": "转换失败"
       }
     },
+    "sqlFormatter": {
+      "name": "SQL格式化器",
+      "description": "格式化和压缩SQL查询。",
+      "ui": {
+        "inputLabel": "SQL输入",
+        "inputPlaceholder": "输入您的SQL查询...",
+        "outputLabel": "输出",
+        "outputPlaceholder": "格式化后的SQL将显示在这里...",
+        "format": "格式化",
+        "minify": "压缩",
+        "copy": "复制",
+        "clear": "清除",
+        "nothingToCopy": "没有可复制的内容",
+        "formatError": "格式化错误",
+        "dialect": "SQL方言",
+        "indent": "缩进",
+        "keywordCase": "关键字大小写",
+        "dialects": {
+          "sql": "标准SQL",
+          "postgresql": "PostgreSQL",
+          "mysql": "MySQL",
+          "mariadb": "MariaDB",
+          "sqlite": "SQLite",
+          "transactsql": "T-SQL (SQL Server)",
+          "plsql": "PL/SQL (Oracle)",
+          "bigquery": "BigQuery",
+          "spark": "Spark SQL",
+          "redshift": "Redshift"
+        },
+        "indentOptions": {
+          "2": "2空格",
+          "4": "4空格",
+          "tab": "制表符"
+        },
+        "keywordOptions": {
+          "upper": "大写",
+          "lower": "小写",
+          "preserve": "保持"
+        }
+      }
+    },
     "imageConverter": {
       "name": "图片转换器",
       "description": "轻松在各种图片格式之间进行转换。",
@@ -831,6 +884,43 @@
         "invalidDate": "无效的日期",
         "converted": "转换完成！",
         "nothingToCopy": "无内容可复制"
+      }
+    },
+    "pomodoroTimer": {
+      "name": "番茄钟",
+      "description": "使用番茄工作法提高专注力和生产效率的计时器。",
+      "phases": {
+        "work": "工作中",
+        "break": "休息",
+        "longBreak": "长休息"
+      },
+      "ui": {
+        "settings": "设置",
+        "timeSettings": "时间设置",
+        "workDuration": "工作时长",
+        "breakDuration": "休息时长",
+        "longBreakDuration": "长休息时长",
+        "sessionsUntilLongBreak": "长休息前的会话数",
+        "minutes": "分钟",
+        "sessions": "会话",
+        "autoStart": "自动开始",
+        "autoStartBreak": "自动开始休息",
+        "autoStartWork": "自动开始工作",
+        "notifications": "通知",
+        "soundEnabled": "声音提醒",
+        "notificationEnabled": "浏览器通知",
+        "start": "开始",
+        "pause": "暂停",
+        "reset": "重置",
+        "skip": "跳过",
+        "session": "会话",
+        "cycleComplete": "循环完成！🎉",
+        "takeBreak": "休息一下吧",
+        "todayStats": "今日统计",
+        "completedSessions": "完成的会话",
+        "totalFocusTime": "总专注时间",
+        "currentStreak": "当前连续",
+        "settingsDisabledHint": "计时器运行时无法更改时间设置"
       }
     },
     "cronParser": {
