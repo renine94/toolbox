@@ -49,7 +49,8 @@ export function QuickAccessButton() {
     };
   }, [isOpen]);
 
-  if (!showButton) return null;
+  // 서버 렌더링 시 또는 사용 기록이 없으면 렌더링하지 않음
+  if (!mounted || !showButton) return null;
 
   return (
     <>

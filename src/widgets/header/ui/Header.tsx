@@ -37,6 +37,20 @@ export function Header() {
     { href: "#about", label: t("about") },
   ];
 
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+
+    // View Transitions API 지원 확인
+    if (document.startViewTransition) {
+      document.startViewTransition(() => {
+        setTheme(newTheme);
+      });
+    } else {
+      // 미지원 브라우저에서는 즉시 전환
+      setTheme(newTheme);
+    }
+  };
+
   return (
     <motion.header
       className="border-b border-border backdrop-blur-xl bg-background/50 supports-backdrop-filter:bg-background/50 sticky top-0 z-50"
@@ -92,7 +106,7 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              onClick={toggleTheme}
               className="relative rounded-full w-9 h-9 border border-transparent hover:bg-accent hover:text-accent-foreground overflow-hidden"
             >
               <AnimatePresence mode="wait" initial={false}>
