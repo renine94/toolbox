@@ -1,6 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
@@ -15,6 +17,7 @@ import {
     type CarouselApi,
 } from "@/shared/ui/carousel";
 import { cn } from "@/shared/lib/utils";
+import { staggerContainer, fadeInUp } from "@/shared/lib/animations";
 import { chunkArray } from "../lib/utils";
 
 interface Tool {
@@ -55,12 +58,15 @@ function PageIndicator({ total, current }: { total: number; current: number }) {
     return (
         <div className="flex gap-2">
             {Array.from({ length: total }).map((_, i) => (
-                <span
+                <motion.span
                     key={i}
                     className={cn(
                         "w-2 h-2 rounded-full transition-colors",
                         i === current ? "bg-primary" : "bg-muted-foreground/30"
                     )}
+                    initial={{ scale: 0.8 }}
+                    animate={{ scale: i === current ? 1.2 : 1 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 />
             ))}
         </div>
@@ -97,7 +103,12 @@ function AreaCarousel({ chunks, gradient }: { chunks: Tool[][]; gradient: string
             <CarouselContent>
                 {chunks.map((chunk, pageIndex) => (
                     <CarouselItem key={pageIndex} className="basis-full">
-                        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
+                        <motion.div
+                            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3"
+                            variants={staggerContainer}
+                            initial="hidden"
+                            animate="visible"
+                        >
                             {chunk.map((tool) => (
                                 <ToolCardWrapper
                                     key={tool.id}
@@ -105,7 +116,7 @@ function AreaCarousel({ chunks, gradient }: { chunks: Tool[][]; gradient: string
                                     gradient={gradient}
                                 />
                             ))}
-                        </div>
+                        </motion.div>
                     </CarouselItem>
                 ))}
             </CarouselContent>
@@ -118,59 +129,82 @@ function AreaCarousel({ chunks, gradient }: { chunks: Tool[][]; gradient: string
     );
 }
 
-export function ToolsGrid({ categories }: ToolsGridProps) {
+function CategorySection({ category }: { category: Category }) {
     const t = useTranslations("common.tools");
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+    const chunks = chunkArray(category.tools, ITEMS_PER_PAGE);
+    const needsCarousel = chunks.length > 1;
+
+    return (
+        <motion.div
+            ref={ref}
+            variants={fadeInUp}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+        >
+            <motion.div
+                className="flex items-center gap-4 mb-8"
+                initial={{ opacity: 0, x: -20 }}
+                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+                <motion.div
+                    className={`w-12 h-12 rounded-2xl bg-linear-to-br ${category.gradient} flex items-center justify-center text-2xl shadow-lg`}
+                    whileHover={{ rotate: 10, scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                >
+                    {category.icon}
+                </motion.div>
+                <div>
+                    <h2 className="text-2xl font-bold text-foreground">
+                        {category.nameKo}
+                    </h2>
+                    <p className="text-muted-foreground text-sm">{category.name}</p>
+                </div>
+                <Badge
+                    variant="secondary"
+                    className="ml-auto bg-secondary text-secondary-foreground border-0"
+                >
+                    {t("count", { count: category.tools.length })}
+                </Badge>
+            </motion.div>
+
+            <div className="relative">
+                {needsCarousel ? (
+                    <AreaCarousel
+                        chunks={chunks}
+                        gradient={category.gradient}
+                    />
+                ) : (
+                    <motion.div
+                        className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3"
+                        variants={staggerContainer}
+                        initial="hidden"
+                        animate={isInView ? "visible" : "hidden"}
+                    >
+                        {category.tools.map((tool) => (
+                            <ToolCardWrapper
+                                key={tool.id}
+                                tool={tool}
+                                gradient={category.gradient}
+                            />
+                        ))}
+                    </motion.div>
+                )}
+            </div>
+        </motion.div>
+    );
+}
+
+export function ToolsGrid({ categories }: ToolsGridProps) {
     return (
         <section id="tools" className="max-w-7xl mx-auto px-6 pb-24">
             <div className="space-y-16">
-                {categories.map((category) => {
-                    const chunks = chunkArray(category.tools, ITEMS_PER_PAGE);
-                    const needsCarousel = chunks.length > 1;
-
-                    return (
-                        <div key={category.id}>
-                            <div className="flex items-center gap-4 mb-8">
-                                <div
-                                    className={`w-12 h-12 rounded-2xl bg-linear-to-br ${category.gradient} flex items-center justify-center text-2xl shadow-lg`}
-                                >
-                                    {category.icon}
-                                </div>
-                                <div>
-                                    <h2 className="text-2xl font-bold text-foreground">
-                                        {category.nameKo}
-                                    </h2>
-                                    <p className="text-muted-foreground text-sm">{category.name}</p>
-                                </div>
-                                <Badge
-                                    variant="secondary"
-                                    className="ml-auto bg-secondary text-secondary-foreground border-0"
-                                >
-                                    {t("count", { count: category.tools.length })}
-                                </Badge>
-                            </div>
-
-                            <div className="relative">
-                                {needsCarousel ? (
-                                    <AreaCarousel
-                                        chunks={chunks}
-                                        gradient={category.gradient}
-                                    />
-                                ) : (
-                                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3">
-                                        {category.tools.map((tool) => (
-                                            <ToolCardWrapper
-                                                key={tool.id}
-                                                tool={tool}
-                                                gradient={category.gradient}
-                                            />
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    );
-                })}
+                {categories.map((category) => (
+                    <CategorySection key={category.id} category={category} />
+                ))}
             </div>
         </section>
     );

@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import {
     Card,
@@ -7,6 +8,7 @@ import {
     CardTitle,
 } from "@/shared/ui/card";
 import { Badge } from "@/shared/ui/badge";
+import { cardItem, tapScale } from "@/shared/lib/animations";
 
 interface Tool {
     id: string;
@@ -26,35 +28,48 @@ export function ToolCard({ tool, gradient, onClick }: ToolCardProps) {
     const t = useTranslations("common");
 
     return (
-        <Card
-            onClick={onClick}
-            className="h-full flex flex-col bg-card/50 border-border hover:bg-accent/50 hover:border-accent transition-all duration-300 cursor-pointer group overflow-hidden py-3"
+        <motion.div
+            variants={cardItem}
+            whileHover={{
+                scale: 1.02,
+                y: -8,
+                transition: { type: "spring", stiffness: 400, damping: 25 },
+            }}
+            whileTap={tapScale}
+            className="h-full"
         >
-            <CardHeader className="pb-0 px-3 space-y-2">
-                <div className="flex items-center gap-2.5">
-                    <div
-                        className={`w-8 h-8 shrink-0 rounded-lg bg-linear-to-br ${gradient} opacity-80 group-hover:opacity-100 flex items-center justify-center text-sm transition-opacity`}
-                    >
-                        {tool.icon}
+            <Card
+                onClick={onClick}
+                className="h-full flex flex-col bg-card/50 border-border hover:border-accent transition-colors duration-200 cursor-pointer group overflow-hidden py-3"
+            >
+                <CardHeader className="pb-0 px-3 space-y-2">
+                    <div className="flex items-center gap-2.5">
+                        <motion.div
+                            className={`w-8 h-8 shrink-0 rounded-lg bg-linear-to-br ${gradient} opacity-80 group-hover:opacity-100 flex items-center justify-center text-sm transition-opacity`}
+                            whileHover={{ rotate: 10, scale: 1.1 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                        >
+                            {tool.icon}
+                        </motion.div>
+                        <div className="flex-1 min-w-0 flex items-center gap-1.5">
+                            <CardTitle className="text-foreground text-sm group-hover:text-primary line-clamp-1 transition-colors">
+                                {tool.name}
+                            </CardTitle>
+                            {tool.status === "coming-soon" && (
+                                <Badge
+                                    variant="outline"
+                                    className="shrink-0 bg-amber-500/10 text-amber-500 border-amber-500/20 text-[10px] px-1.5 py-0"
+                                >
+                                    {t("status.comingSoon")}
+                                </Badge>
+                            )}
+                        </div>
                     </div>
-                    <div className="flex-1 min-w-0 flex items-center gap-1.5">
-                        <CardTitle className="text-foreground text-sm group-hover:text-primary line-clamp-1">
-                            {tool.name}
-                        </CardTitle>
-                        {tool.status === "coming-soon" && (
-                            <Badge
-                                variant="outline"
-                                className="shrink-0 bg-amber-500/10 text-amber-500 border-amber-500/20 text-[10px] px-1.5 py-0"
-                            >
-                                {t("status.comingSoon")}
-                            </Badge>
-                        )}
-                    </div>
-                </div>
-                <p className="text-muted-foreground text-xs line-clamp-1">
-                    {tool.description}
-                </p>
-            </CardHeader>
-        </Card>
+                    <p className="text-muted-foreground text-xs line-clamp-1">
+                        {tool.description}
+                    </p>
+                </CardHeader>
+            </Card>
+        </motion.div>
     );
 }
