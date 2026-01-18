@@ -104,7 +104,7 @@ function AreaCarousel({ chunks, gradient }: { chunks: Tool[][]; gradient: string
                 {chunks.map((chunk, pageIndex) => (
                     <CarouselItem key={pageIndex} className="basis-full">
                         <motion.div
-                            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3"
+                            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3"
                             variants={staggerContainer}
                             initial="hidden"
                             animate="visible"
@@ -179,7 +179,7 @@ function CategorySection({ category }: { category: Category }) {
                     />
                 ) : (
                     <motion.div
-                        className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3"
+                        className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3"
                         variants={staggerContainer}
                         initial="hidden"
                         animate={isInView ? "visible" : "hidden"}
