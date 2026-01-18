@@ -1,18 +1,23 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { Metadata } from 'next';
 import { RegexTester } from "@/features/tools/regex-tester";
+import { generateToolMetadata } from '@/shared/lib/seo';
+import { Locale } from '@/i18n/routing';
 
 type Props = {
     params: Promise<{ locale: string }>;
 };
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { locale } = await params;
     const t = await getTranslations({ locale, namespace: 'metadata.tools.regexTester' });
 
-    return {
+    return generateToolMetadata({
+        locale: locale as Locale,
+        pathname: '/regex-tester',
         title: t('title'),
         description: t('description'),
-    };
+    });
 }
 
 export default async function RegexTesterPage({ params }: Props) {
