@@ -12,11 +12,13 @@
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@/shared",
+    "components": "@/shared/components",
     "utils": "@/shared/lib/utils",
     "ui": "@/shared/ui",
     "lib": "@/shared/lib",
     "hooks": "@/shared/hooks"
   },
-  "registries": {}
+  "registries": {
+    "@react-bits": "https://reactbits.dev/r/{name}.json"
+  }
 }

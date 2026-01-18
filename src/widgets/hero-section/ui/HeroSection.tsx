@@ -1,5 +1,6 @@
 "use client";
 
+import TextType from "@/shared/components/TextType";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import {
@@ -60,7 +61,12 @@ export function HeroSection({
           {t("titleLine1")}
           <br />
           <span className="bg-linear-to-r from-violet-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-            {t("titleLine2")}
+            <TextType
+              text={t("titleLine2")}
+              typingSpeed={80}
+              showCursor={false}
+              loop={true}
+            />
           </span>
         </motion.h1>
 
@@ -83,11 +89,10 @@ export function HeroSection({
             onClick={() => onCategoryChange(null)}
             whileHover={{ scale: 1.03 }}
             whileTap={tapScale}
-            className={`relative px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 ${
-              selectedCategory === null
-                ? "text-primary-foreground"
-                : "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-transparent"
-            }`}
+            className={`relative px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 ${selectedCategory === null
+              ? "text-primary-foreground"
+              : "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-transparent"
+              }`}
           >
             {selectedCategory === null && (
               <motion.div
@@ -111,11 +116,10 @@ export function HeroSection({
               }
               whileHover={{ scale: 1.03 }}
               whileTap={tapScale}
-              className={`relative px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 flex items-center gap-2 ${
-                selectedCategory === category.id
-                  ? "text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-transparent"
-              }`}
+              className={`relative px-6 py-3 rounded-full text-sm font-medium transition-colors duration-200 flex items-center gap-2 ${selectedCategory === category.id
+                ? "text-primary-foreground"
+                : "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-transparent"
+                }`}
             >
               {selectedCategory === category.id && (
                 <motion.div
