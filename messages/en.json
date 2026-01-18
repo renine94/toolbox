@@ -1046,5 +1046,16 @@
         }
       }
     }
+  },
+  "quickAccess": {
+    "title": "Quick Access",
+    "subtitle": "Recently Used Tools",
+    "footer": "Press ESC to close",
+    "close": "Close",
+    "empty": {
+      "title": "No usage history",
+      "description": "Tools you use will appear here",
+      "cta": "Explore Tools"
+    }
   }
 }

@@ -1,5 +1,6 @@
 import { Header } from "@/widgets/header";
 import { Footer } from "@/widgets/footer";
+import { QuickAccessButton, ToolUsageTracker } from "@/widgets/quick-access";
 import { Metadata } from "next";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://toolbox-six-sigma.vercel.app'
@@ -29,9 +30,13 @@ export const metadata: Metadata = {
 };
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
-  return <div>
-    <Header />
-    {children}
-    <Footer />
-  </div>;
+  return (
+    <div>
+      <Header />
+      {children}
+      <Footer />
+      <QuickAccessButton />
+      <ToolUsageTracker />
+    </div>
+  );
 }

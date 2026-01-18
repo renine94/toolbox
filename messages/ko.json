@@ -1046,5 +1046,16 @@
         "maxFilesReached": "최대 파일 수에 도달했습니다 (최대 10개)"
       }
     }
+  },
+  "quickAccess": {
+    "title": "빠른 접근",
+    "subtitle": "최근 사용한 도구",
+    "footer": "ESC를 눌러 닫기",
+    "close": "닫기",
+    "empty": {
+      "title": "사용 기록이 없습니다",
+      "description": "도구를 사용하면 여기에 표시됩니다",
+      "cta": "도구 둘러보기"
+    }
   }
 }
