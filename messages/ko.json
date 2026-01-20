@@ -21,7 +21,8 @@
       "error": "오류가 발생했습니다",
       "success": "성공적으로 완료되었습니다",
       "pasted": "클립보드에서 붙여넣기 완료",
-      "noPermission": "클립보드 접근 권한이 없습니다"
+      "noPermission": "클립보드 접근 권한이 없습니다",
+      "downloaded": "다운로드되었습니다"
     },
     "labels": {
       "input": "입력",
@@ -226,6 +227,12 @@
         "description": "뽀모도로 기법으로 집중력을 높이세요. 25분 집중, 5분 휴식 사이클로 효율적인 시간 관리가 가능합니다.",
         "heading": "Pomodoro Timer",
         "subheading": "뽀모도로 기법으로 집중력을 높이고 생산성을 향상시키세요."
+      },
+      "asciiArtGenerator": {
+        "title": "ASCII Art Generator - 개발자 도구",
+        "description": "텍스트와 이미지를 ASCII 아트로 변환하세요. 15가지 FIGlet 폰트와 다양한 문자 세트를 지원합니다.",
+        "heading": "ASCII Art Generator",
+        "subheading": "텍스트나 이미지를 ASCII 아트로 변환하세요."
       }
     }
   },
@@ -1044,6 +1051,32 @@
         "unsupportedFormat": "지원하지 않는 파일 형식입니다",
         "loadError": "이미지 로드에 실패했습니다",
         "maxFilesReached": "최대 파일 수에 도달했습니다 (최대 10개)"
+      }
+    },
+    "asciiArtGenerator": {
+      "name": "ASCII Art Generator",
+      "description": "텍스트와 이미지를 ASCII 아트로 변환합니다.",
+      "ui": {
+        "textTab": "텍스트",
+        "imageTab": "이미지",
+        "textInput": "텍스트 입력",
+        "imageInput": "이미지 입력",
+        "text": "텍스트",
+        "textPlaceholder": "ASCII 아트로 변환할 텍스트를 입력하세요",
+        "font": "폰트",
+        "selectFont": "폰트 선택",
+        "convert": "변환",
+        "preview": "미리보기",
+        "emptyPreview": "변환 결과가 여기에 표시됩니다",
+        "width": "출력 너비",
+        "charSet": "문자 세트",
+        "invert": "색상 반전",
+        "dropImage": "이미지를 드래그하여 놓거나 클릭하여 선택하세요",
+        "selectFile": "파일 선택",
+        "selectImage": "이미지를 선택해주세요",
+        "enterText": "텍스트를 입력해주세요",
+        "invalidImageFormat": "지원하지 않는 이미지 형식입니다",
+        "converting": "변환 중..."
       }
     }
   },

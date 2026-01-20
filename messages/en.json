@@ -21,7 +21,8 @@
       "error": "An error occurred",
       "success": "Completed successfully",
       "pasted": "Pasted from clipboard",
-      "noPermission": "Clipboard access denied"
+      "noPermission": "Clipboard access denied",
+      "downloaded": "Downloaded successfully"
     },
     "labels": {
       "input": "Input",
@@ -226,6 +227,12 @@
         "description": "Boost your focus with the Pomodoro Technique. Manage your time efficiently with 25-minute focus and 5-minute break cycles.",
         "heading": "Pomodoro Timer",
         "subheading": "Improve your focus and productivity with the Pomodoro Technique."
+      },
+      "asciiArtGenerator": {
+        "title": "ASCII Art Generator - Developer Tools",
+        "description": "Convert text and images to ASCII art. Supports 15 FIGlet fonts and various character sets.",
+        "heading": "ASCII Art Generator",
+        "subheading": "Convert text or images to ASCII art."
       }
     }
   },
@@ -1044,6 +1051,32 @@
           "nothingToCopy": "Nothing to copy",
           "pasted": "Pasted"
         }
+      }
+    },
+    "asciiArtGenerator": {
+      "name": "ASCII Art Generator",
+      "description": "Convert text and images to ASCII art.",
+      "ui": {
+        "textTab": "Text",
+        "imageTab": "Image",
+        "textInput": "Text Input",
+        "imageInput": "Image Input",
+        "text": "Text",
+        "textPlaceholder": "Enter text to convert to ASCII art",
+        "font": "Font",
+        "selectFont": "Select Font",
+        "convert": "Convert",
+        "preview": "Preview",
+        "emptyPreview": "Conversion result will appear here",
+        "width": "Output Width",
+        "charSet": "Character Set",
+        "invert": "Invert Colors",
+        "dropImage": "Drag and drop an image or click to select",
+        "selectFile": "Select File",
+        "selectImage": "Please select an image",
+        "enterText": "Please enter text",
+        "invalidImageFormat": "Unsupported image format",
+        "converting": "Converting..."
       }
     }
   },

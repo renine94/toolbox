@@ -21,7 +21,8 @@
       "error": "发生错误",
       "success": "操作成功",
       "pasted": "已从剪贴板粘贴",
-      "noPermission": "剪贴板访问被拒绝"
+      "noPermission": "剪贴板访问被拒绝",
+      "downloaded": "下载成功"
     },
     "labels": {
       "input": "输入",
@@ -226,6 +227,12 @@
         "description": "使用番茄工作法提高专注力。通过25分钟专注、5分钟休息的循环高效管理时间。",
         "heading": "Pomodoro Timer",
         "subheading": "使用番茄工作法提高专注力和生产效率。"
+      },
+      "asciiArtGenerator": {
+        "title": "ASCII艺术生成器 - 开发者工具",
+        "description": "将文本和图像转换为ASCII艺术。支持15种FIGlet字体和多种字符集。",
+        "heading": "ASCII Art Generator",
+        "subheading": "将文本或图像转换为ASCII艺术。"
       }
     }
   },
@@ -1044,6 +1051,32 @@
           "nothingToCopy": "无内容可复制",
           "pasted": "已粘贴"
         }
+      }
+    },
+    "asciiArtGenerator": {
+      "name": "ASCII艺术生成器",
+      "description": "将文本和图像转换为ASCII艺术。",
+      "ui": {
+        "textTab": "文本",
+        "imageTab": "图像",
+        "textInput": "文本输入",
+        "imageInput": "图像输入",
+        "text": "文本",
+        "textPlaceholder": "输入要转换为ASCII艺术的文本",
+        "font": "字体",
+        "selectFont": "选择字体",
+        "convert": "转换",
+        "preview": "预览",
+        "emptyPreview": "转换结果将显示在这里",
+        "width": "输出宽度",
+        "charSet": "字符集",
+        "invert": "反转颜色",
+        "dropImage": "拖放图像或点击选择",
+        "selectFile": "选择文件",
+        "selectImage": "请选择图像",
+        "enterText": "请输入文本",
+        "invalidImageFormat": "不支持的图像格式",
+        "converting": "转换中..."
       }
     }
   },

@@ -21,7 +21,8 @@
       "error": "エラーが発生しました",
       "success": "完了しました",
       "pasted": "クリップボードから貼り付けました",
-      "noPermission": "クリップボードへのアクセスが拒否されました"
+      "noPermission": "クリップボードへのアクセスが拒否されました",
+      "downloaded": "ダウンロードしました"
     },
     "labels": {
       "input": "入力",
@@ -226,6 +227,12 @@
         "description": "ポモドーロテクニックで集中力を高めましょう。25分の作業と5分の休憩サイクルで効率的な時間管理ができます。",
         "heading": "Pomodoro Timer",
         "subheading": "ポモドーロテクニックで集中力と生産性を向上させましょう。"
+      },
+      "asciiArtGenerator": {
+        "title": "ASCIIアートジェネレーター - 開発者ツール",
+        "description": "テキストと画像をASCIIアートに変換。15種類のFIGletフォントと様々な文字セットをサポート。",
+        "heading": "ASCII Art Generator",
+        "subheading": "テキストや画像をASCIIアートに変換。"
       }
     }
   },
@@ -1044,6 +1051,32 @@
           "nothingToCopy": "コピーする内容がありません",
           "pasted": "貼り付けました"
         }
+      }
+    },
+    "asciiArtGenerator": {
+      "name": "ASCIIアートジェネレーター",
+      "description": "テキストと画像をASCIIアートに変換。",
+      "ui": {
+        "textTab": "テキスト",
+        "imageTab": "画像",
+        "textInput": "テキスト入力",
+        "imageInput": "画像入力",
+        "text": "テキスト",
+        "textPlaceholder": "ASCIIアートに変換するテキストを入力",
+        "font": "フォント",
+        "selectFont": "フォントを選択",
+        "convert": "変換",
+        "preview": "プレビュー",
+        "emptyPreview": "変換結果がここに表示されます",
+        "width": "出力幅",
+        "charSet": "文字セット",
+        "invert": "色を反転",
+        "dropImage": "画像をドラッグ&ドロップまたはクリックして選択",
+        "selectFile": "ファイルを選択",
+        "selectImage": "画像を選択してください",
+        "enterText": "テキストを入力してください",
+        "invalidImageFormat": "サポートされていない画像形式です",
+        "converting": "変換中..."
       }
     }
   },

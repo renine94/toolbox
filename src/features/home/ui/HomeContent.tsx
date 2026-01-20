@@ -136,6 +136,13 @@ export function HomeContent() {
           icon: "🗄️",
           status: "available",
         },
+        {
+          id: "ascii-art-generator",
+          name: t("asciiArtGenerator.name"),
+          description: t("asciiArtGenerator.description"),
+          icon: "░▒▓",
+          status: "available",
+        },
       ],
     },
     {
