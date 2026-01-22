@@ -119,7 +119,7 @@ export function HomeContent() {
           id: "json-to-typescript",
           name: t("jsonToTypescript.name"),
           description: t("jsonToTypescript.description"),
-          icon: "TS",
+          icon: "🔷",
           status: "available",
         },
         {
@@ -140,7 +140,7 @@ export function HomeContent() {
           id: "ascii-art-generator",
           name: t("asciiArtGenerator.name"),
           description: t("asciiArtGenerator.description"),
-          icon: "░▒▓",
+          icon: "🔡",
           status: "available",
         },
       ],
