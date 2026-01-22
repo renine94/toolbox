@@ -95,11 +95,20 @@ export function generateToolMetadata({
       locale: localeToOGLocale[locale],
       alternateLocale: alternateLocales,
       type: 'website',
+      images: [
+        {
+          url: '/og.webp',
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: ['/og.webp'],
     },
   };
 }
@@ -143,11 +152,20 @@ export function generateHomeMetadata({
       locale: localeToOGLocale[locale],
       alternateLocale: alternateLocales,
       type: 'website',
+      images: [
+        {
+          url: '/og.webp',
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: ['/og.webp'],
     },
   };
 }
