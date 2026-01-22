@@ -233,6 +233,12 @@
         "description": "将文本和图像转换为ASCII艺术。支持15种FIGlet字体和多种字符集。",
         "heading": "ASCII Art Generator",
         "subheading": "将文本或图像转换为ASCII艺术。"
+      },
+      "phpUnserializer": {
+        "title": "PHP Unserializer - 开发者工具",
+        "description": "解析PHP serialize()序列化的数据并以JSON格式可视化。",
+        "heading": "PHP Unserializer",
+        "subheading": "解析PHP序列化字符串并转换为JSON格式。"
       }
     }
   },
@@ -1077,6 +1083,22 @@
         "enterText": "请输入文本",
         "invalidImageFormat": "不支持的图像格式",
         "converting": "转换中..."
+      }
+    },
+    "phpUnserializer": {
+      "name": "PHP Unserializer",
+      "description": "解析并可视化PHP serialize()数据。",
+      "ui": {
+        "inputLabel": "PHP Serialized输入",
+        "inputPlaceholder": "粘贴PHP serialize()字符串...\n例: a:2:{s:4:\"name\";s:4:\"John\";i:0;i:123;}",
+        "outputLabel": "结果",
+        "outputPlaceholder": "解析结果将显示在这里...",
+        "copy": "复制",
+        "clear": "清除",
+        "loadExample": "加载示例",
+        "indent": "缩进",
+        "nothingToCopy": "无内容可复制",
+        "exampleLoaded": "示例已加载"
       }
     }
   },

@@ -233,6 +233,12 @@
         "description": "Convert text and images to ASCII art. Supports 15 FIGlet fonts and various character sets.",
         "heading": "ASCII Art Generator",
         "subheading": "Convert text or images to ASCII art."
+      },
+      "phpUnserializer": {
+        "title": "PHP Unserializer - Developer Tools",
+        "description": "Parse PHP serialize() data and visualize it as JSON.",
+        "heading": "PHP Unserializer",
+        "subheading": "Parse PHP serialized strings and convert them to JSON format."
       }
     }
   },
@@ -1077,6 +1083,22 @@
         "enterText": "Please enter text",
         "invalidImageFormat": "Unsupported image format",
         "converting": "Converting..."
+      }
+    },
+    "phpUnserializer": {
+      "name": "PHP Unserializer",
+      "description": "Parse and visualize PHP serialize() data.",
+      "ui": {
+        "inputLabel": "PHP Serialized Input",
+        "inputPlaceholder": "Paste PHP serialize() string here...\ne.g., a:2:{s:4:\"name\";s:4:\"John\";i:0;i:123;}",
+        "outputLabel": "Result",
+        "outputPlaceholder": "Parsed result will appear here...",
+        "copy": "Copy",
+        "clear": "Clear",
+        "loadExample": "Load Example",
+        "indent": "Indent",
+        "nothingToCopy": "Nothing to copy",
+        "exampleLoaded": "Example loaded"
       }
     }
   },

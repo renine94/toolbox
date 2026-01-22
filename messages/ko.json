@@ -233,6 +233,12 @@
         "description": "텍스트와 이미지를 ASCII 아트로 변환하세요. 15가지 FIGlet 폰트와 다양한 문자 세트를 지원합니다.",
         "heading": "ASCII Art Generator",
         "subheading": "텍스트나 이미지를 ASCII 아트로 변환하세요."
+      },
+      "phpUnserializer": {
+        "title": "PHP Unserializer - 개발자 도구",
+        "description": "PHP serialize()로 직렬화된 데이터를 파싱하여 JSON으로 시각화합니다.",
+        "heading": "PHP Unserializer",
+        "subheading": "PHP 직렬화 문자열을 파싱하여 JSON 형태로 변환합니다."
       }
     }
   },
@@ -1077,6 +1083,22 @@
         "enterText": "텍스트를 입력해주세요",
         "invalidImageFormat": "지원하지 않는 이미지 형식입니다",
         "converting": "변환 중..."
+      }
+    },
+    "phpUnserializer": {
+      "name": "PHP Unserializer",
+      "description": "PHP serialize() 데이터를 파싱하여 시각화합니다.",
+      "ui": {
+        "inputLabel": "PHP Serialized 입력",
+        "inputPlaceholder": "PHP serialize() 문자열을 붙여넣으세요...\n예: a:2:{s:4:\"name\";s:4:\"John\";i:0;i:123;}",
+        "outputLabel": "결과",
+        "outputPlaceholder": "파싱된 결과가 여기에 표시됩니다...",
+        "copy": "복사",
+        "clear": "초기화",
+        "loadExample": "예제 불러오기",
+        "indent": "들여쓰기",
+        "nothingToCopy": "복사할 내용이 없습니다",
+        "exampleLoaded": "예제가 로드되었습니다"
       }
     }
   },

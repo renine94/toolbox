@@ -143,6 +143,13 @@ export function HomeContent() {
           icon: "🔡",
           status: "available",
         },
+        {
+          id: "php-unserializer",
+          name: t("phpUnserializer.name"),
+          description: t("phpUnserializer.description"),
+          icon: "🐘",
+          status: "available",
+        },
       ],
     },
     {
