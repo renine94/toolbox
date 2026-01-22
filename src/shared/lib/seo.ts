@@ -15,6 +15,16 @@ const localeToOGLocale: Record<Locale, string> = {
 };
 
 /**
+ * locale 코드를 OG 이미지 경로로 변환
+ */
+const localeToOGImage: Record<Locale, string> = {
+  ko: '/og-ko.webp',
+  en: '/og-en.webp',
+  zh: '/og-zh.webp',
+  ja: '/og-ja.webp',
+};
+
+/**
  * pathname과 locale을 결합하여 전체 URL 생성
  */
 export function generateFullUrl(locale: Locale, pathname: string = ''): string {
@@ -79,6 +89,9 @@ export function generateToolMetadata({
     .filter((l) => l !== locale)
     .map((l) => localeToOGLocale[l as Locale]);
 
+  // locale에 맞는 OG 이미지 선택
+  const ogImage = localeToOGImage[locale];
+
   return {
     title,
     description,
@@ -97,7 +110,7 @@ export function generateToolMetadata({
       type: 'website',
       images: [
         {
-          url: '/og.webp',
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: title,
@@ -108,7 +121,7 @@ export function generateToolMetadata({
       card: 'summary_large_image',
       title,
       description,
-      images: ['/og.webp'],
+      images: [ogImage],
     },
   };
 }
@@ -136,6 +149,9 @@ export function generateHomeMetadata({
     .filter((l) => l !== locale)
     .map((l) => localeToOGLocale[l as Locale]);
 
+  // locale에 맞는 OG 이미지 선택
+  const ogImage = localeToOGImage[locale];
+
   return {
     title,
     description,
@@ -154,7 +170,7 @@ export function generateHomeMetadata({
       type: 'website',
       images: [
         {
-          url: '/og.webp',
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: title,
@@ -165,7 +181,7 @@ export function generateHomeMetadata({
       card: 'summary_large_image',
       title,
       description,
-      images: ['/og.webp'],
+      images: [ogImage],
     },
   };
 }
