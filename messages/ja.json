@@ -843,7 +843,8 @@
         "dimensionTooLarge": "画像サイズが大きすぎます（最大4096px）",
         "unsupportedFormat": "サポートされていないファイル形式",
         "loadError": "画像の読み込みに失敗しました",
-        "maxFilesReached": "最大ファイル数に達しました（最大10ファイル）"
+        "maxFilesReached": "最大ファイル数に達しました（最大10ファイル）",
+        "filesCount": "ファイル"
       }
     },
     "jsonToTypescript": {

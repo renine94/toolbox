@@ -70,6 +70,24 @@ export const imageStatuses = [
 ] as const;
 export type ImageStatus = (typeof imageStatuses)[number];
 
+// 이미지 추가 실패 정보
+export type ImageAddErrorType =
+  | "fileTooLarge"
+  | "unsupportedFormat"
+  | "dimensionTooLarge"
+  | "loadError";
+
+export interface ImageAddFailure {
+  fileName: string;
+  error: ImageAddErrorType;
+}
+
+// 이미지 추가 결과
+export interface AddImagesResult {
+  successCount: number;
+  failures: ImageAddFailure[];
+}
+
 // 업로드된 이미지
 export interface UploadedImage {
   id: string;
@@ -100,7 +118,7 @@ export interface ConverterState {
   currentImageIndex: number;
 
   // 액션
-  addImages: (files: File[]) => Promise<void>;
+  addImages: (files: File[]) => Promise<AddImagesResult>;
   removeImage: (id: string) => void;
   clearImages: () => void;
   setOption: <K extends keyof ConversionOptions>(

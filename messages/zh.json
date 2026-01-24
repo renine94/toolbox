@@ -843,7 +843,8 @@
         "dimensionTooLarge": "图片尺寸太大（最大4096px）",
         "unsupportedFormat": "不支持的文件格式",
         "loadError": "加载图片失败",
-        "maxFilesReached": "已达到最大文件数量（最多10个）"
+        "maxFilesReached": "已达到最大文件数量（最多10个）",
+        "filesCount": "个文件"
       }
     },
     "jsonToTypescript": {

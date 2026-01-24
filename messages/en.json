@@ -843,7 +843,8 @@
         "dimensionTooLarge": "Image dimensions too large (Max 4096px)",
         "unsupportedFormat": "Unsupported file format",
         "loadError": "Failed to load image",
-        "maxFilesReached": "Maximum file limit reached (Max 10 files)"
+        "maxFilesReached": "Maximum file limit reached (Max 10 files)",
+        "filesCount": " files"
       }
     },
     "jsonToTypescript": {

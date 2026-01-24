@@ -4,6 +4,9 @@ import type {
   ConversionOptions,
   ResizeOptions,
   UploadedImage,
+  AddImagesResult,
+  ImageAddFailure,
+  ImageAddErrorType,
 } from "./types";
 import { FILE_LIMITS } from "./types";
 import {
@@ -42,7 +45,7 @@ export const useConverterStore = create<ConverterState>((set, get) => ({
   currentImageIndex: -1,
 
   // 이미지 추가
-  addImages: async (files: File[]) => {
+  addImages: async (files: File[]): Promise<AddImagesResult> => {
     const currentImages = get().images;
     const remainingSlots = FILE_LIMITS.maxFiles - currentImages.length;
 
@@ -52,6 +55,7 @@ export const useConverterStore = create<ConverterState>((set, get) => ({
 
     const filesToProcess = files.slice(0, remainingSlots);
     const newImages: UploadedImage[] = [];
+    const failures: ImageAddFailure[] = [];
 
     for (const file of filesToProcess) {
       try {
@@ -81,8 +85,19 @@ export const useConverterStore = create<ConverterState>((set, get) => ({
 
         newImages.push(image);
       } catch (error) {
+        // 에러 타입 판별하여 failures에 수집
+        let errorType: ImageAddErrorType = "loadError";
+        if (error instanceof Error) {
+          if (
+            error.message === "fileTooLarge" ||
+            error.message === "unsupportedFormat" ||
+            error.message === "dimensionTooLarge"
+          ) {
+            errorType = error.message as ImageAddErrorType;
+          }
+        }
+        failures.push({ fileName: file.name, error: errorType });
         console.error(`Failed to load image: ${file.name}`, error);
-        // 개별 파일 실패는 건너뜀
       }
     }
 
@@ -91,6 +106,11 @@ export const useConverterStore = create<ConverterState>((set, get) => ({
         images: [...state.images, ...newImages],
       }));
     }
+
+    return {
+      successCount: newImages.length,
+      failures,
+    };
   },
 
   // 이미지 제거

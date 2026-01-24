@@ -20,17 +20,33 @@ export function ConverterUploader() {
       if (!files || files.length === 0) return;
 
       try {
-        await addImages(Array.from(files));
+        const result = await addImages(Array.from(files));
+
+        // 실패한 파일이 있으면 에러 타입별로 toast 표시
+        if (result.failures.length > 0) {
+          // 에러 타입별로 그룹화
+          const errorGroups = result.failures.reduce(
+            (acc, failure) => {
+              acc[failure.error] = (acc[failure.error] || 0) + 1;
+              return acc;
+            },
+            {} as Record<string, number>
+          );
+
+          // 각 에러 타입에 대해 toast 표시
+          Object.entries(errorGroups).forEach(([errorType, count]) => {
+            const message =
+              count > 1
+                ? `${tToast(errorType)} (${count}${tToast("filesCount")})`
+                : tToast(errorType);
+            toast.error(message);
+          });
+        }
       } catch (error) {
+        // maxFilesReached는 여전히 throw됨
         if (error instanceof Error) {
           if (error.message === "maxFilesReached") {
             toast.error(tToast("maxFilesReached"));
-          } else if (error.message === "fileTooLarge") {
-            toast.error(tToast("fileTooLarge"));
-          } else if (error.message === "unsupportedFormat") {
-            toast.error(tToast("unsupportedFormat"));
-          } else if (error.message === "dimensionTooLarge") {
-            toast.error(tToast("dimensionTooLarge"));
           } else {
             toast.error(tToast("loadError"));
           }
