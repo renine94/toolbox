@@ -43,9 +43,9 @@ export const CATEGORIES: Record<string, CategoryMetadata> = {
   },
 };
 
-// 31개 도구 메타데이터
+// 32개 도구 메타데이터
 export const TOOLS: ToolMetadata[] = [
-  // Developer Tools (16)
+  // Developer Tools (17)
   { id: "json-formatter", icon: "{ }", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
   { id: "base64-encoder", icon: "🔤", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
   { id: "color-picker", icon: "🎨", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
@@ -62,6 +62,7 @@ export const TOOLS: ToolMetadata[] = [
   { id: "sql-formatter", icon: "🗄️", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
   { id: "ascii-art-generator", icon: "Aa", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
   { id: "php-unserializer", icon: "🐘", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
+  { id: "fake-data-generator", icon: "🎲", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
 
   // Designer Tools (6)
   { id: "color-palette", icon: "🌈", categoryId: "designer", gradient: "from-pink-500 to-rose-600" },

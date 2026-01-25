@@ -250,6 +250,12 @@
         "description": "Reduce image file size for web-optimized files. Supports presets and target size modes.",
         "heading": "Image Compressor",
         "subheading": "Reduce image file sizes optimized for web, social media, and email."
+      },
+      "fakeDataGenerator": {
+        "title": "Fake Data Generator - Developer Tools",
+        "description": "Easily generate fake data for testing and development. Supports various fields like name, email, phone, and more.",
+        "heading": "Fake Data Generator",
+        "subheading": "Easily generate fake data for testing and development."
       }
     }
   },
@@ -1212,6 +1218,46 @@
         "maxFilesReached": "Maximum file limit reached (Max 10 files)",
         "filesCount": "",
         "uploadSuccess": "Upload complete"
+      }
+    },
+    "fakeDataGenerator": {
+      "name": "Fake Data Generator",
+      "description": "Easily generate fake data for testing and development.",
+      "ui": {
+        "options": "Options",
+        "optionsDescription": "Configure data generation options",
+        "locale": "Data Language",
+        "locales": {
+          "ko": "Korean",
+          "en": "English"
+        },
+        "count": "Count",
+        "countUnit": "",
+        "outputFormat": "Output Format",
+        "fields": "Select Fields",
+        "selectAll": "Select All",
+        "deselectAll": "Deselect All",
+        "fieldTypes": {
+          "name": "Name",
+          "email": "Email",
+          "phone": "Phone",
+          "address": "Address",
+          "company": "Company",
+          "job": "Job Title",
+          "uuid": "UUID",
+          "date": "Date",
+          "lorem": "Lorem Text",
+          "number": "Number",
+          "boolean": "Boolean"
+        },
+        "generate": "Generate Data",
+        "generating": "Generating...",
+        "generatedData": "Generated Data",
+        "emptyOutput": "Click generate button to see results here",
+        "copy": "Copy",
+        "download": "Download",
+        "nothingToCopy": "Nothing to copy",
+        "nothingToDownload": "Nothing to download"
       }
     }
   },

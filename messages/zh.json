@@ -250,6 +250,12 @@
         "description": "减小图像文件大小以创建Web优化文件。支持预设和目标大小模式。",
         "heading": "Image Compressor",
         "subheading": "减小图像文件大小，为Web、社交媒体和电子邮件进行优化。"
+      },
+      "fakeDataGenerator": {
+        "title": "Fake Data Generator - 开发者工具",
+        "description": "轻松生成测试和开发用的假数据。支持姓名、邮箱、电话等多种字段。",
+        "heading": "Fake Data Generator",
+        "subheading": "轻松生成测试和开发用的假数据。"
       }
     }
   },
@@ -1212,6 +1218,46 @@
         "maxFilesReached": "已达到最大文件数（最多10个）",
         "filesCount": "个",
         "uploadSuccess": "上传完成"
+      }
+    },
+    "fakeDataGenerator": {
+      "name": "Fake Data Generator",
+      "description": "轻松生成测试和开发用的假数据。",
+      "ui": {
+        "options": "选项",
+        "optionsDescription": "配置数据生成选项",
+        "locale": "数据语言",
+        "locales": {
+          "ko": "韩语",
+          "en": "英语"
+        },
+        "count": "生成数量",
+        "countUnit": "个",
+        "outputFormat": "输出格式",
+        "fields": "选择字段",
+        "selectAll": "全选",
+        "deselectAll": "取消全选",
+        "fieldTypes": {
+          "name": "姓名",
+          "email": "邮箱",
+          "phone": "电话",
+          "address": "地址",
+          "company": "公司",
+          "job": "职业",
+          "uuid": "UUID",
+          "date": "日期",
+          "lorem": "Lorem文本",
+          "number": "数字",
+          "boolean": "布尔值"
+        },
+        "generate": "生成数据",
+        "generating": "生成中...",
+        "generatedData": "生成的数据",
+        "emptyOutput": "点击生成按钮，结果将在这里显示",
+        "copy": "复制",
+        "download": "下载",
+        "nothingToCopy": "没有可复制的内容",
+        "nothingToDownload": "没有可下载的内容"
       }
     }
   },

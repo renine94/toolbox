@@ -250,6 +250,12 @@
         "description": "画像ファイルサイズを縮小してWeb最適化されたファイルを作成。プリセットとターゲットサイズモードをサポート。",
         "heading": "Image Compressor",
         "subheading": "画像ファイルサイズを縮小してWeb、SNS、メール向けに最適化。"
+      },
+      "fakeDataGenerator": {
+        "title": "Fake Data Generator - 開発者ツール",
+        "description": "テスト・開発用のダミーデータを簡単に生成。名前、メール、電話番号など様々なフィールドをサポート。",
+        "heading": "Fake Data Generator",
+        "subheading": "テスト・開発用のダミーデータを簡単に生成。"
       }
     }
   },
@@ -1212,6 +1218,46 @@
         "maxFilesReached": "最大ファイル数に達しました（最大10ファイル）",
         "filesCount": "",
         "uploadSuccess": "アップロード完了"
+      }
+    },
+    "fakeDataGenerator": {
+      "name": "Fake Data Generator",
+      "description": "テスト・開発用のダミーデータを簡単に生成。",
+      "ui": {
+        "options": "オプション",
+        "optionsDescription": "データ生成オプションを設定",
+        "locale": "データ言語",
+        "locales": {
+          "ko": "韓国語",
+          "en": "英語"
+        },
+        "count": "生成数",
+        "countUnit": "件",
+        "outputFormat": "出力形式",
+        "fields": "フィールド選択",
+        "selectAll": "全て選択",
+        "deselectAll": "全て解除",
+        "fieldTypes": {
+          "name": "名前",
+          "email": "メール",
+          "phone": "電話番号",
+          "address": "住所",
+          "company": "会社名",
+          "job": "職業",
+          "uuid": "UUID",
+          "date": "日付",
+          "lorem": "Loremテキスト",
+          "number": "数値",
+          "boolean": "ブール値"
+        },
+        "generate": "データ生成",
+        "generating": "生成中...",
+        "generatedData": "生成されたデータ",
+        "emptyOutput": "生成ボタンをクリックすると結果がここに表示されます",
+        "copy": "コピー",
+        "download": "ダウンロード",
+        "nothingToCopy": "コピーする内容がありません",
+        "nothingToDownload": "ダウンロードする内容がありません"
       }
     }
   },

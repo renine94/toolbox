@@ -41,7 +41,7 @@ interface ToolsGridProps {
     categories: Category[];
 }
 
-const ITEMS_PER_PAGE = 16;
+const ITEMS_PER_PAGE = 18;
 
 function ToolCardWrapper({ tool, gradient }: { tool: Tool; gradient: string }) {
     if (tool.status === "available") {

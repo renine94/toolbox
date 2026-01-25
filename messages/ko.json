@@ -250,6 +250,12 @@
         "description": "이미지 용량을 줄여 웹 최적화된 파일을 생성하세요. 프리셋과 타겟 용량 모드를 지원합니다.",
         "heading": "Image Compressor",
         "subheading": "이미지 파일 크기를 줄여 웹, SNS, 이메일에 최적화하세요."
+      },
+      "fakeDataGenerator": {
+        "title": "Fake Data Generator - 개발자 도구",
+        "description": "테스트 및 개발용 가짜 데이터를 쉽게 생성하세요. 이름, 이메일, 전화번호 등 다양한 필드를 지원합니다.",
+        "heading": "Fake Data Generator",
+        "subheading": "테스트 및 개발용 가짜 데이터를 쉽게 생성하세요."
       }
     }
   },
@@ -1212,6 +1218,46 @@
         "maxFilesReached": "최대 파일 수에 도달했습니다 (최대 10개)",
         "filesCount": "개",
         "uploadSuccess": "업로드 완료"
+      }
+    },
+    "fakeDataGenerator": {
+      "name": "Fake Data Generator",
+      "description": "테스트 및 개발용 가짜 데이터를 쉽게 생성합니다.",
+      "ui": {
+        "options": "옵션",
+        "optionsDescription": "데이터 생성 옵션을 설정하세요",
+        "locale": "데이터 언어",
+        "locales": {
+          "ko": "한국어",
+          "en": "영어"
+        },
+        "count": "생성 개수",
+        "countUnit": "개",
+        "outputFormat": "출력 형식",
+        "fields": "필드 선택",
+        "selectAll": "전체 선택",
+        "deselectAll": "전체 해제",
+        "fieldTypes": {
+          "name": "이름",
+          "email": "이메일",
+          "phone": "전화번호",
+          "address": "주소",
+          "company": "회사명",
+          "job": "직업",
+          "uuid": "UUID",
+          "date": "날짜",
+          "lorem": "Lorem 텍스트",
+          "number": "숫자",
+          "boolean": "불린"
+        },
+        "generate": "데이터 생성",
+        "generating": "생성 중...",
+        "generatedData": "생성된 데이터",
+        "emptyOutput": "생성 버튼을 클릭하면 결과가 여기에 표시됩니다",
+        "copy": "복사",
+        "download": "다운로드",
+        "nothingToCopy": "복사할 내용이 없습니다",
+        "nothingToDownload": "다운로드할 내용이 없습니다"
       }
     }
   },
