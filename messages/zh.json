@@ -256,6 +256,12 @@
         "description": "轻松生成测试和开发用的假数据。支持姓名、邮箱、电话等多种字段。",
         "heading": "Fake Data Generator",
         "subheading": "轻松生成测试和开发用的假数据。"
+      },
+      "codeTypingGif": {
+        "title": "Code Typing GIF - 开发者工具",
+        "description": "创建代码输入动画GIF。支持各种主题和语言，非常适合在Twitter、Slack等平台展示代码。",
+        "heading": "Code Typing GIF",
+        "subheading": "将代码输入动画生成为GIF文件。"
       }
     }
   },
@@ -1260,6 +1266,68 @@
         "download": "下载",
         "nothingToCopy": "没有可复制的内容",
         "nothingToDownload": "没有可下载的内容"
+      }
+    },
+    "codeTypingGif": {
+      "name": "Code Typing GIF",
+      "description": "将代码输入动画生成为GIF文件。",
+      "ui": {
+        "codeInput": "代码输入",
+        "codeInputDesc": "输入要生成为GIF的代码",
+        "selectLanguage": "选择语言",
+        "loadTemplate": "加载模板",
+        "codePlaceholder": "在此输入代码...",
+        "charCount": "{count}个字符",
+        "preview": "预览",
+        "previewDesc": "预览输入动画",
+        "play": "播放",
+        "pause": "暂停",
+        "reset": "重置",
+        "progress": "进度",
+        "settings": "设置",
+        "settingsDesc": "配置GIF生成选项",
+        "theme": "主题",
+        "typingSpeed": "输入速度",
+        "fast": "快",
+        "slow": "慢",
+        "cursorStyle": "光标样式",
+        "cursorStyles": {
+          "block": "块状",
+          "line": "线条",
+          "underscore": "下划线"
+        },
+        "windowStyle": "窗口样式",
+        "windowStyles": {
+          "macos": "macOS",
+          "windows": "Windows",
+          "none": "无"
+        },
+        "fontSize": "字体大小",
+        "gifWidth": "GIF宽度",
+        "showLineNumbers": "显示行号",
+        "gifQuality": "GIF质量",
+        "gifQualityPresets": {
+          "high": "高质量",
+          "balanced": "平衡",
+          "fast": "快速"
+        },
+        "gifQualityDesc": {
+          "high": "最佳质量，文件较大",
+          "balanced": "质量和文件大小的平衡",
+          "fast": "快速生成，质量稍低"
+        },
+        "export": "导出",
+        "exportDesc": "生成并下载GIF",
+        "estimatedFrames": "预计帧数",
+        "estimatedSize": "预计大小",
+        "dimensions": "尺寸",
+        "estimatedTime": "预计所需时间",
+        "generateGif": "生成GIF",
+        "generating": "生成中...",
+        "download": "下载",
+        "generateSuccess": "GIF生成成功！",
+        "generateError": "GIF生成失败",
+        "actualSize": "实际大小"
       }
     }
   },

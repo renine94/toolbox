@@ -63,6 +63,7 @@ export const TOOLS: ToolMetadata[] = [
   { id: "ascii-art-generator", icon: "Aa", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
   { id: "php-unserializer", icon: "🐘", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
   { id: "fake-data-generator", icon: "🎲", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
+  { id: "code-typing-gif", icon: "⌨️", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
 
   // Designer Tools (6)
   { id: "color-palette", icon: "🌈", categoryId: "designer", gradient: "from-pink-500 to-rose-600" },

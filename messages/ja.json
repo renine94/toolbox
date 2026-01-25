@@ -256,6 +256,12 @@
         "description": "テスト・開発用のダミーデータを簡単に生成。名前、メール、電話番号など様々なフィールドをサポート。",
         "heading": "Fake Data Generator",
         "subheading": "テスト・開発用のダミーデータを簡単に生成。"
+      },
+      "codeTypingGif": {
+        "title": "Code Typing GIF - 開発者ツール",
+        "description": "コードタイピングアニメーションGIFを生成。様々なテーマと言語をサポートし、Twitter、Slackなどでコードを紹介するのに最適。",
+        "heading": "Code Typing GIF",
+        "subheading": "コードタイピングアニメーションをGIFファイルとして生成。"
       }
     }
   },
@@ -1260,6 +1266,68 @@
         "download": "ダウンロード",
         "nothingToCopy": "コピーする内容がありません",
         "nothingToDownload": "ダウンロードする内容がありません"
+      }
+    },
+    "codeTypingGif": {
+      "name": "Code Typing GIF",
+      "description": "コードタイピングアニメーションをGIFとして生成。",
+      "ui": {
+        "codeInput": "コード入力",
+        "codeInputDesc": "GIFとして生成するコードを入力",
+        "selectLanguage": "言語を選択",
+        "loadTemplate": "テンプレートを読み込む",
+        "codePlaceholder": "ここにコードを入力...",
+        "charCount": "{count}文字",
+        "preview": "プレビュー",
+        "previewDesc": "タイピングアニメーションをプレビュー",
+        "play": "再生",
+        "pause": "一時停止",
+        "reset": "リセット",
+        "progress": "進行状況",
+        "settings": "設定",
+        "settingsDesc": "GIF生成オプションを設定",
+        "theme": "テーマ",
+        "typingSpeed": "タイピング速度",
+        "fast": "速い",
+        "slow": "遅い",
+        "cursorStyle": "カーソルスタイル",
+        "cursorStyles": {
+          "block": "ブロック",
+          "line": "ライン",
+          "underscore": "アンダースコア"
+        },
+        "windowStyle": "ウィンドウスタイル",
+        "windowStyles": {
+          "macos": "macOS",
+          "windows": "Windows",
+          "none": "なし"
+        },
+        "fontSize": "フォントサイズ",
+        "gifWidth": "GIF幅",
+        "showLineNumbers": "行番号を表示",
+        "gifQuality": "GIF品質",
+        "gifQualityPresets": {
+          "high": "高品質",
+          "balanced": "バランス",
+          "fast": "高速"
+        },
+        "gifQualityDesc": {
+          "high": "最高品質、ファイルサイズが大きくなります",
+          "balanced": "品質とファイルサイズのバランス",
+          "fast": "高速生成、品質がやや低下します"
+        },
+        "export": "エクスポート",
+        "exportDesc": "GIFを生成してダウンロード",
+        "estimatedFrames": "推定フレーム数",
+        "estimatedSize": "推定サイズ",
+        "dimensions": "サイズ",
+        "estimatedTime": "推定所要時間",
+        "generateGif": "GIF生成",
+        "generating": "生成中...",
+        "download": "ダウンロード",
+        "generateSuccess": "GIFが生成されました！",
+        "generateError": "GIF生成に失敗しました",
+        "actualSize": "実際のサイズ"
       }
     }
   },

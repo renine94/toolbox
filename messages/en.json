@@ -256,6 +256,12 @@
         "description": "Easily generate fake data for testing and development. Supports various fields like name, email, phone, and more.",
         "heading": "Fake Data Generator",
         "subheading": "Easily generate fake data for testing and development."
+      },
+      "codeTypingGif": {
+        "title": "Code Typing GIF - Developer Tools",
+        "description": "Create code typing animation GIFs. Supports various themes and languages, perfect for showcasing code on Twitter, Slack, and more.",
+        "heading": "Code Typing GIF",
+        "subheading": "Generate code typing animations as GIF files."
       }
     }
   },
@@ -1260,6 +1266,68 @@
         "download": "Download",
         "nothingToCopy": "Nothing to copy",
         "nothingToDownload": "Nothing to download"
+      }
+    },
+    "codeTypingGif": {
+      "name": "Code Typing GIF",
+      "description": "Generate code typing animations as GIF files.",
+      "ui": {
+        "codeInput": "Code Input",
+        "codeInputDesc": "Enter the code to generate as GIF",
+        "selectLanguage": "Select Language",
+        "loadTemplate": "Load Template",
+        "codePlaceholder": "Enter your code here...",
+        "charCount": "{count} chars",
+        "preview": "Preview",
+        "previewDesc": "Preview the typing animation",
+        "play": "Play",
+        "pause": "Pause",
+        "reset": "Reset",
+        "progress": "Progress",
+        "settings": "Settings",
+        "settingsDesc": "Configure GIF generation options",
+        "theme": "Theme",
+        "typingSpeed": "Typing Speed",
+        "fast": "Fast",
+        "slow": "Slow",
+        "cursorStyle": "Cursor Style",
+        "cursorStyles": {
+          "block": "Block",
+          "line": "Line",
+          "underscore": "Underscore"
+        },
+        "windowStyle": "Window Style",
+        "windowStyles": {
+          "macos": "macOS",
+          "windows": "Windows",
+          "none": "None"
+        },
+        "fontSize": "Font Size",
+        "gifWidth": "GIF Width",
+        "showLineNumbers": "Show Line Numbers",
+        "gifQuality": "GIF Quality",
+        "gifQualityPresets": {
+          "high": "High Quality",
+          "balanced": "Balanced",
+          "fast": "Fast"
+        },
+        "gifQualityDesc": {
+          "high": "Best quality, larger file size",
+          "balanced": "Balance between quality and file size",
+          "fast": "Faster generation, lower quality"
+        },
+        "export": "Export",
+        "exportDesc": "Generate and download your GIF",
+        "estimatedFrames": "Estimated Frames",
+        "estimatedSize": "Estimated Size",
+        "dimensions": "Dimensions",
+        "estimatedTime": "Estimated Time",
+        "generateGif": "Generate GIF",
+        "generating": "Generating...",
+        "download": "Download",
+        "generateSuccess": "GIF generated successfully!",
+        "generateError": "Failed to generate GIF",
+        "actualSize": "Actual Size"
       }
     }
   },

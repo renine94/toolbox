@@ -256,6 +256,12 @@
         "description": "테스트 및 개발용 가짜 데이터를 쉽게 생성하세요. 이름, 이메일, 전화번호 등 다양한 필드를 지원합니다.",
         "heading": "Fake Data Generator",
         "subheading": "테스트 및 개발용 가짜 데이터를 쉽게 생성하세요."
+      },
+      "codeTypingGif": {
+        "title": "Code Typing GIF - 개발자 도구",
+        "description": "코드 타이핑 애니메이션 GIF를 생성하세요. 다양한 테마와 언어를 지원하며, 트위터, 슬랙 등에서 코드를 시연할 때 유용합니다.",
+        "heading": "Code Typing GIF",
+        "subheading": "코드 타이핑 애니메이션을 GIF로 생성하세요."
       }
     }
   },
@@ -1260,6 +1266,68 @@
         "download": "다운로드",
         "nothingToCopy": "복사할 내용이 없습니다",
         "nothingToDownload": "다운로드할 내용이 없습니다"
+      }
+    },
+    "codeTypingGif": {
+      "name": "Code Typing GIF",
+      "description": "코드 타이핑 애니메이션을 GIF로 생성합니다.",
+      "ui": {
+        "codeInput": "코드 입력",
+        "codeInputDesc": "GIF로 생성할 코드를 입력하세요",
+        "selectLanguage": "언어 선택",
+        "loadTemplate": "템플릿 불러오기",
+        "codePlaceholder": "여기에 코드를 입력하세요...",
+        "charCount": "{count}자",
+        "preview": "미리보기",
+        "previewDesc": "타이핑 애니메이션 미리보기",
+        "play": "재생",
+        "pause": "일시정지",
+        "reset": "리셋",
+        "progress": "진행률",
+        "settings": "설정",
+        "settingsDesc": "GIF 생성 옵션을 설정하세요",
+        "theme": "테마",
+        "typingSpeed": "타이핑 속도",
+        "fast": "빠름",
+        "slow": "느림",
+        "cursorStyle": "커서 스타일",
+        "cursorStyles": {
+          "block": "블록",
+          "line": "라인",
+          "underscore": "언더스코어"
+        },
+        "windowStyle": "창 스타일",
+        "windowStyles": {
+          "macos": "macOS",
+          "windows": "Windows",
+          "none": "없음"
+        },
+        "fontSize": "폰트 크기",
+        "gifWidth": "GIF 너비",
+        "showLineNumbers": "줄 번호 표시",
+        "gifQuality": "GIF 화질",
+        "gifQualityPresets": {
+          "high": "최고 화질",
+          "balanced": "균형",
+          "fast": "빠른 생성"
+        },
+        "gifQualityDesc": {
+          "high": "최상의 화질, 파일 크기가 큽니다",
+          "balanced": "화질과 파일 크기의 균형",
+          "fast": "빠른 생성, 화질이 다소 낮습니다"
+        },
+        "export": "내보내기",
+        "exportDesc": "GIF를 생성하고 다운로드하세요",
+        "estimatedFrames": "예상 프레임 수",
+        "estimatedSize": "예상 파일 크기",
+        "dimensions": "크기",
+        "estimatedTime": "예상 소요 시간",
+        "generateGif": "GIF 생성",
+        "generating": "생성 중...",
+        "download": "다운로드",
+        "generateSuccess": "GIF가 생성되었습니다!",
+        "generateError": "GIF 생성에 실패했습니다",
+        "actualSize": "실제 크기"
       }
     }
   },
