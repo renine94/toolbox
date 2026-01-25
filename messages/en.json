@@ -1229,7 +1229,9 @@
         "locale": "Data Language",
         "locales": {
           "ko": "Korean",
-          "en": "English"
+          "en": "English",
+          "ja": "Japanese",
+          "zh": "Chinese"
         },
         "count": "Count",
         "countUnit": "",

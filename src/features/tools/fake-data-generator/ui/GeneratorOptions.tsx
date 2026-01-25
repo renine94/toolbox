@@ -37,6 +37,8 @@ export function GeneratorOptions() {
           <SelectContent>
             <SelectItem value="ko">{t("locales.ko")}</SelectItem>
             <SelectItem value="en">{t("locales.en")}</SelectItem>
+            <SelectItem value="ja">{t("locales.ja")}</SelectItem>
+            <SelectItem value="zh">{t("locales.zh")}</SelectItem>
           </SelectContent>
         </Select>
       </div>

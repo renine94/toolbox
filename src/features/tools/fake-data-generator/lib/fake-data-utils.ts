@@ -1,5 +1,7 @@
 import { faker as fakerKO } from "@faker-js/faker/locale/ko";
 import { faker as fakerEN } from "@faker-js/faker";
+import { faker as fakerJA } from "@faker-js/faker/locale/ja";
+import { faker as fakerZH } from "@faker-js/faker/locale/zh_CN";
 import type {
   FakeDataConfig,
   FakeDataLocale,
@@ -10,7 +12,16 @@ import type {
 
 // locale에 따른 faker 인스턴스 반환
 function getFaker(locale: FakeDataLocale) {
-  return locale === "ko" ? fakerKO : fakerEN;
+  switch (locale) {
+    case "ko":
+      return fakerKO;
+    case "ja":
+      return fakerJA;
+    case "zh":
+      return fakerZH;
+    default:
+      return fakerEN;
+  }
 }
 
 // 필드 타입에 따른 데이터 생성

@@ -13,7 +13,7 @@ export type FieldType =
   | "boolean";
 
 // 지원 언어 (faker locale)
-export type FakeDataLocale = "ko" | "en";
+export type FakeDataLocale = "ko" | "en" | "ja" | "zh";
 
 // 출력 형식
 export type OutputFormat = "json" | "csv";
