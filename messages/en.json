@@ -244,6 +244,12 @@
         "description": "Parse PHP serialize() data and visualize it as JSON.",
         "heading": "PHP Unserializer",
         "subheading": "Parse PHP serialized strings and convert them to JSON format."
+      },
+      "imageCompressor": {
+        "title": "Image Compressor - Designer Tools",
+        "description": "Reduce image file size for web-optimized files. Supports presets and target size modes.",
+        "heading": "Image Compressor",
+        "subheading": "Reduce image file sizes optimized for web, social media, and email."
       }
     }
   },
@@ -1105,6 +1111,107 @@
         "indent": "Indent",
         "nothingToCopy": "Nothing to copy",
         "exampleLoaded": "Example loaded"
+      }
+    },
+    "imageCompressor": {
+      "name": "Image Compressor",
+      "description": "Reduce image file size for web optimization.",
+      "ui": {
+        "upload": {
+          "title": "Upload Images",
+          "description": "Drag and drop images or click to select",
+          "formats": "WebP, PNG, JPEG, GIF, BMP supported",
+          "limits": "Max {maxSize}MB, {maxDimension}px | {remaining}/{max} slots available",
+          "selectFiles": "Select Files"
+        },
+        "preview": {
+          "title": "Uploaded Images",
+          "fileCount": "{count} files",
+          "clearAll": "Clear All",
+          "addMore": "Add More",
+          "status": {
+            "pending": "Pending",
+            "compressing": "Compressing",
+            "completed": "Completed",
+            "error": "Error"
+          }
+        },
+        "settings": {
+          "title": "Compression Settings",
+          "presetMode": "Preset Mode",
+          "targetMode": "Target Size Mode",
+          "presetLabel": "Compression Level",
+          "quality": "Quality",
+          "targetSize": "Target Size",
+          "targetSizeHint": "Set between {min}KB ~ {max}KB",
+          "outputFormat": "Output Format",
+          "compressButton": "Compress {count} Images"
+        },
+        "progress": {
+          "title": "Compressing...",
+          "processing": "Processing {current}/{total}",
+          "currentFile": "Current file",
+          "cancel": "Cancel"
+        },
+        "result": {
+          "title": "Compression Complete",
+          "completedCount": "{count} completed",
+          "original": "Original",
+          "compressed": "Compressed",
+          "download": "Download",
+          "downloadAll": "Download All (ZIP)",
+          "totalSaved": "Total Saved",
+          "reduction": "Reduction",
+          "quality": "Quality",
+          "dimensions": "Dimensions",
+          "saved": "Saved",
+          "targetNotReached": "Target not reached"
+        },
+        "reset": {
+          "button": "Reset",
+          "success": "Reset completed"
+        }
+      },
+      "presets": {
+        "low": "Low Compression",
+        "lowDesc": "Minimal compression, highest quality",
+        "medium": "Medium Compression",
+        "mediumDesc": "Balanced compression",
+        "high": "High Compression",
+        "highDesc": "Maximum compression, smallest size",
+        "web": "Web Optimized",
+        "webDesc": "Optimized for web pages",
+        "sns": "SNS Optimized",
+        "snsDesc": "Optimized for social media",
+        "email": "Email Optimized",
+        "emailDesc": "Optimized for email attachments"
+      },
+      "formats": {
+        "original": {
+          "name": "Keep Original",
+          "description": "Keep original format (may convert to JPEG)"
+        },
+        "jpeg": {
+          "name": "JPEG",
+          "description": "Lossy compression, smaller file size"
+        },
+        "webp": {
+          "name": "WebP",
+          "description": "Modern format, excellent compression"
+        }
+      },
+      "toast": {
+        "compressionComplete": "Compression complete",
+        "compressionError": "Error during compression",
+        "downloadComplete": "Download complete",
+        "downloadError": "Error during download",
+        "fileTooLarge": "File size too large (Max 10MB)",
+        "dimensionTooLarge": "Image dimensions too large (Max 4096px)",
+        "unsupportedFormat": "Unsupported file format",
+        "loadError": "Failed to load image",
+        "maxFilesReached": "Maximum file limit reached (Max 10 files)",
+        "filesCount": "",
+        "uploadSuccess": "Upload complete"
       }
     }
   },

@@ -244,6 +244,12 @@
         "description": "PHP serialize()でシリアライズされたデータをJSONとして視覚化。",
         "heading": "PHP Unserializer",
         "subheading": "PHPシリアライズ文字列をパースしてJSON形式に変換。"
+      },
+      "imageCompressor": {
+        "title": "Image Compressor - デザイナーツール",
+        "description": "画像ファイルサイズを縮小してWeb最適化されたファイルを作成。プリセットとターゲットサイズモードをサポート。",
+        "heading": "Image Compressor",
+        "subheading": "画像ファイルサイズを縮小してWeb、SNS、メール向けに最適化。"
       }
     }
   },
@@ -1105,6 +1111,107 @@
         "indent": "インデント",
         "nothingToCopy": "コピーする内容がありません",
         "exampleLoaded": "サンプルを読み込みました"
+      }
+    },
+    "imageCompressor": {
+      "name": "Image Compressor",
+      "description": "画像ファイルサイズを縮小してWeb最適化。",
+      "ui": {
+        "upload": {
+          "title": "画像をアップロード",
+          "description": "画像をドラッグ&ドロップまたはクリックして選択",
+          "formats": "WebP, PNG, JPEG, GIF, BMP対応",
+          "limits": "最大{maxSize}MB, {maxDimension}px | 残り{remaining}/{max}枚",
+          "selectFiles": "ファイルを選択"
+        },
+        "preview": {
+          "title": "アップロードされた画像",
+          "fileCount": "{count}ファイル",
+          "clearAll": "すべて削除",
+          "addMore": "追加",
+          "status": {
+            "pending": "待機中",
+            "compressing": "圧縮中",
+            "completed": "完了",
+            "error": "エラー"
+          }
+        },
+        "settings": {
+          "title": "圧縮設定",
+          "presetMode": "プリセットモード",
+          "targetMode": "目標サイズモード",
+          "presetLabel": "圧縮レベル",
+          "quality": "品質",
+          "targetSize": "目標サイズ",
+          "targetSizeHint": "{min}KB～{max}KBの範囲で設定",
+          "outputFormat": "出力フォーマット",
+          "compressButton": "{count}枚を圧縮開始"
+        },
+        "progress": {
+          "title": "圧縮中...",
+          "processing": "{current}/{total}処理中",
+          "currentFile": "現在のファイル",
+          "cancel": "キャンセル"
+        },
+        "result": {
+          "title": "圧縮完了",
+          "completedCount": "{count}件完了",
+          "original": "元",
+          "compressed": "圧縮後",
+          "download": "ダウンロード",
+          "downloadAll": "すべてダウンロード (ZIP)",
+          "totalSaved": "合計節約",
+          "reduction": "削減率",
+          "quality": "品質",
+          "dimensions": "サイズ",
+          "saved": "節約",
+          "targetNotReached": "目標未達成"
+        },
+        "reset": {
+          "button": "リセット",
+          "success": "リセットしました"
+        }
+      },
+      "presets": {
+        "low": "低圧縮",
+        "lowDesc": "最小圧縮、最高品質",
+        "medium": "中圧縮",
+        "mediumDesc": "バランスの取れた圧縮",
+        "high": "高圧縮",
+        "highDesc": "最大圧縮、最小サイズ",
+        "web": "Web最適化",
+        "webDesc": "Webページ向け最適化",
+        "sns": "SNS最適化",
+        "snsDesc": "ソーシャルメディア向け最適化",
+        "email": "メール最適化",
+        "emailDesc": "メール添付向け最適化"
+      },
+      "formats": {
+        "original": {
+          "name": "元のまま",
+          "description": "元のフォーマットを維持（JPEGに変換される場合あり）"
+        },
+        "jpeg": {
+          "name": "JPEG",
+          "description": "非可逆圧縮、小さなファイルサイズ"
+        },
+        "webp": {
+          "name": "WebP",
+          "description": "モダンフォーマット、優れた圧縮率"
+        }
+      },
+      "toast": {
+        "compressionComplete": "圧縮完了",
+        "compressionError": "圧縮中にエラーが発生しました",
+        "downloadComplete": "ダウンロード完了",
+        "downloadError": "ダウンロード中にエラーが発生しました",
+        "fileTooLarge": "ファイルサイズが大きすぎます（最大10MB）",
+        "dimensionTooLarge": "画像サイズが大きすぎます（最大4096px）",
+        "unsupportedFormat": "サポートされていないファイル形式です",
+        "loadError": "画像の読み込みに失敗しました",
+        "maxFilesReached": "最大ファイル数に達しました（最大10ファイル）",
+        "filesCount": "",
+        "uploadSuccess": "アップロード完了"
       }
     }
   },

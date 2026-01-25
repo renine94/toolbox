@@ -197,10 +197,27 @@ export function ConversionSettings() {
               <Label>{t("resize.width")}</Label>
               <Input
                 type="number"
-                value={options.resize.width || ""}
-                onChange={(e) =>
-                  setResizeOption("width", parseInt(e.target.value) || undefined)
-                }
+                value={options.resize.width ?? ""}
+                onChange={(e) => {
+                  const rawValue = e.target.value;
+                  if (rawValue === "") {
+                    setResizeOption("width", undefined);
+                    return;
+                  }
+                  const value = parseInt(rawValue);
+                  if (!isNaN(value)) {
+                    setResizeOption("width", value);
+                  }
+                }}
+                onBlur={(e) => {
+                  const rawValue = e.target.value;
+                  if (rawValue === "") return;
+                  const value = parseInt(rawValue);
+                  if (!isNaN(value)) {
+                    const clamped = Math.max(1, Math.min(10000, value));
+                    setResizeOption("width", clamped);
+                  }
+                }}
                 placeholder="px"
                 min={1}
                 max={10000}
@@ -215,10 +232,27 @@ export function ConversionSettings() {
               <Label>{t("resize.height")}</Label>
               <Input
                 type="number"
-                value={options.resize.height || ""}
-                onChange={(e) =>
-                  setResizeOption("height", parseInt(e.target.value) || undefined)
-                }
+                value={options.resize.height ?? ""}
+                onChange={(e) => {
+                  const rawValue = e.target.value;
+                  if (rawValue === "") {
+                    setResizeOption("height", undefined);
+                    return;
+                  }
+                  const value = parseInt(rawValue);
+                  if (!isNaN(value)) {
+                    setResizeOption("height", value);
+                  }
+                }}
+                onBlur={(e) => {
+                  const rawValue = e.target.value;
+                  if (rawValue === "") return;
+                  const value = parseInt(rawValue);
+                  if (!isNaN(value)) {
+                    const clamped = Math.max(1, Math.min(10000, value));
+                    setResizeOption("height", clamped);
+                  }
+                }}
                 placeholder="px"
                 min={1}
                 max={10000}

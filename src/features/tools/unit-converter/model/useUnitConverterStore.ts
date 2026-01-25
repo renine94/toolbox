@@ -43,7 +43,8 @@ export const useUnitConverterStore = create<UnitConverterState>((set, get) => ({
     const fromUnit = category.units[0].id
     const toUnit = category.units[1]?.id || category.units[0].id
     const inputValue = get().inputValue || '1'
-    const numValue = parseFloat(inputValue) || 0
+    const parsed = parseFloat(inputValue)
+    const numValue = isNaN(parsed) ? 0 : parsed
 
     set({
       categoryId,
@@ -57,7 +58,8 @@ export const useUnitConverterStore = create<UnitConverterState>((set, get) => ({
   // From 단위 변경
   setFromUnit: (unitId) => {
     const { categoryId, toUnit, inputValue } = get()
-    const numValue = parseFloat(inputValue) || 0
+    const parsed = parseFloat(inputValue)
+    const numValue = isNaN(parsed) ? 0 : parsed
 
     set({
       fromUnit: unitId,
@@ -69,7 +71,8 @@ export const useUnitConverterStore = create<UnitConverterState>((set, get) => ({
   // To 단위 변경
   setToUnit: (unitId) => {
     const { categoryId, fromUnit, inputValue } = get()
-    const numValue = parseFloat(inputValue) || 0
+    const parsed = parseFloat(inputValue)
+    const numValue = isNaN(parsed) ? 0 : parsed
 
     set({
       toUnit: unitId,
@@ -81,7 +84,8 @@ export const useUnitConverterStore = create<UnitConverterState>((set, get) => ({
   // 입력값 변경
   setInputValue: (value) => {
     const { categoryId, fromUnit, toUnit } = get()
-    const numValue = parseFloat(value) || 0
+    const parsed = parseFloat(value)
+    const numValue = isNaN(parsed) ? 0 : parsed
 
     set({
       inputValue: value,
@@ -92,7 +96,8 @@ export const useUnitConverterStore = create<UnitConverterState>((set, get) => ({
   // From/To 단위 교환
   swap: () => {
     const { categoryId, fromUnit, toUnit, inputValue } = get()
-    const numValue = parseFloat(inputValue) || 0
+    const parsed = parseFloat(inputValue)
+    const numValue = isNaN(parsed) ? 0 : parsed
 
     set({
       fromUnit: toUnit,

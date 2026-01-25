@@ -244,6 +244,12 @@
         "description": "解析PHP serialize()序列化的数据并以JSON格式可视化。",
         "heading": "PHP Unserializer",
         "subheading": "解析PHP序列化字符串并转换为JSON格式。"
+      },
+      "imageCompressor": {
+        "title": "Image Compressor - 设计师工具",
+        "description": "减小图像文件大小以创建Web优化文件。支持预设和目标大小模式。",
+        "heading": "Image Compressor",
+        "subheading": "减小图像文件大小，为Web、社交媒体和电子邮件进行优化。"
       }
     }
   },
@@ -1105,6 +1111,107 @@
         "indent": "缩进",
         "nothingToCopy": "无内容可复制",
         "exampleLoaded": "示例已加载"
+      }
+    },
+    "imageCompressor": {
+      "name": "Image Compressor",
+      "description": "减小图像文件大小以进行Web优化。",
+      "ui": {
+        "upload": {
+          "title": "上传图像",
+          "description": "拖放图像或点击选择",
+          "formats": "支持WebP, PNG, JPEG, GIF, BMP",
+          "limits": "最大{maxSize}MB, {maxDimension}px | 剩余{remaining}/{max}个",
+          "selectFiles": "选择文件"
+        },
+        "preview": {
+          "title": "已上传的图像",
+          "fileCount": "{count}个文件",
+          "clearAll": "全部删除",
+          "addMore": "添加更多",
+          "status": {
+            "pending": "等待中",
+            "compressing": "压缩中",
+            "completed": "完成",
+            "error": "错误"
+          }
+        },
+        "settings": {
+          "title": "压缩设置",
+          "presetMode": "预设模式",
+          "targetMode": "目标大小模式",
+          "presetLabel": "压缩级别",
+          "quality": "质量",
+          "targetSize": "目标大小",
+          "targetSizeHint": "设置范围{min}KB ~ {max}KB",
+          "outputFormat": "输出格式",
+          "compressButton": "压缩{count}张图像"
+        },
+        "progress": {
+          "title": "压缩中...",
+          "processing": "处理{current}/{total}",
+          "currentFile": "当前文件",
+          "cancel": "取消"
+        },
+        "result": {
+          "title": "压缩完成",
+          "completedCount": "已完成{count}个",
+          "original": "原始",
+          "compressed": "压缩后",
+          "download": "下载",
+          "downloadAll": "全部下载 (ZIP)",
+          "totalSaved": "总共节省",
+          "reduction": "减少率",
+          "quality": "质量",
+          "dimensions": "尺寸",
+          "saved": "节省",
+          "targetNotReached": "未达到目标"
+        },
+        "reset": {
+          "button": "重置",
+          "success": "重置完成"
+        }
+      },
+      "presets": {
+        "low": "低压缩",
+        "lowDesc": "最小压缩，最高质量",
+        "medium": "中等压缩",
+        "mediumDesc": "平衡压缩",
+        "high": "高压缩",
+        "highDesc": "最大压缩，最小大小",
+        "web": "Web优化",
+        "webDesc": "针对网页优化",
+        "sns": "社交媒体优化",
+        "snsDesc": "针对社交媒体优化",
+        "email": "邮件优化",
+        "emailDesc": "针对邮件附件优化"
+      },
+      "formats": {
+        "original": {
+          "name": "保持原格式",
+          "description": "保持原格式（可能转换为JPEG）"
+        },
+        "jpeg": {
+          "name": "JPEG",
+          "description": "有损压缩，文件更小"
+        },
+        "webp": {
+          "name": "WebP",
+          "description": "现代格式，优秀的压缩率"
+        }
+      },
+      "toast": {
+        "compressionComplete": "压缩完成",
+        "compressionError": "压缩过程中出错",
+        "downloadComplete": "下载完成",
+        "downloadError": "下载过程中出错",
+        "fileTooLarge": "文件太大（最大10MB）",
+        "dimensionTooLarge": "图像尺寸太大（最大4096px）",
+        "unsupportedFormat": "不支持的文件格式",
+        "loadError": "图像加载失败",
+        "maxFilesReached": "已达到最大文件数（最多10个）",
+        "filesCount": "个",
+        "uploadSuccess": "上传完成"
       }
     }
   },

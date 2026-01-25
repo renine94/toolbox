@@ -1,4 +1,4 @@
-// 도구 레지스트리 - 28개 도구의 메타데이터를 중앙 관리
+// 도구 레지스트리 - 29개 도구의 메타데이터를 중앙 관리
 // Quick Access, 검색, 통계 등 다양한 기능에서 재사용
 
 export interface ToolMetadata {
@@ -43,9 +43,9 @@ export const CATEGORIES: Record<string, CategoryMetadata> = {
   },
 };
 
-// 28개 도구 메타데이터
+// 31개 도구 메타데이터
 export const TOOLS: ToolMetadata[] = [
-  // Developer Tools (14)
+  // Developer Tools (16)
   { id: "json-formatter", icon: "{ }", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
   { id: "base64-encoder", icon: "🔤", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
   { id: "color-picker", icon: "🎨", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
@@ -60,13 +60,16 @@ export const TOOLS: ToolMetadata[] = [
   { id: "json-to-typescript", icon: "TS", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
   { id: "unix-timestamp", icon: "🕐", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
   { id: "sql-formatter", icon: "🗄️", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
+  { id: "ascii-art-generator", icon: "Aa", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
+  { id: "php-unserializer", icon: "🐘", categoryId: "developer", gradient: "from-violet-500 to-purple-600" },
 
-  // Designer Tools (5)
+  // Designer Tools (6)
   { id: "color-palette", icon: "🌈", categoryId: "designer", gradient: "from-pink-500 to-rose-600" },
   { id: "image-editor", icon: "🖼️", categoryId: "designer", gradient: "from-pink-500 to-rose-600" },
   { id: "gradient-generator", icon: "🌅", categoryId: "designer", gradient: "from-pink-500 to-rose-600" },
   { id: "image-upscaler", icon: "⬆️", categoryId: "designer", gradient: "from-pink-500 to-rose-600" },
   { id: "image-converter", icon: "🔄", categoryId: "designer", gradient: "from-pink-500 to-rose-600" },
+  { id: "image-compressor", icon: "📦", categoryId: "designer", gradient: "from-pink-500 to-rose-600" },
 
   // Marketer Tools (2)
   { id: "qr-generator", icon: "📱", categoryId: "marketer", gradient: "from-emerald-500 to-teal-600" },
@@ -108,3 +111,22 @@ export function getCategoryMetadata(categoryId: string): CategoryMetadata | unde
 export function toolIdToTranslationKey(id: string): string {
   return id.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
 }
+
+// 카테고리별로 도구 그룹화
+export function getToolsByCategory(categoryId: string): ToolMetadata[] {
+  return TOOLS.filter((tool) => tool.categoryId === categoryId);
+}
+
+// 모든 카테고리와 해당 도구들을 반환
+export function getCategoriesWithTools(): Array<{
+  category: CategoryMetadata;
+  tools: ToolMetadata[];
+}> {
+  return Object.values(CATEGORIES).map((category) => ({
+    category,
+    tools: getToolsByCategory(category.id),
+  }));
+}
+
+// 카테고리 목록 (순서 보장)
+export const CATEGORY_ORDER = ["developer", "designer", "marketer", "writer", "productivity"] as const;

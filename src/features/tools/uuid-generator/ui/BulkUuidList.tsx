@@ -71,7 +71,22 @@ export function BulkUuidList() {
             min={1}
             max={100}
             value={config.quantity}
-            onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
+            onChange={(e) => {
+              const rawValue = e.target.value;
+              if (rawValue === "") {
+                setQuantity(1);
+                return;
+              }
+              const value = parseInt(rawValue);
+              if (!isNaN(value)) {
+                setQuantity(value);
+              }
+            }}
+            onBlur={(e) => {
+              const value = parseInt(e.target.value) || 1;
+              const clamped = Math.max(1, Math.min(100, value));
+              setQuantity(clamped);
+            }}
             className="w-24"
           />
         </div>
