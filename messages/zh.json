@@ -1,4 +1,9 @@
 {
+  "introGate": {
+    "ariaLabel": "ToolBox 介绍画面",
+    "tagline": "为开发者、设计师和营销人员打造的一站式工具集",
+    "skipHint": "点击任意位置跳过"
+  },
   "common": {
     "buttons": {
       "copy": "复制",

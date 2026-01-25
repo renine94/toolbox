@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 import { QueryProvider } from "../providers/query-provider";
 import { ThemeProvider } from "../providers/theme-provider";
 import { Toaster } from "@/shared/ui/sonner";
+import { IntroGate } from "@/widgets/intro-gate";
 import { routing, Locale } from "@/i18n/routing";
 
 import "../globals.css";
@@ -76,7 +77,7 @@ export default async function LocaleLayout({
         >
           <QueryProvider>
             <NextIntlClientProvider messages={messages}>
-              {children}
+              <IntroGate>{children}</IntroGate>
               <Toaster />
             </NextIntlClientProvider>
           </QueryProvider>

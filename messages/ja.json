@@ -1,4 +1,9 @@
 {
+  "introGate": {
+    "ariaLabel": "ToolBox イントロ画面",
+    "tagline": "開発者、デザイナー、マーケター向けのオールインワンツール",
+    "skipHint": "クリックしてスキップ"
+  },
   "common": {
     "buttons": {
       "copy": "コピー",

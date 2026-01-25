@@ -1,4 +1,9 @@
 {
+  "introGate": {
+    "ariaLabel": "ToolBox intro screen",
+    "tagline": "All-in-one tools for developers, designers, and marketers",
+    "skipHint": "Click anywhere to skip"
+  },
   "common": {
     "buttons": {
       "copy": "Copy",
