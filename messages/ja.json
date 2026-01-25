@@ -1096,7 +1096,7 @@
       "description": "PHP serialize()データをパースして視覚化。",
       "ui": {
         "inputLabel": "PHP Serialized入力",
-        "inputPlaceholder": "PHP serialize()文字列を貼り付け...\n例: a:2:{s:4:\"name\";s:4:\"John\";i:0;i:123;}",
+        "inputPlaceholder": "PHP serialize()文字列を貼り付け...\n例: a:2:'{s:4:\"name\";s:4:\"John\";i:0;i:123;}'",
         "outputLabel": "結果",
         "outputPlaceholder": "パース結果がここに表示されます...",
         "copy": "コピー",

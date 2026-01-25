@@ -1096,7 +1096,7 @@
       "description": "解析并可视化PHP serialize()数据。",
       "ui": {
         "inputLabel": "PHP Serialized输入",
-        "inputPlaceholder": "粘贴PHP serialize()字符串...\n例: a:2:{s:4:\"name\";s:4:\"John\";i:0;i:123;}",
+        "inputPlaceholder": "粘贴PHP serialize()字符串...\n例: a:2:'{s:4:\"name\";s:4:\"John\";i:0;i:123;}'",
         "outputLabel": "结果",
         "outputPlaceholder": "解析结果将显示在这里...",
         "copy": "复制",

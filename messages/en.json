@@ -1096,7 +1096,7 @@
       "description": "Parse and visualize PHP serialize() data.",
       "ui": {
         "inputLabel": "PHP Serialized Input",
-        "inputPlaceholder": "Paste PHP serialize() string here...\ne.g., a:2:{s:4:\"name\";s:4:\"John\";i:0;i:123;}",
+        "inputPlaceholder": "Paste PHP serialize() string here...\ne.g., a:2:'{s:4:\"name\";s:4:\"John\";i:0;i:123;}'",
         "outputLabel": "Result",
         "outputPlaceholder": "Parsed result will appear here...",
         "copy": "Copy",

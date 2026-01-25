@@ -1096,7 +1096,7 @@
       "description": "PHP serialize() 데이터를 파싱하여 시각화합니다.",
       "ui": {
         "inputLabel": "PHP Serialized 입력",
-        "inputPlaceholder": "PHP serialize() 문자열을 붙여넣으세요...\n예: a:2:{s:4:\"name\";s:4:\"John\";i:0;i:123;}",
+        "inputPlaceholder": "PHP serialize() 문자열을 붙여넣으세요...\n예: a:2:'{s:4:\"name\";s:4:\"John\";i:0;i:123;}'",
         "outputLabel": "결과",
         "outputPlaceholder": "파싱된 결과가 여기에 표시됩니다...",
         "copy": "복사",
