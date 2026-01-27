@@ -16,6 +16,10 @@ import type { WorkerInput, WorkerOutput } from "../lib/image-worker";
 // Worker 인스턴스 (싱글톤)
 let imageWorker: Worker | null = null;
 
+// Worker 설정
+const EXPORT_TIMEOUT = 30000; // 30초 타임아웃
+const MAX_HISTORY_SIZE = 50; // 히스토리 최대 크기
+
 function getImageWorker(): Worker {
   if (!imageWorker) {
     imageWorker = new Worker(
@@ -23,6 +27,22 @@ function getImageWorker(): Worker {
     );
   }
   return imageWorker;
+}
+
+// Worker 정리 함수 (메모리 누수 방지)
+function cleanupImageWorker(): void {
+  if (imageWorker) {
+    imageWorker.terminate();
+    imageWorker = null;
+  }
+}
+
+// 히스토리 크기 제한 헬퍼 함수
+function limitHistorySize(history: HistoryEntry[]): HistoryEntry[] {
+  if (history.length > MAX_HISTORY_SIZE) {
+    return history.slice(-MAX_HISTORY_SIZE);
+  }
+  return history;
 }
 
 const generateId = () => Math.random().toString(36).substring(2, 11);
@@ -91,8 +111,9 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: state.cropArea,
     };
 
-    const newHistory = state.history.slice(0, state.historyIndex + 1);
+    let newHistory = state.history.slice(0, state.historyIndex + 1);
     newHistory.push(entry);
+    newHistory = limitHistorySize(newHistory);
 
     set({
       filters: newFilters,
@@ -113,8 +134,9 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: state.cropArea,
     };
 
-    const newHistory = state.history.slice(0, state.historyIndex + 1);
+    let newHistory = state.history.slice(0, state.historyIndex + 1);
     newHistory.push(entry);
+    newHistory = limitHistorySize(newHistory);
 
     set({
       filters: { ...DEFAULT_FILTERS },
@@ -137,8 +159,9 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: state.cropArea,
     };
 
-    const newHistory = state.history.slice(0, state.historyIndex + 1);
+    let newHistory = state.history.slice(0, state.historyIndex + 1);
     newHistory.push(entry);
+    newHistory = limitHistorySize(newHistory);
 
     set({
       transform: newTransform,
@@ -159,8 +182,9 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: state.cropArea,
     };
 
-    const newHistory = state.history.slice(0, state.historyIndex + 1);
+    let newHistory = state.history.slice(0, state.historyIndex + 1);
     newHistory.push(entry);
+    newHistory = limitHistorySize(newHistory);
 
     set({
       transform: { ...DEFAULT_TRANSFORM },
@@ -193,8 +217,9 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: state.cropArea,
     };
 
-    const newHistory = state.history.slice(0, state.historyIndex + 1);
+    let newHistory = state.history.slice(0, state.historyIndex + 1);
     newHistory.push(entry);
+    newHistory = limitHistorySize(newHistory);
 
     set({
       currentSize: {
@@ -219,8 +244,9 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: null,
     };
 
-    const newHistory = state.history.slice(0, state.historyIndex + 1);
+    let newHistory = state.history.slice(0, state.historyIndex + 1);
     newHistory.push(entry);
+    newHistory = limitHistorySize(newHistory);
 
     set({
       currentSize: size,
@@ -243,6 +269,24 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       currentSize: state.originalSize,
       cropArea: null,
       isCropping: false,
+      history: [],
+      historyIndex: -1,
+    });
+  },
+
+  // Worker 정리 (컴포넌트 언마운트 시 호출)
+  cleanup: () => {
+    cleanupImageWorker();
+    set({
+      originalImage: null,
+      originalSize: null,
+      currentSize: null,
+      filters: { ...DEFAULT_FILTERS },
+      transform: { ...DEFAULT_TRANSFORM },
+      cropArea: null,
+      isCropping: false,
+      isLoading: false,
+      exportProgress: null,
       history: [],
       historyIndex: -1,
     });
@@ -326,7 +370,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
 
     const worker = getImageWorker();
 
-    const processedImageData = await new Promise<ImageData>((resolve, reject) => {
+    const workerPromise = new Promise<ImageData>((resolve, reject) => {
       const handleMessage = (e: MessageEvent<WorkerOutput>) => {
         switch (e.data.type) {
           case "progress":
@@ -357,6 +401,16 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
         [imageData.data.buffer]
       );
     });
+
+    // 타임아웃과 함께 Worker 응답 대기
+    const timeoutPromise = new Promise<never>((_, reject) =>
+      setTimeout(
+        () => reject(new Error("이미지 내보내기 시간이 초과되었습니다. 다시 시도해주세요.")),
+        EXPORT_TIMEOUT
+      )
+    );
+
+    const processedImageData = await Promise.race([workerPromise, timeoutPromise]);
 
     // 처리된 이미지 데이터를 캔버스에 적용
     ctx.putImageData(processedImageData, 0, 0);

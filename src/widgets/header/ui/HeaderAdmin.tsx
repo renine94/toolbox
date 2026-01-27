@@ -15,7 +15,7 @@ import {
 } from "@/shared/ui/dropdown-menu";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useAuthStore } from "@/features/auth";
+import { useAuthStore } from "@/shared/stores/useAuthStore";
 import { toast } from "sonner";
 
 interface DropdownMenuItemType {

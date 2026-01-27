@@ -11,7 +11,7 @@ import {
   CATEGORY_ORDER,
   getToolsByCategory,
   toolIdToTranslationKey,
-} from "@/widgets/quick-access/lib/tool-registry";
+} from "@/shared/lib/tool-registry";
 
 interface Tool {
   id: string;

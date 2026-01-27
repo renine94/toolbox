@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
-import { getToolMetadata, toolIdToTranslationKey } from "../lib/tool-registry";
+import { getToolMetadata, toolIdToTranslationKey } from "@/shared/lib/tool-registry";
 
 interface QuickAccessToolItemProps {
   toolId: string;

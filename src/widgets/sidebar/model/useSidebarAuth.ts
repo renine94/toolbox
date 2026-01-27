@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation"
 import { toast } from "sonner"
-import { useAuthStore } from "@/features/auth"
+import { useAuthStore } from "@/shared/stores/useAuthStore"
 
 export function useSidebarAuth() {
     const router = useRouter()

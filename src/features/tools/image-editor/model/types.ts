@@ -100,6 +100,7 @@ export interface ImageEditorState {
   resize: (size: ImageSize, maintainAspectRatio?: boolean) => void;
   setActiveTab: (tab: ImageEditorState["activeTab"]) => void;
   reset: () => void;
+  cleanup: () => void;
   undo: () => void;
   redo: () => void;
   canUndo: () => boolean;

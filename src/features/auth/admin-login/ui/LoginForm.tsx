@@ -24,7 +24,7 @@ import {
 } from '@/shared/ui/card'
 
 import { loginSchema, type LoginFormData } from '../lib/schema'
-import { useAuthStore } from '../model/useAuthStore'
+import { useAuthStore } from '@/shared/stores/useAuthStore'
 
 export function LoginForm() {
   const router = useRouter()

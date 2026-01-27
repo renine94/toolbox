@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { isValidToolId } from "../lib/tool-registry";
+import { isValidToolId } from "@/shared/lib/tool-registry";
 
 export interface ToolUsage {
   toolId: string;

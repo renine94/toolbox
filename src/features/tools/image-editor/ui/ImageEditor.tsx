@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { Button } from "@/shared/ui/button";
 import { useImageStore } from "../model/useImageStore";
 import { ImageUploader } from "./ImageUploader";
@@ -17,7 +18,14 @@ const TABS = [
 ] as const;
 
 export function ImageEditor() {
-  const { originalImage, activeTab, setActiveTab } = useImageStore();
+  const { originalImage, activeTab, setActiveTab, cleanup } = useImageStore();
+
+  // 컴포넌트 언마운트 시 Worker 정리 (메모리 누수 방지)
+  useEffect(() => {
+    return () => {
+      cleanup();
+    };
+  }, [cleanup]);
 
   // 이미지가 없으면 업로더 표시
   if (!originalImage) {

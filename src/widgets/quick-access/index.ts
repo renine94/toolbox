@@ -10,7 +10,7 @@ export { ToolUsageTracker } from "./ui/ToolUsageTracker";
 export { useQuickAccessStore } from "./model/useQuickAccessStore";
 export type { ToolUsage } from "./model/useQuickAccessStore";
 
-// Utils
+// Utils - shared에서 재export (FSD 규칙 준수)
 export {
   TOOLS,
   CATEGORIES,
@@ -19,5 +19,5 @@ export {
   getToolMetadata,
   getCategoryMetadata,
   toolIdToTranslationKey,
-} from "./lib/tool-registry";
-export type { ToolMetadata, CategoryMetadata } from "./lib/tool-registry";
+} from "@/shared/lib/tool-registry";
+export type { ToolMetadata, CategoryMetadata } from "@/shared/lib/tool-registry";

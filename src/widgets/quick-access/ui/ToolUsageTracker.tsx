@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { usePathname } from "@/i18n/navigation";
 import { useQuickAccessStore } from "../model/useQuickAccessStore";
-import { isValidToolId } from "../lib/tool-registry";
+import { isValidToolId } from "@/shared/lib/tool-registry";
 
 /**
  * 도구 사용 추적 컴포넌트
