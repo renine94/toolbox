@@ -262,6 +262,42 @@
         "description": "コードタイピングアニメーションGIFを生成。様々なテーマと言語をサポートし、Twitter、Slackなどでコードを紹介するのに最適。",
         "heading": "Code Typing GIF",
         "subheading": "コードタイピングアニメーションをGIFファイルとして生成。"
+      },
+      "emojiHashtagPicker": {
+        "title": "Emoji & Hashtag Picker - マーケターツール",
+        "description": "絵文字とハッシュタグをカテゴリ別に検索して選択、コピーできます。SNS投稿の作成に便利です。",
+        "heading": "Emoji & Hashtag Picker",
+        "subheading": "絵文字とハッシュタグを簡単に検索してコピー。"
+      },
+      "metaTagPreviewer": {
+        "title": "Meta Tag Previewer - マーケターツール",
+        "description": "Webページのメタタグをプレビューして編集。Google、Facebook、Twitter、LinkedIn、Slackでどのように表示されるかを確認できます。",
+        "heading": "Meta Tag Previewer",
+        "subheading": "メタタグを編集して各プラットフォームでのプレビューを確認。"
+      },
+      "headlineGenerator": {
+        "title": "Headline Generator - マーケターツール",
+        "description": "15以上のパターンで魅力的な見出しを生成。数字型、疑問型、How-toなど様々なスタイルでクリック率をアップ。",
+        "heading": "Headline Generator",
+        "subheading": "アイデアを入力すると15以上のバリエーションパターンで魅力的な見出しを生成します。"
+      },
+      "countdownTimerGenerator": {
+        "title": "Countdown Timer Generator - 生産性ツール",
+        "description": "目標日時までの残り時間を表示するカウントダウンタイマーを作成。様々なテーマとカスタマイズオプションを提供。",
+        "heading": "Countdown Timer Generator",
+        "subheading": "イベント、リリース、締め切りなどのカウントダウンタイマーを作成。"
+      },
+      "utmBuilder": {
+        "title": "UTM Builder - マーケターツール",
+        "description": "マーケティングキャンペーンURLにUTMパラメータを簡単に追加。QRコード生成、プリセット保存、履歴管理をサポート。",
+        "heading": "UTM Builder",
+        "subheading": "マーケティングキャンペーンURLにUTMパラメータを追加してトラフィックを追跡。"
+      },
+      "socialImageResizer": {
+        "title": "Social Image Resizer - マーケターツール",
+        "description": "SNSプラットフォーム別に最適な画像サイズに一度にリサイズ。Instagram、Facebook、Twitter、LinkedIn、YouTube、TikTokなど12種類以上のプリセットをサポート。",
+        "heading": "Social Image Resizer",
+        "subheading": "SNSプラットフォームに最適な画像サイズに一度に変換します。"
       }
     }
   },
@@ -1328,6 +1364,308 @@
         "generateSuccess": "GIFが生成されました！",
         "generateError": "GIF生成に失敗しました",
         "actualSize": "実際のサイズ"
+      }
+    },
+    "emojiHashtagPicker": {
+      "name": "Emoji & Hashtag Picker",
+      "description": "絵文字とハッシュタグを簡単に検索してコピー。",
+      "ui": {
+        "picker": "ピッカー",
+        "pickerDescription": "絵文字やハッシュタグをクリックして選択",
+        "tabs": {
+          "emoji": "絵文字",
+          "hashtag": "ハッシュタグ"
+        },
+        "searchEmoji": "絵文字を検索...",
+        "searchHashtag": "ハッシュタグを検索...",
+        "categories": {
+          "all": "すべて",
+          "recent": "最近使用",
+          "smileys": "スマイリー",
+          "gestures": "ジェスチャー",
+          "animals": "動物",
+          "food": "食べ物",
+          "travel": "旅行",
+          "activities": "アクティビティ",
+          "objects": "オブジェクト",
+          "flags": "フラグ",
+          "marketing": "マーケティング",
+          "business": "ビジネス",
+          "lifestyle": "ライフスタイル",
+          "fashion": "ファッション",
+          "fitness": "フィットネス",
+          "tech": "テック"
+        },
+        "selected": "選択済み",
+        "selectedCount": "{count}個選択済み",
+        "resultsCount": "{count}件の結果",
+        "copyAll": "すべてコピー",
+        "clearAll": "すべてクリア",
+        "noEmojisSelected": "絵文字が選択されていません",
+        "noHashtagsSelected": "ハッシュタグが選択されていません",
+        "clickToRemove": "クリックして削除",
+        "nothingToCopy": "コピーする内容がありません",
+        "preview": "プレビュー"
+      }
+    },
+    "metaTagPreviewer": {
+      "name": "Meta Tag Previewer",
+      "description": "Webページのメタタグをプレビューして編集。",
+      "ui": {
+        "urlInput": "URL入力",
+        "urlInputDesc": "WebページのURLを入力するとメタタグを自動取得します",
+        "urlPlaceholder": "https://example.com",
+        "fetch": "取得",
+        "enterUrl": "URLを入力してください",
+        "invalidUrl": "無効なURLです",
+        "fetchSuccess": "メタタグを取得しました",
+        "fetchFailed": "メタタグの取得に失敗しました",
+        "editor": "メタタグ編集",
+        "editorDesc": "メタタグの値を直接編集",
+        "basicMeta": "基本メタタグ",
+        "title": "タイトル",
+        "titlePlaceholder": "ページタイトルを入力",
+        "description": "説明",
+        "descriptionPlaceholder": "ページの説明を入力",
+        "openGraphMeta": "Open Graphメタタグ",
+        "ogTitlePlaceholder": "OGタイトルを入力",
+        "ogDescriptionPlaceholder": "OG説明を入力",
+        "ogImagePlaceholder": "OG画像URLを入力",
+        "ogUrlPlaceholder": "OG URLを入力",
+        "siteNamePlaceholder": "サイト名を入力",
+        "twitterMeta": "Twitterメタタグ",
+        "twitterTitlePlaceholder": "Twitterタイトルを入力",
+        "twitterDescriptionPlaceholder": "Twitter説明を入力",
+        "twitterImagePlaceholder": "Twitter画像URLを入力",
+        "preview": "プレビュー",
+        "previewDesc": "各プラットフォームでの表示を確認",
+        "codeOutput": "HTMLコード",
+        "codeOutputDesc": "生成されたメタタグHTMLコード",
+        "copy": "コピー",
+        "reset": "リセット",
+        "resetSuccess": "リセットしました",
+        "nothingToCopy": "コピーする内容がありません",
+        "emptyCode": "メタタグの値を入力するとHTMLコードがここに表示されます"
+      }
+    },
+    "headlineGenerator": {
+      "name": "Headline Generator",
+      "description": "様々なパターンで魅力的な見出しを生成。",
+      "ui": {
+        "inputTitle": "トピック入力",
+        "inputDescription": "見出しを生成するトピックやキーワードを入力",
+        "topicLabel": "トピック/キーワード",
+        "topicPlaceholder": "例: 生産性向上、健康的な食事、アプリ開発...",
+        "topicDescription": "Enterキーで即時生成、または生成ボタンをクリック",
+        "generate": "生成",
+        "variationsTab": "バリエーション",
+        "favoritesTab": "お気に入り",
+        "generatedHeadlines": "生成された見出し",
+        "generatedDescription": "クリックでコピー、ハートでお気に入りに保存",
+        "savedFavorites": "保存したお気に入り",
+        "savedDescription": "保存した見出しを管理",
+        "allCategories": "すべて",
+        "variationCount": "{count}件の見出し",
+        "emptyState": "見出しを生成しましょう",
+        "emptyStateDescription": "上にトピックを入力して生成ボタンをクリックすると、様々なスタイルの見出しが生成されます。",
+        "noFavorites": "保存したお気に入りがありません",
+        "noFavoritesDescription": "ハートアイコンをクリックして気に入った見出しを保存",
+        "favoriteCount": "{count}件のお気に入り",
+        "clearAll": "すべて削除"
+      }
+    },
+    "countdownTimerGenerator": {
+      "name": "Countdown Timer Generator",
+      "description": "目標日時までのカウントダウンタイマーを作成。",
+      "ui": {
+        "preview": "プレビュー",
+        "reset": "リセット",
+        "dateTimeSettings": "日時設定",
+        "styleSettings": "スタイル設定",
+        "export": "エクスポート",
+        "title": "タイトル",
+        "titlePlaceholder": "イベント名を入力（任意）",
+        "targetDate": "目標日時",
+        "targetDateHint": "カウントダウンが終了する日時を選択",
+        "themePreset": "テーマプリセット",
+        "themes": {
+          "modern-dark": "モダンダーク",
+          "clean-white": "クリーンホワイト",
+          "gradient": "グラディエント",
+          "neon": "ネオン",
+          "minimal": "ミニマル",
+          "retro": "レトロ"
+        },
+        "showLabels": "単位ラベル表示",
+        "showLabelsHint": "日、時間、分、秒のラベルを表示",
+        "fontSize": "フォントサイズ",
+        "borderRadius": "角丸",
+        "width": "幅",
+        "height": "高さ",
+        "downloadPng": "PNGダウンロード",
+        "downloadPngButton": "PNGでダウンロード",
+        "downloadPngHint": "現在のタイマー状態をPNG画像として保存",
+        "downloading": "ダウンロード中...",
+        "embedCode": "埋め込みコード",
+        "embedCodeHint": "このコードをウェブサイトに貼り付けてタイマーを埋め込み",
+        "copy": "コピー"
+      }
+    },
+    "socialImageResizer": {
+      "name": "Social Image Resizer",
+      "description": "SNSプラットフォーム別に最適な画像サイズにリサイズ。",
+      "platforms": {
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "twitter": "Twitter / X",
+        "linkedin": "LinkedIn",
+        "youtube": "YouTube",
+        "tiktok": "TikTok",
+        "pinterest": "Pinterest",
+        "snapchat": "Snapchat"
+      },
+      "presetNames": {
+        "instagramPost": "投稿",
+        "instagramStory": "ストーリー",
+        "instagramReels": "リール",
+        "instagramLandscape": "横型",
+        "instagramPortrait": "縦型",
+        "facebookPost": "投稿",
+        "facebookCover": "カバー",
+        "facebookStory": "ストーリー",
+        "facebookProfile": "プロフィール",
+        "facebookEvent": "イベント",
+        "twitterPost": "投稿",
+        "twitterHeader": "ヘッダー",
+        "twitterProfile": "プロフィール",
+        "linkedinPost": "投稿",
+        "linkedinCover": "カバー",
+        "linkedinProfile": "プロフィール",
+        "linkedinCompanyCover": "会社カバー",
+        "youtubeThumbnail": "サムネイル",
+        "youtubeBanner": "バナー",
+        "youtubeProfile": "プロフィール",
+        "tiktokVideo": "動画",
+        "tiktokProfile": "プロフィール",
+        "pinterestPin": "ピン",
+        "pinterestProfile": "プロフィール",
+        "snapchatStory": "ストーリー"
+      },
+      "ui": {
+        "reset": "リセット",
+        "upload": {
+          "title": "画像をアップロード",
+          "description": "画像をドラッグ＆ドロップまたはクリックして選択",
+          "formats": "WebP、PNG、JPEG、GIF、BMP対応",
+          "limits": "最大{maxSize}MB、{maxDimension}px",
+          "selectFile": "ファイルを選択"
+        },
+        "preview": {
+          "title": "元の画像",
+          "fileName": "ファイル名",
+          "originalSize": "元のサイズ",
+          "fileSize": "ファイルサイズ",
+          "changeImage": "画像を変更"
+        },
+        "presets": {
+          "title": "プラットフォームプリセット",
+          "selectedCount": "{count}個選択済み",
+          "selectAll": "すべて選択",
+          "deselectAll": "すべて解除"
+        },
+        "download": {
+          "title": "リサイズ＆ダウンロード",
+          "completedCount": "{count}個完了",
+          "resizeButton": "{count}個リサイズ",
+          "downloadAll": "ZIPダウンロード",
+          "cancel": "キャンセル",
+          "processing": "{current}/{total}処理中",
+          "resizing": "リサイズ中",
+          "pending": "待機中",
+          "error": "エラー",
+          "readyToResize": "{count}個のプリセットが選択されました。リサイズボタンをクリックしてください。",
+          "selectPresetsHint": "右側でプラットフォームプリセットを選択してください。"
+        }
+      },
+      "toast": {
+        "uploadSuccess": "画像がアップロードされました",
+        "fileTooLarge": "ファイルサイズが大きすぎます（最大20MB）",
+        "unsupportedFormat": "サポートされていないファイル形式です",
+        "dimensionTooLarge": "画像サイズが大きすぎます（最大8192px）",
+        "loadError": "画像の読み込みに失敗しました",
+        "resizeComplete": "{count}個の画像をリサイズしました！",
+        "downloadComplete": "ダウンロード完了",
+        "downloaded": "ダウンロードしました"
+      }
+    },
+    "utmBuilder": {
+      "name": "UTM Builder",
+      "description": "マーケティングキャンペーンURLにUTMパラメータを追加。",
+      "ui": {
+        "builder": "UTMビルダー",
+        "builderDescription": "ベースURLを入力してUTMパラメータを設定",
+        "baseUrl": "ベースURL",
+        "baseUrlPlaceholder": "https://example.com/landing-page",
+        "baseUrlDescription": "UTMパラメータを追加するベースURLを入力",
+        "invalidUrl": "有効なURLを入力してください",
+        "utmParameters": "UTMパラメータ",
+        "fields": {
+          "utm_source": {
+            "label": "Source",
+            "description": "トラフィックの流入元",
+            "placeholder": "google, facebook, newsletter"
+          },
+          "utm_medium": {
+            "label": "Medium",
+            "description": "マーケティング媒体",
+            "placeholder": "cpc, social, email, banner"
+          },
+          "utm_campaign": {
+            "label": "Campaign",
+            "description": "キャンペーン名",
+            "placeholder": "spring_sale, product_launch"
+          },
+          "utm_term": {
+            "label": "Term",
+            "description": "有料検索キーワード",
+            "placeholder": "running+shoes, best+deals"
+          },
+          "utm_content": {
+            "label": "Content",
+            "description": "広告コンテンツ区分",
+            "placeholder": "logolink, textlink, banner_v1"
+          }
+        },
+        "examples": "例",
+        "generatedUrl": "生成されたURL",
+        "generatedUrlDescription": "コピーまたはQRコードに変換",
+        "generatedUrlPlaceholder": "URLと必須パラメータを入力すると生成されたURLが表示されます",
+        "parameterPreview": "パラメータプレビュー",
+        "fillRequired": "必須パラメータ（source、medium、campaign）をすべて入力してください",
+        "nothingToCopy": "コピーする内容がありません",
+        "resetSuccess": "リセットしました",
+        "qrCode": "QRコード",
+        "presets": "プリセット",
+        "presetsDescription": "よく使うUTM設定を保存して呼び出す",
+        "customPresets": "カスタムプリセット",
+        "defaultPresets": "デフォルトプリセット",
+        "savePreset": "プリセット保存",
+        "saveCurrentAsPreset": "現在の設定をプリセットとして保存",
+        "presetNamePlaceholder": "プリセット名を入力",
+        "presetNameRequired": "プリセット名を入力してください",
+        "fillRequiredFirst": "必須パラメータを先に入力してください",
+        "presetApplied": "プリセットを適用しました",
+        "deletePresetConfirm": "プリセットを削除しますか？",
+        "deletePresetDescription": "この操作は取り消せません。",
+        "history": "履歴",
+        "historyDescription": "最近生成したUTM URLリスト",
+        "noHistory": "履歴がありません",
+        "clearHistory": "履歴削除",
+        "clearHistoryConfirm": "すべての履歴を削除しますか？",
+        "clearHistoryDescription": "この操作は取り消せません。",
+        "historyLoaded": "履歴から読み込みました",
+        "loadHistory": "読み込み",
+        "openInNewTab": "新しいタブで開く"
       }
     }
   },

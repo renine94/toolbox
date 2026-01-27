@@ -262,6 +262,42 @@
         "description": "创建代码输入动画GIF。支持各种主题和语言，非常适合在Twitter、Slack等平台展示代码。",
         "heading": "Code Typing GIF",
         "subheading": "将代码输入动画生成为GIF文件。"
+      },
+      "emojiHashtagPicker": {
+        "title": "Emoji & Hashtag Picker - 营销人员工具",
+        "description": "按类别搜索和选择表情符号和话题标签并复制。非常适合创建社交媒体帖子。",
+        "heading": "Emoji & Hashtag Picker",
+        "subheading": "轻松搜索和复制表情符号和话题标签。"
+      },
+      "metaTagPreviewer": {
+        "title": "Meta Tag Previewer - 营销人员工具",
+        "description": "预览和编辑网页元标签。查看您的页面在Google、Facebook、Twitter、LinkedIn、Slack上的显示效果。",
+        "heading": "Meta Tag Previewer",
+        "subheading": "编辑元标签并预览在各平台上的显示效果。"
+      },
+      "headlineGenerator": {
+        "title": "Headline Generator - 营销人员工具",
+        "description": "使用15种以上模式生成吸引人的标题。支持数字型、疑问型、How-to等多种风格，提升点击率。",
+        "heading": "Headline Generator",
+        "subheading": "输入您的想法，通过15种以上变体模式生成吸引人的标题。"
+      },
+      "countdownTimerGenerator": {
+        "title": "Countdown Timer Generator - 效率工具",
+        "description": "创建显示目标日期剩余时间的倒计时器。提供多种主题和自定义选项。",
+        "heading": "Countdown Timer Generator",
+        "subheading": "为活动、发布、截止日期等创建倒计时器。"
+      },
+      "utmBuilder": {
+        "title": "UTM Builder - 营销人员工具",
+        "description": "轻松为营销活动URL添加UTM参数。支持QR码生成、预设保存和历史管理。",
+        "heading": "UTM Builder",
+        "subheading": "为营销活动URL添加UTM参数并追踪流量来源。"
+      },
+      "socialImageResizer": {
+        "title": "Social Image Resizer - 营销人员工具",
+        "description": "一次性调整图像至各SNS平台的最佳尺寸。支持Instagram、Facebook、Twitter、LinkedIn、YouTube、TikTok等12种以上预设。",
+        "heading": "Social Image Resizer",
+        "subheading": "一次性将图像转换为适合各SNS平台的尺寸。"
       }
     }
   },
@@ -1328,6 +1364,308 @@
         "generateSuccess": "GIF生成成功！",
         "generateError": "GIF生成失败",
         "actualSize": "实际大小"
+      }
+    },
+    "emojiHashtagPicker": {
+      "name": "Emoji & Hashtag Picker",
+      "description": "轻松搜索和复制表情符号和话题标签。",
+      "ui": {
+        "picker": "选择器",
+        "pickerDescription": "点击表情符号或话题标签进行选择",
+        "tabs": {
+          "emoji": "表情符号",
+          "hashtag": "话题标签"
+        },
+        "searchEmoji": "搜索表情符号...",
+        "searchHashtag": "搜索话题标签...",
+        "categories": {
+          "all": "全部",
+          "recent": "最近使用",
+          "smileys": "笑脸",
+          "gestures": "手势",
+          "animals": "动物",
+          "food": "食物",
+          "travel": "旅行",
+          "activities": "活动",
+          "objects": "物品",
+          "flags": "旗帜",
+          "marketing": "营销",
+          "business": "商业",
+          "lifestyle": "生活方式",
+          "fashion": "时尚",
+          "fitness": "健身",
+          "tech": "科技"
+        },
+        "selected": "已选择",
+        "selectedCount": "已选择{count}个",
+        "resultsCount": "{count}个结果",
+        "copyAll": "全部复制",
+        "clearAll": "全部清除",
+        "noEmojisSelected": "未选择表情符号",
+        "noHashtagsSelected": "未选择话题标签",
+        "clickToRemove": "点击删除",
+        "nothingToCopy": "没有可复制的内容",
+        "preview": "预览"
+      }
+    },
+    "metaTagPreviewer": {
+      "name": "Meta Tag Previewer",
+      "description": "预览和编辑网页元标签。",
+      "ui": {
+        "urlInput": "URL输入",
+        "urlInputDesc": "输入网页URL以自动获取元标签",
+        "urlPlaceholder": "https://example.com",
+        "fetch": "获取",
+        "enterUrl": "请输入URL",
+        "invalidUrl": "无效的URL",
+        "fetchSuccess": "元标签获取成功",
+        "fetchFailed": "获取元标签失败",
+        "editor": "元标签编辑",
+        "editorDesc": "直接编辑元标签值",
+        "basicMeta": "基本元标签",
+        "title": "标题",
+        "titlePlaceholder": "输入页面标题",
+        "description": "描述",
+        "descriptionPlaceholder": "输入页面描述",
+        "openGraphMeta": "Open Graph元标签",
+        "ogTitlePlaceholder": "输入OG标题",
+        "ogDescriptionPlaceholder": "输入OG描述",
+        "ogImagePlaceholder": "输入OG图片URL",
+        "ogUrlPlaceholder": "输入OG URL",
+        "siteNamePlaceholder": "输入站点名称",
+        "twitterMeta": "Twitter元标签",
+        "twitterTitlePlaceholder": "输入Twitter标题",
+        "twitterDescriptionPlaceholder": "输入Twitter描述",
+        "twitterImagePlaceholder": "输入Twitter图片URL",
+        "preview": "预览",
+        "previewDesc": "查看在各平台上的显示效果",
+        "codeOutput": "HTML代码",
+        "codeOutputDesc": "生成的元标签HTML代码",
+        "copy": "复制",
+        "reset": "重置",
+        "resetSuccess": "已重置",
+        "nothingToCopy": "没有可复制的内容",
+        "emptyCode": "输入元标签值后HTML代码将在这里显示"
+      }
+    },
+    "headlineGenerator": {
+      "name": "Headline Generator",
+      "description": "使用多种模式生成吸引人的标题。",
+      "ui": {
+        "inputTitle": "主题输入",
+        "inputDescription": "输入要生成标题的主题或关键词",
+        "topicLabel": "主题/关键词",
+        "topicPlaceholder": "例如：提高生产力、健康饮食、应用开发...",
+        "topicDescription": "按Enter即时生成，或点击生成按钮",
+        "generate": "生成",
+        "variationsTab": "变体列表",
+        "favoritesTab": "收藏夹",
+        "generatedHeadlines": "生成的标题",
+        "generatedDescription": "点击复制或点击心形保存到收藏夹",
+        "savedFavorites": "已保存的收藏",
+        "savedDescription": "管理您保存的标题",
+        "allCategories": "全部",
+        "variationCount": "{count}个标题",
+        "emptyState": "生成您的标题",
+        "emptyStateDescription": "在上方输入主题并点击生成，创建各种风格的标题。",
+        "noFavorites": "暂无收藏",
+        "noFavoritesDescription": "点击心形图标保存您喜欢的标题",
+        "favoriteCount": "{count}个收藏",
+        "clearAll": "全部清除"
+      }
+    },
+    "countdownTimerGenerator": {
+      "name": "Countdown Timer Generator",
+      "description": "创建目标日期的倒计时器。",
+      "ui": {
+        "preview": "预览",
+        "reset": "重置",
+        "dateTimeSettings": "日期/时间设置",
+        "styleSettings": "样式设置",
+        "export": "导出",
+        "title": "标题",
+        "titlePlaceholder": "输入活动名称（可选）",
+        "targetDate": "目标日期/时间",
+        "targetDateHint": "选择倒计时结束的日期和时间",
+        "themePreset": "主题预设",
+        "themes": {
+          "modern-dark": "现代深色",
+          "clean-white": "简洁白色",
+          "gradient": "渐变",
+          "neon": "霓虹",
+          "minimal": "极简",
+          "retro": "复古"
+        },
+        "showLabels": "显示单位标签",
+        "showLabelsHint": "显示天、小时、分钟、秒的标签",
+        "fontSize": "字体大小",
+        "borderRadius": "圆角",
+        "width": "宽度",
+        "height": "高度",
+        "downloadPng": "下载PNG",
+        "downloadPngButton": "下载为PNG",
+        "downloadPngHint": "将当前计时器状态保存为PNG图片",
+        "downloading": "下载中...",
+        "embedCode": "嵌入代码",
+        "embedCodeHint": "将此代码粘贴到您的网站以嵌入计时器",
+        "copy": "复制"
+      }
+    },
+    "socialImageResizer": {
+      "name": "Social Image Resizer",
+      "description": "调整图像至各SNS平台的最佳尺寸。",
+      "platforms": {
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "twitter": "Twitter / X",
+        "linkedin": "LinkedIn",
+        "youtube": "YouTube",
+        "tiktok": "TikTok",
+        "pinterest": "Pinterest",
+        "snapchat": "Snapchat"
+      },
+      "presetNames": {
+        "instagramPost": "帖子",
+        "instagramStory": "快拍",
+        "instagramReels": "短视频",
+        "instagramLandscape": "横向",
+        "instagramPortrait": "纵向",
+        "facebookPost": "帖子",
+        "facebookCover": "封面",
+        "facebookStory": "快拍",
+        "facebookProfile": "头像",
+        "facebookEvent": "活动",
+        "twitterPost": "帖子",
+        "twitterHeader": "横幅",
+        "twitterProfile": "头像",
+        "linkedinPost": "帖子",
+        "linkedinCover": "封面",
+        "linkedinProfile": "头像",
+        "linkedinCompanyCover": "公司封面",
+        "youtubeThumbnail": "缩略图",
+        "youtubeBanner": "横幅",
+        "youtubeProfile": "头像",
+        "tiktokVideo": "视频",
+        "tiktokProfile": "头像",
+        "pinterestPin": "图钉",
+        "pinterestProfile": "头像",
+        "snapchatStory": "快拍"
+      },
+      "ui": {
+        "reset": "重置",
+        "upload": {
+          "title": "上传图像",
+          "description": "拖放图像或点击选择",
+          "formats": "支持WebP、PNG、JPEG、GIF、BMP",
+          "limits": "最大{maxSize}MB，{maxDimension}px",
+          "selectFile": "选择文件"
+        },
+        "preview": {
+          "title": "原始图像",
+          "fileName": "文件名",
+          "originalSize": "原始尺寸",
+          "fileSize": "文件大小",
+          "changeImage": "更换图像"
+        },
+        "presets": {
+          "title": "平台预设",
+          "selectedCount": "已选择{count}个",
+          "selectAll": "全选",
+          "deselectAll": "取消全选"
+        },
+        "download": {
+          "title": "调整大小并下载",
+          "completedCount": "已完成{count}个",
+          "resizeButton": "调整{count}个",
+          "downloadAll": "下载ZIP",
+          "cancel": "取消",
+          "processing": "正在处理{current}/{total}",
+          "resizing": "调整中",
+          "pending": "等待中",
+          "error": "错误",
+          "readyToResize": "已选择{count}个预设。请点击调整大小按钮。",
+          "selectPresetsHint": "请在右侧选择平台预设。"
+        }
+      },
+      "toast": {
+        "uploadSuccess": "图像上传成功",
+        "fileTooLarge": "文件太大（最大20MB）",
+        "unsupportedFormat": "不支持的文件格式",
+        "dimensionTooLarge": "图像尺寸太大（最大8192px）",
+        "loadError": "图像加载失败",
+        "resizeComplete": "已成功调整{count}张图像！",
+        "downloadComplete": "下载完成",
+        "downloaded": "已下载"
+      }
+    },
+    "utmBuilder": {
+      "name": "UTM Builder",
+      "description": "为营销活动URL添加UTM参数。",
+      "ui": {
+        "builder": "UTM构建器",
+        "builderDescription": "输入基础URL并配置UTM参数",
+        "baseUrl": "基础URL",
+        "baseUrlPlaceholder": "https://example.com/landing-page",
+        "baseUrlDescription": "输入要添加UTM参数的基础URL",
+        "invalidUrl": "请输入有效的URL",
+        "utmParameters": "UTM参数",
+        "fields": {
+          "utm_source": {
+            "label": "Source",
+            "description": "流量来源",
+            "placeholder": "google, facebook, newsletter"
+          },
+          "utm_medium": {
+            "label": "Medium",
+            "description": "营销媒介",
+            "placeholder": "cpc, social, email, banner"
+          },
+          "utm_campaign": {
+            "label": "Campaign",
+            "description": "活动名称",
+            "placeholder": "spring_sale, product_launch"
+          },
+          "utm_term": {
+            "label": "Term",
+            "description": "付费搜索关键词",
+            "placeholder": "running+shoes, best+deals"
+          },
+          "utm_content": {
+            "label": "Content",
+            "description": "区分相似内容或链接",
+            "placeholder": "logolink, textlink, banner_v1"
+          }
+        },
+        "examples": "示例",
+        "generatedUrl": "生成的URL",
+        "generatedUrlDescription": "复制或转换为QR码",
+        "generatedUrlPlaceholder": "输入URL和必填参数后将显示生成的URL",
+        "parameterPreview": "参数预览",
+        "fillRequired": "请填写所有必填参数（source、medium、campaign）",
+        "nothingToCopy": "没有可复制的内容",
+        "resetSuccess": "已重置",
+        "qrCode": "二维码",
+        "presets": "预设",
+        "presetsDescription": "保存和加载常用的UTM设置",
+        "customPresets": "自定义预设",
+        "defaultPresets": "默认预设",
+        "savePreset": "保存预设",
+        "saveCurrentAsPreset": "将当前设置保存为预设",
+        "presetNamePlaceholder": "输入预设名称",
+        "presetNameRequired": "请输入预设名称",
+        "fillRequiredFirst": "请先填写必填参数",
+        "presetApplied": "已应用预设",
+        "deletePresetConfirm": "删除此预设？",
+        "deletePresetDescription": "此操作无法撤销。",
+        "history": "历史记录",
+        "historyDescription": "最近生成的UTM URL列表",
+        "noHistory": "暂无历史记录",
+        "clearHistory": "清除历史",
+        "clearHistoryConfirm": "清除所有历史记录？",
+        "clearHistoryDescription": "此操作无法撤销。",
+        "historyLoaded": "已从历史记录加载",
+        "loadHistory": "加载",
+        "openInNewTab": "在新标签页中打开"
       }
     }
   },

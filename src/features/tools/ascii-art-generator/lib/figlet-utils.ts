@@ -2,7 +2,7 @@ import type { FigletFont } from '../model/types'
 
 // figlet 인스턴스 캐싱
 let figletInstance: typeof import('figlet') | null = null
-let loadedFonts = new Set<string>()
+const loadedFonts = new Set<string>()
 
 // CDN에서 폰트를 로드하기 위한 경로 (끝에 슬래시 없음 - figlet 내부에서 추가함)
 const FONT_PATH = 'https://unpkg.com/figlet@1.8.0/fonts'

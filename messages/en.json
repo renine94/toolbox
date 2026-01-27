@@ -262,6 +262,42 @@
         "description": "Create code typing animation GIFs. Supports various themes and languages, perfect for showcasing code on Twitter, Slack, and more.",
         "heading": "Code Typing GIF",
         "subheading": "Generate code typing animations as GIF files."
+      },
+      "emojiHashtagPicker": {
+        "title": "Emoji & Hashtag Picker - Marketer Tools",
+        "description": "Search and select emojis and hashtags by category and copy them. Perfect for creating social media posts.",
+        "heading": "Emoji & Hashtag Picker",
+        "subheading": "Easily search and copy emojis and hashtags."
+      },
+      "metaTagPreviewer": {
+        "title": "Meta Tag Previewer - Marketer Tools",
+        "description": "Preview and edit webpage meta tags. See how your page looks on Google, Facebook, Twitter, LinkedIn, and Slack.",
+        "heading": "Meta Tag Previewer",
+        "subheading": "Edit meta tags and preview how your page appears on each platform."
+      },
+      "headlineGenerator": {
+        "title": "Headline Generator - Marketer Tools",
+        "description": "Generate compelling headlines with 15+ patterns. Supports numbers, questions, how-to, and various styles to boost clicks.",
+        "heading": "Headline Generator",
+        "subheading": "Enter your idea and generate compelling headlines with 15+ variation patterns."
+      },
+      "countdownTimerGenerator": {
+        "title": "Countdown Timer Generator - Productivity Tools",
+        "description": "Create countdown timers showing time remaining until your target date. Offers various themes and customization options.",
+        "heading": "Countdown Timer Generator",
+        "subheading": "Create countdown timers for events, launches, deadlines, and more."
+      },
+      "utmBuilder": {
+        "title": "UTM Builder - Marketer Tools",
+        "description": "Easily add UTM parameters to marketing campaign URLs. Supports QR code generation, preset saving, and history management.",
+        "heading": "UTM Builder",
+        "subheading": "Add UTM parameters to marketing campaign URLs and track traffic sources."
+      },
+      "socialImageResizer": {
+        "title": "Social Image Resizer - Marketer Tools",
+        "description": "Resize images to optimal sizes for SNS platforms at once. Supports 12+ presets including Instagram, Facebook, Twitter, LinkedIn, YouTube, TikTok.",
+        "heading": "Social Image Resizer",
+        "subheading": "Convert images to the right sizes for SNS platforms at once."
       }
     }
   },
@@ -1328,6 +1364,308 @@
         "generateSuccess": "GIF generated successfully!",
         "generateError": "Failed to generate GIF",
         "actualSize": "Actual Size"
+      }
+    },
+    "emojiHashtagPicker": {
+      "name": "Emoji & Hashtag Picker",
+      "description": "Easily search and copy emojis and hashtags.",
+      "ui": {
+        "picker": "Picker",
+        "pickerDescription": "Click on an emoji or hashtag to select it",
+        "tabs": {
+          "emoji": "Emoji",
+          "hashtag": "Hashtag"
+        },
+        "searchEmoji": "Search emojis...",
+        "searchHashtag": "Search hashtags...",
+        "categories": {
+          "all": "All",
+          "recent": "Recent",
+          "smileys": "Smileys",
+          "gestures": "Gestures",
+          "animals": "Animals",
+          "food": "Food",
+          "travel": "Travel",
+          "activities": "Activities",
+          "objects": "Objects",
+          "flags": "Flags",
+          "marketing": "Marketing",
+          "business": "Business",
+          "lifestyle": "Lifestyle",
+          "fashion": "Fashion",
+          "fitness": "Fitness",
+          "tech": "Tech"
+        },
+        "selected": "Selected",
+        "selectedCount": "{count} selected",
+        "resultsCount": "{count} results",
+        "copyAll": "Copy All",
+        "clearAll": "Clear All",
+        "noEmojisSelected": "No emojis selected",
+        "noHashtagsSelected": "No hashtags selected",
+        "clickToRemove": "Click to remove",
+        "nothingToCopy": "Nothing to copy",
+        "preview": "Preview"
+      }
+    },
+    "metaTagPreviewer": {
+      "name": "Meta Tag Previewer",
+      "description": "Preview and edit webpage meta tags.",
+      "ui": {
+        "urlInput": "URL Input",
+        "urlInputDesc": "Enter a webpage URL to automatically fetch meta tags",
+        "urlPlaceholder": "https://example.com",
+        "fetch": "Fetch",
+        "enterUrl": "Please enter a URL",
+        "invalidUrl": "Invalid URL",
+        "fetchSuccess": "Meta tags fetched successfully",
+        "fetchFailed": "Failed to fetch meta tags",
+        "editor": "Meta Tag Editor",
+        "editorDesc": "Edit meta tag values directly",
+        "basicMeta": "Basic Meta Tags",
+        "title": "Title",
+        "titlePlaceholder": "Enter page title",
+        "description": "Description",
+        "descriptionPlaceholder": "Enter page description",
+        "openGraphMeta": "Open Graph Meta Tags",
+        "ogTitlePlaceholder": "Enter OG title",
+        "ogDescriptionPlaceholder": "Enter OG description",
+        "ogImagePlaceholder": "Enter OG image URL",
+        "ogUrlPlaceholder": "Enter OG URL",
+        "siteNamePlaceholder": "Enter site name",
+        "twitterMeta": "Twitter Meta Tags",
+        "twitterTitlePlaceholder": "Enter Twitter title",
+        "twitterDescriptionPlaceholder": "Enter Twitter description",
+        "twitterImagePlaceholder": "Enter Twitter image URL",
+        "preview": "Preview",
+        "previewDesc": "See how your page looks on each platform",
+        "codeOutput": "HTML Code",
+        "codeOutputDesc": "Generated meta tag HTML code",
+        "copy": "Copy",
+        "reset": "Reset",
+        "resetSuccess": "Reset completed",
+        "nothingToCopy": "Nothing to copy",
+        "emptyCode": "Enter meta tag values to see the HTML code here"
+      }
+    },
+    "headlineGenerator": {
+      "name": "Headline Generator",
+      "description": "Generate compelling headlines with various patterns.",
+      "ui": {
+        "inputTitle": "Topic Input",
+        "inputDescription": "Enter a topic or keyword to generate headlines",
+        "topicLabel": "Topic/Keyword",
+        "topicPlaceholder": "e.g., productivity, healthy eating, app development...",
+        "topicDescription": "Press Enter to generate instantly, or click the Generate button",
+        "generate": "Generate",
+        "variationsTab": "Variations",
+        "favoritesTab": "Favorites",
+        "generatedHeadlines": "Generated Headlines",
+        "generatedDescription": "Click to copy or heart to save to favorites",
+        "savedFavorites": "Saved Favorites",
+        "savedDescription": "Manage your saved headlines",
+        "allCategories": "All",
+        "variationCount": "{count} headlines",
+        "emptyState": "Generate your headlines",
+        "emptyStateDescription": "Enter a topic above and click generate to create headlines in various styles.",
+        "noFavorites": "No saved favorites",
+        "noFavoritesDescription": "Click the heart icon to save headlines you like",
+        "favoriteCount": "{count} favorites",
+        "clearAll": "Clear All"
+      }
+    },
+    "countdownTimerGenerator": {
+      "name": "Countdown Timer Generator",
+      "description": "Create countdown timers for your target date.",
+      "ui": {
+        "preview": "Preview",
+        "reset": "Reset",
+        "dateTimeSettings": "Date/Time Settings",
+        "styleSettings": "Style Settings",
+        "export": "Export",
+        "title": "Title",
+        "titlePlaceholder": "Enter event name (optional)",
+        "targetDate": "Target Date/Time",
+        "targetDateHint": "Select the date and time when the countdown ends",
+        "themePreset": "Theme Preset",
+        "themes": {
+          "modern-dark": "Modern Dark",
+          "clean-white": "Clean White",
+          "gradient": "Gradient",
+          "neon": "Neon",
+          "minimal": "Minimal",
+          "retro": "Retro"
+        },
+        "showLabels": "Show Unit Labels",
+        "showLabelsHint": "Display days, hours, minutes, seconds labels",
+        "fontSize": "Font Size",
+        "borderRadius": "Border Radius",
+        "width": "Width",
+        "height": "Height",
+        "downloadPng": "Download PNG",
+        "downloadPngButton": "Download as PNG",
+        "downloadPngHint": "Save the current timer state as a PNG image",
+        "downloading": "Downloading...",
+        "embedCode": "Embed Code",
+        "embedCodeHint": "Paste this code on your website to embed the timer",
+        "copy": "Copy"
+      }
+    },
+    "socialImageResizer": {
+      "name": "Social Image Resizer",
+      "description": "Resize images to optimal sizes for SNS platforms.",
+      "platforms": {
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "twitter": "Twitter / X",
+        "linkedin": "LinkedIn",
+        "youtube": "YouTube",
+        "tiktok": "TikTok",
+        "pinterest": "Pinterest",
+        "snapchat": "Snapchat"
+      },
+      "presetNames": {
+        "instagramPost": "Post",
+        "instagramStory": "Story",
+        "instagramReels": "Reels",
+        "instagramLandscape": "Landscape",
+        "instagramPortrait": "Portrait",
+        "facebookPost": "Post",
+        "facebookCover": "Cover",
+        "facebookStory": "Story",
+        "facebookProfile": "Profile",
+        "facebookEvent": "Event",
+        "twitterPost": "Post",
+        "twitterHeader": "Header",
+        "twitterProfile": "Profile",
+        "linkedinPost": "Post",
+        "linkedinCover": "Cover",
+        "linkedinProfile": "Profile",
+        "linkedinCompanyCover": "Company Cover",
+        "youtubeThumbnail": "Thumbnail",
+        "youtubeBanner": "Banner",
+        "youtubeProfile": "Profile",
+        "tiktokVideo": "Video",
+        "tiktokProfile": "Profile",
+        "pinterestPin": "Pin",
+        "pinterestProfile": "Profile",
+        "snapchatStory": "Story"
+      },
+      "ui": {
+        "reset": "Reset",
+        "upload": {
+          "title": "Upload Image",
+          "description": "Drag and drop an image or click to select",
+          "formats": "WebP, PNG, JPEG, GIF, BMP supported",
+          "limits": "Max {maxSize}MB, {maxDimension}px",
+          "selectFile": "Select File"
+        },
+        "preview": {
+          "title": "Original Image",
+          "fileName": "File Name",
+          "originalSize": "Original Size",
+          "fileSize": "File Size",
+          "changeImage": "Change Image"
+        },
+        "presets": {
+          "title": "Platform Presets",
+          "selectedCount": "{count} selected",
+          "selectAll": "Select All",
+          "deselectAll": "Deselect All"
+        },
+        "download": {
+          "title": "Resize & Download",
+          "completedCount": "{count} completed",
+          "resizeButton": "Resize {count}",
+          "downloadAll": "Download ZIP",
+          "cancel": "Cancel",
+          "processing": "Processing {current}/{total}",
+          "resizing": "Resizing",
+          "pending": "Pending",
+          "error": "Error",
+          "readyToResize": "{count} presets selected. Click the resize button.",
+          "selectPresetsHint": "Select platform presets on the right."
+        }
+      },
+      "toast": {
+        "uploadSuccess": "Image uploaded successfully",
+        "fileTooLarge": "File size too large (Max 20MB)",
+        "unsupportedFormat": "Unsupported file format",
+        "dimensionTooLarge": "Image dimensions too large (Max 8192px)",
+        "loadError": "Failed to load image",
+        "resizeComplete": "{count} images resized successfully!",
+        "downloadComplete": "Download complete",
+        "downloaded": "Downloaded"
+      }
+    },
+    "utmBuilder": {
+      "name": "UTM Builder",
+      "description": "Add UTM parameters to marketing campaign URLs.",
+      "ui": {
+        "builder": "UTM Builder",
+        "builderDescription": "Enter base URL and configure UTM parameters",
+        "baseUrl": "Base URL",
+        "baseUrlPlaceholder": "https://example.com/landing-page",
+        "baseUrlDescription": "Enter the base URL to add UTM parameters",
+        "invalidUrl": "Please enter a valid URL",
+        "utmParameters": "UTM Parameters",
+        "fields": {
+          "utm_source": {
+            "label": "Source",
+            "description": "Where the traffic is coming from",
+            "placeholder": "google, facebook, newsletter"
+          },
+          "utm_medium": {
+            "label": "Medium",
+            "description": "The marketing medium",
+            "placeholder": "cpc, social, email, banner"
+          },
+          "utm_campaign": {
+            "label": "Campaign",
+            "description": "The campaign name",
+            "placeholder": "spring_sale, product_launch"
+          },
+          "utm_term": {
+            "label": "Term",
+            "description": "Paid search keywords",
+            "placeholder": "running+shoes, best+deals"
+          },
+          "utm_content": {
+            "label": "Content",
+            "description": "Distinguish similar content or links",
+            "placeholder": "logolink, textlink, banner_v1"
+          }
+        },
+        "examples": "Examples",
+        "generatedUrl": "Generated URL",
+        "generatedUrlDescription": "Copy or convert to QR code",
+        "generatedUrlPlaceholder": "Generated URL will appear here when you enter URL and required parameters",
+        "parameterPreview": "Parameter Preview",
+        "fillRequired": "Please fill in all required parameters (source, medium, campaign)",
+        "nothingToCopy": "Nothing to copy",
+        "resetSuccess": "Reset completed",
+        "qrCode": "QR Code",
+        "presets": "Presets",
+        "presetsDescription": "Save and load frequently used UTM settings",
+        "customPresets": "Custom Presets",
+        "defaultPresets": "Default Presets",
+        "savePreset": "Save Preset",
+        "saveCurrentAsPreset": "Save current settings as preset",
+        "presetNamePlaceholder": "Enter preset name",
+        "presetNameRequired": "Please enter a preset name",
+        "fillRequiredFirst": "Please fill in required parameters first",
+        "presetApplied": "Preset applied",
+        "deletePresetConfirm": "Delete this preset?",
+        "deletePresetDescription": "This action cannot be undone.",
+        "history": "History",
+        "historyDescription": "Recently generated UTM URLs",
+        "noHistory": "No history yet",
+        "clearHistory": "Clear History",
+        "clearHistoryConfirm": "Clear all history?",
+        "clearHistoryDescription": "This action cannot be undone.",
+        "historyLoaded": "Loaded from history",
+        "loadHistory": "Load",
+        "openInNewTab": "Open in new tab"
       }
     }
   },

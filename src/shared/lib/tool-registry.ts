@@ -73,9 +73,15 @@ export const TOOLS: ToolMetadata[] = [
   { id: "image-converter", icon: "🔄", categoryId: "designer", gradient: "from-pink-500 to-rose-600" },
   { id: "image-compressor", icon: "📦", categoryId: "designer", gradient: "from-pink-500 to-rose-600" },
 
-  // Marketer Tools (2)
+  // Marketer Tools (8)
   { id: "qr-generator", icon: "📱", categoryId: "marketer", gradient: "from-emerald-500 to-teal-600" },
   { id: "link-shortener", icon: "🔗", categoryId: "marketer", gradient: "from-emerald-500 to-teal-600" },
+  { id: "social-image-resizer", icon: "📐", categoryId: "marketer", gradient: "from-emerald-500 to-teal-600" },
+  { id: "headline-generator", icon: "✏️", categoryId: "marketer", gradient: "from-emerald-500 to-teal-600" },
+  { id: "utm-builder", icon: "🏷️", categoryId: "marketer", gradient: "from-emerald-500 to-teal-600" },
+  { id: "emoji-hashtag-picker", icon: "#️⃣", categoryId: "marketer", gradient: "from-emerald-500 to-teal-600" },
+  { id: "meta-tag-previewer", icon: "👁️", categoryId: "marketer", gradient: "from-emerald-500 to-teal-600" },
+  { id: "countdown-timer-generator", icon: "⏰", categoryId: "marketer", gradient: "from-emerald-500 to-teal-600" },
 
   // Writer Tools (3)
   { id: "markdown-editor", icon: "📝", categoryId: "writer", gradient: "from-amber-500 to-orange-600" },

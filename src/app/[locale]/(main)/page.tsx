@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Metadata } from 'next';
-import { HomeContent } from '@/features/home';
+import { HomeContent } from '@/widgets/home-content';
 import { generateHomeMetadata } from '@/shared/lib/seo';
 import { Locale } from '@/i18n/routing';
 

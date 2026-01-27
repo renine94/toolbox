@@ -262,6 +262,42 @@
         "description": "코드 타이핑 애니메이션 GIF를 생성하세요. 다양한 테마와 언어를 지원하며, 트위터, 슬랙 등에서 코드를 시연할 때 유용합니다.",
         "heading": "Code Typing GIF",
         "subheading": "코드 타이핑 애니메이션을 GIF로 생성하세요."
+      },
+      "socialImageResizer": {
+        "title": "Social Image Resizer - 마케터 도구",
+        "description": "SNS 플랫폼별 최적 이미지 크기로 한 번에 리사이즈하세요. Instagram, Facebook, Twitter, LinkedIn, YouTube, TikTok 등 12개 이상의 프리셋을 지원합니다.",
+        "heading": "Social Image Resizer",
+        "subheading": "SNS 플랫폼에 맞는 이미지 크기로 한 번에 변환하세요."
+      },
+      "emojiHashtagPicker": {
+        "title": "Emoji & Hashtag Picker - 마케터 도구",
+        "description": "이모지와 해시태그를 카테고리별로 검색하고 선택하여 복사하세요. SNS 게시물 작성에 유용합니다.",
+        "heading": "Emoji & Hashtag Picker",
+        "subheading": "이모지와 해시태그를 쉽게 검색하고 복사하세요."
+      },
+      "metaTagPreviewer": {
+        "title": "Meta Tag Previewer - 마케터 도구",
+        "description": "웹페이지 메타 태그를 미리보기하고 편집하세요. Google, Facebook, Twitter, LinkedIn, Slack에서 어떻게 보이는지 확인할 수 있습니다.",
+        "heading": "Meta Tag Previewer",
+        "subheading": "웹페이지의 메타 태그를 편집하고 각 플랫폼에서의 미리보기를 확인하세요."
+      },
+      "headlineGenerator": {
+        "title": "Headline Generator - 마케터 도구",
+        "description": "클릭을 유도하는 매력적인 헤드라인을 15가지+ 패턴으로 생성하세요. 숫자형, 질문형, How-to 등 다양한 스타일을 지원합니다.",
+        "heading": "Headline Generator",
+        "subheading": "기본 아이디어를 입력하면 15가지+ 변형 패턴으로 매력적인 헤드라인을 생성합니다."
+      },
+      "countdownTimerGenerator": {
+        "title": "Countdown Timer Generator - 생산성 도구",
+        "description": "목표 날짜까지 남은 시간을 보여주는 카운트다운 타이머를 생성하세요. 다양한 테마와 커스터마이징 옵션을 제공합니다.",
+        "heading": "Countdown Timer Generator",
+        "subheading": "이벤트, 출시일, 마감일 등을 위한 카운트다운 타이머를 생성하세요."
+      },
+      "utmBuilder": {
+        "title": "UTM Builder - 마케터 도구",
+        "description": "마케팅 캠페인 URL에 UTM 파라미터를 쉽게 추가하세요. QR 코드 생성, 프리셋 저장, 히스토리 관리를 지원합니다.",
+        "heading": "UTM Builder",
+        "subheading": "마케팅 캠페인 URL에 UTM 파라미터를 추가하고 트래픽을 추적하세요."
       }
     }
   },
@@ -1328,6 +1364,308 @@
         "generateSuccess": "GIF가 생성되었습니다!",
         "generateError": "GIF 생성에 실패했습니다",
         "actualSize": "실제 크기"
+      }
+    },
+    "socialImageResizer": {
+      "name": "Social Image Resizer",
+      "description": "SNS 플랫폼별 최적 이미지 크기로 리사이즈합니다.",
+      "platforms": {
+        "instagram": "Instagram",
+        "facebook": "Facebook",
+        "twitter": "Twitter / X",
+        "linkedin": "LinkedIn",
+        "youtube": "YouTube",
+        "tiktok": "TikTok",
+        "pinterest": "Pinterest",
+        "snapchat": "Snapchat"
+      },
+      "presetNames": {
+        "instagramPost": "포스트",
+        "instagramStory": "스토리",
+        "instagramReels": "릴스",
+        "instagramLandscape": "가로형",
+        "instagramPortrait": "세로형",
+        "facebookPost": "포스트",
+        "facebookCover": "커버",
+        "facebookStory": "스토리",
+        "facebookProfile": "프로필",
+        "facebookEvent": "이벤트",
+        "twitterPost": "포스트",
+        "twitterHeader": "헤더",
+        "twitterProfile": "프로필",
+        "linkedinPost": "포스트",
+        "linkedinCover": "커버",
+        "linkedinProfile": "프로필",
+        "linkedinCompanyCover": "회사 커버",
+        "youtubeThumbnail": "썸네일",
+        "youtubeBanner": "배너",
+        "youtubeProfile": "프로필",
+        "tiktokVideo": "비디오",
+        "tiktokProfile": "프로필",
+        "pinterestPin": "핀",
+        "pinterestProfile": "프로필",
+        "snapchatStory": "스토리"
+      },
+      "ui": {
+        "reset": "초기화",
+        "upload": {
+          "title": "이미지 업로드",
+          "description": "이미지를 드래그하여 놓거나 클릭하여 선택하세요",
+          "formats": "WebP, PNG, JPEG, GIF, BMP 지원",
+          "limits": "최대 {maxSize}MB, {maxDimension}px",
+          "selectFile": "파일 선택"
+        },
+        "preview": {
+          "title": "원본 이미지",
+          "fileName": "파일명",
+          "originalSize": "원본 크기",
+          "fileSize": "파일 용량",
+          "changeImage": "이미지 변경"
+        },
+        "presets": {
+          "title": "플랫폼 프리셋",
+          "selectedCount": "{count}개 선택됨",
+          "selectAll": "전체 선택",
+          "deselectAll": "전체 해제"
+        },
+        "download": {
+          "title": "리사이즈 & 다운로드",
+          "completedCount": "{count}개 완료",
+          "resizeButton": "{count}개 리사이즈",
+          "downloadAll": "ZIP 다운로드",
+          "cancel": "취소",
+          "processing": "{current}/{total} 처리 중",
+          "resizing": "리사이즈 중",
+          "pending": "대기 중",
+          "error": "오류",
+          "readyToResize": "{count}개 프리셋이 선택되었습니다. 리사이즈 버튼을 클릭하세요.",
+          "selectPresetsHint": "오른쪽에서 플랫폼 프리셋을 선택하세요."
+        }
+      },
+      "toast": {
+        "uploadSuccess": "이미지가 업로드되었습니다",
+        "fileTooLarge": "파일 크기가 너무 큽니다 (최대 20MB)",
+        "unsupportedFormat": "지원하지 않는 파일 형식입니다",
+        "dimensionTooLarge": "이미지 크기가 너무 큽니다 (최대 8192px)",
+        "loadError": "이미지 로드에 실패했습니다",
+        "resizeComplete": "{count}개 이미지 리사이즈 완료!",
+        "downloadComplete": "다운로드가 완료되었습니다",
+        "downloaded": "다운로드되었습니다"
+      }
+    },
+    "emojiHashtagPicker": {
+      "name": "Emoji & Hashtag Picker",
+      "description": "이모지와 해시태그를 쉽게 검색하고 복사합니다.",
+      "ui": {
+        "picker": "선택기",
+        "pickerDescription": "이모지나 해시태그를 클릭하여 선택하세요",
+        "tabs": {
+          "emoji": "이모지",
+          "hashtag": "해시태그"
+        },
+        "searchEmoji": "이모지 검색...",
+        "searchHashtag": "해시태그 검색...",
+        "categories": {
+          "all": "전체",
+          "recent": "최근 사용",
+          "smileys": "스마일리",
+          "gestures": "제스처",
+          "animals": "동물",
+          "food": "음식",
+          "travel": "여행",
+          "activities": "활동",
+          "objects": "사물",
+          "flags": "깃발",
+          "marketing": "마케팅",
+          "business": "비즈니스",
+          "lifestyle": "라이프스타일",
+          "fashion": "패션",
+          "fitness": "피트니스",
+          "tech": "기술"
+        },
+        "selected": "선택됨",
+        "selectedCount": "{count}개 선택됨",
+        "resultsCount": "{count}개 결과",
+        "copyAll": "전체 복사",
+        "clearAll": "전체 삭제",
+        "noEmojisSelected": "선택된 이모지가 없습니다",
+        "noHashtagsSelected": "선택된 해시태그가 없습니다",
+        "clickToRemove": "클릭하여 제거",
+        "nothingToCopy": "복사할 내용이 없습니다",
+        "preview": "미리보기"
+      }
+    },
+    "metaTagPreviewer": {
+      "name": "Meta Tag Previewer",
+      "description": "웹페이지 메타 태그를 미리보기하고 편집합니다.",
+      "ui": {
+        "urlInput": "URL 입력",
+        "urlInputDesc": "웹페이지 URL을 입력하면 메타 태그를 자동으로 가져옵니다",
+        "urlPlaceholder": "https://example.com",
+        "fetch": "가져오기",
+        "enterUrl": "URL을 입력해주세요",
+        "invalidUrl": "유효하지 않은 URL입니다",
+        "fetchSuccess": "메타 태그를 성공적으로 가져왔습니다",
+        "fetchFailed": "메타 태그를 가져오는데 실패했습니다",
+        "editor": "메타 태그 편집",
+        "editorDesc": "메타 태그 값을 직접 편집하세요",
+        "basicMeta": "기본 메타 태그",
+        "title": "Title",
+        "titlePlaceholder": "페이지 제목을 입력하세요",
+        "description": "Description",
+        "descriptionPlaceholder": "페이지 설명을 입력하세요",
+        "openGraphMeta": "Open Graph 메타 태그",
+        "ogTitlePlaceholder": "OG 제목을 입력하세요",
+        "ogDescriptionPlaceholder": "OG 설명을 입력하세요",
+        "ogImagePlaceholder": "OG 이미지 URL을 입력하세요",
+        "ogUrlPlaceholder": "OG URL을 입력하세요",
+        "siteNamePlaceholder": "사이트 이름을 입력하세요",
+        "twitterMeta": "Twitter 메타 태그",
+        "twitterTitlePlaceholder": "Twitter 제목을 입력하세요",
+        "twitterDescriptionPlaceholder": "Twitter 설명을 입력하세요",
+        "twitterImagePlaceholder": "Twitter 이미지 URL을 입력하세요",
+        "preview": "미리보기",
+        "previewDesc": "각 플랫폼에서 어떻게 보이는지 확인하세요",
+        "codeOutput": "HTML 코드",
+        "codeOutputDesc": "생성된 메타 태그 HTML 코드",
+        "copy": "복사",
+        "reset": "초기화",
+        "resetSuccess": "초기화되었습니다",
+        "nothingToCopy": "복사할 내용이 없습니다",
+        "emptyCode": "메타 태그 값을 입력하면 HTML 코드가 여기에 표시됩니다"
+      }
+    },
+    "headlineGenerator": {
+      "name": "Headline Generator",
+      "description": "매력적인 헤드라인을 다양한 패턴으로 생성합니다.",
+      "ui": {
+        "inputTitle": "주제 입력",
+        "inputDescription": "헤드라인을 생성할 주제나 키워드를 입력하세요",
+        "topicLabel": "주제/키워드",
+        "topicPlaceholder": "예: 생산성 향상, 건강한 식습관, 앱 개발...",
+        "topicDescription": "Enter 키를 눌러 즉시 생성하거나, 생성 버튼을 클릭하세요",
+        "generate": "생성",
+        "variationsTab": "변형 목록",
+        "favoritesTab": "즐겨찾기",
+        "generatedHeadlines": "생성된 헤드라인",
+        "generatedDescription": "클릭하여 복사하거나 하트를 눌러 즐겨찾기에 저장하세요",
+        "savedFavorites": "저장된 즐겨찾기",
+        "savedDescription": "저장한 헤드라인을 관리하세요",
+        "allCategories": "전체",
+        "variationCount": "{count}개의 헤드라인",
+        "emptyState": "헤드라인을 생성해보세요",
+        "emptyStateDescription": "위에 주제를 입력하고 생성 버튼을 클릭하면 다양한 스타일의 헤드라인이 생성됩니다.",
+        "noFavorites": "저장된 즐겨찾기가 없습니다",
+        "noFavoritesDescription": "하트 아이콘을 클릭하여 마음에 드는 헤드라인을 저장하세요",
+        "favoriteCount": "{count}개의 즐겨찾기",
+        "clearAll": "전체 삭제"
+      }
+    },
+    "utmBuilder": {
+      "name": "UTM Builder",
+      "description": "마케팅 캠페인 URL에 UTM 파라미터를 추가합니다.",
+      "ui": {
+        "builder": "UTM 빌더",
+        "builderDescription": "기본 URL을 입력하고 UTM 파라미터를 설정하세요",
+        "baseUrl": "기본 URL",
+        "baseUrlPlaceholder": "https://example.com/landing-page",
+        "baseUrlDescription": "UTM 파라미터를 추가할 기본 URL을 입력하세요",
+        "invalidUrl": "유효한 URL을 입력해주세요",
+        "utmParameters": "UTM 파라미터",
+        "fields": {
+          "utm_source": {
+            "label": "Source",
+            "description": "트래픽 유입 소스",
+            "placeholder": "google, facebook, newsletter"
+          },
+          "utm_medium": {
+            "label": "Medium",
+            "description": "마케팅 매체",
+            "placeholder": "cpc, social, email, banner"
+          },
+          "utm_campaign": {
+            "label": "Campaign",
+            "description": "캠페인 이름",
+            "placeholder": "spring_sale, product_launch"
+          },
+          "utm_term": {
+            "label": "Term",
+            "description": "유료 검색 키워드",
+            "placeholder": "running+shoes, best+deals"
+          },
+          "utm_content": {
+            "label": "Content",
+            "description": "광고 콘텐츠 구분",
+            "placeholder": "logolink, textlink, banner_v1"
+          }
+        },
+        "examples": "예시",
+        "generatedUrl": "생성된 URL",
+        "generatedUrlDescription": "복사하거나 QR 코드로 변환하세요",
+        "generatedUrlPlaceholder": "URL과 필수 파라미터를 입력하면 생성된 URL이 표시됩니다",
+        "parameterPreview": "파라미터 미리보기",
+        "fillRequired": "필수 파라미터(source, medium, campaign)를 모두 입력해주세요",
+        "nothingToCopy": "복사할 내용이 없습니다",
+        "resetSuccess": "초기화되었습니다",
+        "qrCode": "QR 코드",
+        "presets": "프리셋",
+        "presetsDescription": "자주 사용하는 UTM 설정을 저장하고 불러오세요",
+        "customPresets": "내 프리셋",
+        "defaultPresets": "기본 프리셋",
+        "savePreset": "프리셋 저장",
+        "saveCurrentAsPreset": "현재 설정을 프리셋으로 저장",
+        "presetNamePlaceholder": "프리셋 이름을 입력하세요",
+        "presetNameRequired": "프리셋 이름을 입력해주세요",
+        "fillRequiredFirst": "필수 파라미터를 먼저 입력해주세요",
+        "presetApplied": "프리셋이 적용되었습니다",
+        "deletePresetConfirm": "프리셋을 삭제하시겠습니까?",
+        "deletePresetDescription": "이 작업은 되돌릴 수 없습니다.",
+        "history": "히스토리",
+        "historyDescription": "최근 생성한 UTM URL 목록",
+        "noHistory": "히스토리가 없습니다",
+        "clearHistory": "히스토리 삭제",
+        "clearHistoryConfirm": "히스토리를 모두 삭제하시겠습니까?",
+        "clearHistoryDescription": "이 작업은 되돌릴 수 없습니다.",
+        "historyLoaded": "히스토리에서 불러왔습니다",
+        "loadHistory": "불러오기",
+        "openInNewTab": "새 탭에서 열기"
+      }
+    },
+    "countdownTimerGenerator": {
+      "name": "Countdown Timer Generator",
+      "description": "목표 날짜까지의 카운트다운 타이머를 생성합니다.",
+      "ui": {
+        "preview": "미리보기",
+        "reset": "초기화",
+        "dateTimeSettings": "날짜/시간 설정",
+        "styleSettings": "스타일 설정",
+        "export": "내보내기",
+        "title": "타이틀",
+        "titlePlaceholder": "이벤트 이름을 입력하세요 (선택)",
+        "targetDate": "목표 날짜/시간",
+        "targetDateHint": "카운트다운이 끝나는 날짜와 시간을 선택하세요",
+        "themePreset": "테마 프리셋",
+        "themes": {
+          "modern-dark": "모던 다크",
+          "clean-white": "클린 화이트",
+          "gradient": "그라디언트",
+          "neon": "네온",
+          "minimal": "미니멀",
+          "retro": "레트로"
+        },
+        "showLabels": "단위 레이블 표시",
+        "showLabelsHint": "일, 시간, 분, 초 레이블을 표시합니다",
+        "fontSize": "폰트 크기",
+        "borderRadius": "테두리 라운드",
+        "width": "너비",
+        "height": "높이",
+        "downloadPng": "PNG 다운로드",
+        "downloadPngButton": "PNG로 다운로드",
+        "downloadPngHint": "현재 타이머 상태를 PNG 이미지로 저장합니다",
+        "downloading": "다운로드 중...",
+        "embedCode": "임베드 코드",
+        "embedCodeHint": "이 코드를 웹사이트에 붙여넣어 타이머를 임베드하세요",
+        "copy": "복사"
       }
     }
   },
