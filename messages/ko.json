@@ -1679,5 +1679,20 @@
       "description": "도구를 사용하면 여기에 표시됩니다",
       "cta": "도구 둘러보기"
     }
+  },
+  "commandPalette": {
+    "placeholder": "도구 검색... (⌘K)",
+    "noResults": "검색 결과가 없습니다",
+    "recent": "최근 사용",
+    "allTools": "모든 도구",
+    "pressEnter": "Enter로 열기",
+    "pressEsc": "ESC로 닫기",
+    "searchTrigger": "검색",
+    "hints": {
+      "navigate": "이동",
+      "select": "선택",
+      "close": "닫기",
+      "scrollMore": "스크롤하여 더보기"
+    }
   }
 }

@@ -1679,5 +1679,20 @@
       "description": "您使用的工具将在这里显示",
       "cta": "探索工具"
     }
+  },
+  "commandPalette": {
+    "placeholder": "搜索工具... (⌘K)",
+    "noResults": "未找到搜索结果",
+    "recent": "最近使用",
+    "allTools": "所有工具",
+    "pressEnter": "按Enter键打开",
+    "pressEsc": "按ESC键关闭",
+    "searchTrigger": "搜索",
+    "hints": {
+      "navigate": "导航",
+      "select": "选择",
+      "close": "关闭",
+      "scrollMore": "滚动查看更多"
+    }
   }
 }

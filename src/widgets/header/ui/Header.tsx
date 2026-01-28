@@ -1,6 +1,6 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, Search } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -8,12 +8,14 @@ import { Button } from "@/shared/ui/button";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useCommandStore } from "@/widgets/command-palette";
 
 export function Header() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const t = useTranslations("navigation");
   const tCommon = useTranslations("common");
+  const tCmd = useTranslations("commandPalette");
 
   const { scrollY } = useScroll();
   const headerBg = useTransform(
@@ -137,6 +139,24 @@ export function Header() {
                 )}
               </AnimatePresence>
               <span className="sr-only">{tCommon("a11y.toggleTheme")}</span>
+            </Button>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5, duration: 0.3 }}
+            className="hidden sm:block"
+          >
+            <Button
+              variant="outline"
+              onClick={() => useCommandStore.getState().open()}
+              className="relative h-9 w-9 md:w-auto md:px-3 md:pr-2 rounded-lg text-sm text-muted-foreground hover:text-foreground"
+            >
+              <Search className="h-4 w-4 md:mr-2" />
+              <span className="hidden md:inline-flex">{tCmd("searchTrigger")}</span>
+              <kbd className="pointer-events-none hidden md:inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground ml-2">
+                <span className="text-xs">⌘</span>K
+              </kbd>
             </Button>
           </motion.div>
         </div>

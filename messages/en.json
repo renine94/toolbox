@@ -1679,5 +1679,20 @@
       "description": "Tools you use will appear here",
       "cta": "Explore Tools"
     }
+  },
+  "commandPalette": {
+    "placeholder": "Search tools... (⌘K)",
+    "noResults": "No results found",
+    "recent": "Recently Used",
+    "allTools": "All Tools",
+    "pressEnter": "Press Enter to open",
+    "pressEsc": "Press ESC to close",
+    "searchTrigger": "Search",
+    "hints": {
+      "navigate": "Navigate",
+      "select": "Select",
+      "close": "Close",
+      "scrollMore": "Scroll for more"
+    }
   }
 }

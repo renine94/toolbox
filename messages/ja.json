@@ -1679,5 +1679,20 @@
       "description": "使用したツールがここに表示されます",
       "cta": "ツールを探す"
     }
+  },
+  "commandPalette": {
+    "placeholder": "ツールを検索... (⌘K)",
+    "noResults": "検索結果が見つかりません",
+    "recent": "最近使用",
+    "allTools": "すべてのツール",
+    "pressEnter": "Enterキーで開く",
+    "pressEsc": "ESCキーで閉じる",
+    "searchTrigger": "検索",
+    "hints": {
+      "navigate": "移動",
+      "select": "選択",
+      "close": "閉じる",
+      "scrollMore": "スクロールで更に表示"
+    }
   }
 }
