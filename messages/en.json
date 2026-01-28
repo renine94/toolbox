@@ -325,6 +325,9 @@
     },
     "toolsGrid": {
       "toolCount": "{count} tools"
+    },
+    "liveActivity": {
+      "message": "{count} people using now"
     }
   },
   "categories": {

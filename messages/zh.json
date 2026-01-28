@@ -325,6 +325,9 @@
     },
     "toolsGrid": {
       "toolCount": "{count} 个工具"
+    },
+    "liveActivity": {
+      "message": "{count} 人正在使用"
     }
   },
   "categories": {

@@ -33,6 +33,7 @@
     "@tailwindcss/typography": "^0.5.19",
     "@tanstack/react-query": "^5.90.12",
     "@types/figlet": "^1.7.0",
+    "canvas-confetti": "^1.9.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
@@ -70,6 +71,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/canvas-confetti": "^1.9.0",
     "@types/diff-match-patch": "^1.0.36",
     "@types/dompurify": "^3.0.5",
     "@types/gif.js": "^0.2.5",

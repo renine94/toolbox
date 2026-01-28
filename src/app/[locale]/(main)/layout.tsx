@@ -2,6 +2,8 @@ import { Header } from "@/widgets/header";
 import { Footer } from "@/widgets/footer";
 import { QuickAccessButton, ToolUsageTracker } from "@/widgets/quick-access";
 import { CommandPalette } from "@/widgets/command-palette";
+import { ClickParticles } from "@/shared/components/click-particles";
+import { MouseTrail } from "@/shared/components/mouse-trail";
 import { Metadata } from "next";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://toolbox-six-sigma.vercel.app';
@@ -22,6 +24,8 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       <QuickAccessButton />
       <ToolUsageTracker />
       <CommandPalette />
+      <ClickParticles />
+      <MouseTrail />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import TextType from "@/shared/components/TextType";
+import { LiveActivityIndicator } from "@/shared/components/live-activity";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import {
@@ -77,6 +78,11 @@ export function HeroSection({
         >
           {t("description")}
         </motion.p>
+
+        {/* Live Activity Indicator */}
+        <motion.div variants={fadeInUp}>
+          <LiveActivityIndicator />
+        </motion.div>
 
         {/* Category Buttons */}
         <motion.div
