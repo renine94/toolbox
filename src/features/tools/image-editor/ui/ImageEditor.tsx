@@ -8,6 +8,9 @@ import { ImageCanvas } from "./ImageCanvas";
 import { FilterControls } from "./FilterControls";
 import { TransformControls } from "./TransformControls";
 import { ResizeControls } from "./ResizeControls";
+import { CropControls } from "./CropControls";
+import { TextControls } from "./TextControls";
+import { BrushControls } from "./BrushControls";
 import { ExportPanel } from "./ExportPanel";
 import { Toolbar } from "./Toolbar";
 
@@ -15,6 +18,9 @@ const TABS = [
   { id: "filters" as const, label: "필터", icon: "🎨" },
   { id: "transform" as const, label: "변환", icon: "🔄" },
   { id: "resize" as const, label: "크기", icon: "📐" },
+  { id: "crop" as const, label: "자르기", icon: "✂️" },
+  { id: "text" as const, label: "텍스트", icon: "📝" },
+  { id: "draw" as const, label: "그리기", icon: "🖌️" },
 ] as const;
 
 export function ImageEditor() {
@@ -45,15 +51,15 @@ export function ImageEditor() {
 
         {/* 오른쪽: 컨트롤 패널 */}
         <div className="space-y-4">
-          {/* 탭 버튼 */}
-          <div className="flex items-center gap-1 p-1 bg-muted rounded-lg">
+          {/* 탭 버튼 - 3x2 그리드 */}
+          <div className="grid grid-cols-3 gap-1 p-1 bg-muted rounded-lg">
             {TABS.map((tab) => (
               <Button
                 key={tab.id}
                 variant={activeTab === tab.id ? "default" : "ghost"}
                 size="sm"
                 onClick={() => setActiveTab(tab.id)}
-                className="flex-1 cursor-pointer"
+                className="cursor-pointer"
               >
                 <span className="mr-1">{tab.icon}</span>
                 {tab.label}
@@ -66,6 +72,9 @@ export function ImageEditor() {
             {activeTab === "filters" && <FilterControls />}
             {activeTab === "transform" && <TransformControls />}
             {activeTab === "resize" && <ResizeControls />}
+            {activeTab === "crop" && <CropControls />}
+            {activeTab === "text" && <TextControls />}
+            {activeTab === "draw" && <BrushControls />}
           </div>
 
           {/* 내보내기 패널 */}

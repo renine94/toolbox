@@ -1,12 +1,25 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useRef } from "react";
 import { Card } from "@/shared/ui/card";
 import { useImageStore } from "../model/useImageStore";
 import { getFilterString, getTransformString } from "../lib/image-utils";
+import { CropOverlay } from "./CropOverlay";
+import { TextLayerOverlay } from "./TextLayerOverlay";
+import { DrawingCanvas } from "./DrawingCanvas";
 
 export function ImageCanvas() {
-  const { originalImage, filters, transform, currentSize, originalSize } = useImageStore();
+  const {
+    originalImage,
+    filters,
+    transform,
+    currentSize,
+    originalSize,
+    isCropping,
+    activeTab,
+  } = useImageStore();
+
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const filterStyle = useMemo(() => getFilterString(filters), [filters]);
   const transformStyle = useMemo(() => getTransformString(transform), [transform]);
@@ -40,6 +53,7 @@ export function ImageCanvas() {
 
         {/* 이미지 미리보기 영역 */}
         <div
+          ref={containerRef}
           className="relative overflow-hidden rounded-lg bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+CiAgPHJlY3Qgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSIjY2NjIi8+CiAgPHJlY3QgeD0iMTAiIHk9IjEwIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiIGZpbGw9IiNjY2MiLz4KPC9zdmc+')] bg-repeat"
           style={{
             width: displayWidth * scale,
@@ -56,6 +70,21 @@ export function ImageCanvas() {
             }}
             draggable={false}
           />
+
+          {/* 크롭 오버레이 */}
+          {isCropping && (
+            <CropOverlay displayScale={scale} containerRef={containerRef} />
+          )}
+
+          {/* 텍스트 레이어 오버레이 */}
+          {activeTab === "text" && (
+            <TextLayerOverlay displayScale={scale} containerRef={containerRef} />
+          )}
+
+          {/* 그리기 캔버스 */}
+          {activeTab === "draw" && (
+            <DrawingCanvas displayScale={scale} containerRef={containerRef} />
+          )}
         </div>
 
         {/* 줌 레벨 표시 */}

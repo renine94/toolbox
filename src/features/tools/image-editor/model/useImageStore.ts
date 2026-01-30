@@ -9,8 +9,19 @@ import {
   HistoryEntry,
   DEFAULT_FILTERS,
   DEFAULT_TRANSFORM,
+  DEFAULT_CROP_SETTINGS,
+  DEFAULT_BRUSH_SETTINGS,
+  DEFAULT_TEXT_LAYER,
+  TextLayer,
+  DrawPath,
+  CropSettings,
+  BrushSettings,
+  WATERMARK_PRESETS,
 } from "./types";
 import { applyTransformToCanvas, loadImageAsDataURL } from "../lib/image-utils";
+import { renderAllTextLayers } from "../lib/text-utils";
+import { renderAllDrawPaths } from "../lib/draw-utils";
+import { createDefaultCropArea, getAspectRatioValue } from "../lib/crop-utils";
 import type { WorkerInput, WorkerOutput } from "../lib/image-worker";
 
 // Worker 인스턴스 (싱글톤)
@@ -56,6 +67,12 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
   transform: { ...DEFAULT_TRANSFORM },
   cropArea: null,
   isCropping: false,
+  cropSettings: { ...DEFAULT_CROP_SETTINGS },
+  textLayers: [],
+  selectedTextLayerId: null,
+  drawPaths: [],
+  brushSettings: { ...DEFAULT_BRUSH_SETTINGS },
+  isDrawing: false,
   isLoading: false,
   activeTab: "filters",
   exportProgress: null,
@@ -86,6 +103,12 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
         transform: { ...DEFAULT_TRANSFORM },
         cropArea: null,
         isCropping: false,
+        cropSettings: { ...DEFAULT_CROP_SETTINGS },
+        textLayers: [],
+        selectedTextLayerId: null,
+        drawPaths: [],
+        brushSettings: { ...DEFAULT_BRUSH_SETTINGS },
+        isDrawing: false,
         history: [],
         historyIndex: -1,
         isLoading: false,
@@ -94,6 +117,22 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       set({ isLoading: false });
       throw new Error("이미지를 로드하는 데 실패했습니다.");
     }
+  },
+
+  // 히스토리 엔트리 생성 헬퍼
+  createHistoryEntry: (action: string, updates: Partial<HistoryEntry> = {}): HistoryEntry => {
+    const state = get();
+    return {
+      id: generateId(),
+      timestamp: Date.now(),
+      action,
+      filters: state.filters,
+      transform: state.transform,
+      cropArea: state.cropArea,
+      textLayers: [...state.textLayers],
+      drawPaths: [...state.drawPaths],
+      ...updates,
+    };
   },
 
   // 필터 설정
@@ -109,6 +148,8 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       filters: newFilters,
       transform: state.transform,
       cropArea: state.cropArea,
+      textLayers: [...state.textLayers],
+      drawPaths: [...state.drawPaths],
     };
 
     let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -132,6 +173,8 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       filters: { ...DEFAULT_FILTERS },
       transform: state.transform,
       cropArea: state.cropArea,
+      textLayers: [...state.textLayers],
+      drawPaths: [...state.drawPaths],
     };
 
     let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -157,6 +200,8 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       filters: state.filters,
       transform: newTransform,
       cropArea: state.cropArea,
+      textLayers: [...state.textLayers],
+      drawPaths: [...state.drawPaths],
     };
 
     let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -180,6 +225,8 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       filters: state.filters,
       transform: { ...DEFAULT_TRANSFORM },
       cropArea: state.cropArea,
+      textLayers: [...state.textLayers],
+      drawPaths: [...state.drawPaths],
     };
 
     let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -203,33 +250,85 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
     set({ isCropping, cropArea: isCropping ? get().cropArea : null });
   },
 
-  // 크롭 적용
-  applyCrop: () => {
+  // 크롭 적용 (실제로 이미지를 자름)
+  applyCrop: async () => {
     const state = get();
-    if (!state.cropArea || !state.currentSize) return;
+    if (!state.cropArea || !state.originalImage) return;
 
-    const entry: HistoryEntry = {
-      id: generateId(),
-      timestamp: Date.now(),
-      action: "크롭 적용",
-      filters: state.filters,
-      transform: state.transform,
-      cropArea: state.cropArea,
-    };
+    set({ isLoading: true });
 
-    let newHistory = state.history.slice(0, state.historyIndex + 1);
-    newHistory.push(entry);
-    newHistory = limitHistorySize(newHistory);
+    try {
+      // 원본 이미지 로드
+      const img = new Image();
+      await new Promise<void>((resolve, reject) => {
+        img.onload = () => resolve();
+        img.onerror = reject;
+        img.src = state.originalImage!;
+      });
 
-    set({
-      currentSize: {
-        width: Math.round(state.cropArea.width),
-        height: Math.round(state.cropArea.height),
-      },
-      isCropping: false,
-      history: newHistory,
-      historyIndex: newHistory.length - 1,
-    });
+      // Canvas에 크롭된 영역만 그리기
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      if (!ctx) {
+        set({ isLoading: false });
+        return;
+      }
+
+      const cropX = Math.round(state.cropArea.x);
+      const cropY = Math.round(state.cropArea.y);
+      const cropWidth = Math.round(state.cropArea.width);
+      const cropHeight = Math.round(state.cropArea.height);
+
+      canvas.width = cropWidth;
+      canvas.height = cropHeight;
+
+      // 크롭 영역만 캔버스에 그리기
+      ctx.drawImage(
+        img,
+        cropX, cropY, cropWidth, cropHeight,  // 소스 영역
+        0, 0, cropWidth, cropHeight            // 대상 영역
+      );
+
+      // 새로운 Data URL 생성
+      const croppedDataUrl = canvas.toDataURL("image/png");
+
+      const newSize = { width: cropWidth, height: cropHeight };
+
+      const entry: HistoryEntry = {
+        id: generateId(),
+        timestamp: Date.now(),
+        action: "크롭 적용",
+        filters: state.filters,
+        transform: state.transform,
+        cropArea: state.cropArea,
+        textLayers: [...state.textLayers],
+        drawPaths: [...state.drawPaths],
+      };
+
+      let newHistory = state.history.slice(0, state.historyIndex + 1);
+      newHistory.push(entry);
+      newHistory = limitHistorySize(newHistory);
+
+      set({
+        originalImage: croppedDataUrl,
+        originalSize: newSize,
+        currentSize: newSize,
+        cropArea: null,
+        isCropping: false,
+        isLoading: false,
+        history: newHistory,
+        historyIndex: newHistory.length - 1,
+      });
+    } catch {
+      set({ isLoading: false });
+    }
+  },
+
+  // 크롭 설정 변경
+  setCropSettings: (settings: Partial<CropSettings>) => {
+    set((state) => ({
+      cropSettings: { ...state.cropSettings, ...settings },
+    }));
   },
 
   // 리사이즈
@@ -242,6 +341,8 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       filters: state.filters,
       transform: state.transform,
       cropArea: null,
+      textLayers: [...state.textLayers],
+      drawPaths: [...state.drawPaths],
     };
 
     let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -257,7 +358,24 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
 
   // 탭 변경
   setActiveTab: (tab) => {
-    set({ activeTab: tab, isCropping: tab === "crop" });
+    const state = get();
+
+    if (tab === "crop") {
+      // crop 탭 진입 시 바로 기본 크롭 영역 생성
+      const imageWidth = state.currentSize?.width || state.originalSize?.width || 0;
+      const imageHeight = state.currentSize?.height || state.originalSize?.height || 0;
+
+      if (imageWidth && imageHeight) {
+        const aspectRatio = getAspectRatioValue(state.cropSettings.aspectRatio);
+        const defaultArea = createDefaultCropArea(imageWidth, imageHeight, aspectRatio);
+        set({ activeTab: tab, isCropping: true, cropArea: defaultArea });
+      } else {
+        set({ activeTab: tab, isCropping: true });
+      }
+    } else {
+      // 다른 탭으로 전환 시 크롭 모드 해제
+      set({ activeTab: tab, isCropping: false, cropArea: null });
+    }
   },
 
   // 전체 초기화
@@ -269,6 +387,12 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       currentSize: state.originalSize,
       cropArea: null,
       isCropping: false,
+      cropSettings: { ...DEFAULT_CROP_SETTINGS },
+      textLayers: [],
+      selectedTextLayerId: null,
+      drawPaths: [],
+      brushSettings: { ...DEFAULT_BRUSH_SETTINGS },
+      isDrawing: false,
       history: [],
       historyIndex: -1,
     });
@@ -285,6 +409,12 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       transform: { ...DEFAULT_TRANSFORM },
       cropArea: null,
       isCropping: false,
+      cropSettings: { ...DEFAULT_CROP_SETTINGS },
+      textLayers: [],
+      selectedTextLayerId: null,
+      drawPaths: [],
+      brushSettings: { ...DEFAULT_BRUSH_SETTINGS },
+      isDrawing: false,
       isLoading: false,
       exportProgress: null,
       history: [],
@@ -302,6 +432,8 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       filters: prevEntry.filters,
       transform: prevEntry.transform,
       cropArea: prevEntry.cropArea,
+      textLayers: prevEntry.textLayers || [],
+      drawPaths: prevEntry.drawPaths || [],
       historyIndex: state.historyIndex - 1,
     });
   },
@@ -316,6 +448,8 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       filters: nextEntry.filters,
       transform: nextEntry.transform,
       cropArea: nextEntry.cropArea,
+      textLayers: nextEntry.textLayers || [],
+      drawPaths: nextEntry.drawPaths || [],
       historyIndex: state.historyIndex + 1,
     });
   },
@@ -331,6 +465,308 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
     const worker = getImageWorker();
     worker.postMessage({ type: "cancel" } as WorkerInput);
     set({ exportProgress: null });
+  },
+
+  // ==================== 텍스트 레이어 액션 ====================
+
+  // 텍스트 레이어 추가
+  addTextLayer: (text?: string) => {
+    const state = get();
+    const newLayer: TextLayer = {
+      id: generateId(),
+      ...DEFAULT_TEXT_LAYER,
+      text: text || DEFAULT_TEXT_LAYER.text,
+    };
+
+    const newTextLayers = [...state.textLayers, newLayer];
+
+    const entry: HistoryEntry = {
+      id: generateId(),
+      timestamp: Date.now(),
+      action: "텍스트 레이어 추가",
+      filters: state.filters,
+      transform: state.transform,
+      cropArea: state.cropArea,
+      textLayers: newTextLayers,
+      drawPaths: [...state.drawPaths],
+    };
+
+    let newHistory = state.history.slice(0, state.historyIndex + 1);
+    newHistory.push(entry);
+    newHistory = limitHistorySize(newHistory);
+
+    set({
+      textLayers: newTextLayers,
+      selectedTextLayerId: newLayer.id,
+      history: newHistory,
+      historyIndex: newHistory.length - 1,
+    });
+  },
+
+  // 텍스트 레이어 업데이트
+  updateTextLayer: (id: string, updates: Partial<Omit<TextLayer, "id">>) => {
+    const state = get();
+    const newTextLayers = state.textLayers.map((layer) =>
+      layer.id === id ? { ...layer, ...updates } : layer
+    );
+
+    const entry: HistoryEntry = {
+      id: generateId(),
+      timestamp: Date.now(),
+      action: "텍스트 레이어 수정",
+      filters: state.filters,
+      transform: state.transform,
+      cropArea: state.cropArea,
+      textLayers: newTextLayers,
+      drawPaths: [...state.drawPaths],
+    };
+
+    let newHistory = state.history.slice(0, state.historyIndex + 1);
+    newHistory.push(entry);
+    newHistory = limitHistorySize(newHistory);
+
+    set({
+      textLayers: newTextLayers,
+      history: newHistory,
+      historyIndex: newHistory.length - 1,
+    });
+  },
+
+  // 텍스트 레이어 삭제
+  removeTextLayer: (id: string) => {
+    const state = get();
+    const newTextLayers = state.textLayers.filter((layer) => layer.id !== id);
+
+    const entry: HistoryEntry = {
+      id: generateId(),
+      timestamp: Date.now(),
+      action: "텍스트 레이어 삭제",
+      filters: state.filters,
+      transform: state.transform,
+      cropArea: state.cropArea,
+      textLayers: newTextLayers,
+      drawPaths: [...state.drawPaths],
+    };
+
+    let newHistory = state.history.slice(0, state.historyIndex + 1);
+    newHistory.push(entry);
+    newHistory = limitHistorySize(newHistory);
+
+    set({
+      textLayers: newTextLayers,
+      selectedTextLayerId: state.selectedTextLayerId === id ? null : state.selectedTextLayerId,
+      history: newHistory,
+      historyIndex: newHistory.length - 1,
+    });
+  },
+
+  // 텍스트 레이어 선택
+  selectTextLayer: (id: string | null) => {
+    set({ selectedTextLayerId: id });
+  },
+
+  // 워터마크 프리셋 적용
+  applyWatermarkPreset: (presetId: string, text: string) => {
+    const preset = WATERMARK_PRESETS.find((p) => p.id === presetId);
+    if (!preset) return;
+
+    const state = get();
+    const newLayer: TextLayer = {
+      id: generateId(),
+      ...DEFAULT_TEXT_LAYER,
+      ...preset.settings,
+      text,
+    };
+
+    const newTextLayers = [...state.textLayers, newLayer];
+
+    const entry: HistoryEntry = {
+      id: generateId(),
+      timestamp: Date.now(),
+      action: `워터마크 적용: ${preset.nameKo}`,
+      filters: state.filters,
+      transform: state.transform,
+      cropArea: state.cropArea,
+      textLayers: newTextLayers,
+      drawPaths: [...state.drawPaths],
+    };
+
+    let newHistory = state.history.slice(0, state.historyIndex + 1);
+    newHistory.push(entry);
+    newHistory = limitHistorySize(newHistory);
+
+    set({
+      textLayers: newTextLayers,
+      selectedTextLayerId: newLayer.id,
+      history: newHistory,
+      historyIndex: newHistory.length - 1,
+    });
+  },
+
+  // ==================== 그리기 액션 ====================
+
+  // 브러시 설정 변경
+  setBrushSettings: (settings: Partial<BrushSettings>) => {
+    set((state) => ({
+      brushSettings: { ...state.brushSettings, ...settings },
+    }));
+  },
+
+  // 그리기 시작
+  startDrawing: () => {
+    const state = get();
+    const newPath: DrawPath = {
+      id: generateId(),
+      mode: state.brushSettings.mode,
+      points: [],
+      settings: { ...state.brushSettings },
+    };
+
+    set({
+      isDrawing: true,
+      drawPaths: [...state.drawPaths, newPath],
+    });
+  },
+
+  // 그리기 점 추가
+  addDrawPoint: (point: { x: number; y: number }) => {
+    const state = get();
+    if (!state.isDrawing || state.drawPaths.length === 0) return;
+
+    const currentPath = state.drawPaths[state.drawPaths.length - 1];
+    const updatedPath = {
+      ...currentPath,
+      points: [...currentPath.points, point],
+    };
+
+    set({
+      drawPaths: [...state.drawPaths.slice(0, -1), updatedPath],
+    });
+  },
+
+  // 그리기 종료
+  endDrawing: () => {
+    const state = get();
+    if (!state.isDrawing) return;
+
+    // 빈 경로 제거
+    const lastPath = state.drawPaths[state.drawPaths.length - 1];
+    let newDrawPaths = state.drawPaths;
+    if (lastPath && lastPath.points.length < 2) {
+      newDrawPaths = state.drawPaths.slice(0, -1);
+    }
+
+    const entry: HistoryEntry = {
+      id: generateId(),
+      timestamp: Date.now(),
+      action: "그리기",
+      filters: state.filters,
+      transform: state.transform,
+      cropArea: state.cropArea,
+      textLayers: [...state.textLayers],
+      drawPaths: newDrawPaths,
+    };
+
+    let newHistory = state.history.slice(0, state.historyIndex + 1);
+    newHistory.push(entry);
+    newHistory = limitHistorySize(newHistory);
+
+    set({
+      isDrawing: false,
+      drawPaths: newDrawPaths,
+      history: newHistory,
+      historyIndex: newHistory.length - 1,
+    });
+  },
+
+  // 도형 경로 추가
+  addShapePath: (startPoint: { x: number; y: number }, endPoint: { x: number; y: number }) => {
+    const state = get();
+    const newPath: DrawPath = {
+      id: generateId(),
+      mode: state.brushSettings.mode,
+      points: [],
+      startPoint,
+      endPoint,
+      settings: { ...state.brushSettings },
+    };
+
+    const newDrawPaths = [...state.drawPaths, newPath];
+
+    const entry: HistoryEntry = {
+      id: generateId(),
+      timestamp: Date.now(),
+      action: `도형 그리기: ${state.brushSettings.mode}`,
+      filters: state.filters,
+      transform: state.transform,
+      cropArea: state.cropArea,
+      textLayers: [...state.textLayers],
+      drawPaths: newDrawPaths,
+    };
+
+    let newHistory = state.history.slice(0, state.historyIndex + 1);
+    newHistory.push(entry);
+    newHistory = limitHistorySize(newHistory);
+
+    set({
+      drawPaths: newDrawPaths,
+      history: newHistory,
+      historyIndex: newHistory.length - 1,
+    });
+  },
+
+  // 그리기 경로 삭제
+  removeDrawPath: (id: string) => {
+    const state = get();
+    const newDrawPaths = state.drawPaths.filter((path) => path.id !== id);
+
+    const entry: HistoryEntry = {
+      id: generateId(),
+      timestamp: Date.now(),
+      action: "그리기 삭제",
+      filters: state.filters,
+      transform: state.transform,
+      cropArea: state.cropArea,
+      textLayers: [...state.textLayers],
+      drawPaths: newDrawPaths,
+    };
+
+    let newHistory = state.history.slice(0, state.historyIndex + 1);
+    newHistory.push(entry);
+    newHistory = limitHistorySize(newHistory);
+
+    set({
+      drawPaths: newDrawPaths,
+      history: newHistory,
+      historyIndex: newHistory.length - 1,
+    });
+  },
+
+  // 모든 그리기 지우기
+  clearAllDrawPaths: () => {
+    const state = get();
+    if (state.drawPaths.length === 0) return;
+
+    const entry: HistoryEntry = {
+      id: generateId(),
+      timestamp: Date.now(),
+      action: "모든 그리기 지우기",
+      filters: state.filters,
+      transform: state.transform,
+      cropArea: state.cropArea,
+      textLayers: [...state.textLayers],
+      drawPaths: [],
+    };
+
+    let newHistory = state.history.slice(0, state.historyIndex + 1);
+    newHistory.push(entry);
+    newHistory = limitHistorySize(newHistory);
+
+    set({
+      drawPaths: [],
+      history: newHistory,
+      historyIndex: newHistory.length - 1,
+    });
   },
 
   // 이미지 내보내기 (Worker 기반)
@@ -414,6 +850,16 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
 
     // 처리된 이미지 데이터를 캔버스에 적용
     ctx.putImageData(processedImageData, 0, 0);
+
+    // 그리기 경로 렌더링 (필터 적용 후)
+    if (state.drawPaths.length > 0) {
+      renderAllDrawPaths(ctx, state.drawPaths, canvas.width, canvas.height);
+    }
+
+    // 텍스트 레이어 렌더링 (가장 위에)
+    if (state.textLayers.length > 0) {
+      renderAllTextLayers(ctx, state.textLayers, canvas.width, canvas.height);
+    }
 
     // 내보내기
     const mimeType = `image/${options.format}`;
