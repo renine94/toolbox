@@ -13,6 +13,8 @@ export { TextControls } from "./ui/TextControls";
 export { TextLayerOverlay } from "./ui/TextLayerOverlay";
 export { BrushControls } from "./ui/BrushControls";
 export { DrawingCanvas } from "./ui/DrawingCanvas";
+export { MosaicControls } from "./ui/MosaicControls";
+export { MosaicCanvas } from "./ui/MosaicCanvas";
 export { ExportPanel } from "./ui/ExportPanel";
 export { Toolbar } from "./ui/Toolbar";
 
@@ -38,6 +40,9 @@ export type {
   BrushMode,
   BrushSettings,
   DrawPath,
+  MosaicMode,
+  MosaicSettings,
+  MosaicArea,
 } from "./model/types";
 
 export {
@@ -51,6 +56,8 @@ export {
   WATERMARK_PRESETS,
   aspectRatioPresets,
   brushModes,
+  mosaicModes,
+  DEFAULT_MOSAIC_SETTINGS,
   exportFormats,
 } from "./model/types";
 
@@ -87,3 +94,10 @@ export {
   renderAllDrawPaths,
   createBrushCursor,
 } from "./lib/draw-utils";
+
+export {
+  renderMosaicArea,
+  renderAllMosaicAreas,
+  screenToMosaicCoords,
+  createMosaicCursor,
+} from "./lib/mosaic-utils";

@@ -11,6 +11,7 @@ import { ResizeControls } from "./ResizeControls";
 import { CropControls } from "./CropControls";
 import { TextControls } from "./TextControls";
 import { BrushControls } from "./BrushControls";
+import { MosaicControls } from "./MosaicControls";
 import { ExportPanel } from "./ExportPanel";
 import { Toolbar } from "./Toolbar";
 
@@ -21,6 +22,7 @@ const TABS = [
   { id: "crop" as const, label: "자르기", icon: "✂️" },
   { id: "text" as const, label: "텍스트", icon: "📝" },
   { id: "draw" as const, label: "그리기", icon: "🖌️" },
+  { id: "mosaic" as const, label: "모자이크", icon: "🔲" },
 ] as const;
 
 export function ImageEditor() {
@@ -51,8 +53,8 @@ export function ImageEditor() {
 
         {/* 오른쪽: 컨트롤 패널 */}
         <div className="space-y-4">
-          {/* 탭 버튼 - 3x2 그리드 */}
-          <div className="grid grid-cols-3 gap-1 p-1 bg-muted rounded-lg">
+          {/* 탭 버튼 - 4열 그리드 */}
+          <div className="grid grid-cols-4 gap-1 p-1 bg-muted rounded-lg">
             {TABS.map((tab) => (
               <Button
                 key={tab.id}
@@ -75,6 +77,7 @@ export function ImageEditor() {
             {activeTab === "crop" && <CropControls />}
             {activeTab === "text" && <TextControls />}
             {activeTab === "draw" && <BrushControls />}
+            {activeTab === "mosaic" && <MosaicControls />}
           </div>
 
           {/* 내보내기 패널 */}

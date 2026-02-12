@@ -7,6 +7,7 @@ import { getFilterString, getTransformString } from "../lib/image-utils";
 import { CropOverlay } from "./CropOverlay";
 import { TextLayerOverlay } from "./TextLayerOverlay";
 import { DrawingCanvas } from "./DrawingCanvas";
+import { MosaicCanvas } from "./MosaicCanvas";
 
 export function ImageCanvas() {
   const {
@@ -84,6 +85,11 @@ export function ImageCanvas() {
           {/* 그리기 캔버스 */}
           {activeTab === "draw" && (
             <DrawingCanvas displayScale={scale} containerRef={containerRef} />
+          )}
+
+          {/* 모자이크 캔버스 */}
+          {activeTab === "mosaic" && (
+            <MosaicCanvas displayScale={scale} containerRef={containerRef} />
           )}
         </div>
 

@@ -139,6 +139,35 @@ export interface DrawPath {
   settings: BrushSettings;
 }
 
+// ==================== 모자이크 관련 타입 ====================
+
+export const mosaicModes = ["brush", "rectangle"] as const;
+export type MosaicMode = (typeof mosaicModes)[number];
+
+export interface MosaicSettings {
+  mode: MosaicMode;
+  pixelSize: number;    // 모자이크 강도 (2-50px, 클수록 강하게)
+  brushSize: number;    // 브러시 크기 (10-200px, 브러시 모드 전용)
+}
+
+export const DEFAULT_MOSAIC_SETTINGS: MosaicSettings = {
+  mode: "brush",
+  pixelSize: 10,
+  brushSize: 30,
+};
+
+export interface MosaicArea {
+  id: string;
+  mode: MosaicMode;
+  pixelSize: number;
+  // 브러시 모드
+  points: { x: number; y: number }[];  // 상대좌표 0-100%
+  brushSize: number;
+  // 사각형 모드
+  startPoint?: { x: number; y: number };
+  endPoint?: { x: number; y: number };
+}
+
 // ==================== 필터 타입 ====================
 
 // 필터 타입
@@ -207,6 +236,7 @@ export interface HistoryEntry {
   cropArea: CropArea | null;
   textLayers?: TextLayer[];
   drawPaths?: DrawPath[];
+  mosaicAreas?: MosaicArea[];
 }
 
 // 이미지 에디터 상태
@@ -234,9 +264,14 @@ export interface ImageEditorState {
   brushSettings: BrushSettings;
   isDrawing: boolean;
 
+  // 모자이크
+  mosaicAreas: MosaicArea[];
+  mosaicSettings: MosaicSettings;
+  isMosaicing: boolean;
+
   // UI 상태
   isLoading: boolean;
-  activeTab: "filters" | "transform" | "resize" | "crop" | "text" | "draw";
+  activeTab: "filters" | "transform" | "resize" | "crop" | "text" | "draw" | "mosaic";
   exportProgress: number | null; // null = 내보내기 중 아님, 0-100 = 진행률
 
   // 히스토리
@@ -279,6 +314,15 @@ export interface ImageEditorState {
   addShapePath: (startPoint: { x: number; y: number }, endPoint: { x: number; y: number }) => void;
   removeDrawPath: (id: string) => void;
   clearAllDrawPaths: () => void;
+
+  // 모자이크 액션
+  setMosaicSettings: (settings: Partial<MosaicSettings>) => void;
+  startMosaicing: () => void;
+  addMosaicPoint: (point: { x: number; y: number }) => void;
+  endMosaicing: () => void;
+  addMosaicRect: (startPoint: { x: number; y: number }, endPoint: { x: number; y: number }) => void;
+  removeMosaicArea: (id: string) => void;
+  clearAllMosaicAreas: () => void;
 }
 
 // 필터 프리셋

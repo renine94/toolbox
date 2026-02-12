@@ -11,16 +11,20 @@ import {
   DEFAULT_TRANSFORM,
   DEFAULT_CROP_SETTINGS,
   DEFAULT_BRUSH_SETTINGS,
+  DEFAULT_MOSAIC_SETTINGS,
   DEFAULT_TEXT_LAYER,
   TextLayer,
   DrawPath,
+  MosaicArea,
   CropSettings,
   BrushSettings,
+  MosaicSettings,
   WATERMARK_PRESETS,
 } from "./types";
 import { applyTransformToCanvas, loadImageAsDataURL } from "../lib/image-utils";
 import { renderAllTextLayers } from "../lib/text-utils";
 import { renderAllDrawPaths } from "../lib/draw-utils";
+import { renderAllMosaicAreas } from "../lib/mosaic-utils";
 import { createDefaultCropArea, getAspectRatioValue } from "../lib/crop-utils";
 import type { WorkerInput, WorkerOutput } from "../lib/image-worker";
 
@@ -73,6 +77,9 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
   drawPaths: [],
   brushSettings: { ...DEFAULT_BRUSH_SETTINGS },
   isDrawing: false,
+  mosaicAreas: [],
+  mosaicSettings: { ...DEFAULT_MOSAIC_SETTINGS },
+  isMosaicing: false,
   isLoading: false,
   activeTab: "filters",
   exportProgress: null,
@@ -109,6 +116,9 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
         drawPaths: [],
         brushSettings: { ...DEFAULT_BRUSH_SETTINGS },
         isDrawing: false,
+        mosaicAreas: [],
+        mosaicSettings: { ...DEFAULT_MOSAIC_SETTINGS },
+        isMosaicing: false,
         history: [],
         historyIndex: -1,
         isLoading: false,
@@ -131,6 +141,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: state.cropArea,
       textLayers: [...state.textLayers],
       drawPaths: [...state.drawPaths],
+      mosaicAreas: [...state.mosaicAreas],
       ...updates,
     };
   },
@@ -150,6 +161,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: state.cropArea,
       textLayers: [...state.textLayers],
       drawPaths: [...state.drawPaths],
+      mosaicAreas: [...state.mosaicAreas],
     };
 
     let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -175,6 +187,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: state.cropArea,
       textLayers: [...state.textLayers],
       drawPaths: [...state.drawPaths],
+      mosaicAreas: [...state.mosaicAreas],
     };
 
     let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -202,6 +215,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: state.cropArea,
       textLayers: [...state.textLayers],
       drawPaths: [...state.drawPaths],
+      mosaicAreas: [...state.mosaicAreas],
     };
 
     let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -227,6 +241,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: state.cropArea,
       textLayers: [...state.textLayers],
       drawPaths: [...state.drawPaths],
+      mosaicAreas: [...state.mosaicAreas],
     };
 
     let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -303,6 +318,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
         cropArea: state.cropArea,
         textLayers: [...state.textLayers],
         drawPaths: [...state.drawPaths],
+        mosaicAreas: [...state.mosaicAreas],
       };
 
       let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -343,6 +359,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: null,
       textLayers: [...state.textLayers],
       drawPaths: [...state.drawPaths],
+      mosaicAreas: [...state.mosaicAreas],
     };
 
     let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -393,6 +410,9 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       drawPaths: [],
       brushSettings: { ...DEFAULT_BRUSH_SETTINGS },
       isDrawing: false,
+      mosaicAreas: [],
+      mosaicSettings: { ...DEFAULT_MOSAIC_SETTINGS },
+      isMosaicing: false,
       history: [],
       historyIndex: -1,
     });
@@ -415,6 +435,9 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       drawPaths: [],
       brushSettings: { ...DEFAULT_BRUSH_SETTINGS },
       isDrawing: false,
+      mosaicAreas: [],
+      mosaicSettings: { ...DEFAULT_MOSAIC_SETTINGS },
+      isMosaicing: false,
       isLoading: false,
       exportProgress: null,
       history: [],
@@ -434,6 +457,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: prevEntry.cropArea,
       textLayers: prevEntry.textLayers || [],
       drawPaths: prevEntry.drawPaths || [],
+      mosaicAreas: prevEntry.mosaicAreas || [],
       historyIndex: state.historyIndex - 1,
     });
   },
@@ -450,6 +474,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: nextEntry.cropArea,
       textLayers: nextEntry.textLayers || [],
       drawPaths: nextEntry.drawPaths || [],
+      mosaicAreas: nextEntry.mosaicAreas || [],
       historyIndex: state.historyIndex + 1,
     });
   },
@@ -489,6 +514,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: state.cropArea,
       textLayers: newTextLayers,
       drawPaths: [...state.drawPaths],
+      mosaicAreas: [...state.mosaicAreas],
     };
 
     let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -519,6 +545,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: state.cropArea,
       textLayers: newTextLayers,
       drawPaths: [...state.drawPaths],
+      mosaicAreas: [...state.mosaicAreas],
     };
 
     let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -546,6 +573,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: state.cropArea,
       textLayers: newTextLayers,
       drawPaths: [...state.drawPaths],
+      mosaicAreas: [...state.mosaicAreas],
     };
 
     let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -589,6 +617,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: state.cropArea,
       textLayers: newTextLayers,
       drawPaths: [...state.drawPaths],
+      mosaicAreas: [...state.mosaicAreas],
     };
 
     let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -665,6 +694,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: state.cropArea,
       textLayers: [...state.textLayers],
       drawPaths: newDrawPaths,
+      mosaicAreas: [...state.mosaicAreas],
     };
 
     let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -702,6 +732,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: state.cropArea,
       textLayers: [...state.textLayers],
       drawPaths: newDrawPaths,
+      mosaicAreas: [...state.mosaicAreas],
     };
 
     let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -729,6 +760,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: state.cropArea,
       textLayers: [...state.textLayers],
       drawPaths: newDrawPaths,
+      mosaicAreas: [...state.mosaicAreas],
     };
 
     let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -756,6 +788,7 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
       cropArea: state.cropArea,
       textLayers: [...state.textLayers],
       drawPaths: [],
+      mosaicAreas: [...state.mosaicAreas],
     };
 
     let newHistory = state.history.slice(0, state.historyIndex + 1);
@@ -764,6 +797,178 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
 
     set({
       drawPaths: [],
+      history: newHistory,
+      historyIndex: newHistory.length - 1,
+    });
+  },
+
+  // ==================== 모자이크 액션 ====================
+
+  // 모자이크 설정 변경
+  setMosaicSettings: (settings: Partial<MosaicSettings>) => {
+    set((state) => ({
+      mosaicSettings: { ...state.mosaicSettings, ...settings },
+    }));
+  },
+
+  // 모자이크 그리기 시작 (브러시 모드)
+  startMosaicing: () => {
+    const state = get();
+    const newArea: MosaicArea = {
+      id: generateId(),
+      mode: state.mosaicSettings.mode,
+      pixelSize: state.mosaicSettings.pixelSize,
+      points: [],
+      brushSize: state.mosaicSettings.brushSize,
+    };
+
+    set({
+      isMosaicing: true,
+      mosaicAreas: [...state.mosaicAreas, newArea],
+    });
+  },
+
+  // 모자이크 포인트 추가 (브러시 모드)
+  addMosaicPoint: (point: { x: number; y: number }) => {
+    const state = get();
+    if (!state.isMosaicing || state.mosaicAreas.length === 0) return;
+
+    const currentArea = state.mosaicAreas[state.mosaicAreas.length - 1];
+    const updatedArea = {
+      ...currentArea,
+      points: [...currentArea.points, point],
+    };
+
+    set({
+      mosaicAreas: [...state.mosaicAreas.slice(0, -1), updatedArea],
+    });
+  },
+
+  // 모자이크 그리기 종료 (브러시 모드)
+  endMosaicing: () => {
+    const state = get();
+    if (!state.isMosaicing) return;
+
+    // 빈 영역 제거
+    const lastArea = state.mosaicAreas[state.mosaicAreas.length - 1];
+    let newMosaicAreas = state.mosaicAreas;
+    if (lastArea && lastArea.points.length < 2) {
+      newMosaicAreas = state.mosaicAreas.slice(0, -1);
+    }
+
+    const entry: HistoryEntry = {
+      id: generateId(),
+      timestamp: Date.now(),
+      action: "모자이크",
+      filters: state.filters,
+      transform: state.transform,
+      cropArea: state.cropArea,
+      textLayers: [...state.textLayers],
+      drawPaths: [...state.drawPaths],
+      mosaicAreas: newMosaicAreas,
+    };
+
+    let newHistory = state.history.slice(0, state.historyIndex + 1);
+    newHistory.push(entry);
+    newHistory = limitHistorySize(newHistory);
+
+    set({
+      isMosaicing: false,
+      mosaicAreas: newMosaicAreas,
+      history: newHistory,
+      historyIndex: newHistory.length - 1,
+    });
+  },
+
+  // 사각형 모자이크 추가
+  addMosaicRect: (startPoint: { x: number; y: number }, endPoint: { x: number; y: number }) => {
+    const state = get();
+    const newArea: MosaicArea = {
+      id: generateId(),
+      mode: "rectangle",
+      pixelSize: state.mosaicSettings.pixelSize,
+      points: [],
+      brushSize: state.mosaicSettings.brushSize,
+      startPoint,
+      endPoint,
+    };
+
+    const newMosaicAreas = [...state.mosaicAreas, newArea];
+
+    const entry: HistoryEntry = {
+      id: generateId(),
+      timestamp: Date.now(),
+      action: "사각형 모자이크",
+      filters: state.filters,
+      transform: state.transform,
+      cropArea: state.cropArea,
+      textLayers: [...state.textLayers],
+      drawPaths: [...state.drawPaths],
+      mosaicAreas: newMosaicAreas,
+    };
+
+    let newHistory = state.history.slice(0, state.historyIndex + 1);
+    newHistory.push(entry);
+    newHistory = limitHistorySize(newHistory);
+
+    set({
+      mosaicAreas: newMosaicAreas,
+      history: newHistory,
+      historyIndex: newHistory.length - 1,
+    });
+  },
+
+  // 모자이크 영역 삭제
+  removeMosaicArea: (id: string) => {
+    const state = get();
+    const newMosaicAreas = state.mosaicAreas.filter((area) => area.id !== id);
+
+    const entry: HistoryEntry = {
+      id: generateId(),
+      timestamp: Date.now(),
+      action: "모자이크 삭제",
+      filters: state.filters,
+      transform: state.transform,
+      cropArea: state.cropArea,
+      textLayers: [...state.textLayers],
+      drawPaths: [...state.drawPaths],
+      mosaicAreas: newMosaicAreas,
+    };
+
+    let newHistory = state.history.slice(0, state.historyIndex + 1);
+    newHistory.push(entry);
+    newHistory = limitHistorySize(newHistory);
+
+    set({
+      mosaicAreas: newMosaicAreas,
+      history: newHistory,
+      historyIndex: newHistory.length - 1,
+    });
+  },
+
+  // 모든 모자이크 지우기
+  clearAllMosaicAreas: () => {
+    const state = get();
+    if (state.mosaicAreas.length === 0) return;
+
+    const entry: HistoryEntry = {
+      id: generateId(),
+      timestamp: Date.now(),
+      action: "모든 모자이크 지우기",
+      filters: state.filters,
+      transform: state.transform,
+      cropArea: state.cropArea,
+      textLayers: [...state.textLayers],
+      drawPaths: [...state.drawPaths],
+      mosaicAreas: [],
+    };
+
+    let newHistory = state.history.slice(0, state.historyIndex + 1);
+    newHistory.push(entry);
+    newHistory = limitHistorySize(newHistory);
+
+    set({
+      mosaicAreas: [],
       history: newHistory,
       historyIndex: newHistory.length - 1,
     });
@@ -850,6 +1055,19 @@ export const useImageStore = create<ImageEditorState>((set, get) => ({
 
     // 처리된 이미지 데이터를 캔버스에 적용
     ctx.putImageData(processedImageData, 0, 0);
+
+    // 모자이크 영역 렌더링 (필터 적용 후, 그리기 전)
+    if (state.mosaicAreas.length > 0) {
+      // 현재 캔버스 상태를 소스로 사용하여 모자이크 적용
+      const mosaicSourceCanvas = document.createElement("canvas");
+      mosaicSourceCanvas.width = canvas.width;
+      mosaicSourceCanvas.height = canvas.height;
+      const mosaicSourceCtx = mosaicSourceCanvas.getContext("2d");
+      if (mosaicSourceCtx) {
+        mosaicSourceCtx.drawImage(canvas, 0, 0);
+        renderAllMosaicAreas(ctx, mosaicSourceCanvas, state.mosaicAreas, canvas.width, canvas.height);
+      }
+    }
 
     // 그리기 경로 렌더링 (필터 적용 후)
     if (state.drawPaths.length > 0) {
